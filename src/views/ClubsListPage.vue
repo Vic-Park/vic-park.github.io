@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 import ClubListing from '~/components/ClubListing.vue';
 import clubs from '~data/clubs';
 

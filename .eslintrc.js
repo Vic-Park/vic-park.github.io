@@ -4,6 +4,7 @@ module.exports = {
     node: true,
   },
   extends: ['plugin:vue/vue3-essential', '@vue/airbnb', '@vue/typescript/recommended', 'prettier'],
+  plugins: ['simple-import-sort'],
   parserOptions: {
     ecmaVersion: 2020,
   },
@@ -14,6 +15,8 @@ module.exports = {
     'no-restricted-syntax': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-continue': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
   settings: {
     'import/resolver': {

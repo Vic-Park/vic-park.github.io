@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 import NavigationHeaderLink from './NavigationHeaderLink.vue';
 
 export default defineComponent({

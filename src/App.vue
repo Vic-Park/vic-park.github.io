@@ -9,6 +9,7 @@
 import 'tailwindcss/tailwind.css';
 
 import { defineComponent } from 'vue';
+
 import NavigationHeader from '~/components/NavigationHeader.vue';
 
 export default defineComponent({

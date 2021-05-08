@@ -37,6 +37,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
+
 import clubs from '~data/clubs';
 
 export default defineComponent({

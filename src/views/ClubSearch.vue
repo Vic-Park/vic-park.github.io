@@ -38,6 +38,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue';
+
 import ClubListing from '~/components/ClubListing.vue';
 import clubs from '~data/clubs';
 
