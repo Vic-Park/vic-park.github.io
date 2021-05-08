@@ -20,7 +20,7 @@ yarn build
 yarn lint
 ```
 
-### To Deploy to GitHub Pages
+### Deploys to GitHub Pages
 ```shell script
 yarn deploy
 ```
