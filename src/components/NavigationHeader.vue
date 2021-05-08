@@ -1,6 +1,6 @@
 <template>
   <div class="sticky top-0 flex flex-row justify-between p-4 bg-gray-100">
-    <router-link to="/">
+    <router-link to="/" active-class="text-blue-400">
       <span class="text-lg font-bold hover:text-blue-400">VPCI Clubs</span>
     </router-link>
     <div class="absolute left-1/2">
@@ -11,7 +11,7 @@
         />
       </div>
     </div>
-    <router-link to="/clubs">
+    <router-link to="/clubs" active-class="text-blue-400">
       <div class="text-lg font-bold hover:text-blue-400">Club Index</div>
     </router-link>
   </div>

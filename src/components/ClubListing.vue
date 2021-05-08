@@ -1,5 +1,9 @@
 <template>
-  <router-link :to="`/club/${slug}`" class="text-md font-bold hover:text-blue-400">
+  <router-link
+    :to="`/club/${slug}`"
+    active-class="text-blue-400"
+    class="text-md font-bold hover:text-blue-400"
+  >
     {{ name }}
   </router-link>
   <div class="text-sm">{{ shortDescription }}</div>
