@@ -2,11 +2,11 @@
   <router-link
     :to="`/club/${slug}`"
     active-class="text-blue-400"
-    class="text-md font-bold hover:text-blue-400"
+    class="text-2xl font-bold hover:text-blue-400"
   >
     {{ name }}
   </router-link>
-  <div class="text-sm">{{ shortDescription }}</div>
+  <div class="text-md">{{ shortDescription }}</div>
 </template>
 
 <script lang="ts">
