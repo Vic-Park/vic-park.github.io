@@ -12,15 +12,7 @@ module.exports = function eventsLoader() {
   const events = loadDataFolder({
     dataFolder: eventsFolder,
     validateDataFile(frontMatterData) {
-      const validKeys = [
-        'name',
-        'description',
-        'date',
-        'startTime',
-        'endTime',
-        'moreInfo',
-        'slug',
-      ];
+      const validKeys = ['name', 'description', 'start', 'end', 'moreInfo', 'slug'];
 
       const keys = Object.keys(frontMatterData);
       for (const key of keys) {

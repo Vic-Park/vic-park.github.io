@@ -17,6 +17,7 @@ module.exports = {
     'no-continue': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
   settings: {
     'import/resolver': {
