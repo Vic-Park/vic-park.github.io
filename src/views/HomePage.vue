@@ -2,7 +2,7 @@
   <div class="text-6xl font-bold pb-8 text-center">VPCI Clubs</div>
   <div class="text-4xl font-bold text-center pb-8">Announcements</div>
   <div v-for="announcement in announcementsArray" :key="announcement.slug" class="pb-8">
-    <ClubAnnouncement
+    <ClubAnnouncementListing
       :title="announcement.title"
       :date="announcement.date"
       :content="announcement.content"
@@ -13,11 +13,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import announcements from '~data/announcements';
-import ClubAnnouncement from '~/components/ClubAnnouncementListing.vue';
+import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
 
 export default defineComponent({
   name: 'HomePage',
-  components: { ClubAnnouncement },
+  components: { ClubAnnouncementListing },
   setup() {
     const announcementsArray = Object.values(announcements)
       .map(({ data, content }) => ({
