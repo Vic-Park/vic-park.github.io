@@ -17,3 +17,11 @@
   </div>
   <div class="p-5 sm:p-12"></div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'NavigationHeader',
+});
+</script>

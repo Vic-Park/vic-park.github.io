@@ -13,7 +13,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import announcements from '~data/announcements';
-import ClubAnnouncement from '~/components/ClubAnnouncement.vue';
+import ClubAnnouncement from '~/components/ClubAnnouncementListing.vue';
 
 export default defineComponent({
   name: 'HomePage',
