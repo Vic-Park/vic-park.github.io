@@ -1,23 +1,28 @@
 # clubs-website
 
 ## Project setup
-```
+```shell script
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
-```
+```shell script
 yarn dev
 ```
 
 ### Compiles and minifies for production
-```
+```shell script
 yarn build
 ```
 
 ### Lints and fixes files
-```
+```shell script
 yarn lint
+```
+
+### To Deploy to GitHub Pages
+```shell script
+yarn deploy
 ```
 
 ### Customize configuration
