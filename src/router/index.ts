@@ -1,20 +1,25 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "Home",
-    component: () => import(/* webpackChunkName: "home" */ "~/views/HomePage.vue"),
+    path: '/',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "home" */ '~/views/HomePage.vue'),
   },
   {
-    path: "/clubs",
-    name: "Clubs",
-    component: () => import(/* webpackChunkName: "clubs-list" */ "~/views/ClubsListPage.vue"),
+    path: '/clubs',
+    name: 'Clubs',
+    component: () => import(/* webpackChunkName: "clubs-list" */ '~/views/ClubsListPage.vue'),
   },
   {
-    path: "/club/:clubSlug",
-    name: "Club Page",
-    component: () => import(/* webpackChunkName: "club" */ "~/views/ClubPage.vue"),
+    path: '/club/:clubSlug',
+    name: 'Club Page',
+    component: () => import(/* webpackChunkName: "club" */ '~/views/ClubPage.vue'),
+  },
+  {
+    path: '/clubs/search',
+    name: 'Club Search',
+    component: () => import(/* webpackChunkName: "club-search" */ '~/views/ClubSearch.vue'),
   },
 ];
 

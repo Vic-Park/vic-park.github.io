@@ -11,9 +11,14 @@
         />
       </div>
     </div>
-    <router-link to="/clubs" active-class="text-blue-400">
-      <div class="text-lg font-bold hover:text-blue-400">Club Index</div>
-    </router-link>
+    <div class="flex flex-row gap-x-4">
+      <router-link to="/clubs" active-class="text-blue-400">
+        <div class="text-lg font-bold hover:text-blue-400">Club List</div>
+      </router-link>
+      <router-link to="/clubs/search" active-class="text-blue-400">
+        <div class="text-lg font-bold hover:text-blue-400">Search</div>
+      </router-link>
+    </div>
   </div>
   <div class="p-5 sm:p-12"></div>
 </template>
