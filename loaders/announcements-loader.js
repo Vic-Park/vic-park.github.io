@@ -24,8 +24,5 @@ module.exports = function announcementsLoader() {
     },
   });
 
-  // Sorting announcements by most recent to least recent
-  announcements.sort((a, b) => new Date(b) - new Date(a));
-
   return `export default ${JSON.stringify(announcements)}`;
 };

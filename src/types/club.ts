@@ -6,4 +6,5 @@ export type Club = {
   meetingTimes: string;
   meetingPlatform: string;
   moreInfo: string;
+  slug: string;
 };

@@ -1,64 +1,28 @@
 <template>
-  <h1 class="club-name">{{ name }}</h1>
-
-  <h2>Club Info</h2>
-  {{ longDescription }}
-
-  <template v-if="prerequisites">
-    <h3>Prerequisites</h3>
-    {{ prerequisites }}
-  </template>
-
-  <p>
-    <strong>Meeting Times:</strong>
-    {{ meetingTimes }}
-  </p>
-
-  <p>
-    <strong>Meeting Platform:</strong>
-    {{ meetingPlatform }}
-  </p>
-
-  <template v-if="moreInfo">
-    {{ moreInfo }}
-  </template>
+  <h1 class='text-2xl font-bold pb-1'>{{ title }}</h1>
+  <div class="text-sm pb-2">{{ date }}</div>
+  <div>
+    {{ content }}
+  </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    name: {
+    title: {
       type: String,
       required: true,
     },
-    prerequisites: {
+    date: {
       type: String,
       default: null,
     },
-    longDescription: {
+    content: {
       type: String,
       required: true,
-    },
-    meetingTimes: {
-      type: String,
-      required: true,
-    },
-    meetingPlatform: {
-      type: String,
-      required: true,
-    },
-    moreInfo: {
-      type: String,
-      default: null,
     },
   },
 });
 </script>
-
-<style scoped lang="scss">
-.club-name {
-  margin-bottom: 3rem;
-}
-</style>
