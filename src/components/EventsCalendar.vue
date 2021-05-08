@@ -4,15 +4,17 @@
       <div class="flex flex-col z-10 overflow-hidden h-28 px-4">
         <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
         <div class="flex-grow overflow-y-auto overflow-x-auto">
-          <p
-            v-for="attr in attributes"
-            class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1"
-            :class="attr.customData.class"
-            :key="attr.key"
-          >
-            {{ attr.customData.title }}
-            ({{ attr.customData.startTime }} - {{ attr.customData.endTime }})
-          </p>
+          <template v-for="attr in attributes" :key="attr.key">
+            <router-link :to="`/event/${attr.customData.slug}`">
+              <div
+                class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 hover:opacity-80"
+                :class="attr.customData.class"
+              >
+                {{ attr.customData.title }}
+                ({{ attr.customData.startTime }} - {{ attr.customData.endTime }})
+              </div>
+            </router-link>
+          </template>
         </div>
       </div>
     </template>
@@ -38,6 +40,7 @@ export default defineComponent({
             title: data.name,
             startTime: data.startTime,
             endTime: data.endTime,
+            slug: data.slug,
             class: 'bg-red-600 text-white',
           },
           dates: date,
