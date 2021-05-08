@@ -12,7 +12,7 @@ module.exports = function announcementsLoader() {
   const announcements = loadDataFolder({
     dataFolder: announcementsFolder,
     validateDataFile(frontMatterData) {
-      const validKeys = ['title', 'date'];
+      const validKeys = ['title', 'date', 'slug'];
 
       const keys = Object.keys(frontMatterData);
       for (const key of keys) {

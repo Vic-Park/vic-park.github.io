@@ -21,6 +21,7 @@ exports.loadDataFolder = function loadDataFolder({ dataFolder, validateDataFile 
     }
 
     const slug = frontMatter.data.slug || path.parse(dataFile).name;
+    frontMatter.data.slug = slug;
 
     if (data[slug] !== undefined) {
       console.error(`Ignoring data file ${dataFile}. Reason: Duplicate slug ${slug}`);

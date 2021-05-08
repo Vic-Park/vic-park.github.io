@@ -20,6 +20,7 @@ module.exports = function clubsLoader() {
         'meetingTimes',
         'meetingPlatform',
         'moreInfo',
+        'slug',
       ];
 
       const keys = Object.keys(frontMatterData);
