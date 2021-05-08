@@ -12,12 +12,9 @@
       </div>
     </div>
     <div class="flex flex-row gap-x-4">
-      <router-link to="/clubs" active-class="text-blue-400">
-        <div class="text-lg font-bold hover:text-blue-400">Club List</div>
-      </router-link>
-      <router-link to="/clubs/search" active-class="text-blue-400">
-        <div class="text-lg font-bold hover:text-blue-400">Search</div>
-      </router-link>
+      <NavigationHeaderLink to="/clubs" title="Club List" />
+      <NavigationHeaderLink to="/events" title="Events" />
+      <NavigationHeaderLink to="/clubs/search" title="Search" />
     </div>
   </div>
   <div class="p-5 sm:p-12"></div>
@@ -25,8 +22,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import NavigationHeaderLink from './NavigationHeaderLink.vue';
 
 export default defineComponent({
   name: 'NavigationHeader',
+  components: { NavigationHeaderLink },
 });
 </script>

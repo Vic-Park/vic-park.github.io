@@ -21,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Club Search',
     component: () => import(/* webpackChunkName: "club-search" */ '~/views/ClubSearch.vue'),
   },
+  {
+    path: '/events',
+    name: 'Events',
+    component: () => import(/* webpackChunkName: "events" */ '~/views/EventsPage.vue'),
+  },
 ];
 
 const router = createRouter({
