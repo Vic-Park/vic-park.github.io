@@ -1,28 +1,33 @@
 <template>
   <template v-if="found">
-    <h1 class="club-name">{{ name }}</h1>
+    <h1 class="font-bold text-center text-5xl pb-2">{{ name }}</h1>
+    <div class="text-center pb-3">{{ shortDescription }}</div>
 
-    <h2>Club Info</h2>
-    {{ longDescription }}
+    <h2 class="font-bold text-2xl">Club Info</h2>
+    <div>
+      {{ longDescription }}
+    </div>
 
-    <template v-if="prerequisites">
-      <h3>Prerequisites</h3>
+    <div v-if="prerequisites" class="pt-3">
+      <h3 class="font-bold text-2xl">Prerequisites</h3>
       {{ prerequisites }}
-    </template>
+    </div>
 
-    <p>
+    <div class="pt-3">
       <strong>Meeting Times:</strong>
       {{ meetingTimes }}
-    </p>
+    </div>
 
-    <p>
+    <div class='pt-3'>
       <strong>Meeting Platform:</strong>
       {{ meetingPlatform }}
-    </p>
+    </div>
 
-    <template v-if="moreInfo">
+    <div v-if="moreInfo">
+      <div class="font-bold pt-3">Additional Information:</div>
+
       {{ moreInfo }}
-    </template>
+    </div>
   </template>
   <div v-else>
     Sorry, no club exists at this URL. However, you can start your own!
@@ -70,9 +75,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="scss">
-.club-name {
-  margin-bottom: 3rem;
-}
-</style>
