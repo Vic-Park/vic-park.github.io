@@ -1,13 +1,11 @@
 <template>
-  <h1 class="list-title">Club Index</h1>
+  <div class="flex flex-col items-start px-8">
+    <h1 class="text-4xl font-bold self-center pb-4">Club Index</h1>
 
-  <ClubListing
-    v-for="club in clubsArray"
-    :name="club.name"
-    :shortDescription="club.shortDescription"
-    :slug="club.slug"
-    :key="club.slug"
-  />
+    <div class="pb-2" v-for="club in clubsArray" :key="club.slug">
+      <ClubListing :name="club.name" :shortDescription="club.shortDescription" :slug="club.slug" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

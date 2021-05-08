@@ -1,8 +1,5 @@
 <template>
-  <template v-if="notFound">
-    Sorry, no club exists at this URL. However, you can start your own!
-  </template>
-  <template v-else>
+  <template v-if="found">
     <h1 class="club-name">{{ name }}</h1>
 
     <h2>Club Info</h2>
@@ -27,6 +24,9 @@
       {{ moreInfo }}
     </template>
   </template>
+  <div v-else>
+    Sorry, no club exists at this URL. However, you can start your own!
+  </div>
 </template>
 
 <script lang="ts">
@@ -42,7 +42,7 @@ export default defineComponent({
     const clubSlug = $route.params.clubSlug.toString();
     if (clubs[clubSlug] === undefined) {
       return {
-        notFound: true,
+        found: false,
       };
     }
 
@@ -57,6 +57,8 @@ export default defineComponent({
     } = clubs[clubSlug].data;
 
     return {
+      found: true,
+
       name,
       shortDescription,
       longDescription,
