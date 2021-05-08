@@ -6,7 +6,7 @@ const matter = require('gray-matter');
 
 exports.loadDataFolder = function loadDataFolder({ dataFolder, validateDataFile }) {
   const dataFiles = fs.readdirSync(dataFolder);
-  const data = [];
+  const data = {};
 
   for (const dataFile of dataFiles) {
     if (path.basename(dataFile) === 'index.ts') continue;
@@ -20,7 +20,13 @@ exports.loadDataFolder = function loadDataFolder({ dataFolder, validateDataFile 
       continue;
     }
 
-    data.push(frontMatter);
+    const slug = frontMatter.data.slug || path.parse(dataFile).name;
+
+    if (data[slug] !== undefined) {
+      console.error(`Ignoring data file ${dataFile}. Reason: Duplicate slug ${slug}`);
+    }
+
+    data[slug] = frontMatter;
   }
 
   return data;
