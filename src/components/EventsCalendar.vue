@@ -56,4 +56,20 @@ export default defineComponent({
 .fc-event {
   cursor: pointer;
 }
+
+.fc-daygrid-event {
+  display: grid;
+  grid-template-columns: 20px auto;
+  grid-template-rows: auto auto;
+}
+
+.fc-daygrid-event-dot {
+  grid-column: 1 / span 1;
+  grid-row: 1 / -1;
+}
+
+.fc-event-title {
+  white-space: normal !important;
+  overflow: auto !important;
+}
 </style>
