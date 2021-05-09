@@ -17,11 +17,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "club" */ '~/views/ClubPage.vue'),
   },
   {
-    path: '/clubs/search',
-    name: 'Club Search',
-    component: () => import(/* webpackChunkName: "club-search" */ '~/views/ClubSearch.vue'),
-  },
-  {
     path: '/events',
     name: 'Events',
     component: () => import(/* webpackChunkName: "events" */ '~/views/EventsPage.vue'),

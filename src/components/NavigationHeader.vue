@@ -14,7 +14,6 @@
     <div class="flex flex-row gap-x-4">
       <NavigationHeaderLink to="/clubs" title="Club List" />
       <NavigationHeaderLink to="/events" title="Events" />
-      <NavigationHeaderLink to="/clubs/search" title="Search" />
     </div>
   </div>
   <div class="p-5 sm:p-12"></div>
