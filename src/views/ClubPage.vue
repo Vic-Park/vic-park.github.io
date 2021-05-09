@@ -18,7 +18,7 @@
       {{ meetingTimes }}
     </div>
 
-    <div class='pt-3'>
+    <div class="pt-3">
       <strong>Meeting Platform:</strong>
       {{ meetingPlatform }}
     </div>
@@ -43,9 +43,9 @@ import clubs from '~data/clubs';
 export default defineComponent({
   name: 'ClubPage',
   setup() {
-    const $route = useRoute();
+    const route = useRoute();
 
-    const clubSlug = $route.params.clubSlug.toString();
+    const clubSlug = route.params.clubSlug.toString();
     if (clubs[clubSlug] === undefined) {
       return {
         found: false,

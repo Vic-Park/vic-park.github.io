@@ -7,12 +7,14 @@ import { Calendar, EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { defineComponent, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 import events from '~data/events';
 
 export default defineComponent({
   setup() {
     const calendarRef = ref<HTMLElement>();
+    const router = useRouter();
 
     onMounted(() => {
       const eventsArray = Object.values(events);
@@ -25,10 +27,16 @@ export default defineComponent({
           center: 'title',
           right: 'dayGridMonth,timeGridWeek',
         },
+        eventClick({ event }) {
+          router.push(`/event/${event.extendedProps.slug}`);
+        },
         events: eventsArray.map(
           ({ data }): EventInput => ({
-            id: data.slug,
-            date: new Date(data.start),
+            extendedProps: {
+              slug: data.slug,
+            },
+            start: new Date(data.start),
+            end: new Date(data.end),
             title: data.name,
           })
         ),
@@ -43,3 +51,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.fc-event {
+  cursor: pointer;
+}
+</style>

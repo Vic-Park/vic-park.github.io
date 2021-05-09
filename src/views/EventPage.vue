@@ -6,7 +6,7 @@
     <h2 class="font-bold text-2xl">Description</h2>
     <div class="pt-1 text-md">{{ description }}</div>
 
-    <h2 class="font-bold text-2xl">Information</h2>
+    <h2 class="font-bold text-2xl pt-4">Information</h2>
     <div class="pt-1 text-md">{{ information }}</div>
   </template>
   <div v-else>
@@ -24,9 +24,9 @@ import events from '~data/events';
 export default defineComponent({
   name: 'ClubPage',
   setup() {
-    const $route = useRoute();
+    const route = useRoute();
 
-    const eventSlug = $route.params.eventSlug.toString();
+    const eventSlug = route.params.eventSlug.toString();
     if (events[eventSlug] === undefined) {
       return {
         found: false,
