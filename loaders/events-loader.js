@@ -3,7 +3,7 @@
 
 const path = require('path');
 const pkgDir = require('pkg-dir');
-const { loadDataFolder } = require('./utils');
+const { loadDataFolder, createDataFileValidator } = require('./utils');
 
 const rootPath = pkgDir.sync(__dirname);
 
@@ -11,17 +11,14 @@ module.exports = function eventsLoader() {
   const eventsFolder = path.join(rootPath, 'data', 'events');
   const events = loadDataFolder({
     dataFolder: eventsFolder,
-    validateDataFile(frontMatterData) {
-      const validKeys = ['name', 'description', 'start', 'end', 'moreInfo', 'slug'];
-
-      const keys = Object.keys(frontMatterData);
-      for (const key of keys) {
-        if (!validKeys.includes(key)) {
-          return { valid: false, reason: `Invalid front matter key: ${key}` };
-        }
-      }
-      return { valid: true };
-    },
+    validateDataFile: createDataFileValidator([
+      'name',
+      'description',
+      'information',
+      { key: 'start', type: Date },
+      { key: 'end', type: Date },
+      'slug',
+    ]),
   });
 
   return `export default ${JSON.stringify(events)}`;

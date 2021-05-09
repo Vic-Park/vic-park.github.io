@@ -1,13 +1,15 @@
 <template>
   <h1 class="text-2xl font-bold pb-1">{{ title }}</h1>
-  <div class="text-sm pb-2">{{ date }}</div>
+  <div class="text-sm pb-2">{{ dateString }}</div>
   <div>
     {{ content }}
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
+
+import { formatFullDateTime } from '~/utils/date';
 
 export default defineComponent({
   name: 'ClubAnnouncementListing',
@@ -24,6 +26,12 @@ export default defineComponent({
       type: String,
       required: true,
     },
+  },
+  setup(props) {
+    const dateString = computed(() => formatFullDateTime(props.date));
+    return {
+      dateString,
+    };
   },
 });
 </script>

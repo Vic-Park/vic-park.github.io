@@ -1,5 +1,5 @@
 export type Announcement = {
   title: string;
-  date: string;
-	slug: string;
+  date: Date;
+  slug: string;
 };

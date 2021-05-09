@@ -27,11 +27,10 @@ export default defineComponent({
         },
         events: eventsArray.map(
           ({ data }): EventInput => ({
-              id: data.slug,
-              start: new Date(data.start),
-              end: new Date(data.end),
-              title: data.name,
-            })
+            id: data.slug,
+            date: new Date(data.start),
+            title: data.name,
+          })
         ),
       });
 

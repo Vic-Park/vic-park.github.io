@@ -1,15 +1,13 @@
 <template>
   <template v-if="found">
     <h1 class="font-bold text-center text-5xl pb-2">{{ name }}</h1>
-    <div class="text-xl text-center pb-4">{{ date }} ({{ startTime }} - {{ endTime }})</div>
+    <div class="text-xl text-center pb-4">{{ startDateString }} - {{ endDateString }}</div>
 
     <h2 class="font-bold text-2xl">Description</h2>
     <div class="pt-1 text-md">{{ description }}</div>
 
-    <div class="pt-3">
-      <div class='text-xl font-bold pb-1'>Information</div>
-      {{ moreInfo }}
-    </div>
+    <h2 class="font-bold text-2xl">Information</h2>
+    <div class="pt-1 text-md">{{ information }}</div>
   </template>
   <div v-else>
     Sorry, no club exists at this URL. However, you can start your own!
@@ -20,6 +18,7 @@
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 
+import { formatFullDateTime } from '~/utils/date';
 import events from '~data/events';
 
 export default defineComponent({
@@ -34,18 +33,19 @@ export default defineComponent({
       };
     }
 
-    const { description, endTime, startTime, date, name, moreInfo, slug } = events[eventSlug].data;
+    const { name, description, information, start, end, slug } = events[eventSlug].data;
+    const startDateString = formatFullDateTime(start);
+    const endDateString = formatFullDateTime(end);
 
     return {
       found: true,
 
       name,
       description,
-      endTime,
-      startTime,
-      date,
+      startDateString,
+      endDateString,
+      information,
       slug,
-      moreInfo,
     };
   },
 });

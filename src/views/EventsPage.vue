@@ -1,7 +1,15 @@
 <template>
   <EventsCalendar />
   <h1 class="text-4xl font-bold py-8 text-center">Upcoming Club Events</h1>
-  <EventListing v-for="event in eventsArray" v-bind="event" :key="event.slug" />
+  <EventListing
+    v-for="event in eventsArray"
+    :description="event.description"
+    :name="event.name"
+    :start="event.start"
+    :end="event.end"
+    :slug="event.slug"
+    :key="event.slug"
+  />
 </template>
 
 <script lang="ts">
@@ -16,10 +24,10 @@ export default defineComponent({
   setup() {
     const eventsArray = Object.values(events).map(({ data }) => ({
       name: data.name,
-      date: data.date,
-      startTime: data.startTime,
-      endTime: data.endTime,
+      start: data.start,
+      end: data.end,
       description: data.description,
+      information: data.information,
       slug: data.slug,
     }));
 

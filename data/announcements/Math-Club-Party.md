@@ -1,6 +1,6 @@
 ---
 title: Math Club School Party
-date: May 03, 2021
+date: 2021-05-03
 ---
 Math club is hosting a school party! Free pizza for everyone! Also teachers get pied in the face! And everyone gets to do contest math problems!
 

@@ -19,5 +19,7 @@ module.exports = {
 
     config.resolve.alias['~'] = path.resolve(__dirname, 'src');
     config.resolve.alias['~data'] = path.resolve(__dirname, 'data');
+
+    config.cache = false;
   },
 };

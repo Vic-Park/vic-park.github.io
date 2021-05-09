@@ -1,8 +1,8 @@
 export type Event = {
   name: string;
   description: string;
-  start: string;
-  end: string;
-  moreInfo: string;
+  information: string;
+  start: Date;
+  end: Date;
   slug: string;
 };
