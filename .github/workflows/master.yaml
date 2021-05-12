@@ -19,7 +19,7 @@ jobs:
           node-version: 14.x
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn prune:frontend && yarn install
 
       - name: Build and Deploy to GitHub Pages
         run: sh scripts/deploy-frontend.sh
