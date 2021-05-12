@@ -2,6 +2,8 @@
 # abort on errors
 set -e
 
+cd frontend
+
 # build
 yarn run build
 

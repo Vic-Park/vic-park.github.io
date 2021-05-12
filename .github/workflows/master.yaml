@@ -19,4 +19,4 @@ jobs:
           node-version: 14.x
 
       - name: Build and Deploy to GitHub Pages
-        run: sh scripts/deploy.sh
+        run: sh scripts/deploy-frontend.sh
