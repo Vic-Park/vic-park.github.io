@@ -4,7 +4,7 @@ The official website for VPCI clubs (currently under development).
 
 ## Constraints
 
-In developing a website that is ultimately associated with the school, there are some constraints related to the development of its website that should be adhered to when possible. These constraints are described below.
+As this website is ultimately associated with the school, there are some constraints related to its development that should be adhered to when possible. These constraints are described below.
 
 ### Independence
 
