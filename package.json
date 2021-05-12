@@ -43,6 +43,7 @@
     "loader-utils": "^2.0.0",
     "pkg-dir": "^5.0.0",
     "postcss": "^7",
+    "probot": "^11.3.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "schema-utils": "^3.0.0",
