@@ -7,7 +7,7 @@ const yaml = require("yaml");
 const outdent = require("outdent");
 
 const rootPath = path.join(pkgDir.sync(__dirname), "..");
-const csvFile = path.join(rootPath, "assets/data.csv");
+const csvFile = path.join(rootPath, "../frontend/assets/data.csv");
 
 async function parseData() {
   const clubs = await new Promise((resolve, reject) => {
