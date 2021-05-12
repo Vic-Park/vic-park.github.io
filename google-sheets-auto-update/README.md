@@ -2,7 +2,7 @@
 
 This is a service that reads the contents from a Google Sheets and programmatically updates the data files in the repository using the GitHub API.
 
-This service was deliberately created in a way that makes it an optional service (i.e. not necessary for the functioning of the main website). This is the reason why we didn't just dynamically load the data from the Google Sheets every time the page was loaded; this would cause the website to become dependent on this service, violating the constraint of independence—should the backend server malfunction, the main website will also end up breaking.
+This service was deliberately created in a way that makes it an optional service (i.e. not necessary for the functioning of the main website). This is the reason why we didn't just dynamically load the data from the Google Sheets every time the page was loaded; this would cause the website to become dependent on this service, violating the constraint of independence—should the backend server malfunction, the main website would also end up breaking.
 
 ## Elements
 
