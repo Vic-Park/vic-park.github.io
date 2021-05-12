@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:frontend": "yarn workspace frontend dev"
+    "dev:frontend": "yarn workspace frontend dev",
+    "prune:frontend": "rm -rf google-sheets-auto-pr"
   },
   "workspaces": [
     "frontend",
