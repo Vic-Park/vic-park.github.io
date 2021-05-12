@@ -29,7 +29,7 @@ Whenever possible, non-code changes/updates to the website should be automated. 
 
 ### Code Quality
 
-As a student-led effort, it is ultimately our responsibility to make sure that the code is understandable by each other. Thus, please keep in mind that other students may have to work with your code in the future (especially when you graduate), and that it is your responsibility to make sure that the code is readable and well-commented. Avoid using obscure syntax or hard-to-understand names for your variables. While there are linters and formatters to help keep the code clean, it is ultimately up to the developer to enforce a sane level of readability for their code.
+As a student-led effort, it is ultimately our responsibility to make sure that our code is understandable by one another. Thus, please keep in mind that other students may have to work with your code in the future (especially when you graduate), and that it is your responsibility to make sure that the code is readable and well-commented. Avoid using obscure syntax or hard-to-understand names for your variables. While there are linters and formatters to help keep the code clean, it is ultimately up to the developer to enforce a sane level of readability for their code.
 
 ## Branches
 
