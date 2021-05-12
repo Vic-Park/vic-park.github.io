@@ -1,11 +1,12 @@
 module.exports = {
-  root: true,
   env: {
     node: true,
   },
   extends: ['plugin:vue/vue3-essential', '@vue/airbnb', '@vue/typescript/recommended', 'prettier'],
   plugins: ['simple-import-sort'],
   parserOptions: {
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
     ecmaVersion: 2020,
   },
   rules: {
@@ -25,7 +26,7 @@ module.exports = {
       alias: {
         map: [
           ['~', './src'],
-          ['~data', './data'],
+          ['~data', '../data'],
         ],
         extensions: ['.js', '.ts', '.vue'],
       },

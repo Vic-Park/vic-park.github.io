@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const path = require('path');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   chainWebpack(config) {
@@ -23,8 +25,15 @@ module.exports = {
     }
 
     config.resolve.alias['~'] = path.resolve(__dirname, 'src');
-    config.resolve.alias['~data'] = path.resolve(__dirname, 'data');
+    config.resolve.alias['~data'] = path.resolve(__dirname, '../data');
 
     config.cache = false;
+  },
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [autoprefixer, tailwindcss],
+      },
+    },
   },
 };

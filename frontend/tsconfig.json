@@ -10,16 +10,16 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "..",
     "types": [
       "webpack-env"
     ],
     "paths": {
       "~/*": [
-        "src/*"
+        "./frontend/src/*"
       ],
       "~data/*": [
-        "data/*"
+        "./data/*"
       ]
     },
     "lib": [
