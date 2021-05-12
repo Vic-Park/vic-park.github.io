@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.b3f36ec6e3727459967a3685e4e5a782.js"
+  "/precache-manifest.c465f69168402db25c41f0cd2b062c18.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "clubs-website"});
+workbox.core.setCacheNameDetails({prefix: "frontend"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
