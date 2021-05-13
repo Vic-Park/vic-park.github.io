@@ -2,6 +2,16 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "paths": {
+      "~/*": [
+        "./src"
+      ],
+      "~types/*": [
+        "../../types/*"
+      ]
+    },
   }
 }

@@ -1,5 +1,5 @@
 import type { GrayMatterFile, Input } from 'gray-matter';
 
-import type { Announcement } from '../../types/announcement';
+import type { AnnouncementProperties } from '../../types/announcement';
 
-export default {} as Record<string, GrayMatterFile<Input> & { data: Announcement }>
+export default {} as Record<string, GrayMatterFile<Input> & { data: AnnouncementProperties }>

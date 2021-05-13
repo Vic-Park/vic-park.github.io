@@ -1,8 +1,9 @@
-export type Event = {
+export type EventProperties = {
   name: string;
   description: string;
-  information: string;
   start: Date;
   end: Date;
   slug: string;
 };
+
+export type Event = EventProperties & { content: string };

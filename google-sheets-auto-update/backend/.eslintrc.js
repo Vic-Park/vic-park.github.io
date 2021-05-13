@@ -3,8 +3,6 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/vue3-essential', '@vue/airbnb', '@vue/typescript/recommended', 'prettier'],
-  plugins: ['simple-import-sort'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
@@ -27,9 +25,9 @@ module.exports = {
       alias: {
         map: [
           ['~', './src'],
-          ['~types', '../../types'],
+          ['~data', '../data'],
         ],
-        extensions: ['.js', '.ts'],
+        extensions: ['.js', '.ts', '.vue'],
       },
     },
   },

@@ -1,10 +1,13 @@
 export type Club = {
   name: string;
+  staffSupervisor: string;
+  clubLeaders: string;
   shortDescription: string;
-  longDescription: string;
-  prerequisites: string;
+  categories: string[];
   meetingTimes: string;
-  meetingPlatform: string;
-  moreInfo: string;
+  joinInstructions: string;
+  onlinePlatforms: string;
+  extraInformation: string;
+  timeCommitment: string;
   slug: string;
 };
