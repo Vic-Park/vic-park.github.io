@@ -8,7 +8,7 @@ export type ClubEventMetadata = {
   end: Date;
 };
 
-export type ClubEvent = Entry<EntryType.club>;
+export type ClubEvent = Entry<EntryType.event>;
 
 export type ClubEventGrayMatterFile = GrayMatterFile<Input> & {
   data: ClubEventMetadata;

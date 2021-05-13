@@ -1,4 +1,5 @@
 import type { sheets_v4 } from 'googleapis';
+import { EntryType } from '~types/entry';
 import { ClubEvent } from '~types/event';
 import { retrieveGithubFiles, filterAlteredSheetEntries } from './utils';
 
@@ -27,6 +28,7 @@ export async function retrieveAlteredSheetEvents({
         },
         content: information,
         slug: name,
+        type: EntryType.event,
       };
     });
 

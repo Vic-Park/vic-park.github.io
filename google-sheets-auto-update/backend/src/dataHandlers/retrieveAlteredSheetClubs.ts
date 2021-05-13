@@ -1,5 +1,6 @@
 import type { sheets_v4 } from 'googleapis';
 import type { Club } from '~types/club';
+import { EntryType } from '~types/entry';
 import { filterAlteredSheetEntries, retrieveGithubFiles } from './utils';
 
 export async function retrieveAlteredSheetClubs({
@@ -43,6 +44,7 @@ export async function retrieveAlteredSheetClubs({
           timeCommitment,
         },
         slug,
+        type: EntryType.club,
       };
     });
 

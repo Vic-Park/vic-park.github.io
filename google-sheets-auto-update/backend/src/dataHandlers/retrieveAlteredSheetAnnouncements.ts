@@ -1,5 +1,6 @@
 import type { sheets_v4 } from 'googleapis';
 import type { ClubAnnouncement } from '~types/announcement';
+import { EntryType } from '~types/entry';
 import { filterAlteredSheetEntries, retrieveGithubFiles } from './utils';
 
 export async function retrieveAlteredSheetAnnouncements({
@@ -24,6 +25,7 @@ export async function retrieveAlteredSheetAnnouncements({
         },
         content,
         slug: title,
+        type: EntryType.announcement,
       };
     });
 
