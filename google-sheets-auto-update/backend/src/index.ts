@@ -2,13 +2,13 @@ import 'dotenv/config';
 import 'module-alias/register';
 import fastify from 'fastify';
 import fastifyRateLimit from 'fastify-rate-limit';
-import type { Club } from '~types/club';
-import type { ClubEvent } from '~types/event';
-import type { ClubAnnouncement } from '~types/announcement';
 import { sheets, spreadsheetId } from './google';
-import handleAnnouncements from './dataHandlers/handleAnnouncements';
-import handleClubs from './dataHandlers/handleClubs';
-import handleEvents from './dataHandlers/handleEvents';
+import {
+  retrieveAlteredSheetAnnouncements,
+  retrieveAlteredSheetClubs,
+  retrieveAlteredSheetEvents,
+} from './dataHandlers';
+import { updateGithubFiles } from './dataHandlers/updateGithubFiles';
 
 const app = fastify();
 
@@ -18,7 +18,6 @@ app.register(fastifyRateLimit, {
   // 5 second
   timeWindow: 5000,
 });
-
 
 type RequestBody = {
   secret: string;
@@ -32,33 +31,24 @@ app.post('/', async (request, reply) => {
     return;
   }
 
-  // Retrieving the metadata of the spreadsheet
-  const { data } = await sheets.spreadsheets.get({
+  // Retrieving the data from the Google Sheets
+  const { data: spreadsheetData } = await sheets.spreadsheets.get({
     spreadsheetId,
     includeGridData: true,
   });
 
-  handleAnnouncements({ data });
-  handleClubs({ data });
-  handleEvents({ data });
+  const alteredSheetEntries = [
+    ...(await retrieveAlteredSheetEvents({ spreadsheetData })),
+    ...(await retrieveAlteredSheetClubs({ spreadsheetData })),
+    ...(await retrieveAlteredSheetAnnouncements({ spreadsheetData })),
+  ];
 
-  reply.status(200).send('');
-
-  return;
-
-  if (!data) {
-    reply.status(400).send('Server error: metadata not found on spreadsheet.');
+  if (alteredSheetEntries.length === 0) {
+    reply.status(200).send('No entries were altered; nothing changed.');
     return;
   }
 
-  // Retrieving the existing club files from the repository
- 
-
-  /*
-  octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
-    content: "",
-  });
-  */
+  updateGithubFiles(alteredSheetEntries);
 
   reply.send('Request successfully processed.');
 });

@@ -1,13 +1,12 @@
-const csv = require("csv-parser");
-const fs = require("fs");
-const path = require("path");
-const pkgDir = require("pkg-dir");
-const { paramCase } = require("param-case");
-const yaml = require("yaml");
-const outdent = require("outdent");
+const csv = require('csv-parser');
+const fs = require('fs');
+const path = require('path');
+const pkgDir = require('pkg-dir');
+const { paramCase } = require('param-case');
+const matter = require('matter');
 
-const rootPath = path.join(pkgDir.sync(__dirname), "..");
-const csvFile = path.join(rootPath, "../frontend/assets/data.csv");
+const rootPath = path.join(pkgDir.sync(__dirname), '..');
+const csvFile = path.join(rootPath, '../frontend/assets/data.csv');
 
 async function parseData() {
   const clubs = await new Promise((resolve, reject) => {
@@ -19,7 +18,7 @@ async function parseData() {
           headers: false,
         })
       )
-      .on("data", (d) => {
+      .on('data', (d) => {
         /*
           0: "Timestamp"
           1: "Club Name"
@@ -41,13 +40,13 @@ async function parseData() {
           extraInfo: d[7],
         });
       })
-      .on("error", (e) => reject(e))
-      .on("end", () => {
+      .on('error', (e) => reject(e))
+      .on('end', () => {
         resolve(results);
       });
   });
 
-  const rootClubsPageFolder = path.join(rootPath, "_clubs");
+  const rootClubsPageFolder = path.join(rootPath, '_clubs');
   for (const club of clubs) {
     const {
       clubName,
@@ -60,19 +59,15 @@ async function parseData() {
     } = club;
     const clubFileMetadata = {
       name: clubName,
-      "short-description": clubBlurb,
-      "long-description": clubDescription,
+      'short-description': clubBlurb,
+      'long-description': clubDescription,
       prerequisites: prerequisiteKnowledge,
-      "meeting-times": meetingTimes,
-      "meeting-platform": meetingInfo,
-      "more-info": extraInfo === undefined ? false : extraInfo,
+      'meeting-times': meetingTimes,
+      'meeting-platform': meetingInfo,
+      'more-info': extraInfo === undefined ? false : extraInfo,
     };
 
-    const clubFileContent = outdent`
-      ---
-      ${yaml.stringify(clubFileMetadata).trim()}
-      ---
-    `;
+    const clubFileContent = matter.stringify(clubDescription, clubFileMetadata);
 
     const clubSlug = paramCase(clubName);
     const clubFilePath = path.join(rootClubsPageFolder, `${clubSlug}.md`);

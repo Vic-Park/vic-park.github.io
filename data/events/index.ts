@@ -1,5 +1,3 @@
-import type { GrayMatterFile, Input } from 'gray-matter';
+import type { ClubEventGrayMatterFile } from '../../types/event';
 
-import type { ClubEventProperties } from '../../types/event';
-
-export default {} as Record<string, GrayMatterFile<Input> & { data: ClubEventProperties }>;
+export default {} as Record<string, ClubEventGrayMatterFile>;

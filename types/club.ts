@@ -1,4 +1,7 @@
-export type Club = {
+import type { Entry, EntryType } from './entry';
+import type { GrayMatterFile, Input } from 'gray-matter';
+
+export type ClubMetadata = {
   name: string;
   staffSupervisor: string;
   clubLeaders: string;
@@ -7,7 +10,11 @@ export type Club = {
   meetingTimes: string;
   joinInstructions: string;
   onlinePlatforms: string;
-  extraInformation: string;
   timeCommitment: string;
-  slug: string;
+};
+
+export type Club = Entry<EntryType.club>;
+
+export type ClubGrayMatterFile = GrayMatterFile<Input> & {
+  data: ClubMetadata;
 };

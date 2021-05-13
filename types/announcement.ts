@@ -1,9 +1,13 @@
-export type ClubAnnouncementProperties = {
+import type { GrayMatterFile, Input } from 'gray-matter';
+import { Entry, EntryType } from './entry';
+
+export type ClubAnnouncementMetadata = {
   title: string;
   date: Date;
-  slug: string;
 };
 
-export type ClubAnnouncement = ClubAnnouncementProperties & {
-  content: string;
+export type ClubAnnouncement = Entry<EntryType.announcement>;
+
+export type ClubAnnouncementGrayMatterFile = GrayMatterFile<Input> & {
+  data: ClubAnnouncementMetadata;
 };
