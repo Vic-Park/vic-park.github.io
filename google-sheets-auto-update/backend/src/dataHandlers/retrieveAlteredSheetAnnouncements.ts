@@ -2,6 +2,7 @@ import type { sheets_v4 } from 'googleapis';
 import type { ClubAnnouncement } from '~types/announcement';
 import { EntryType } from '~types/entry';
 import { filterAlteredSheetEntries, retrieveGithubFiles } from './utils';
+import { paramCase } from 'param-case';
 
 export async function retrieveAlteredSheetAnnouncements({
   spreadsheetData,
@@ -24,7 +25,7 @@ export async function retrieveAlteredSheetAnnouncements({
           date: new Date(date),
         },
         content,
-        slug: title,
+        slug: paramCase(title),
         type: EntryType.announcement,
       };
     });

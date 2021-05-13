@@ -5,3 +5,8 @@ if (!process.env.GITHUB_TOKEN) {
 }
 
 export const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+
+export type GithubFile = {
+  name: string;
+  download_url: string;
+};

@@ -2,7 +2,7 @@ import type { GrayMatterFile, Input } from 'gray-matter';
 import matter from 'gray-matter';
 import axios from 'axios';
 import deepEqual from 'deep-equal';
-import { octokit } from '~/github';
+import { GithubFile, octokit } from '~/github';
 
 type Entry = {
   slug: string;
@@ -23,41 +23,34 @@ export async function filterAlteredSheetEntries<T extends Entry>({
 }: FilterAlteredSheetEntriesParams<T>): Promise<T[]> {
   const alteredSheetEntries: T[] = [];
 
-  for (const githubFile of githubFiles) {
-    if (githubFile.name === 'index.ts') continue;
+  for (const googleSheetEntry of googleSheetEntries) {
+    const githubFile = githubFiles.find(
+      ({ name }) => name === `${googleSheetEntry.slug}.md`
+    );
 
-    // Retrieving the club file from GitHub and parsing it into a `Club` object
+    // If the parsed google sheet entry isn't found in an existing GitHub file
+    if (githubFile === undefined) {
+      alteredSheetEntries.push(googleSheetEntry);
+      continue;
+    }
+
+    // Otherwise, compare the google sheet entry with the GitHub file
     const response = await axios.get(githubFile.download_url);
     const fileContents = response.data;
-
     const matterFile = matter(fileContents) as GrayMatterFile<Input> & {
       data: T;
     };
     const githubClubEntry = convertMatterFileToEntry(matterFile);
 
-    // Retrieving the corresponding club entry on the Google Sheets (based on the slug)
-    const googleSheetEntry = googleSheetEntries.find(
-      ({ slug }) => githubClubEntry.slug === slug
-    );
-
-    // If the parsed google sheet entry isn't found in an existing GitHub file, or if the
-    // parsed google sheet entry isn't equivalent to the parsed github entry, then
+    // If parsed google sheet entry isn't equivalent to the parsed github entry, then
     // append the google sheet entry file to a list of entries that need to be updated
-    if (
-      googleSheetEntry === undefined ||
-      deepEqual(googleSheetEntry, githubClubEntry)
-    ) {
+    if (!deepEqual(googleSheetEntry, githubClubEntry)) {
       alteredSheetEntries.push(googleSheetEntry);
     }
   }
 
   return alteredSheetEntries;
 }
-
-type GithubFile = {
-  name: string;
-  download_url: string;
-};
 
 export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
   // Retrieving the existing announcements from the GitHub repository

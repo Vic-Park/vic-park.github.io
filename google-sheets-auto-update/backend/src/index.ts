@@ -48,7 +48,7 @@ app.post('/', async (request, reply) => {
     return;
   }
 
-  updateGithubFiles(alteredSheetEntries);
+  await updateGithubFiles(alteredSheetEntries);
 
   reply.send('Request successfully processed.');
 });
