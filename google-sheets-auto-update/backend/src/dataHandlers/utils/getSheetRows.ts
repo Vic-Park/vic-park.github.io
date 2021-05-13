@@ -5,8 +5,9 @@ export function getSheetRows(
   sheetName: string
 ): string[][] {
   const sheet = spreadsheetData.sheets.find(
-    (sheet) => sheet.properties.title === 'Clubs'
+    (sheet) => sheet.properties.title === sheetName
   );
+
   return sheet.data[0].rowData
     .slice(1)
     .filter(({ values }) => {
