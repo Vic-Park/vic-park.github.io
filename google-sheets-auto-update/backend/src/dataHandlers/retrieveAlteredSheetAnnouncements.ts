@@ -1,7 +1,7 @@
 import type { sheets_v4 } from 'googleapis';
 import type { ClubAnnouncement } from '~types/announcement';
 import { EntryType } from '~types/entry';
-import { filterAlteredSheetEntries, retrieveGithubFiles } from './utils';
+import { filterAlteredSheetEntries, getSheetRows, retrieveGithubFiles } from './utils';
 import { paramCase } from 'param-case';
 
 export async function retrieveAlteredSheetAnnouncements({
@@ -9,15 +9,11 @@ export async function retrieveAlteredSheetAnnouncements({
 }: {
   spreadsheetData: sheets_v4.Schema$Spreadsheet;
 }) {
-  const clubAnnouncementsSheet = spreadsheetData.sheets.find(
-    (sheet) => sheet.properties.title === 'Club Announcements'
-  );
+  const announcementEntries = getSheetRows(spreadsheetData, 'Club Announcements');
 
   const googleSheetAnnouncements: ClubAnnouncement[] =
-    clubAnnouncementsSheet.data[0].rowData.slice(1).map(({ values }) => {
-      const [title, date, content] = values.map(
-        (value) => value.formattedValue
-      );
+      announcementEntries.map((announcement) => {
+const [title, date, content] = announcement;
 
       return {
         metadata: {

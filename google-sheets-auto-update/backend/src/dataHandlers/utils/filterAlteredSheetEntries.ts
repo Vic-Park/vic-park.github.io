@@ -1,13 +1,8 @@
-import type { GrayMatterFile, Input } from 'gray-matter';
-import matter from 'gray-matter';
 import axios from 'axios';
+import type { GrayMatterFile, Input } from 'gray-matter';
+import { Entry } from '~types/entry';
+import matter from 'gray-matter';
 import deepEqual from 'deep-equal';
-import { GithubFile, octokit } from '~/github';
-import { EntryType } from '~types/entry';
-
-type Entry = {
-  slug: string;
-};
 
 type FilterAlteredSheetEntriesParams<T> = {
   githubFiles: { name: string; download_url: string }[];
@@ -51,30 +46,4 @@ export async function filterAlteredSheetEntries<T extends Entry>({
   }
 
   return alteredSheetEntries;
-}
-
-export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
-  // Retrieving the existing announcements from the GitHub repository
-  const octokitResponse = await octokit.request(
-    'GET /repos/{owner}/{repo}/contents/{path}',
-    {
-      owner: 'Vic-Park',
-      repo: 'vic-park.github.io',
-      path: path,
-    }
-  );
-
-  const githubFiles = octokitResponse.data as GithubFile[];
-
-  return githubFiles;
-}
-
-const entryTypeToFolder = {
-  [EntryType.announcement]: 'announcements',
-  [EntryType.club]: 'clubs',
-  [EntryType.event]: 'events',
-};
-
-export function getEntryTypeFolder(entryType: EntryType) {
-  return `data/${entryTypeToFolder[entryType]}`;
 }
