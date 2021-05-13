@@ -1,4 +1,4 @@
-export type EventProperties = {
+export type ClubEventProperties = {
   name: string;
   description: string;
   start: Date;
@@ -6,4 +6,4 @@ export type EventProperties = {
   slug: string;
 };
 
-export type Event = EventProperties & { content: string };
+export type ClubEvent = ClubEventProperties & { content: string };

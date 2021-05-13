@@ -1,9 +1,9 @@
-export type AnnouncementProperties = {
+export type ClubAnnouncementProperties = {
   title: string;
   date: Date;
   slug: string;
 };
 
-export type Announcement = AnnouncementProperties & {
+export type ClubAnnouncement = ClubAnnouncementProperties & {
   content: string;
 };
