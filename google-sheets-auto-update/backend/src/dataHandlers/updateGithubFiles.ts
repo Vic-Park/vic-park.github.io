@@ -2,6 +2,7 @@ import { octokit } from '~/github';
 import matter from 'gray-matter';
 import { Entry } from '~types/entry';
 import { encode } from 'js-base64';
+import { getEntryTypeFolder } from './utils';
 
 export async function updateGithubFiles(alteredGoogleSheetEntries: Entry[]) {
   for (let i = 0; i < alteredGoogleSheetEntries.length; ++i) {
@@ -11,7 +12,7 @@ export async function updateGithubFiles(alteredGoogleSheetEntries: Entry[]) {
       const response = await octokit.request(
         'PUT /repos/{owner}/{repo}/contents/{path}',
         {
-          path: `data/${type}/${slug}.md`,
+          path: `${getEntryTypeFolder}/${slug}.md`,
           message: `Update ${slug}.md${
             i < alteredGoogleSheetEntries.length - 1 ? '[ci skip]' : ''
           }`,

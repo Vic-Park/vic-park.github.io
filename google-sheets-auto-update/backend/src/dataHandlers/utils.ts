@@ -3,6 +3,7 @@ import matter from 'gray-matter';
 import axios from 'axios';
 import deepEqual from 'deep-equal';
 import { GithubFile, octokit } from '~/github';
+import { EntryType } from '~types/entry';
 
 type Entry = {
   slug: string;
@@ -66,4 +67,14 @@ export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
   const githubFiles = octokitResponse.data as GithubFile[];
 
   return githubFiles;
+}
+
+const entryTypeToFolder = {
+  [EntryType.announcement]: 'announcements',
+  [EntryType.club]: 'clubs',
+  [EntryType.event]: 'events',
+};
+
+export function getEntryTypeFolder(entryType: EntryType) {
+  return `data/${entryTypeToFolder[entryType]}`;
 }
