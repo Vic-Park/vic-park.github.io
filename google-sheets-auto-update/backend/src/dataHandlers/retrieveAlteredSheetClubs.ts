@@ -16,7 +16,6 @@ export async function retrieveAlteredSheetClubs({
     .slice(1)
     .map(({ values }) => {
       const [
-        slug,
         name,
         staffSupervisor,
         clubLeaders,
@@ -27,6 +26,7 @@ export async function retrieveAlteredSheetClubs({
         onlinePlatforms,
         extraInformation,
         timeCommitment,
+        slug,
       ] = values.map((value) => value.formattedValue);
 
       return {
