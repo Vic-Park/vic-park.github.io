@@ -12,7 +12,7 @@ export async function updateGithubFiles(alteredGoogleSheetEntries: Entry[]) {
       const response = await octokit.request(
         'PUT /repos/{owner}/{repo}/contents/{path}',
         {
-          path: `${getEntryTypeFolder}/${slug}.md`,
+          path: `${getEntryTypeFolder(type)}/${slug}.md`,
           message: `Update ${slug}.md${
             i < alteredGoogleSheetEntries.length - 1 ? '[ci skip]' : ''
           }`,

@@ -12,7 +12,7 @@ export type Entry<T extends EntryType | unknown = unknown> = {
   slug: string;
   metadata: T extends EntryType ? EntryMetadata[T] : Record<string, unknown>;
   content?: string;
-  type: T extends EntryType ? T : string;
+  type: T extends EntryType ? T : EntryType;
 };
 
 export enum EntryType {
