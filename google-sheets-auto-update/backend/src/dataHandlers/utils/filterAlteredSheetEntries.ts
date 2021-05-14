@@ -38,7 +38,7 @@ export async function filterAlteredSheetEntries<T extends Entry>({
     };
     const githubClubEntry = convertMatterFileToEntry(matterFile);
 
-    // If parsed google sheet entry isn't equivalent to the parsed github entry, then
+    // If the parsed google sheet entry isn't equivalent to the parsed github entry, 
     // append the google sheet entry file to a list of entries that need to be updated
     if (!deepEqual(googleSheetEntry, githubClubEntry)) {
       alteredSheetEntries.push(googleSheetEntry);

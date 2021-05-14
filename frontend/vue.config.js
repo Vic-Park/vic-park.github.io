@@ -14,8 +14,13 @@ module.exports = {
     const dataFolders = ['announcements', 'clubs', 'events'];
 
     for (const dataFolder of dataFolders) {
+      config.resolve.alias[`~data/${dataFolder}`] = path.resolve(
+        __dirname,
+        'loaders',
+        `${dataFolder}-loader.js`
+      );
       config.module.rules.push({
-        test: new RegExp(`data/${dataFolder}`),
+        test: new RegExp(`/loaders/${dataFolder}-loader.js$`),
         use: [
           {
             loader: path.resolve(__dirname, 'loaders', `${dataFolder}-loader.js`),
@@ -25,7 +30,6 @@ module.exports = {
     }
 
     config.resolve.alias['~'] = path.resolve(__dirname, 'src');
-    config.resolve.alias['~data'] = path.resolve(__dirname, '../data');
 
     config.cache = false;
   },

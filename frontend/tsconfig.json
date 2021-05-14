@@ -19,7 +19,7 @@
         "./frontend/src/*"
       ],
       "~data/*": [
-        "./data/*"
+        "./types/data-files/*"
       ]
     },
     "lib": [
