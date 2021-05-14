@@ -7,8 +7,8 @@ import {
   retrieveAlteredSheetAnnouncements,
   retrieveAlteredSheetClubs,
   retrieveAlteredSheetEvents,
-} from './dataHandlers';
-import { updateGithubFiles } from './dataHandlers/updateGithubFiles';
+} from './data-handlers';
+import { updateGithubFiles } from './data-handlers/updateGithubFiles';
 
 const app = fastify();
 
