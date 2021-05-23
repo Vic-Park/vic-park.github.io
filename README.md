@@ -12,7 +12,6 @@ The website **should not** depend on external resources hosted by an individual 
 
 - The website should not depend on a backend for the main features to work.
 - The website's main features should not depend on the API of a third-party service.
-- All the main features of the website should be deployable using GitHub pages.
 - The website should not depend on any secrets as all the code for the website is public on the repository.
 
 These constraints may be reconsidered in the future should the functionality of the website extend beyond a client-only website, but for the time-being, a backend for a school website is impractical for many reasons, not limited to:
