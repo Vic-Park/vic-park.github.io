@@ -6,7 +6,8 @@ export type ClubMetadata = {
   staffSupervisor: string;
   clubLeaders: string;
   shortDescription: string;
-  categories: string[];
+  extraInformation: string;
+  categories: string;
   meetingTimes: string;
   joinInstructions: string;
   onlinePlatforms: string;

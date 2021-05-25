@@ -11,7 +11,7 @@ module.exports = function announcementsLoader() {
   const announcementsFolder = path.join(rootPath, 'data', 'announcements');
   const announcements = loadDataFolder({
     dataFolder: announcementsFolder,
-    validateDataFile: createDataFileValidator(['title', { key: 'date', type: Date }, 'slug']),
+    validateDataFile: createDataFileValidator(['title', { key: 'date', type: Date }]),
   });
 
   return `export default ${JSON.stringify(announcements)}`;

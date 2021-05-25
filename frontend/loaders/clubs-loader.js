@@ -13,13 +13,15 @@ module.exports = function clubsLoader() {
     dataFolder: clubsFolder,
     validateDataFile: createDataFileValidator([
       'name',
+      'staffSupervisor',
+      'clubLeaders',
       'shortDescription',
-      'longDescription',
-      'prerequisites',
+      'extraInformation',
+      'categories',
       'meetingTimes',
-      'meetingPlatform',
-      'moreInfo',
-      'slug',
+      'joinInstructions',
+      'onlinePlatforms',
+      'timeCommitment',
     ]),
   });
 

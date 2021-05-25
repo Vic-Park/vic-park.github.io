@@ -2,13 +2,14 @@ import type { sheets_v4 } from 'googleapis';
 import type { ClubAnnouncement } from '~types/announcement';
 import { EntryType } from '~types/entry';
 import {
-  filterAlteredSheetEntries,
+  getGithubEntryUpdates,
   getSheetRows,
   retrieveGithubFiles,
 } from './utils';
 import { paramCase } from 'param-case';
+import { cleanSheetRow } from './utils/cleanSheetRow';
 
-export async function retrieveAlteredSheetAnnouncements({
+export async function getGithubAnnouncementUpdates({
   spreadsheetData,
 }: {
   spreadsheetData: sheets_v4.Schema$Spreadsheet;
@@ -20,7 +21,7 @@ export async function retrieveAlteredSheetAnnouncements({
 
   const googleSheetAnnouncements: ClubAnnouncement[] = announcementEntries.map(
     (announcement) => {
-      const [title, date, content] = announcement;
+      const [title, date, content] = cleanSheetRow(announcement);
 
       return {
         metadata: {
@@ -35,14 +36,11 @@ export async function retrieveAlteredSheetAnnouncements({
   );
 
   const githubFiles = await retrieveGithubFiles('/data/announcements');
-  const alteredSheetAnnouncements =
-    await filterAlteredSheetEntries<ClubAnnouncement>({
-      convertMatterFileToEntry({ data, content }) {
-        return { ...data, extraInformation: content };
-      },
+  const githubAnnouncementUpdates =
+    await getGithubEntryUpdates<ClubAnnouncement>({
       githubFiles,
       googleSheetEntries: googleSheetAnnouncements,
     });
 
-  return alteredSheetAnnouncements;
+  return githubAnnouncementUpdates;
 }

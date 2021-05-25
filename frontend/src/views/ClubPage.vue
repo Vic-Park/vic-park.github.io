@@ -1,16 +1,26 @@
 <template>
   <template v-if="found">
-    <h1 class="font-bold text-center text-5xl pb-2">{{ name }}</h1>
-    <div class="text-center pb-3">{{ shortDescription }}</div>
+    <h1 class="font-bold text-center text-5xl pb-2 mb-2">{{ name }}</h1>
+    <div class="pb-3">{{ shortDescription }}</div>
 
-    <h2 class="font-bold text-2xl">Club Info</h2>
-    <div>
-      {{ longDescription }}
+    <div class="pt-3">
+      <strong>Club Leaders:</strong>
+      {{ clubLeaders }}
     </div>
 
-    <div v-if="prerequisites" class="pt-3">
-      <h3 class="font-bold text-2xl">Prerequisites</h3>
-      {{ prerequisites }}
+    <div class="pt-3">
+      <strong>Staff Supervisor:</strong>
+      {{ staffSupervisor }}
+    </div>
+
+    <div class="pt-3">
+      <strong>Categories:</strong>
+      {{ categories }}
+    </div>
+
+    <div class="pt-3">
+      <strong>Time Commitment:</strong>
+      {{ timeCommitment }}
     </div>
 
     <div class="pt-3">
@@ -19,19 +29,22 @@
     </div>
 
     <div class="pt-3">
-      <strong>Meeting Platform:</strong>
-      {{ meetingPlatform }}
+      <strong>Onliine Platforms:</strong>
+      {{ onlinePlatforms }}
     </div>
 
-    <div v-if="moreInfo">
-      <div class="font-bold pt-3">Additional Information:</div>
+    <div class="pt-3">
+      <div class="font-bold">Join Instructions:</div>
+      {{ joinInstructions }}
+    </div>
 
-      {{ moreInfo }}
+    <div v-if="extraInformation">
+      <div class="font-bold pt-3">Extra Information:</div>
+
+      {{ extraInformation }}
     </div>
   </template>
-  <div v-else>
-    Sorry, no club exists at this URL. However, you can start your own!
-  </div>
+  <div v-else>Sorry, no club exists at this URL. However, you can start your own!</div>
 </template>
 
 <script lang="ts">
@@ -55,23 +68,28 @@ export default defineComponent({
     const {
       name,
       shortDescription,
-      longDescription,
-      prerequisites,
+      staffSupervisor,
+      clubLeaders,
+      categories,
+      timeCommitment,
       meetingTimes,
-      meetingPlatform,
-      moreInfo,
+      onlinePlatforms,
+      joinInstructions,
+      extraInformation,
     } = clubs[clubSlug].data;
 
     return {
       found: true,
-
       name,
       shortDescription,
-      longDescription,
-      prerequisites,
+      staffSupervisor,
+      clubLeaders,
+      categories,
+      timeCommitment,
       meetingTimes,
-      meetingPlatform,
-      moreInfo,
+      onlinePlatforms,
+      joinInstructions,
+      extraInformation,
     };
   },
 });

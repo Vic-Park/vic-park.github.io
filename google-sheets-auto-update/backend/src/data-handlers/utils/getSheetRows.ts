@@ -8,10 +8,12 @@ export function getSheetRows(
     (sheet) => sheet.properties.title === sheetName
   );
 
+  if (sheet === undefined) return [];
+
   return sheet.data[0].rowData
     .slice(1)
     .filter(({ values }) => {
-      const [name] = values[0].formattedValue;
+      const name = values[0]?.formattedValue ?? '';
       return name.trim() !== '';
     })
     .map(({ values }) => values.map((value) => value.formattedValue));

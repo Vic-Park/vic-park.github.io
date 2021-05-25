@@ -4,9 +4,9 @@ import fastify from 'fastify';
 import fastifyRateLimit from 'fastify-rate-limit';
 import { sheets, spreadsheetId } from './google';
 import {
-  retrieveAlteredSheetAnnouncements,
-  retrieveAlteredSheetClubs,
-  retrieveAlteredSheetEvents,
+  getGithubClubUpdates,
+  getGithubAnnouncementUpdates,
+  getGithubEventUpdates,
 } from './data-handlers';
 import { updateGithubFiles } from './data-handlers/updateGithubFiles';
 
@@ -36,19 +36,19 @@ app.post('/', async (request, reply) => {
     spreadsheetId,
     includeGridData: true,
   });
-
-  const alteredSheetEntries = [
-    ...(await retrieveAlteredSheetEvents({ spreadsheetData })),
-    ...(await retrieveAlteredSheetClubs({ spreadsheetData })),
-    ...(await retrieveAlteredSheetAnnouncements({ spreadsheetData })),
+  
+  const githubEntryUpdates = [
+    ...(await getGithubAnnouncementUpdates({ spreadsheetData })),
+    ...(await getGithubClubUpdates({ spreadsheetData })),
+    ...(await getGithubEventUpdates({ spreadsheetData })),
   ];
 
-  if (alteredSheetEntries.length === 0) {
+  if (githubEntryUpdates.length === 0) {
     reply.status(200).send('No entries were altered; nothing changed.');
     return;
   }
 
-  await updateGithubFiles(alteredSheetEntries);
+  await updateGithubFiles(githubEntryUpdates);
 
   reply.send('Request successfully processed.');
 });

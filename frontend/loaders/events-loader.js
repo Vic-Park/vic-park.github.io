@@ -17,7 +17,6 @@ module.exports = function eventsLoader() {
       'information',
       { key: 'start', type: Date },
       { key: 'end', type: Date },
-      'slug',
     ]),
   });
 

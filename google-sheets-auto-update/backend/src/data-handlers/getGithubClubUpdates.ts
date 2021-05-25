@@ -2,19 +2,21 @@ import type { sheets_v4 } from 'googleapis';
 import type { Club } from '~types/club';
 import { EntryType } from '~types/entry';
 import {
-  filterAlteredSheetEntries,
+  getGithubEntryUpdates,
   getSheetRows,
   retrieveGithubFiles,
 } from './utils';
+import { cleanSheetRow } from './utils/cleanSheetRow';
 
-export async function retrieveAlteredSheetClubs({
+export async function getGithubClubUpdates({
   spreadsheetData,
 }: {
   spreadsheetData: sheets_v4.Schema$Spreadsheet;
 }) {
   const clubEntries = getSheetRows(spreadsheetData, 'Clubs');
-  const googleSheetEntries: Club[] = clubEntries.map((club) => {
+  const googleSheetClubs: Club[] = clubEntries.map((club) => {
     const [
+      _timestamp,
       name,
       staffSupervisor,
       clubLeaders,
@@ -25,13 +27,13 @@ export async function retrieveAlteredSheetClubs({
       onlinePlatforms,
       extraInformation,
       timeCommitment,
+      _accessToSourceCode,
       slug,
-    ] = club;
+    ] = cleanSheetRow(club);
 
     return {
-      content: extraInformation,
       metadata: {
-        categories: categories.split(','),
+        categories,
         clubLeaders,
         extraInformation,
         joinInstructions,
@@ -48,13 +50,10 @@ export async function retrieveAlteredSheetClubs({
   });
 
   const githubFiles = await retrieveGithubFiles('/data/clubs');
-  const alteredSheetClubs = await filterAlteredSheetEntries<Club>({
-    convertMatterFileToEntry({ data, content }) {
-      return { ...data, extraInformation: content };
-    },
+  const githubClubUpdates = await getGithubEntryUpdates<Club>({
     githubFiles,
-    googleSheetEntries,
+    googleSheetEntries: googleSheetClubs,
   });
 
-  return alteredSheetClubs;
+  return githubClubUpdates;
 }

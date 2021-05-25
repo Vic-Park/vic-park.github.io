@@ -5,18 +5,18 @@
     <input
       v-model="searchQuery"
       class="
-				self-center
-				w-full
-				max-w-md
-				border-2 
-				border-gray-300 
-				rounded-lg 
-				p-1 
-				mb-4
-				focus:outline-none 
-				focus:ring-2 
-				focus:ring-yellow-600 
-				focus:border-transparent"
+        self-center
+        w-full
+        max-w-md
+        border-2 border-gray-300
+        rounded-lg
+        p-1
+        mb-8
+        focus:outline-none
+        focus:ring-2 
+        focus:ring-yellow-600
+        focus:border-transparent
+      "
       placeholder="Search for a club..."
     />
 
@@ -49,19 +49,22 @@ export default defineComponent({
     const searchQuery = ref('');
     const clubsArray = Object.values(clubs);
 
-    const filteredClubs = computed(() =>
-      clubsArray
+    const filteredClubs = computed(() => {
+      const query = searchQuery.value.toLowerCase();
+      return clubsArray
         .filter(({ data }) => {
           const { name, shortDescription } = data;
 
-          return name.includes(searchQuery.value) || shortDescription.includes(searchQuery.value);
+          return (
+            name.toLowerCase().includes(query) || shortDescription.toLowerCase().includes(query)
+          );
         })
         .map(({ data }) => ({
           name: data.name,
           slug: data.slug,
           shortDescription: data.shortDescription,
-        }))
-    );
+        }));
+    });
 
     return {
       searchQuery,

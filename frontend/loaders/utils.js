@@ -9,8 +9,6 @@ exports.loadDataFolder = function loadDataFolder({ dataFolder, validateDataFile 
   const data = {};
 
   for (const dataFile of dataFiles) {
-    if (path.basename(dataFile) === 'index.ts') continue;
-
     const clubFileContent = fs.readFileSync(path.join(dataFolder, dataFile)).toString();
     const frontMatter = matter(clubFileContent);
 
@@ -35,6 +33,8 @@ exports.loadDataFolder = function loadDataFolder({ dataFolder, validateDataFile 
 
 exports.createDataFileValidator = function createDataFileValidator(validKeys) {
   function validateKey(key) {
+    if (key === 'slug') return true;
+
     for (const validKey of validKeys) {
       if (typeof validKey === 'string') {
         if (key === validKey) return true;

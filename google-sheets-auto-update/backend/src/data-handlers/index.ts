@@ -1,3 +1,3 @@
-export { retrieveAlteredSheetAnnouncements } from './retrieveAlteredSheetAnnouncements';
-export { retrieveAlteredSheetEvents } from './retrieveAlteredSheetEvents';
-export { retrieveAlteredSheetClubs } from './retrieveAlteredSheetClubs';
+export { getGithubClubUpdates } from './getGithubClubUpdates';
+export { getGithubEventUpdates } from './getGithubEventUpdates';
+export { getGithubAnnouncementUpdates } from './getGithubAnnouncementUpdates';

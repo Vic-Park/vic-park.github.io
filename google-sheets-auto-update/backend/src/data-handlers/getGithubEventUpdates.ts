@@ -3,11 +3,12 @@ import { EntryType } from '~types/entry';
 import { ClubEvent } from '~types/event';
 import {
   retrieveGithubFiles,
-  filterAlteredSheetEntries,
+  getGithubEntryUpdates,
   getSheetRows,
 } from './utils';
+import { cleanSheetRow } from './utils/cleanSheetRow';
 
-export async function retrieveAlteredSheetEvents({
+export async function getGithubEventUpdates({
   spreadsheetData,
 }: {
   spreadsheetData: sheets_v4.Schema$Spreadsheet;
@@ -15,7 +16,7 @@ export async function retrieveAlteredSheetEvents({
   const eventsEntries = getSheetRows(spreadsheetData, 'Club Events');
 
   const googleSheetEvents: ClubEvent[] = eventsEntries.map((event) => {
-    const [name, description, information, start, end] = event;
+    const [name, description, information, start, end] = cleanSheetRow(event);
 
     return {
       metadata: {
@@ -31,13 +32,10 @@ export async function retrieveAlteredSheetEvents({
   });
 
   const githubFiles = await retrieveGithubFiles('/data/events');
-  const alteredSheetEvents = await filterAlteredSheetEntries<ClubEvent>({
-    convertMatterFileToEntry({ data, content }) {
-      return { ...data, information: content };
-    },
+  const githubClubUpdates = await getGithubEntryUpdates<ClubEvent>({
     githubFiles,
     googleSheetEntries: googleSheetEvents,
   });
 
-  return alteredSheetEvents;
+  return githubClubUpdates;
 }
