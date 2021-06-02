@@ -1,0 +1,1 @@
+web: yarn heroku:google-sheets-auto-update

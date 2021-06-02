@@ -16,8 +16,8 @@ const app = fastify();
 
 // Registering a rate limit plugin for fastify to prevent brute-force attacks against the secret.
 app.register(fastifyRateLimit, {
+  // Maximum 3 requests within 5 seconds
   max: 3,
-  // 5 second
   timeWindow: 5000,
 });
 
