@@ -60,7 +60,8 @@ app.post('/', async (request, reply) => {
   reply.send('Request successfully processed.');
 });
 
-app.listen(3000, (err, address) => {
+const port = process.env.PORT || 3000;
+app.listen(port, (err, address) => {
   if (err) {
     console.error(err);
   }
