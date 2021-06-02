@@ -44,8 +44,6 @@ app.post('/', async (request, reply) => {
     includeGridData: true,
   });
 
-  console.log('Retrieved Google Sheets data.');
-
   const githubEntryUpdates = [
     ...(await getGithubAnnouncementUpdates({ spreadsheetData })),
     ...(await getGithubClubUpdates({ spreadsheetData })),
