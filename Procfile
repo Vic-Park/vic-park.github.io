@@ -1,1 +1,1 @@
-web: yarn workspace google-sheet-auto-update-backend start:transpile-only
+web: yarn workspace google-sheets-auto-update-backend start:transpile-only
