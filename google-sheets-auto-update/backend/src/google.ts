@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 
 export const authClient = new google.auth.GoogleAuth({
-  keyFile: './client_secret.json',
+  keyFile: './google-credentials.json',
   scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
 });
 
