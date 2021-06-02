@@ -1,1 +1,1 @@
-web: yarn heroku:google-sheets-auto-update
+web: yarn workspace google-sheet-auto-update-backend start:transpile-only
