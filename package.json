@@ -10,7 +10,7 @@
   },
   "workspaces": [
     "frontend",
-    "google-sheets-auto-update-backend",
+    "google-sheets-auto-update/backend",
     "scripts"
   ],
   "devDependencies": {
