@@ -33,5 +33,10 @@
   "_moduleAliases": {
     "~": "./src",
     "~types": "../../types"
+  },
+  "workspaces": {
+    "nohoist": [
+      "module-alias"
+    ]
   }
 }
