@@ -6,7 +6,7 @@
     "dev:frontend": "yarn workspace frontend dev",
     "prune:frontend": "rm -rf google-sheets-auto-pr",
     "build:frontend": "yarn workspace frontend build",
-    "heroku:prebuild": "rm -rf frontend scripts"
+    "heroku-prebuild": "rm -rf frontend scripts"
   },
   "workspaces": [
     "frontend",
