@@ -23,7 +23,6 @@ export async function getGithubEntryUpdates<T extends Entry>({
     if (githubFile === undefined) {
       alteredSheetEntries.push({
         entry: googleSheetEntry,
-        githubFileSha: githubFile.sha,
       });
       continue;
     }
