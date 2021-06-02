@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "start:transpile-only": "ts-node-transpile-only ./src/index.ts",
-    "dev": "ts-node-dev ./src/index.ts"
+    "dev": "ts-node-dev ./src/index.ts",
+    "build": "tsc --outDir dist"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -21,14 +22,14 @@
     "module-alias": "^2.2.2",
     "nanoid": "^3.1.23",
     "octokit": "^1.0.4",
-    "param-case": "^3.0.4"
+    "param-case": "^3.0.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
   },
   "devDependencies": {
     "@octokit/types": "^6.14.2",
     "@types/deep-equal": "^1.0.1",
-    "ts-node": "^9.1.1",
-    "ts-node-dev": "^1.1.6",
-    "typescript": "^4.2.4"
+    "ts-node-dev": "^1.1.6"
   },
   "_moduleAliases": {
     "~": "./src",
