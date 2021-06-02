@@ -6,8 +6,7 @@
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "start:transpile-only": "ts-node-transpile-only ./src/index.ts",
-    "dev": "ts-node-dev ./src/index.ts",
-    "build": "tsc --outDir dist"
+    "dev": "ts-node-dev ./src/index.ts"
   },
   "dependencies": {
     "axios": "^0.21.1",
