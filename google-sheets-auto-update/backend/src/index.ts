@@ -9,6 +9,8 @@ import {
   getGithubEventUpdates,
 } from './data-handlers';
 import { updateGithubFiles } from './data-handlers/updateGithubFiles';
+import fastifyStatic from 'fastify-static';
+import path from 'path';
 
 const app = fastify();
 
@@ -17,6 +19,11 @@ app.register(fastifyRateLimit, {
   max: 3,
   // 5 second
   timeWindow: 5000,
+});
+
+// Registering a fastify plugin to serve files in /public
+app.register(fastifyStatic, {
+  root: path.join(__dirname, 'public'),
 });
 
 type RequestBody = {
@@ -36,7 +43,7 @@ app.post('/', async (request, reply) => {
     spreadsheetId,
     includeGridData: true,
   });
-  
+
   const githubEntryUpdates = [
     ...(await getGithubAnnouncementUpdates({ spreadsheetData })),
     ...(await getGithubClubUpdates({ spreadsheetData })),
