@@ -61,7 +61,7 @@ app.post('/', async (request, reply) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, (err, address) => {
+app.listen(port, '0.0.0.0', (err, address) => {
   if (err) {
     console.error(err);
   }
