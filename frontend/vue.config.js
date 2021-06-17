@@ -9,7 +9,7 @@ module.exports = {
     // config.module.rule('vue').uses.delete('cache-loader');
     // config.module.rule('js').uses.delete('cache-loader');
     // config.module.rule('ts').uses.delete('cache-loader');
-    // config.module.rule('md').uses.delete('cache-loader');
+    config.module.rule('md').uses.delete('cache-loader');
   },
   configureWebpack(config) {
     const dataFolders = ['announcements', 'clubs', 'events'];

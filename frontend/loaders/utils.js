@@ -9,6 +9,8 @@ exports.loadDataFolder = function loadDataFolder({ dataFolder, validateDataFile 
   const data = {};
 
   for (const dataFile of dataFiles) {
+    if (path.extname(dataFile) !== '.md') continue;
+
     const clubFileContent = fs.readFileSync(path.join(dataFolder, dataFile)).toString();
     const frontMatter = matter(clubFileContent);
 
