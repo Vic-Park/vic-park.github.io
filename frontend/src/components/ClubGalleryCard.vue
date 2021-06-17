@@ -1,5 +1,8 @@
 <template>
-  <div />
+  <div>
+    <h4 class="font-bold text-xl text-center mb-4">{{ name }}</h4>
+    <p>{{ description }}</p>
+  </div>
 </template>
 
 <script lang="ts">

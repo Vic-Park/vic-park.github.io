@@ -1,6 +1,7 @@
 <template>
   <NavigationHeader />
   <HeroBanner />
+  <ClubGallery />
   <div class="font-kollektif text-center text-red text-4xl my-8">clubs equity statement</div>
   <div class="italic text-red-dark text-center">
     Clubs offered at VP aim to create inclusive spaces for everyone. Students of all identities and
@@ -23,11 +24,12 @@ import { defineComponent } from 'vue';
 import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
 import HeroBanner from '~/components/HeroBanner.vue';
 import NavigationHeader from '~/components/NavigationHeader.vue';
+import ClubGallery from '~/components/ClubGallery.vue';
 import announcements from '~data/announcements';
 
 export default defineComponent({
   name: 'HomePage',
-  components: { NavigationHeader, HeroBanner, ClubAnnouncementListing },
+  components: { NavigationHeader, HeroBanner, ClubAnnouncementListing, ClubGallery },
   setup() {
     const announcementsArray = Object.values(announcements)
       .map(({ data, content }) => ({
