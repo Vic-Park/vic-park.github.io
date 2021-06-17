@@ -35,7 +35,7 @@
       </p>
       <div style="padding-bottom: 0.5rem">
         <input id="secretInput" placeholder="Enter the secret here..." />
-        <button onclick="updateSheets()">Update</button>
+        <button id="updateButton" onclick="updateSheets()">Update</button>
       </div>
       <div id="successMessage"></div>
       <div id="errorMessage"></div>
@@ -45,12 +45,15 @@
     const secretInput = document.getElementById('secretInput');
     const successMessageContainer = document.getElementById('successMessage');
     const errorMessageContainer = document.getElementById('errorMessage');
+    const updateButton = document.getElementById('updateButton');
 
     async function updateSheets() {
       successMessageContainer.innerText = '';
       errorMessageContainer.innerText = '';
 
       try {
+        updateButton.setAttribute('disabled', '');
+        updateButton.innerText = 'Updating...';
         const response = await fetch('/', {
           method: 'post',
           headers: {
@@ -67,6 +70,9 @@
         }
       } catch (e) {
         errorMessageContainer.innerText = e.toString();
+      } finally {
+        updateButton.removeAttribute('disabled');
+        updateButton.innerText = 'Update';
       }
     }
   </script>

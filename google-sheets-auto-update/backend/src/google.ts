@@ -10,4 +10,8 @@ export const sheets = google.sheets({
   auth: authClient,
 });
 
+if (!process.env.SPREADSHEET_ID) {
+  console.warn('SPREADSHEET_ID not found in environment.');
+}
+
 export const spreadsheetId = process.env.SPREADSHEET_ID;
