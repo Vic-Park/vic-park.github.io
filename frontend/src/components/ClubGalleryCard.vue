@@ -1,7 +1,5 @@
 <template>
-  <router-link :to="to" active-class="text-blue-400">
-    <div class="text-white text-lg hover:text-blue-400">{{ title }}</div>
-  </router-link>
+  <div />
 </template>
 
 <script lang="ts">
@@ -9,11 +7,11 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    title: {
+    name: {
       type: String,
       required: true,
     },
-    to: {
+    description: {
       type: String,
       required: true,
     },

@@ -6,10 +6,10 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   chainWebpack(config) {
-    config.module.rule('vue').uses.delete('cache-loader');
-    config.module.rule('js').uses.delete('cache-loader');
-    config.module.rule('ts').uses.delete('cache-loader');
-    config.module.rule('md').uses.delete('cache-loader');
+    // config.module.rule('vue').uses.delete('cache-loader');
+    // config.module.rule('js').uses.delete('cache-loader');
+    // config.module.rule('ts').uses.delete('cache-loader');
+    // config.module.rule('md').uses.delete('cache-loader');
   },
   configureWebpack(config) {
     const dataFolders = ['announcements', 'clubs', 'events'];
@@ -32,7 +32,7 @@ module.exports = {
 
     config.resolve.alias['~'] = path.resolve(__dirname, 'src');
 
-    config.cache = false;
+    // config.cache = false;
   },
   css: {
     loaderOptions: {

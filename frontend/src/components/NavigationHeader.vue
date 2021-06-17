@@ -1,29 +1,40 @@
 <template>
-  <div class="sticky top-0 flex flex-row justify-between p-4 bg-gray-100 z-50">
-    <router-link to="/" active-class="text-blue-400" class="p-4">
-      <span class="text-lg font-bold hover:text-blue-400">VPCI Clubs</span>
-    </router-link>
-    <div class="absolute left-1/2">
-      <div style="margin-left: -50%">
-        <img
-          class="border-2 border-gray-300 rounded-full transition-height"
-          :class="[isLargeLogo ? 'h-16 sm:h-28 shadow-lg' : 'h-16']"
-          src="/img/vic-park-logo.png"
-        />
-      </div>
-    </div>
-    <div class="flex flex-row gap-x-4 p-4">
-      <NavigationHeaderLink to="/clubs" title="Club List" />
-      <NavigationHeaderLink to="/events" title="Events" />
+  <div class="absolute top-0 flex flex-row inset-x-0 justify-between p-2 bg-transparent z-50">
+    <div class="flex flex-1 flex-row gap-x-4 justify-end">
+      <NavigationHeaderLink
+        class="mx-2"
+        :key="title"
+        v-for="{ title, route } in tabs"
+        :to="route"
+        :title="title"
+      />
     </div>
   </div>
-  <div class="p-5 sm:p-12"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
 
 import NavigationHeaderLink from './NavigationHeaderLink.vue';
+
+const tabs = [
+  {
+    title: 'announcements',
+    route: '/announcements',
+  },
+  {
+    title: 'equity',
+    route: '/equity',
+  },
+  {
+    title: 'clubs',
+    route: '/clubs',
+  },
+  {
+    title: 'calendar',
+    route: '/events',
+  },
+];
 
 export default defineComponent({
   name: 'NavigationHeader',
@@ -46,7 +57,10 @@ export default defineComponent({
 
     return {
       isLargeLogo,
+      tabs,
     };
   },
 });
 </script>
+
+<style scoped></style>

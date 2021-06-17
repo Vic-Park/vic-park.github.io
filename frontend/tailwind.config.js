@@ -1,11 +1,21 @@
 module.exports = {
-  purge: ["./src/**/*.vue"],
+  purge: ['./src/**/*.vue'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      transitionProperty: {
-        height: "height",
+      colors: {
+        burgundy: '#960e0b',
+        red: {
+          DEFAULT: '#e60400',
+          dark: '#bb0e0a',
+        },
       },
+      transitionProperty: {
+        height: 'height',
+      },
+    },
+    fontFamily: {
+      kollektif: ['Kollektif'],
     },
   },
   variants: {
