@@ -29,7 +29,7 @@
     </div>
 
     <div class="pt-3">
-      <strong>Onliine Platforms:</strong>
+      <strong>Online Platforms:</strong>
       {{ onlinePlatforms }}
     </div>
 
