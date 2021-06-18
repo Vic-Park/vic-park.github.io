@@ -1,5 +1,6 @@
 <template>
   <div
+    id="clubs"
     class="
       flex
       justify-center justify-items-center

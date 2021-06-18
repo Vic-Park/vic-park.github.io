@@ -4,8 +4,9 @@
       <NavigationHeaderLink
         class="mx-2"
         :key="title"
-        v-for="{ title, route } in tabs"
-        :to="route"
+        v-for="{ title, route, toId } in tabs"
+        :route="route"
+        :toId="toId"
         :title="title"
       />
     </div>
@@ -24,11 +25,11 @@ const tabs = [
   },
   {
     title: 'equity',
-    route: '/equity',
+    toId: 'equity',
   },
   {
     title: 'clubs',
-    route: '/clubs',
+    toId: 'clubs',
   },
   {
     title: 'calendar',

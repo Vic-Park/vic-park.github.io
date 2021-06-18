@@ -1,9 +1,9 @@
 <template>
   <NavigationHeader />
   <HeroBanner />
-  <div class='flex flex-col items-center'>
-    <div class="mb-2 mt-8 font-kollektif text-center text-red text-4xl">clubs equity statement</div>
-    <div class="max-w-4xl italic font-medium text-red-dark text-center">
+  <div class="flex flex-col items-center">
+    <div id="equity" class="mb-2 mt-8 font-kollektif text-center text-red text-4xl">clubs equity statement</div>
+    <div  class="max-w-4xl italic font-medium text-red-dark text-center">
       Clubs offered at VP aim to create inclusive spaces for everyone. Students of all identities
       and experiences are welcome to join clubs where members can come together based on shared
       interests. Each club is a reflection of the larger school community where all voices are
