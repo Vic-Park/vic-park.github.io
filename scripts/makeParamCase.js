@@ -13,7 +13,10 @@ async function makeParamCase() {
 
     for (const file of files) {
       const fromPath = path.join(imgDir, file);
-      const toPath = path.join(imgDir, paramCase(file));
+      const fileExt = path.extname(fromPath);
+      const fileBasename = path.basename(fromPath, fileExt);
+      const newFileName = paramCase(fileBasename) + '.' + paramCase(fileExt);
+      const toPath = path.join(imgDir, newFileName);
 
       // Stat the file to see if we have a file or dir
       const stat = await fs.promises.stat(fromPath);
