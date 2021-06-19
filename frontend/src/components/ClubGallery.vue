@@ -1,24 +1,11 @@
 <template>
-  <div
-    id="clubs"
-    class="
-      flex
-      justify-center justify-items-center
-      content-center
-      items-stretch
-      flex-wrap
-      mx-28
-      my-10
-      bg-red-700
-    "
-  >
-    <div
+  <div id="clubs" class="flex gap-4 flex-wrap justify-items-stretch p-4 my-4 max-w-6xl bg-red-700">
+    <ClubGalleryCard
       v-for="club in clubsArray"
       :key="club.slug"
-      class="w-1/4 m-8 bg-white hover:bg-red-100 text-red-700 p-4"
-    >
-      <ClubGalleryCard :name="club.name" :description="club.description" class="" />
-    </div>
+      :name="club.name"
+      :description="club.description"
+    />
   </div>
 </template>
 
