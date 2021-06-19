@@ -2,7 +2,7 @@
   <div class="flip-card flex-auto w-80 h-80 m-auto">
     <div class="flip-card-inner w-full h-full relative">
       <div class="flip-card-front absolute w-full h-full">
-        <img src="/img/hero-image.jpg" :alt="name" class="w-full h-full" />
+        <img src="'/img/' + clubname + '.jpg'" :alt="name" class="w-full h-full" />
       </div>
       <div class="flip-card-back w-full h-full bg-white absolute text-red-700 text-center p-4">
         <h4 class="font-bold text-xl text-center mb-4">{{ name }}</h4>
@@ -47,6 +47,10 @@ export default defineComponent({
       required: true,
     },
     description: {
+      type: String,
+      required: true,
+    },
+    clubname: {
       type: String,
       required: true,
     },

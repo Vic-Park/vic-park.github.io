@@ -5,6 +5,7 @@
       :key="club.slug"
       :name="club.name"
       :description="club.description"
+      :clubname="club.clubname"
     />
   </div>
 </template>
@@ -18,10 +19,18 @@ import clubs from '~data/clubs';
 export default defineComponent({
   components: { ClubGalleryCard },
   setup() {
+    const clubsArray = Object.entries(clubs).map(([name, { data }], key) => ({
+      clubname: name,
+      name: data.name,
+      description: data.shortDescription,
+    }));
+
+    /*
     const clubsArray = Object.values(clubs).map(({ data }) => ({
       name: data.name,
       description: data.shortDescription,
     }));
+    */
 
     return {
       clubsArray,
