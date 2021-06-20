@@ -1,9 +1,11 @@
 <template>
-  <NavigationHeader />
+  <LandingNavigationHeader />
   <HeroBanner />
   <div class="flex flex-col items-center">
-    <div id="equity" class="mb-2 mt-8 font-kollektif text-center text-red text-4xl">clubs equity statement</div>
-    <div  class="max-w-4xl italic font-medium text-red-dark text-center">
+    <div id="equity" class="mb-2 mt-8 font-kollektif text-center text-red text-4xl">
+      clubs equity statement
+    </div>
+    <div class="max-w-4xl italic font-medium text-red-dark text-center">
       Clubs offered at VP aim to create inclusive spaces for everyone. Students of all identities
       and experiences are welcome to join clubs where members can come together based on shared
       interests. Each club is a reflection of the larger school community where all voices are
@@ -27,12 +29,12 @@ import { defineComponent } from 'vue';
 import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
 import ClubGallery from '~/components/ClubGallery.vue';
 import HeroBanner from '~/components/HeroBanner.vue';
-import NavigationHeader from '~/components/NavigationHeader.vue';
+import LandingNavigationHeader from '~/components/LandingNavigationHeader.vue';
 import announcements from '~data/announcements';
 
 export default defineComponent({
   name: 'HomePage',
-  components: { NavigationHeader, HeroBanner, ClubAnnouncementListing, ClubGallery },
+  components: { LandingNavigationHeader, HeroBanner, ClubAnnouncementListing, ClubGallery },
   setup() {
     const announcementsArray = Object.values(announcements)
       .map(({ data, content }) => ({

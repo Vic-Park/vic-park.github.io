@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row justify-between p-2 bg-red-dark">
+  <div class="absolute top-0 flex flex-row inset-x-0 justify-between p-2 bg-transparent z-50">
     <NavigationHeaderContent :tabs="tabs" />
   </div>
 </template>
@@ -11,17 +11,16 @@ import NavigationHeaderContent from './NavigationHeaderContent.vue';
 
 const tabs = [
   {
-    title: 'home',
-    route: '/',
-    class: 'mr-auto',
-  },
-  {
     title: 'announcements',
     route: '/announcements',
   },
   {
+    title: 'equity',
+    toId: 'equity',
+  },
+  {
     title: 'clubs',
-    route: '/clubs',
+    toId: 'clubs',
   },
   {
     title: 'calendar',
