@@ -1,53 +1,21 @@
 <template>
   <template v-if="found">
-    <div class="flex flex-col items-center">
-      <div class="py-8 self-stretch bg-red-dark text-center text-white">
-        <h1 class="font-bold self-stretch text-4xl mb-3">
+    <div class="flex flex-col items-center text-xl pb-12">
+      <div class="py-8 self-stretch bg-red-dark text-center text-white flex flex-col items-center">
+        <h1 class="font-bold self-stretch font-kollektif text-6xl mb-3">
           {{ name }}
         </h1>
-        <div class="italic font-bold px-6">{{ shortDescription }}</div>
+        <div class="italic font-bold px-6 max-w-4xl leading-9">
+          {{ shortDescription }}
+        </div>
       </div>
 
-      <div class="max-w-4xl">
-        <div class="pt-3">
-          <strong>Club Leaders:</strong>
-          {{ clubLeaders }}
-        </div>
-
-        <div class="pt-3">
-          <strong>Staff Supervisor:</strong>
-          {{ staffSupervisor }}
-        </div>
-
-        <div class="pt-3">
-          <strong>Categories:</strong>
-          {{ categories }}
-        </div>
-
-        <div class="pt-3">
-          <strong>Time Commitment:</strong>
-          {{ timeCommitment }}
-        </div>
-
-        <div class="pt-3">
-          <strong>Meeting Times:</strong>
-          {{ meetingTimes }}
-        </div>
-
-        <div class="pt-3">
-          <strong>Online Platforms:</strong>
-          {{ onlinePlatforms }}
-        </div>
-
-        <div class="pt-3">
-          <div class="font-bold">Join Instructions:</div>
-          {{ joinInstructions }}
-        </div>
-
-        <div v-if="extraInformation">
-          <div class="font-bold pt-3">Extra Information:</div>
-
-          {{ extraInformation }}
+      <div class="max-w-4xl text-left">
+        <div v-for="{ name, content } in sections" :key="name">
+          <div v-if="content !== ''" class="pt-12">
+            <strong class="block">{{ name }}:</strong>
+            {{ content }}
+          </div>
         </div>
       </div>
     </div>
@@ -86,18 +54,46 @@ export default defineComponent({
       extraInformation,
     } = clubs[clubSlug].data;
 
+    const sections = [
+      {
+        name: 'Staff Supervisor',
+        content: staffSupervisor,
+      },
+      {
+        name: 'Club Leaders',
+        content: clubLeaders,
+      },
+      {
+        name: 'Categories',
+        content: categories,
+      },
+      {
+        name: 'Time Commitment',
+        content: timeCommitment,
+      },
+      {
+        name: 'Meeting Times',
+        content: meetingTimes,
+      },
+      {
+        name: 'Online Platforms',
+        content: onlinePlatforms,
+      },
+      {
+        name: 'Join Instructions',
+        content: joinInstructions,
+      },
+      {
+        name: 'Extra Information',
+        content: extraInformation,
+      },
+    ];
+
     return {
       found: true,
       name,
       shortDescription,
-      staffSupervisor,
-      clubLeaders,
-      categories,
-      timeCommitment,
-      meetingTimes,
-      onlinePlatforms,
-      joinInstructions,
-      extraInformation,
+      sections,
     };
   },
 });

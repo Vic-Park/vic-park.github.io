@@ -5,7 +5,7 @@
     </div>
   </template>
   <template v-else>
-    <router-link :to="toId" active-class="text-blue-400">
+    <router-link :to="route" active-class="text-blue-400">
       <div class="text-white text-lg hover:text-blue-400">{{ title }}</div>
     </router-link>
   </template>

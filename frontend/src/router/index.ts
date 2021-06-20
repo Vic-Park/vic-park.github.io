@@ -7,29 +7,35 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "home" */ '~/views/HomePage.vue'),
   },
   {
-    path: '/clubs',
-    name: 'Clubs',
-    component: () => import(/* webpackChunkName: "clubs-list" */ '~/views/ClubsListPage.vue'),
-  },
-  {
-    path: '/club/:clubSlug',
-    name: 'Club Page',
-    component: () => import(/* webpackChunkName: "club" */ '~/views/ClubPage.vue'),
-  },
-  {
-    path: '/events',
-    name: 'Events',
-    component: () => import(/* webpackChunkName: "events" */ '~/views/EventsPage.vue'),
-  },
-  {
-    path: '/event/:eventSlug',
-    name: 'Event Page',
-    component: () => import(/* webpackChunkName: "event" */ '~/views/EventPage.vue'),
-  },
-  {
-    path: '/:catchAll(.*)',
-    name: 'Not Found',
-    component: () => import(/* webpackChunkName: "404" */ '~/views/404Page.vue'),
+    path: '/',
+    component: () => import(/* webpackChunkName: "content" */ '~/layouts/ContentPage.vue'),
+    children: [
+      {
+        path: '/clubs',
+        name: 'Clubs',
+        component: () => import(/* webpackChunkName: "clubs-list" */ '~/views/ClubsListPage.vue'),
+      },
+      {
+        path: '/club/:clubSlug',
+        name: 'Club Page',
+        component: () => import(/* webpackChunkName: "club" */ '~/views/ClubPage.vue'),
+      },
+      {
+        path: '/events',
+        name: 'Events',
+        component: () => import(/* webpackChunkName: "events" */ '~/views/EventsPage.vue'),
+      },
+      {
+        path: '/event/:eventSlug',
+        name: 'Event Page',
+        component: () => import(/* webpackChunkName: "event" */ '~/views/EventPage.vue'),
+      },
+      {
+        path: '/:catchAll(.*)',
+        name: 'Not Found',
+        component: () => import(/* webpackChunkName: "404" */ '~/views/404Page.vue'),
+      },
+    ],
   },
 ];
 
