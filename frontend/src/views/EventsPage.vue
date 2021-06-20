@@ -1,15 +1,17 @@
 <template>
-  <EventsCalendar />
-  <h1 class="text-4xl font-bold py-8 text-center">Upcoming Club Events</h1>
-  <EventListing
-    v-for="event in eventsArray"
-    :description="event.description"
-    :name="event.name"
-    :start="event.start"
-    :end="event.end"
-    :slug="event.slug"
-    :key="event.slug"
-  />
+  <div class="p-16">
+    <EventsCalendar />
+    <h1 class="text-4xl font-bold py-8 text-center">Upcoming Club Events</h1>
+    <EventListing
+      v-for="event in eventsArray"
+      :description="event.description"
+      :name="event.name"
+      :start="event.start"
+      :end="event.end"
+      :slug="event.slug"
+      :key="event.slug"
+    />
+  </div>
 </template>
 
 <script lang="ts">

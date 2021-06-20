@@ -20,7 +20,7 @@ const tabs = [
   },
   {
     title: 'clubs',
-    toId: 'clubs',
+    route: '/clubs',
   },
   {
     title: 'calendar',
