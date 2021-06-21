@@ -36,12 +36,6 @@
   transform: rotateY(180deg);
 }
 
-.flip-card-front,
-.flip-card-back {
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
 .flip-card-back {
   transform: rotateY(180deg);
 }
