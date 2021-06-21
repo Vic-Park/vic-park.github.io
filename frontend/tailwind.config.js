@@ -13,6 +13,13 @@ module.exports = {
       transitionProperty: {
         height: 'height',
       },
+      minWidth: {
+        80: '20rem',
+      },
+      maxWidth: {
+        80: '20rem',
+        '3card': '67rem',
+      },
     },
     fontFamily: {
       kollektif: ['Kollektif'],

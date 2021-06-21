@@ -1,12 +1,17 @@
 <template>
-  <div id="clubs" class="flex gap-4 flex-wrap justify-items-stretch p-4 my-4 max-w-6xl bg-red-700">
-    <ClubGalleryCard
-      v-for="club in clubsArray"
-      :key="club.slug"
-      :name="club.name"
-      :description="club.description"
-      :clubname="club.clubname"
-    />
+  <div class="mt-8 mb-16 py-4">
+    <div
+      id="clubs"
+      class="flex gap-6 flex-wrap justify-items-stretch p-6 max-w-3card mx-8 bg-burgundy"
+    >
+      <ClubGalleryCard
+        v-for="club in clubsArray"
+        :key="club.slug"
+        :name="club.name"
+        :description="club.description"
+        :slug="club.slug"
+      />
+    </div>
   </div>
 </template>
 
@@ -20,21 +25,22 @@ export default defineComponent({
   components: { ClubGalleryCard },
   setup() {
     const clubsArray = Object.entries(clubs).map(([name, { data }], key) => ({
-      clubname: name,
+      slug: data.slug,
       name: data.name,
       description: data.shortDescription,
     }));
-
-    /*
-    const clubsArray = Object.values(clubs).map(({ data }) => ({
-      name: data.name,
-      description: data.shortDescription,
-    }));
-    */
 
     return {
       clubsArray,
     };
+  },
+  methods: {
+    scrollRight(event: any) {
+      event.target.parentElement.childNodes[1].scrollLeft += 1000;
+    },
+    scrollLeft(event: any) {
+      event.target.parentElement.childNodes[1].scrollLeft -= 1000;
+    },
   },
 });
 </script>
