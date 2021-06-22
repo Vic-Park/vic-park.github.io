@@ -30,29 +30,15 @@ import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
 import ClubGallery from '~/components/ClubGallery.vue';
 import HeroBanner from '~/components/HeroBanner.vue';
 import LandingNavigationHeader from '~/components/LandingNavigationHeader.vue';
+import { createAnnouncementsArray } from '~/utils/announcement';
 import announcements from '~data/announcements';
 
 export default defineComponent({
   name: 'HomePage',
   components: { LandingNavigationHeader, HeroBanner, ClubAnnouncementListing, ClubGallery },
   setup() {
-    const announcementsArray = Object.values(announcements)
-      .map(({ data, content }) => ({
-        title: data.title,
-        date: data.date,
-        content,
-      }))
-      .sort((a1, a2) => {
-        const a1Date = new Date(a1.date);
-        const a2Date = new Date(a2.date);
-        if (a1Date > a2Date) {
-          return -1;
-        }
-        if (a1Date < a2Date) {
-          return 1;
-        }
-        return 0;
-      });
+    // Only retrieving the latest 3 announcements
+    const announcementsArray = createAnnouncementsArray(announcements).slice(0, 3);
 
     return {
       announcementsArray,

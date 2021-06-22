@@ -20,6 +20,9 @@
       ],
       "~data/*": [
         "./types/data-files/*"
+      ],
+      "~types/*": [
+        "./types/*"
       ]
     },
     "lib": [
