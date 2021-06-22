@@ -1,17 +1,15 @@
 <template>
-  <div class="mt-8 mb-16 py-4">
-    <div
-      id="clubs"
-      class="flex gap-6 flex-wrap justify-items-stretch p-6 max-w-3card mx-8 bg-burgundy"
-    >
-      <ClubGalleryCard
-        v-for="club in clubsArray"
-        :key="club.slug"
-        :name="club.name"
-        :description="club.description"
-        :slug="club.slug"
-      />
-    </div>
+  <div
+    id="clubs"
+    class="flex gap-6 flex-wrap justify-items-stretch p-6 max-w-3card mx-8 bg-burgundy"
+  >
+    <ClubGalleryCard
+      v-for="club in clubsArray"
+      :key="club.slug"
+      :name="club.name"
+      :description="club.description"
+      :slug="club.slug"
+    />
   </div>
 </template>
 
