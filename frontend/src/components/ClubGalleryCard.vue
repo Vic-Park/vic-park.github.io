@@ -1,5 +1,5 @@
 <template>
-  <div class="flip-card p-3 bg-burgundy">
+  <div class="flip-card m-3">
     <div class="flip-card-inner w-80 h-80 relative">
       <div class="flip-card-front absolute w-full h-full">
         <img

@@ -1,5 +1,17 @@
 <template>
-  <div id="clubs" class="flex flex-wrap justify-center max-w-3card mt-8 mb-16 mx-8">
+  <div
+    id="clubs"
+    class="
+      2card:flex 2card:flex-wrap
+      2card:justify-center
+      2card:w-2card
+      3card:w-3card
+      p-3
+      mb-16
+      mx-8
+      bg-burgundy
+    "
+  >
     <ClubGalleryCard
       v-for="club in clubsArray"
       :key="club.slug"
