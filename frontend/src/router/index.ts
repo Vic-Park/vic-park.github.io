@@ -31,6 +31,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "event" */ '~/views/EventPage.vue'),
       },
       {
+        path: '/announcements',
+        name: 'Announcements',
+        component: () =>
+          import(/* webpackChunkName: "announcements" */ '~/views/AnnouncementsPage.vue'),
+      },
+      {
         path: '/:catchAll(.*)',
         name: 'Not Found',
         component: () => import(/* webpackChunkName: "404" */ '~/views/404Page.vue'),

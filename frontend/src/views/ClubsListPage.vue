@@ -1,5 +1,5 @@
 <template>
-  <div class='flex flex-col items-center'>
+  <div class="flex flex-col items-center">
     <div
       style="text-shadow: 2px 2px #db7f43"
       class="text-white font-bold text-4xl self-stretch text-center bg-red-dark p-6"
@@ -16,7 +16,7 @@
           border-2 border-gray-300
           rounded-lg
           p-1
-          mb-8
+          mb-6
           focus:outline-none
           focus:ring-2 focus:ring-yellow-600
           focus:border-transparent

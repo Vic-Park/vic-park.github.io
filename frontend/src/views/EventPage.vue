@@ -9,9 +9,7 @@
     <h2 class="font-bold text-2xl pt-4">Information</h2>
     <div class="pt-1 text-md">{{ information }}</div>
   </template>
-  <div v-else>
-    Sorry, no club exists at this URL. However, you can start your own!
-  </div>
+  <div v-else>Sorry, no club exists at this URL. However, you can start your own!</div>
 </template>
 
 <script lang="ts">
