@@ -1,5 +1,5 @@
 <template>
-  <div id="clubs" class="flex flex-wrap justify-center max-w-3card mt-8 mb-16">
+  <div id="clubs" class="flex flex-wrap justify-center max-w-3card mt-8 mb-16 mx-8">
     <ClubGalleryCard
       v-for="club in clubsArray"
       :key="club.slug"
