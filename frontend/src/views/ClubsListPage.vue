@@ -16,7 +16,7 @@
           border-2 border-gray-300
           rounded-lg
           p-1
-          mb-8
+          mb-6
           focus:outline-none
           focus:ring-2 focus:ring-yellow-600
           focus:border-transparent
