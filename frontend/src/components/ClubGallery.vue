@@ -1,9 +1,6 @@
 <template>
-  <div class="mt-8 mb-16 py-4">
-    <div
-      id="clubs"
-      class="flex gap-6 flex-wrap justify-items-stretch p-6 max-w-3card mx-8 bg-burgundy"
-    >
+  <div class="mt-8 mb-16">
+    <div id="clubs" class="flex flex-wrap justify-center max-w-3card mx-8">
       <ClubGalleryCard
         v-for="club in clubsArray"
         :key="club.slug"
