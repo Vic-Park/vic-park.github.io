@@ -11,27 +11,13 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": "..",
-    "types": [
-      "webpack-env",
-      "./types"
-    ],
+    "types": ["webpack-env", "./types"],
     "paths": {
-      "~/*": [
-        "./frontend/src/*"
-      ],
-      "~data/*": [
-        "./types/data-files/*"
-      ],
-      "~types/*": [
-        "./types/*"
-      ]
+      "~/*": ["./frontend/src/*"],
+      "~data/*": ["./types/data-files/*"],
+      "~types/*": ["./types/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [
     "types/*.d.ts",
@@ -41,7 +27,5 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
