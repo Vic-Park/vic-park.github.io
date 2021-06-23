@@ -5,14 +5,14 @@
     <div id="equity" class="mb-2 mt-8 font-kollektif text-center text-red text-4xl">
       clubs equity statement
     </div>
-    <div class="max-w-4xl italic font-medium text-red-dark text-center">
+    <div class="max-w-4xl italic font-medium text-red-dark text-center px-8">
       Clubs offered at VP aim to create inclusive spaces for everyone. Students of all identities
       and experiences are welcome to join clubs where members can come together based on shared
       interests. Each club is a reflection of the larger school community where all voices are
       valued and heard.
     </div>
     <ClubGallery class="my-8" />
-    <div class="max-w-6xl mb-8 flex flex-col">
+    <div class="max-w-6xl mb-8 flex flex-col px-8">
       <div class="text-4xl font-bold text-center pb-8">Recent Announcements</div>
       <div v-for="announcement in announcementsArray" :key="announcement.slug" class="pb-8">
         <ClubAnnouncementListing

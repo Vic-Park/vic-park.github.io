@@ -1,12 +1,11 @@
 <template>
-  <div id="clubs" class="flex flex-wrap justify-center max-w-3card mt-8 mb-16 mx-8">
-    <ClubGalleryCard
-      v-for="club in clubsArray"
-      :key="club.slug"
-      :name="club.name"
-      :description="club.description"
-      :slug="club.slug"
-    />
+  <div id="clubs" class="mt-12 mb-16 mx-8 max-w-6xl w-full">
+    <div class="relative club-gallery">
+      <div class="grid-background bg-red-dark"></div>
+      <div v-for="club in clubsArray" :key="club.slug" class="m-4">
+        <ClubGalleryCard :name="club.name" :description="club.description" :slug="club.slug" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,3 +38,21 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.grid-background {
+  position: absolute;
+  grid-column: 1 / -1;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  margin-top: -1rem;
+  margin-left: -1rem;
+}
+
+.club-gallery {
+  display: grid;
+  position: relative;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, auto));
+}
+</style>

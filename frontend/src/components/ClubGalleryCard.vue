@@ -1,6 +1,6 @@
 <template>
-  <div class="flip-card p-3 bg-burgundy">
-    <div class="flip-card-inner w-80 h-80 relative">
+  <div class="flip-card">
+    <div class="flip-card-inner w-full h-80 relative">
       <div class="flip-card-front absolute w-full h-full">
         <img
           :src="imgPath"
@@ -21,31 +21,6 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-.flip-card {
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-
-.flip-card-inner {
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
-.flip-card-back {
-  transform: rotateY(180deg);
-}
-</style>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
@@ -75,3 +50,28 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.flip-card {
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.flip-card-inner {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+</style>
