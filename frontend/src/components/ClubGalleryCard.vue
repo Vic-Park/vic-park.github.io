@@ -58,6 +58,12 @@ export default defineComponent({
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
+.flip-card-front,
+.flip-card-back {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
 .flip-card-inner {
   transition: transform 0.8s;
   transform-style: preserve-3d;
