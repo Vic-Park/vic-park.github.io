@@ -6,8 +6,8 @@
       v-for="event in eventsArray"
       :description="event.description"
       :name="event.name"
-      :start="event.start"
-      :end="event.end"
+      :start="event.start.toString()"
+      :end="event.end.toString()"
       :slug="event.slug"
       :key="event.slug"
     />

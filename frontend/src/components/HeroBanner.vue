@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <div v-for="{ name, route } in tabs" :key="name">
-      <router-link :to="route">{{ name }}</router-link>
-    </div>
-    <div class="relative">
-      <div class="absolute background-tint inset-0" />
-      <img src="/img/hero-image.jpg" class="object-cover hero-image w-full" />
-      <div class="absolute inset-0 flex flex-col items-center justify-center">
-        <div class="z-10 hero-title text-white font-kollektif">victoria park ci</div>
-        <router-link class="z-10 bg-yellow-400 py-3 px-5 text-white" to="/clubs">
-          explore
-        </router-link>
-      </div>
+  <div class="relative">
+    <div class="absolute background-tint inset-0" />
+    <img src="/img/hero-image.jpg" class="object-cover hero-image w-full" />
+    <div class="absolute inset-0 flex flex-col items-center justify-center">
+      <div class="z-10 hero-title text-white font-kollektif">victoria park ci</div>
+      <router-link class="z-10 bg-yellow-400 py-3 px-5 text-white" to="/clubs">
+        explore
+      </router-link>
     </div>
   </div>
 </template>

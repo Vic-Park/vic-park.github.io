@@ -4,8 +4,8 @@
 
 <script lang="ts">
 import { Calendar, EventInput } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import { defineComponent, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 

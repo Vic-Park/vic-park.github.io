@@ -7,10 +7,10 @@
   </div>
   <div class="flex flex-col items-center mt-12">
     <div class="max-w-6xl px-12">
-      <div v-for="announcement in announcementsArray" :key="announcement.slug" class="pb-8">
+      <div v-for="announcement in announcementsArray" :key="announcement.title" class="pb-8">
         <ClubAnnouncementListing
           :title="announcement.title"
-          :date="announcement.date"
+          :date="announcement.date.toString()"
           :content="announcement.content"
         />
       </div>

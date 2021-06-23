@@ -22,7 +22,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* Styling borrow from Quasar's QIcon */
+/* Styling borrowed from Quasar's QIcon */
 .vue-icon {
   line-height: 1;
   letter-spacing: normal;

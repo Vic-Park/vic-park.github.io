@@ -12,7 +12,10 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style>
+* {
+  box-sizing: border-box;
+}
 #app {
   font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
