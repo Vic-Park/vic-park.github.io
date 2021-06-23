@@ -10,11 +10,11 @@
         />
       </div>
       <div class="flip-card-back w-full h-full bg-white absolute text-burgundy text-center p-4">
-        <h4 class="font-bold text-xl text-center mb-4">{{ name }}</h4>
+        <h4 class="font-black uppercase text-xl text-center mb-4">{{ name }}</h4>
         <p class="">{{ description }}</p>
         <div class="w-full my-auto">
           <a :href="clubPagePath" class="absolute bottom-6 left-0 right-0">
-            <vue-icon :icon="mdiArrowRight" size="30px" class="mx-auto text-burgundy" @click.stop />
+            <vue-icon :icon="mdiArrowRight" size="30px" class="mx-auto text-yellow" />
           </a>
         </div>
       </div>
