@@ -9,7 +9,9 @@ module.exports = {
           DEFAULT: '#e60400',
           dark: '#bb0e0a',
         },
-        yellow: '#ffd621',
+        yellow: {
+          DEFAULT: '#ffd621',
+        },
       },
       transitionProperty: {
         height: 'height',
