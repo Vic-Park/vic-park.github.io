@@ -43,21 +43,21 @@ export default defineComponent({
   },
   setup(props) {
     const isDescriptionActive = ref(false);
-    const hasMouseLeft = ref(true);
+    let hasMouseLeft = true;
 
     const cardStyle = computed(() => ({
       transform: isDescriptionActive.value ? 'rotateY(180deg)' : null,
     }));
 
     function onMouseOver() {
-      if (hasMouseLeft.value) {
-        hasMouseLeft.value = false;
+      if (hasMouseLeft) {
+        hasMouseLeft = false;
         isDescriptionActive.value = true;
       }
     }
 
     function onMouseLeave() {
-      hasMouseLeft.value = true;
+      hasMouseLeft = true;
     }
 
     function onClick() {
@@ -66,12 +66,11 @@ export default defineComponent({
 
     const imgPath = `/img/club-thumbnail-img/${props.slug}.jpg`;
     const clubPagePath = `/club/${props.slug}`;
+
     return {
       imgPath,
       clubPagePath,
       mdiArrowRight,
-      isDescriptionActive,
-      hasMouseLeft,
       onMouseOver,
       onMouseLeave,
       onClick,
