@@ -53,6 +53,6 @@ export default defineComponent({
   display: grid;
   position: relative;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, auto));
+  grid-template-columns: repeat(auto-fit, minmax(24rem, max-content));
 }
 </style>
