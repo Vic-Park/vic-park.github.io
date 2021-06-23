@@ -1,7 +1,7 @@
 <template>
   <div id="clubs" class="mt-12 mb-16 mx-8 max-w-6xl w-full">
     <div class="relative club-gallery">
-      <div class="grid-background bg-red-dark"></div>
+      <div class="grid-background bg-burgundy"></div>
       <div v-for="club in clubsArray" :key="club.slug" class="m-4">
         <ClubGalleryCard :name="club.name" :description="club.description" :slug="club.slug" />
       </div>
