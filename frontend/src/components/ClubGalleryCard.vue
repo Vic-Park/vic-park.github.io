@@ -14,7 +14,7 @@
         <p class="">{{ description }}</p>
         <div class="w-full my-auto">
           <a :href="clubPagePath" class="absolute bottom-6 left-0 right-0">
-            <vue-icon :icon="mdiArrowRight" size="30px" class="mx-auto text-yellow" />
+            <vue-icon :icon="mdiArrowRight" size="30px" class="mx-auto text-yellow" @click.stop />
           </a>
         </div>
       </div>
