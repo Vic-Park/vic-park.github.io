@@ -18,7 +18,16 @@ module.exports = {
       },
       maxWidth: {
         80: '20rem',
-        '3card': '67rem',
+        '3card': '66rem',
+        '2card': '44.5rem',
+      },
+      width: {
+        '3card': '66rem',
+        '2card': '44.5rem',
+      },
+      screens: {
+        '2card': '840px',
+        '3card': '1184px',
       },
     },
     fontFamily: {
