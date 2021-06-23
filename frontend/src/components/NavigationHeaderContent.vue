@@ -2,8 +2,8 @@
   <div class="flex flex-1 flex-row gap-x-4 justify-end">
     <NavigationHeaderLink
       class="mx-2"
-      :key="tab.title"
       v-for="tab in tabs"
+      :key="tab.title"
       :route="tab.route"
       :toId="tab.toId"
       :title="tab.title"
@@ -13,7 +13,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
+import { Tab } from '~/types/tab';
 
 import NavigationHeaderLink from './NavigationHeaderLink.vue';
 
@@ -21,7 +22,7 @@ export default defineComponent({
   name: 'NavigationHeader',
   props: {
     tabs: {
-      type: Array,
+      type: Array as PropType<Tab[]>,
       required: true,
     },
   },

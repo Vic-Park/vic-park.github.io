@@ -12,10 +12,6 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "..",
-    "types": [
-      "webpack-env",
-      "./types"
-    ],
     "paths": {
       "~/*": [
         "./frontend/src/*"

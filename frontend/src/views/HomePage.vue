@@ -14,10 +14,10 @@
     <ClubGallery class="my-8" />
     <div class="max-w-6xl mb-8 flex flex-col px-8">
       <div class="text-4xl font-bold text-center pb-8">Recent Announcements</div>
-      <div v-for="announcement in announcementsArray" :key="announcement.slug" class="pb-8">
+      <div v-for="announcement in announcementsArray" :key="announcement.title" class="pb-8">
         <ClubAnnouncementListing
           :title="announcement.title"
-          :date="announcement.date"
+          :date="announcement.date.toString()"
           :content="announcement.content"
         />
       </div>
@@ -53,7 +53,6 @@ export default defineComponent({
     ClubGallery,
   },
   setup() {
-    // Only retrieving the latest 3 announcements
     const announcementsArray = createAnnouncementsArray(announcements).slice(0, 3);
 
     return {
