@@ -11,7 +11,8 @@ joinInstructions: >-
   for General Members.
 meetingTimes: Monday at 4PM using Zoom (bi-weekly)
 name: >-
-  Medicine Education and Development for Low Income Families Everywhere (MEDLIFE VP)
+  Medicine Education and Development for Low Income Families Everywhere at
+  Victoria Park Collegiate Institute (MEDLIFE VP)
 onlinePlatforms: 'Instagram page for MEDLIFE VP: @medlifevp'
 shortDescription: >-
   MEDLIFE is a non-profit organization that partners with low-income communities
