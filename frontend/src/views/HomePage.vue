@@ -2,7 +2,8 @@
   <LandingNavigationHeader />
   <HeroBanner />
   <div class="flex flex-col items-center">
-    <div class="my-8">
+    <ExploreButton class="sm:hidden mt-10" />
+    <div>
       <div id="equity" class="mb-6 mt-8 font-kollektif text-center text-red text-4xl">
         clubs equity statement
       </div>
@@ -43,6 +44,7 @@ import { defineComponent } from 'vue';
 
 import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
 import ClubGallery from '~/components/ClubGallery.vue';
+import ExploreButton from '~/components/ExploreButton.vue';
 import HeroBanner from '~/components/HeroBanner.vue';
 import LandingNavigationHeader from '~/components/LandingNavigationHeader.vue';
 import { createAnnouncementsArray } from '~/utils/announcement';
@@ -55,6 +57,7 @@ export default defineComponent({
     HeroBanner,
     ClubAnnouncementListing,
     ClubGallery,
+    ExploreButton,
   },
   setup() {
     const announcementsArray = createAnnouncementsArray(announcements).slice(0, 3);

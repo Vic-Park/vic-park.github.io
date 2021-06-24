@@ -4,20 +4,18 @@
     <img src="/img/hero-image.jpg" class="object-cover hero-image w-full" />
     <div class="absolute inset-0 flex flex-col items-center justify-center">
       <div class="z-10 hero-title text-white font-kollektif">victoria park ci</div>
-      <router-link
-        class="z-10 bg-yellow mt-10 py-3 px-5 text-white text-3xl font-black"
-        to="/clubs"
-      >
-        explore
-      </router-link>
+      <ExploreButton class='hidden sm:block mt-5' />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import ExploreButton from '~/components/ExploreButton.vue';
 
-export default defineComponent({});
+export default defineComponent({
+  components: { ExploreButton },
+});
 </script>
 
 <style scoped>

@@ -17,9 +17,9 @@
       size="20px"
       @click="onMenuClick"
     />
-    <div v-if="isMenuVisible" class="relative z-50">
+    <div v-if="isMenuOpen" class="relative z-50" v-click-outside="() => (isMenuOpen = false)">
       <div class="flex flex-col absolute right-0 border rounded-sm overflow-hidden bg-white p-1">
-        <div v-for="tab in tabs" :key="tab.title">
+        <div v-for="tab in tabs" :key="tab.title" class="px-2 py-1">
           <NavigationHeaderLink
             :key="tab.title"
             :route="tab.route"
@@ -28,9 +28,21 @@
             :class="tab.class"
           >
             <template #link>
-              <router-link :to="tab.route" active-class="text-red">
-                <div class="text-lg hover:text-red">{{ tab.title }}</div>
-              </router-link>
+              <div @click="isMenuOpen = false">
+                <template v-if="tab.toId">
+                  <div
+                    @click="scrollToId(tab.toId)"
+                    class="cursor-pointer text-black text-lg hover:text-red"
+                  >
+                    {{ tab.title }}
+                  </div>
+                </template>
+                <template v-else>
+                  <router-link :to="tab.route" active-class="text-red">
+                    <div class="text-lg hover:text-red">{{ tab.title }}</div>
+                  </router-link>
+                </template>
+              </div>
             </template>
           </NavigationHeaderLink>
         </div>
@@ -43,8 +55,10 @@
 import { defineComponent, PropType, ref } from 'vue';
 import { Tab } from '~/types/tab';
 import { mdiMenu } from '@mdi/js';
+import { scrollToId } from '~/utils/scroll';
 
 import NavigationHeaderLink from './NavigationHeaderLink.vue';
+import VueIcon from './VueIcon.vue';
 
 export default defineComponent({
   name: 'NavigationHeader',
@@ -54,18 +68,19 @@ export default defineComponent({
       required: true,
     },
   },
-  components: { NavigationHeaderLink },
+  components: { NavigationHeaderLink, VueIcon },
   setup() {
-    const isMenuVisible = ref(false);
+    const isMenuOpen = ref(false);
 
     function onMenuClick() {
-      isMenuVisible.value = !isMenuVisible.value;
+      isMenuOpen.value = !isMenuOpen.value;
     }
 
     return {
       mdiMenu,
-      isMenuVisible,
+      isMenuOpen,
       onMenuClick,
+      scrollToId,
     };
   },
 });
