@@ -1,20 +1,37 @@
 <template>
-  <router-view />
+  <div class="flex flex-col h-full">
+    <div class="flex-grow">
+      <router-view />
+    </div>
+    <div class="flex-none">
+      <Footer />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import 'tailwindcss/tailwind.css';
 
 import { defineComponent } from 'vue';
+import Footer from '~/components/Footer.vue';
 
 export default defineComponent({
   name: 'App',
+  components: {
+    Footer,
+  },
 });
 </script>
 
 <style>
 * {
   box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
 }
 
 #app {
