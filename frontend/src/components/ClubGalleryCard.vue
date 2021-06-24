@@ -46,7 +46,7 @@ export default defineComponent({
     let hasMouseLeft = true;
 
     const cardStyle = computed(() => ({
-      transform: isDescriptionActive.value ? 'rotateY(180deg)' : null,
+      transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
     }));
 
     function onMouseOver() {
