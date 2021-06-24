@@ -10,11 +10,11 @@
         </div>
       </div>
 
-      <div class="w-full max-w-lg">
+      <div class="w-full max-w-xl">
         <img
           :src="imgPath"
           v-if="!imageNotFound"
-          class="mt-12 px-6"
+          class="mt-12 px-6 w-full"
           @error="imageNotFound = true"
         />
       </div>
