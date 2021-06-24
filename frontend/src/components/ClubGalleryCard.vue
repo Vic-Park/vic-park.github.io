@@ -4,7 +4,7 @@
       <div class="flip-card-front absolute w-full h-full" :style="frontCardStyle">
         <div v-if="clubHasImage" class="w-full h-full relative flex flex-col items-center">
           <img
-            class="absolute w-full h-full"
+            class="absolute w-full h-full object-cover object-center"
             :src="imgPath"
             @error="onImageLoadError"
             :alt="name"
@@ -130,7 +130,8 @@ export default defineComponent({
 .flip-card {
   perspective: 1000px;
 }
-
+at
+  Victoria Park Collegiate Institute 
 .flip-card-front,
 .flip-card-back {
   -webkit-backface-visibility: hidden; /* Safari */
