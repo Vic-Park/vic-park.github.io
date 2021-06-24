@@ -10,8 +10,6 @@
 </template>
 
 <script lang="ts">
-import 'tailwindcss/tailwind.css';
-
 import { defineComponent } from 'vue';
 import Footer from '~/components/Footer.vue';
 
@@ -33,7 +31,6 @@ body,
 #app {
   height: 100%;
 }
-
 
 #app {
   font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;

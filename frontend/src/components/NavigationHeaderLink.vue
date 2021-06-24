@@ -5,11 +5,13 @@
     </div>
   </template>
   <template v-else>
-    <div class="text-white" v-bind="$attrs">
-      <router-link :to="route" active-class="text-gray-300">
-        <div class="text-lg hover:text-gray-300" :class="textClass">{{ title }}</div>
-      </router-link>
-    </div>
+    <slot name="link">
+      <div class="text-white">
+        <router-link :to="route" active-class="text-gray-300">
+          <div class="text-lg hover:text-gray-300">{{ title }}</div>
+        </router-link>
+      </div>
+    </slot>
   </template>
 </template>
 
@@ -28,10 +30,6 @@ export default defineComponent({
       default: '',
     },
     route: {
-      type: String,
-      default: '',
-    },
-    textClass: {
       type: String,
       default: '',
     },
