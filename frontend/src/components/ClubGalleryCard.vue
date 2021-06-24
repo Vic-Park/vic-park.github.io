@@ -1,9 +1,14 @@
 <template>
   <div class="flip-card" @click="onClick">
     <div class="flip-card-inner w-full h-80 relative" :style="cardStyle">
-      <div class="flip-card-front absolute w-full h-full">
+      <div class="flip-card-front absolute w-full h-full" :style="frontCardStyle">
         <div v-if="clubHasImage" class="w-full h-full relative flex flex-col items-center">
-          <img class="absolute w-full h-full" :src="imgPath" @error="onImageLoadError" :alt="name" />
+          <img
+            class="absolute w-full h-full"
+            :src="imgPath"
+            @error="onImageLoadError"
+            :alt="name"
+          />
           <div
             class="
               font-bold
@@ -90,6 +95,10 @@ export default defineComponent({
       transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
     }));
 
+    const frontCardStyle = computed(() => ({
+      pointerEvents: isDescriptionActive.value ? 'none' : 'auto',
+    }));
+
     function onClick() {
       isDescriptionActive.value = !isDescriptionActive.value;
     }
@@ -111,6 +120,7 @@ export default defineComponent({
       isDescriptionActive,
       onClick,
       cardStyle,
+      frontCardStyle,
     };
   },
 });
@@ -135,6 +145,7 @@ export default defineComponent({
 }
 
 .flip-card-back {
+  position: absolute;
   transform: rotateY(180deg);
 }
 </style>
