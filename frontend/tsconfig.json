@@ -13,11 +13,22 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "..",
     "paths": {
-      "~/*": ["./frontend/src/*"],
-      "~data/*": ["./types/data-files/*"],
-      "~types/*": ["./types/*"]
+      "~/*": [
+        "./frontend/src/*"
+      ],
+      "~data/*": [
+        "./types/data-files/*"
+      ],
+      "~types/*": [
+        "./types/*"
+      ]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
   },
   "include": [
     "types/*.d.ts",
@@ -25,7 +36,10 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "csstype"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev:frontend": "yarn workspace frontend dev",
-    "prune:frontend": "rm -rf google-sheets-auto-pr",
+    "prune:frontend": "rm -rf google-sheets-auto-update",
     "build:frontend": "yarn workspace frontend build",
     "heroku-prebuild": "rm -rf frontend scripts"
   },

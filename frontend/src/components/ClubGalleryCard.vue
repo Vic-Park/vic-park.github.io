@@ -71,7 +71,7 @@
 <script lang="ts">
 import { mdiArrowRight } from '@mdi/js';
 import { defineComponent, ref, computed } from 'vue';
-import { PointerEventsProperty } from 'csstype';
+import * as CSS from 'csstype';
 
 export default defineComponent({
   props: {
@@ -96,8 +96,8 @@ export default defineComponent({
       transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
     }));
 
-    const frontCardStyle = computed(() => ({
-      pointerEvents: (isDescriptionActive.value ? 'none' : 'auto') as PointerEventsProperty,
+    const frontCardStyle = computed<CSS.Properties>(() => ({
+      pointerEvents: isDescriptionActive.value ? 'none' : 'auto',
     }));
 
     function onClick() {
