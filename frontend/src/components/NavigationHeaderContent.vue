@@ -31,7 +31,7 @@
               <div @click="isMenuOpen = false">
                 <template v-if="tab.toId">
                   <div
-                    @click="scrollToId(tab.toId)"
+                    @click="tab.toId && scrollToId(tab.toId)"
                     class="cursor-pointer text-black text-lg hover:text-red"
                   >
                     {{ tab.title }}
