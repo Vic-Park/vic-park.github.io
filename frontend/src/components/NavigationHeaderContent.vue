@@ -28,7 +28,7 @@
             :class="tab.class"
           >
             <template #link>
-              <router-link :to="route" active-class="text-red">
+              <router-link :to="tab.route" active-class="text-red">
                 <div class="text-lg hover:text-red">{{ tab.title }}</div>
               </router-link>
             </template>
