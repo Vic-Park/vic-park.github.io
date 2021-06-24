@@ -1,20 +1,47 @@
 <template>
-  <div class="flip-card" @mouseover="onMouseOver" @mouseleave="onMouseLeave" @click="onClick">
+  <div class="flip-card" @click="onClick">
     <div class="flip-card-inner w-full h-80 relative" :style="cardStyle">
       <div class="flip-card-front absolute w-full h-full">
         <img
+          v-if="clubHasImage"
           :src="imgPath"
-          onerror="this.onerror=null;this.src='/img/vic-park-logo.png'"
+          @error="onImageLoadError"
           :alt="name"
           class="w-full h-full"
         />
+        <div
+          v-else
+          class="
+            font-bold 
+            text-4xl 
+            text-center 
+            transform 
+            -translate-x-1/2 
+            -translate-y-1/2 
+            absolute 
+            top-1/2 left-1/2 
+            p-8 
+            w-full
+            flex
+            flex-col
+            items-center
+            "
+        >
+          {{ name }}
+          <img src="/img/vic-park-logo.png" width="150" />
+        </div>
       </div>
       <div class="flip-card-back w-full h-full bg-white absolute text-burgundy text-center p-4">
-        <h4 class="font-black uppercase text-xl text-center mb-4">{{ name }}</h4>
-        <p class="">{{ description }}</p>
+        <h4 class="font-black uppercase text-xl text-center mb-2">{{ name }}</h4>
+        <p class="text-md">{{ description }}</p>
         <div class="w-full my-auto">
-          <a :href="clubPagePath" class="absolute bottom-6 left-0 right-0">
-            <vue-icon :icon="mdiArrowRight" size="30px" class="mx-auto text-yellow" @click.stop />
+          <a :href="clubPagePath" class="absolute bottom-4 left-0 right-0">
+            <vue-icon
+              :icon="mdiArrowRight"
+              size="30px"
+              class="hover:text-burgundy mx-auto text-yellow"
+              @click.stop
+            />
           </a>
         </div>
       </div>
@@ -43,25 +70,19 @@ export default defineComponent({
   },
   setup(props) {
     const isDescriptionActive = ref(false);
-    let hasMouseLeft = true;
+    const clubHasImage = ref(true);
 
     const cardStyle = computed(() => ({
       transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
     }));
 
-    function onMouseOver() {
-      if (hasMouseLeft) {
-        hasMouseLeft = false;
-        isDescriptionActive.value = true;
-      }
-    }
-
-    function onMouseLeave() {
-      hasMouseLeft = true;
-    }
-
     function onClick() {
-      isDescriptionActive.value = false;
+      isDescriptionActive.value = !isDescriptionActive.value;
+    }
+
+    function onImageLoadError(event: Event) {
+      event.preventDefault();
+      clubHasImage.value = false;
     }
 
     const imgPath = `/img/club-thumbnail-img/${props.slug}.jpg`;
@@ -71,8 +92,9 @@ export default defineComponent({
       imgPath,
       clubPagePath,
       mdiArrowRight,
-      onMouseOver,
-      onMouseLeave,
+      clubHasImage,
+      onImageLoadError,
+      isDescriptionActive,
       onClick,
       cardStyle,
     };
