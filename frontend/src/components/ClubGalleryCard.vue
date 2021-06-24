@@ -49,14 +49,14 @@
         <h4 class="font-black uppercase text-xl text-center mb-2">{{ name }}</h4>
         <p class="text-md">{{ description }}</p>
         <div class="w-full my-auto">
-          <a :href="clubPagePath" class="absolute bottom-4 left-0 right-0">
+          <router-link :to="clubPagePath" class="absolute bottom-4 left-0 right-0">
             <vue-icon
               :icon="mdiArrowRight"
               size="30px"
               class="hover:text-burgundy mx-auto text-yellow"
               @click.stop
             />
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
