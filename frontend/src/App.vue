@@ -23,7 +23,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="postcss">
 * {
   box-sizing: border-box;
 }
@@ -32,6 +32,10 @@ html,
 body,
 #app {
   height: 100%;
+}
+
+#app a {
+  @apply underline text-blue-600 hover:text-blue-800;
 }
 
 #app {

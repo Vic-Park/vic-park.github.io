@@ -10,13 +10,18 @@
         </div>
       </div>
 
-      <img :src="imgPath" v-if="!imageNotFound" class="mt-12 max-w-3xl" @error="imageNotFound = true" />
+      <img
+        :src="imgPath"
+        v-if="!imageNotFound"
+        class="mt-12 max-w-3xl"
+        @error="imageNotFound = true"
+      />
 
-      <div class="max-w-4xl text-left">
+      <div class="max-w-4xl text-left px-8">
         <div v-for="{ name, content } in sections" :key="name">
           <div v-if="content !== ''" class="pt-12">
             <strong class="block">{{ name }}:</strong>
-            {{ content }}
+            <div v-html="content"></div>
           </div>
         </div>
       </div>
@@ -28,6 +33,8 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import Autolinker from 'autolinker';
+import DOMPurify from 'dompurify';
 
 import clubs from '~data/clubs';
 
@@ -89,7 +96,12 @@ export default defineComponent({
         name: 'Extra Information',
         content: extraInformation,
       },
-    ];
+    ].map(section => {
+      return {
+        ...section,
+        content: DOMPurify.sanitize(Autolinker.link(section.content)),
+      };
+    });
 
     const imgPath = `/img/club-thumbnail-img/${clubSlug}.jpg`;
 
