@@ -71,6 +71,7 @@
 <script lang="ts">
 import { mdiArrowRight } from '@mdi/js';
 import { defineComponent, ref, computed } from 'vue';
+import { PointerEventsProperty } from 'csstype';
 
 export default defineComponent({
   props: {
@@ -96,7 +97,7 @@ export default defineComponent({
     }));
 
     const frontCardStyle = computed(() => ({
-      pointerEvents: isDescriptionActive.value ? 'none' : 'auto',
+      pointerEvents: (isDescriptionActive.value ? 'none' : 'auto') as PointerEventsProperty,
     }));
 
     function onClick() {
@@ -130,9 +131,7 @@ export default defineComponent({
 .flip-card {
   perspective: 1000px;
 }
-at
-  Victoria Park Collegiate Institute 
-.flip-card-front,
+at Victoria Park Collegiate Institute .flip-card-front,
 .flip-card-back {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
