@@ -23,6 +23,7 @@
               text-black
               border-2
               border-black
+              text-sm
               "
           >
             {{ name }}
