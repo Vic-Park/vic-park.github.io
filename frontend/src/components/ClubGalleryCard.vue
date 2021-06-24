@@ -2,13 +2,25 @@
   <div class="flip-card" @click="onClick">
     <div class="flip-card-inner w-full h-80 relative" :style="cardStyle">
       <div class="flip-card-front absolute w-full h-full">
-        <img
-          v-if="clubHasImage"
-          :src="imgPath"
-          @error="onImageLoadError"
-          :alt="name"
-          class="w-full h-full"
-        />
+        <div v-if="clubHasImage" class="w-full h-full relative">
+          <img class="w-full h-full" :src="imgPath" @error="onImageLoadError" :alt="name" />
+          <div
+            class="
+              absolute 
+              top-0
+              left-1/2 
+              font-bold
+              p-1
+              text-center
+              inline-block
+              transform 
+              -translate-x-1/2 
+              bg-white
+              text-black"
+          >
+            {{ name }}
+          </div>
+        </div>
         <div
           v-else
           class="
