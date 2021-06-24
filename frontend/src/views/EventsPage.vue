@@ -1,16 +1,18 @@
 <template>
   <div class="mt-16">
     <EventsCalendar />
-    <h1 class="text-4xl font-bold py-8 text-center">Upcoming Club Events</h1>
-    <EventListing
-      v-for="event in eventsArray"
-      :description="event.description"
-      :name="event.name"
-      :start="event.start.toString()"
-      :end="event.end.toString()"
-      :slug="event.slug"
-      :key="event.slug"
-    />
+    <div class="px-16 pt-6 pb-16">
+      <h1 class="text-4xl font-bold py-8 text-center">Upcoming Club Events</h1>
+      <EventListing
+        v-for="event in eventsArray"
+        :description="event.description"
+        :name="event.name"
+        :start="event.start.toString()"
+        :end="event.end.toString()"
+        :slug="event.slug"
+        :key="event.slug"
+      />
+    </div>
   </div>
 </template>
 
