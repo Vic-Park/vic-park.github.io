@@ -11,11 +11,11 @@ The two main elements of this service are the backend (which should be hosted on
 ## Flow
 
 1. The backend hosts a minimalistic UI which allows the user to press a button to update the site provided they know the secret.
-3. The button sends a post request to the backend, triggering the update function.
-4. The backend verifies that the secret is valid.
-5. The backend then retrieves the data from the Google Sheets, parses them, and compares them to the files currently active on the repository.
-6. If changes were detected between the Google Sheets' data and the repository, the backend will then programmatically update files in the repository, making sure only to trigger the GitHub Actions on the last file that needs to be updated.
-7. The GitHub actions workflow will automatically be run and will re-build and update the main site.
+2. The button sends a post request to the backend, triggering the update function.
+3. The backend verifies that the secret is valid.
+4. The backend then retrieves the data from the Google Sheets, parses them, and compares them to the files currently active on the repository.
+5. If changes were detected between the Google Sheets' data and the repository, the backend will then programmatically update files in the repository, making sure only to trigger the GitHub Actions on the last file that needs to be updated.
+6. The GitHub actions workflow will automatically be run and will re-build and update the main site.
 
 ## Requirements
 
