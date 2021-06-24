@@ -1,7 +1,7 @@
 <template>
   <slot name="link">
     <template v-if="toId">
-      <div @click="scrollToId(toId)" class="cursor-pointer text-white text-lg hover:text-blue-400">
+      <div @click="scrollToId(toId)" class="cursor-pointer text-white text-lg hover:text-gray-300">
         {{ title }}
       </div>
     </template>
