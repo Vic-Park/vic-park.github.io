@@ -10,12 +10,14 @@
         </div>
       </div>
 
-      <img
-        :src="imgPath"
-        v-if="!imageNotFound"
-        class="mt-12 max-w-3xl"
-        @error="imageNotFound = true"
-      />
+      <div class="w-full max-w-lg">
+        <img
+          :src="imgPath"
+          v-if="!imageNotFound"
+          class="mt-12 px-6"
+          @error="imageNotFound = true"
+        />
+      </div>
 
       <div class="max-w-4xl text-left px-8">
         <div v-for="{ name, content } in sections" :key="name">

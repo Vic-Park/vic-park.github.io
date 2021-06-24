@@ -11,11 +11,6 @@ import NavigationHeaderContent from './NavigationHeaderContent.vue';
 
 const tabs = [
   {
-    title: 'home',
-    route: '/',
-    class: 'mr-auto',
-  },
-  {
     title: 'announcements',
     route: '/announcements',
   },

@@ -5,9 +5,11 @@
     </div>
   </template>
   <template v-else>
-    <router-link :to="route" active-class="text-blue-400">
-      <div class="text-white text-lg hover:text-blue-400">{{ title }}</div>
-    </router-link>
+    <div class="text-white" v-bind="$attrs">
+      <router-link :to="route" active-class="text-gray-300">
+        <div class="text-lg hover:text-gray-300" :class="textClass">{{ title }}</div>
+      </router-link>
+    </div>
   </template>
 </template>
 
@@ -15,6 +17,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  inheritAttrs: false,
   props: {
     title: {
       type: String,
@@ -25,6 +28,10 @@ export default defineComponent({
       default: '',
     },
     route: {
+      type: String,
+      default: '',
+    },
+    textClass: {
       type: String,
       default: '',
     },

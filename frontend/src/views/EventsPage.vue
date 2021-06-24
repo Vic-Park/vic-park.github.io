@@ -1,5 +1,5 @@
 <template>
-  <div class="p-16">
+  <div class="mt-16">
     <EventsCalendar />
     <h1 class="text-4xl font-bold py-8 text-center">Upcoming Club Events</h1>
     <EventListing
