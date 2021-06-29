@@ -6,7 +6,7 @@
           {{ name }}
         </h1>
         <div class="italic font-bold px-6 max-w-4xl leading-9">
-          {{ shortDescription }}
+          {{ equityStatement }}
         </div>
       </div>
 
@@ -63,9 +63,16 @@ export default defineComponent({
       onlinePlatforms,
       joinInstructions,
       extraInformation,
+      equityStatement,
     } = clubs[clubSlug].data;
 
+    const processedEquityStatement = equityStatement.replace(/\[|\]/g, '');
+
     const sections = [
+      {
+        name: 'Description',
+        content: shortDescription,
+      },
       {
         name: 'Staff Supervisor',
         content: staffSupervisor,
@@ -117,7 +124,7 @@ export default defineComponent({
       found: true,
       imageNotFound,
       name,
-      shortDescription,
+      equityStatement: processedEquityStatement,
       sections,
       imgPath,
     };

@@ -53,9 +53,12 @@
       </div>
       <div class="flip-card-back w-full h-full bg-white absolute text-burgundy text-center p-4">
         <h4 class="font-black uppercase text-xl text-center mb-2">{{ name }}</h4>
-        <p class="text-md">{{ description }}</p>
+        <p class="text-md">{{ clippedEquityStatement }}</p>
         <div class="w-full my-auto">
-          <router-link :to="clubPagePath" class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+          <router-link
+            :to="clubPagePath"
+            class="absolute bottom-4 left-1/2 transform -translate-x-1/2"
+          >
             <vue-icon
               :icon="mdiArrowRight"
               size="30px"
@@ -88,6 +91,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    equityStatement: {
+      type: String,
+      required: true,
+    },
   },
   setup(props) {
     const isDescriptionActive = ref(false);
@@ -104,6 +111,13 @@ export default defineComponent({
     function onClick() {
       isDescriptionActive.value = !isDescriptionActive.value;
     }
+
+    const clippedEquityStatement = computed(() => {
+      console.log(props.equityStatement);
+      const openingBracketIndex = props.equityStatement.indexOf('[');
+      const closingBracketIndex = props.equityStatement.indexOf(']');
+      return props.equityStatement.slice(openingBracketIndex + 1, closingBracketIndex);
+    });
 
     function onImageLoadError(event: Event) {
       event.preventDefault();
@@ -123,6 +137,7 @@ export default defineComponent({
       onClick,
       cardStyle,
       frontCardStyle,
+      clippedEquityStatement,
     };
   },
 });

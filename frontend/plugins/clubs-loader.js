@@ -32,6 +32,7 @@ export default function clubsLoader() {
             'joinInstructions',
             'onlinePlatforms',
             'timeCommitment',
+            'equityStatement'
           ]),
         });
 

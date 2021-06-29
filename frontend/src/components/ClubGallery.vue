@@ -3,7 +3,12 @@
     <div class="relative club-gallery">
       <div class="grid-background bg-burgundy"></div>
       <div v-for="club in clubsArray" :key="club.slug" class="m-4">
-        <ClubGalleryCard :name="club.name" :description="club.description" :slug="club.slug" />
+        <ClubGalleryCard
+          :name="club.name"
+          :description="club.description"
+          :slug="club.slug"
+          :equityStatement="club.equityStatement"
+        />
       </div>
     </div>
   </div>
@@ -22,6 +27,7 @@ export default defineComponent({
       slug: data.slug,
       name: data.name,
       description: data.shortDescription,
+      equityStatement: data.equityStatement,
     }));
 
     return {
