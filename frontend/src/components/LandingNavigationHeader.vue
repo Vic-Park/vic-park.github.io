@@ -16,10 +16,6 @@ const tabs: Tab[] = [
     route: '/announcements',
   },
   {
-    title: 'equity',
-    toId: 'equity',
-  },
-  {
     title: 'clubs',
     route: '/clubs',
   },

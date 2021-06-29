@@ -12,6 +12,7 @@ export type ClubMetadata = {
   joinInstructions: string;
   onlinePlatforms: string;
   timeCommitment: string;
+  equityStatement: string;
 };
 
 export type Club = Entry<EntryType.club>;

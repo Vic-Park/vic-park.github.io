@@ -44,6 +44,7 @@ app.post('/', async (request, reply) => {
     includeGridData: true,
   });
 
+  console.info('Retrieving GitHub entry updates...');
   const githubEntryUpdates = [
     ...(await getGithubAnnouncementUpdates({ spreadsheetData })),
     ...(await getGithubClubUpdates({ spreadsheetData })),
@@ -55,6 +56,7 @@ app.post('/', async (request, reply) => {
     return;
   }
 
+  console.info('Updating GitHub files...');
   await updateGithubFiles(githubEntryUpdates);
 
   reply.send('Request successfully processed.');

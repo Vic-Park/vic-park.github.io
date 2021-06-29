@@ -2,6 +2,7 @@ import { GithubFile } from '~/github';
 import { octokit } from '~/github';
 
 export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
+  console.log(path)
   // Retrieving the existing announcements from the GitHub repository
   const octokitResponse = await octokit.request(
     'GET /repos/{owner}/{repo}/contents/{path}',
@@ -11,6 +12,7 @@ export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
       path,
     }
   );
+  console.log('hi')
 
   const githubFiles = octokitResponse.data as GithubFile[];
 

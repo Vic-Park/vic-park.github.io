@@ -28,6 +28,7 @@ export async function getGithubClubUpdates({
       extraInformation,
       timeCommitment,
       _accessToSourceCode,
+      equityStatement,
       slug,
     ] = cleanSheetRow(club);
 
@@ -43,6 +44,7 @@ export async function getGithubClubUpdates({
         shortDescription,
         staffSupervisor,
         timeCommitment,
+        equityStatement
       },
       slug,
       type: EntryType.club,
