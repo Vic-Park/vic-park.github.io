@@ -15,5 +15,11 @@ staffSupervisor: Ms Keras and Ms Yeganegi
 timeCommitment: >-
   No fixed time commitment required. You are free to skip meetings if you need
   to. Math Club runs all year long.
+equityStatement: >-
+  [Math Club is committed to creating a safe learning environment for all
+  students, regardless of your skill level in math. Participants are encouraged
+  to freely ask questions during lessons, assured that all questions are good
+  questions.] Our goal is to improve the math skills of all participants and to
+  strengthen their love of math.
 ---
 
