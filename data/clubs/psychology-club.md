@@ -15,5 +15,11 @@ shortDescription: >-
   theories, facts and issues.
 staffSupervisor: Ms. Martyr-Andre
 timeCommitment: 'Half an hour, every 2 weeks throughout the school year'
+equityStatement: >-
+  [In Psychology Club, we prioritize providing a safe and welcoming environment
+  to all students so that they can freely express their passion and interests
+  with their peers.] We value all members' voices and strongly encourage the
+  expression and sharing of personal opinions, as we explore the social
+  sciences, as long as it does not cause harm to any other member.
 ---
 
