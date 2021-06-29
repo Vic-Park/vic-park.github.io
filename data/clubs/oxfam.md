@@ -16,5 +16,12 @@ shortDescription: >-
   hosting fundraisers, and providing volunteer experiences.
 staffSupervisor: Ms. Arjomand
 timeCommitment: 1-2 hours a week (year long)
+equityStatement: >-
+  [Oxfam at Victoria Park aims to ensure equity in all aspects of our club. We
+  believe that everyone should have equal opportunities to participate in
+  community involvement.] Whether it be fundraising with the help of local
+  businesses, or bringing awareness to current topics using graphics, our goal
+  is to ensure that events, and meetings always provide a safe and welcoming
+  space for members and participants alike.
 ---
 
