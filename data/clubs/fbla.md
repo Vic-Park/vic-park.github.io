@@ -21,5 +21,13 @@ staffSupervisor: Johnny Carunanithy
 timeCommitment: >-
   Since this club is competition based, time commitment to participate will last
   until the general member cannot move onto the next level of competition
+equityStatement: >-
+  [FBLA emphasizes the expression of passion for business with their peers. We
+  value members' voices and wish to ensure an enriching experience by increasing
+  the exposure in the field of business to the student body at Victoria Park
+  CI.] Meetings are always interactive to encourage active learning, and
+  exploration of the field of business outside of the competition. We are always
+  open to ideas to develop opportunities, and we want to ensure that
+  opportunities are given to all VP students.
 ---
 

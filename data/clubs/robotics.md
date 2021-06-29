@@ -22,5 +22,11 @@ staffSupervisor: Ms. Strelkovska
 timeCommitment: >-
   Commitment is strongly recommended as teamwork is one of the key factors of
   success in robotics.
+equityStatement: >-
+  [VEX Robotics Team fosters an inclusive, welcoming, and safe community where
+  every team member has opportunities to voice their opinions and ideas. We
+  value every idea.] Furthermore, VP’s VEX Robotics Team supplies every member
+  with many opportunities to contribute to the collective goals within the team.
+  Anyone at VP is welcome to join VP’s VEX Robotics Team.
 ---
 

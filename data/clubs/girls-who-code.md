@@ -13,5 +13,12 @@ shortDescription: >-
   to code! Come join us to learn more about computer science and technology!
 staffSupervisor: Ms. Strelkovska
 timeCommitment: 'At least once every other week, year long'
+equityStatement: >-
+  [Girls Who Code’s mission is to create a safe and encouraging environment for
+  all students (regardless of gender or skill) to pursue their interests! We
+  strive to ensure that everyone is heard and that their concerns are
+  addressed.] Computer science is often male dominated, which means gender
+  minorities often do not get the support they need to pursue computer science.
+  We hope that we can provide everyone with the same opportunities!
 ---
 

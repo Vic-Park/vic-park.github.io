@@ -34,5 +34,15 @@ timeCommitment: >-
   The time commitment requires an hour in full council meetings each week plus
   additional time for planning and executing initiatives such as our Wellness
   Wednesdays.
+equityStatement: >-
+  [VPCI’s Mental Health Awareness Council aims to create an inclusive  space for
+  ALL students and staff to raise awareness of and eliminate the stigma
+  surrounding mental health.] At MHAC, we strive to provide equal opportunities
+  for students from all grade levels and programs. We do this by creating an
+  environment that encourages and responds to student voice and is reflective of
+  students of all diverse areas and multiple identities. We practice equity in
+  both our meetings and training workshops by encouraging participation based on
+  everyone’s strengths and comfort levels when working on initiatives, and
+  hosting discussions where all members’ opinions are valued.
 ---
 

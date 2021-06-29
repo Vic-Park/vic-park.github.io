@@ -11,7 +11,8 @@ joinInstructions: >-
   for General Members.
 meetingTimes: Monday at 4PM using Zoom (bi-weekly)
 name: >-
-  Medicine Education and Development for Low Income Families Everywhere (MEDLIFE VP)
+  Medicine Education and Development for Low Income Families Everywhere (MEDLIFE
+  VP)
 onlinePlatforms: 'Instagram page for MEDLIFE VP: @medlifevp'
 shortDescription: >-
   MEDLIFE is a non-profit organization that partners with low-income communities
@@ -22,5 +23,10 @@ staffSupervisor: Olivia Wong
 timeCommitment: >-
   We require students who will be able to stay a part of this organization for
   the entire school year, as the club runs all year long.
+equityStatement: >-
+  [MEDLIFE’s VPCI chapter aims to ensure inclusivity in all aspects of our
+  chapter. We believe that everyone should have equal opportunities to
+  participate in community involvement.] We pledge to take into account the
+  differences between our peers, and ensure events are accommodating for all.
 ---
 

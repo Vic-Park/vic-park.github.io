@@ -28,5 +28,13 @@ timeCommitment: >-
   successful you will be!) We will accommodate those that require a more
   instructional approach to the HOSA competition. Our club runs from the
   beginning of the year up until late spring.
+equityStatement: >-
+  [HOSA at VP aims to include all students at Victoria Park and welcome them
+  into this community of aspiring leaders in health sciences.] HOSA is a gateway
+  for anyone with an interest in involving themselves with the healthcare
+  industry of the future. In this club, members learn and prepare for the annual
+  competition to ensure they perform to the best of their abilities. Any
+  concerns? Our executive team will be there to answer and ensure that the
+  student voice is heard.
 ---
 

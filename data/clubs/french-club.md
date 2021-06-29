@@ -12,5 +12,9 @@ shortDescription: >-
   can join and learn from each other.
 staffSupervisor: Mme. Khaikin
 timeCommitment: 'All year long, once a week for an hour'
+equityStatement: >-
+  [At French club we aim to have a welcoming environment during our meetings and
+  events. We also will continue to listen and value the ideas and insight of our
+  members to improve the club and events that the club will host.]
 ---
 

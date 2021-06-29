@@ -23,5 +23,15 @@ timeCommitment: >-
   to participate. Our goal is to create a safe and welcoming environment for
   students, so you can come to all our meetings and help plan events, or just
   drop in occasionally.
+equityStatement: >-
+  [At Pride VP, our goal is to spread love and positivity while building
+  community. We strive to create a safe and welcoming space where students of
+  all identities feel comfortable being themselves.] In our meetings, we try to
+  keep an inclusive and friendly environment where everyone's thoughts and ideas
+  are valued. We build community through various small events where students are
+  able to connect with one another and have fun. Simultaneously, we work to keep
+  the school community educated on lgbtq+ events and history, and raise
+  awareness for relevant issues faced by 2SLGBT+ youth within and outside of our
+  community.
 ---
 
