@@ -18,5 +18,10 @@ timeCommitment: >-
   VAC runs year long. In a typical year, the time commitment is at least 1 hour
   every week. In a COVID-19 affected year, the time commitment is 1 hour every 2
   weeks.
+equityStatement: >-
+  [At VP’s Visual Arts Council, we value inclusivity. Our goal is to create a
+  space where artists feel safe to be creative and express themselves through
+  the medium of the Visual Arts.] As a reflection of the school community, we
+  welcome all interested students and invite you to participate in this club.
 ---
 
