@@ -29,17 +29,28 @@
           </svg>
         </div>
         <div id="fc" ref="calendarRef" class="bg-white"></div>
+        <div
+          class="z-50 bg-white rounded-lg p-8 border-2"
+          ref="eventPopper"
+          v-show="activeEvent !== null"
+        >
+          <div v-if="activeEvent !== null" v-click-outside="() => (activeEvent = null)">
+            <div></div>
+            <div class="cursor-pointer" @click="viewMoreInformation">More Information</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Calendar, EventInput } from '@fullcalendar/core';
+import { Calendar, EventApi, EventInput } from '@fullcalendar/core';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, nextTick, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { createPopper } from '@popperjs/core';
 
 import events from '~data/events';
 
@@ -48,6 +59,9 @@ export default defineComponent({
     const calendarRef = ref<HTMLElement>();
     const router = useRouter();
     const activeMonth = ref();
+    const eventPopper = ref();
+    const activeEvent = ref<EventApi | null>(null);
+
     let calendar: Calendar;
 
     function getViewDateString(viewTitle: string) {
@@ -56,13 +70,16 @@ export default defineComponent({
 
     onMounted(() => {
       const eventsArray = Object.values(events);
+      let popper = createPopper(calendarRef.value!, eventPopper.value);
 
       calendar = new Calendar(calendarRef.value!, {
         plugins: [dayGridPlugin, timeGridPlugin],
         initialView: 'dayGridMonth',
         headerToolbar: false,
-        eventClick({ event }) {
-          router.push(`/event/${event.extendedProps.slug}`);
+        async eventClick({ event, el }) {
+          activeEvent.value = event;
+          popper.state.elements.reference = el;
+          await popper.update();
         },
         datesSet({ view }) {
           // Only extracting the month
@@ -92,11 +109,20 @@ export default defineComponent({
       calendar.next();
     }
 
+    function viewMoreInformation() {
+      if (activeEvent.value !== null) {
+        router.push(`/event/${activeEvent.value.extendedProps.slug}`);
+      }
+    }
+
     return {
       activeMonth,
+      activeEvent,
       onLeftMonthArrowClick,
       onRightMonthArrowClick,
+      viewMoreInformation,
       calendarRef,
+      eventPopper,
     };
   },
 });
