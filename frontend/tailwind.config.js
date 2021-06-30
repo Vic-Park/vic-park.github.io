@@ -36,6 +36,7 @@ module.exports = {
     },
     fontFamily: {
       kollektif: ['Kollektif'],
+      glacial: ['Glacial Indifference'],
     },
   },
   variants: {

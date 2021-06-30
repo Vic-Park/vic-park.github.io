@@ -147,11 +147,13 @@ export default defineComponent({
 .fc-event {
   cursor: pointer;
 }
+
 .fc-daygrid-event {
   display: grid;
   grid-template-columns: 20px auto;
   grid-template-rows: auto auto;
 }
+
 .fc-daygrid-event-dot {
   grid-column: 1 / span 1;
   grid-row: 1 / -1;
@@ -208,6 +210,10 @@ export default defineComponent({
 
 .fc .fc-day-other {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.fc .fc-daygrid-day-number {
+  font-family: 'Glacial Indifference';
 }
 </style>
 

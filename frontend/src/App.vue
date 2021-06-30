@@ -48,4 +48,15 @@ body,
   font-weight: bold;
   src: url('/fonts/Kollektif-Bold.ttf');
 }
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url('/fonts/GlacialIndifference-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  font-weight: bold;
+  src: url('/fonts/GlacialIndifference-Bold.otf');
+}
 </style>
