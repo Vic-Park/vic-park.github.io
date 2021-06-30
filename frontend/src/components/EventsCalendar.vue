@@ -1,43 +1,35 @@
 <template>
   <div class="flex-col flex items-center">
-    <div class="max-w-full overflow-auto bg-yellow px-8 pb-8">
-      <div class="flex flex-row justify-center items-center">
-        <svg
-          viewBox="0 0 10 10"
-          height="50"
-          width="50"
-          class="hover:scale-110 transition-transform"
-        >
-          <polygon
-            style="pointer-events: visibleFill"
-            class="cursor-pointer"
-            @click="onLeftMonthArrowClick"
-            points="1,5 10,0 10,10"
-            fill="white"
-          />
-        </svg>
-        <div
-          style="text-shadow: 5px 5px rgba(230, 4, 0, 0.4)"
-          class="text-white text-center font-extrabold text-[6rem] mx-14"
-        >
-          {{ activeMonth }}
+    <div class="overflow-auto max-w-full">
+      <div class="bg-yellow px-8 pb-8 w-[1000px]">
+        <div class="flex flex-row justify-center items-center">
+          <svg viewBox="0 0 10 10" class="arrow-svg">
+            <polygon
+              style="pointer-events: visibleFill"
+              class="cursor-pointer"
+              @click="onLeftMonthArrowClick"
+              points="1,5 10,0 10,10"
+              fill="white"
+            />
+          </svg>
+          <div
+            style="text-shadow: 5px 5px rgba(230, 4, 0, 0.4)"
+            class="text-white text-center font-extrabold text-[3rem] md:text-[6rem] mx-14"
+          >
+            {{ activeMonth }}
+          </div>
+          <svg viewBox="0 0 10 10" class="arrow-svg">
+            <polygon
+              style="pointer-events: visibleFill"
+              class="cursor-pointer"
+              @click="onRightMonthArrowClick"
+              points="0,0 0,10 9,5"
+              fill="white"
+            />
+          </svg>
         </div>
-        <svg
-          viewBox="0 0 10 10"
-          height="50"
-          width="50"
-          class="hover:scale-110 transition-transform"
-        >
-          <polygon
-            style="pointer-events: visibleFill"
-            class="cursor-pointer"
-            @click="onRightMonthArrowClick"
-            points="0,0 0,10 9,5"
-            fill="white"
-          />
-        </svg>
+        <div id="fc" ref="calendarRef" class="bg-white"></div>
       </div>
-      <div ref="calendarRef" style="width: 900px" class="bg-white"></div>
     </div>
   </div>
 </template>
@@ -110,6 +102,12 @@ export default defineComponent({
 });
 </script>
 
+<style lang="postcss" scoped>
+.arrow-svg {
+  @apply w-[2rem] h-[2rem] md:w-[3rem] md:h-[3rem] hover:scale-110 transition-transform;
+}
+</style>
+
 <style lang="postcss">
 .fc-event {
   cursor: pointer;
@@ -134,6 +132,47 @@ export default defineComponent({
 }
 
 .fc .fc-col-header-cell-cushion {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  vertical-align: top;
+  color: gray;
+}
+
+.fc .fc-scrollgrid-sync-inner {
+  text-align: left;
+}
+
+.fc-day-today {
+  position: relative;
+}
+
+.fc-day-today::before {
+  content: '';
+  position: absolute;
+  border: 2px solid red;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#fc .fc-day-today {
+  background-color: white;
+}
+
+#fc .fc-daygrid-day-top {
+  padding-left: 5px;
+  padding-top: 3px;
+  display: flex;
+  flex-direction: row;
+}
+
+#fc .fc-daygrid-day-number {
+  font-weight: bold;
+}
+
+.fc .fc-day-other {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 </style>
 
