@@ -35,8 +35,13 @@
           v-show="activeEvent !== null"
         >
           <div v-if="activeEvent !== null" v-click-outside="() => (activeEvent = null)">
-            <div></div>
-            <div class="cursor-pointer" @click="viewMoreInformation">More Information</div>
+            <div class="font-bold">{{ activeEvent.extendedProps.name }}</div>
+            <div class="my-4">{{ activeEvent.extendedProps.description }}</div>
+
+            <div class="cursor-pointer inline-flex flex-row group" @click="viewMoreInformation">
+              <span class="group-hover:text-red">More Information</span>
+              <vue-icon :icon="mdiArrowRight" size="20px" class="ml-1 group-hover:text-red" />
+            </div>
           </div>
         </div>
       </div>
@@ -48,9 +53,10 @@
 import { Calendar, EventApi, EventInput } from '@fullcalendar/core';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { defineComponent, nextTick, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { createPopper } from '@popperjs/core';
+import { mdiArrowRight } from '@mdi/js';
 
 import events from '~data/events';
 
@@ -88,6 +94,8 @@ export default defineComponent({
         events: eventsArray.map(
           ({ data }): EventInput => ({
             extendedProps: {
+              name: data.name,
+              description: data.description,
               slug: data.slug,
             },
             start: new Date(data.start),
@@ -123,6 +131,7 @@ export default defineComponent({
       viewMoreInformation,
       calendarRef,
       eventPopper,
+      mdiArrowRight,
     };
   },
 });
