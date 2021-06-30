@@ -16,7 +16,7 @@
     </div>
     <ClubGallery class="my-8" />
     <div class="max-w-6xl mb-8 flex flex-col px-8">
-      <div class="text-4xl text-center mb-8 py-8 text-white bg-burgundy font-black">
+      <div class="text-4xl text-center mb-8 py-8 text-white bg-burgundy font-bold">
         recent announcements
       </div>
       <div v-for="announcement in announcementsArray" :key="announcement.title" class="pb-8">

@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="flip-card-back w-full h-full bg-white absolute text-burgundy text-center p-4">
-        <h4 class="font-black uppercase text-xl text-center mb-2">{{ name }}</h4>
+        <h4 class="font-bold uppercase text-xl text-center mb-2">{{ name }}</h4>
         <p class="text-md">{{ clippedEquityStatement }}</p>
         <div class="w-full my-auto">
           <router-link
