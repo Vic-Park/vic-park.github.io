@@ -144,7 +144,8 @@ export default defineComponent({
 .flip-card {
   perspective: 1000px;
 }
-at Victoria Park Collegiate Institute .flip-card-front,
+
+.flip-card-front,
 .flip-card-back {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
