@@ -82,19 +82,13 @@ const onEvent = ({ el, event, handler, middleware }: EventObject) => {
 };
 
 const beforeMount = (el: ClickOutsideElement, { value }: DirectiveBinding) => {
-  const {
-    events,
-    handler,
-    middleware,
-    isActive,
-    detectIframe,
-    capture,
-  } = processDirectiveArguments(value);
+  const { events, handler, middleware, isActive, detectIframe, capture } =
+    processDirectiveArguments(value);
   if (!isActive) {
     return;
   }
 
-  el[HANDLERS_PROPERTY] = events.map(eventName => ({
+  el[HANDLERS_PROPERTY] = events.map((eventName) => ({
     event: eventName,
     srcTarget: document.documentElement,
     handler: (event: MouseEvent) => onEvent({ el, event, handler, middleware }),

@@ -44,7 +44,7 @@ export async function getGithubClubUpdates({
         shortDescription,
         staffSupervisor,
         timeCommitment,
-        equityStatement
+        equityStatement,
       },
       slug,
       type: EntryType.club,

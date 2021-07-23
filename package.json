@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prettier": "prettier --write google-sheets-auto-update/backend/src frontend/src",
     "dev:frontend": "yarn workspace frontend dev",
     "prune:frontend": "rm -rf google-sheets-auto-update",
     "build:frontend": "yarn workspace frontend build",

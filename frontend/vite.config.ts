@@ -10,7 +10,7 @@ import eventsLoader from './plugins/events-loader';
 export default defineConfig({
   plugins: [vue(), announcementsLoader(), clubsLoader(), eventsLoader()],
   optimizeDeps: {
-    exclude: ['@fullcalendar/core', '@fullcalendar/daygrid', '@fullcalendar/timegrid']
+    exclude: ['@fullcalendar/core', '@fullcalendar/daygrid', '@fullcalendar/timegrid'],
   },
   resolve: {
     alias: [{ find: '~', replacement: path.resolve(__dirname, './src') }],

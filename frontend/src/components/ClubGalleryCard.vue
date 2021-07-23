@@ -18,13 +18,12 @@
               px-4
               text-center
               inline-block
-              transform 
+              transform
               bg-white
               text-black
-              border-2
-              border-black
+              border-2 border-black
               text-sm
-              "
+            "
           >
             {{ name }}
           </div>
@@ -32,20 +31,18 @@
         <div
           v-else
           class="
-            font-bold 
-            text-4xl 
-            text-center 
-            transform 
-            -translate-x-1/2 
-            -translate-y-1/2 
-            absolute 
-            top-1/2 left-1/2 
-            p-8 
+            font-bold
+            text-4xl text-center
+            transform
+            -translate-x-1/2 -translate-y-1/2
+            absolute
+            top-1/2
+            left-1/2
+            p-8
             w-full
-            flex
-            flex-col
+            flex flex-col
             items-center
-            "
+          "
         >
           {{ name }}
           <img src="/img/vic-park-logo.png" width="150" />

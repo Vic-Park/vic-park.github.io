@@ -105,7 +105,7 @@ export default defineComponent({
         name: 'Extra Information',
         content: extraInformation,
       },
-    ].map(section => {
+    ].map((section) => {
       return {
         ...section,
         content: DOMPurify.sanitize(
