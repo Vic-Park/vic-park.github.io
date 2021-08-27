@@ -3,8 +3,7 @@ import VueIcon from '~/components/VueIcon.vue';
 import App from './App.vue';
 import router from './router';
 import vClickOutside from './utils/click-outside';
-import './tailwind.css';
-import 'animate.css';
+import 'virtual:windi.css';
 
 const app = createApp(App);
 app.use(router);

@@ -110,7 +110,6 @@ export default defineComponent({
     }
 
     const clippedEquityStatement = computed(() => {
-      console.log(props.equityStatement);
       const openingBracketIndex = props.equityStatement.indexOf('[');
       const closingBracketIndex = props.equityStatement.indexOf(']');
       return props.equityStatement.slice(openingBracketIndex + 1, closingBracketIndex);
@@ -144,6 +143,12 @@ export default defineComponent({
 .flip-card {
   perspective: 1000px;
 }
+.flip-card-front,
+.flip-card-back {
+  -webkit-backface-visibility: hidden; 
+.flip-card {
+  perspective: 1000px;
+}
 
 .flip-card-front,
 .flip-card-back {
@@ -158,6 +163,19 @@ export default defineComponent({
   background-color: white;
 }
 
+.flip-card-back {
+  position: absolute;
+  transform: rotateY(180deg);
+}
+
+  backface-visibility: hidden;
+}
+.flip-card-inner {
+  cursor: pointer;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  background-color: white;
+}
 .flip-card-back {
   position: absolute;
   transform: rotateY(180deg);

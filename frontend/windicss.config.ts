@@ -1,7 +1,7 @@
-module.exports = {
-  purge: ['./src/**/*.{vue,js,ts}', './index.html'],
-  mode: 'jit',
-  darkMode: false, // or 'media' or 'class'
+import { defineConfig } from 'windicss/helpers';
+import WindiCSSAnimations from '@windicss/animations';
+
+export default defineConfig({
   theme: {
     extend: {
       colors: {
@@ -33,14 +33,12 @@ module.exports = {
         '2card': '840px',
         '3card': '1184px',
       },
-    },
-    fontFamily: {
-      kollektif: ['Kollektif'],
-      glacial: ['Glacial Indifference'],
+
+      fontFamily: {
+        kollektif: ['Kollektif'],
+        glacial: ['Glacial Indifference'],
+      },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-};
+  plugins: [WindiCSSAnimations({})],
+});
