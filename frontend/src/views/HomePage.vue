@@ -1,41 +1,41 @@
 <template>
-  <LandingNavigationHeader />
-  <HeroBanner />
-  <div class="flex flex-col items-center">
-    <ExploreButton class="sm:hidden mt-10" />
-    <div>
-      <div id="equity" class="mb-6 mt-8 font-kollektif text-center text-red text-4xl">
-        clubs equity statement
-      </div>
-      <div class="max-w-4xl italic font-medium text-red-dark text-center px-8">
-        Clubs offered at VP aim to create inclusive spaces for everyone. Students of all identities
-        and experiences are welcome to join clubs where members can come together based on shared
-        interests. Each club is a reflection of the larger school community where all voices are
-        valued and heard.
-      </div>
-    </div>
-    <ClubGallery class="my-8" />
-    <div class="max-w-6xl mb-8 flex flex-col px-8">
-      <div class="text-4xl text-center mb-8 py-8 text-white bg-burgundy font-bold">
-        recent announcements
-      </div>
-      <div v-for="announcement in announcementsArray" :key="announcement.title" class="pb-8">
-        <ClubAnnouncementListing
-          :title="announcement.title"
-          :date="announcement.date.toString()"
-          :content="announcement.content"
-        />
-      </div>
-      <div class="group self-center">
-        <router-link to="/announcements" class="group-hover:text-red announcements-link">
-          <div class="inline-flex flex-row items-center">
-            View all announcements
-            <vue-icon :icon="mdiArrowRight" size="20px" class="ml-1 group-hover:text-red" />
-          </div>
-        </router-link>
-      </div>
-    </div>
-  </div>
+	<LandingNavigationHeader />
+	<HeroBanner />
+	<div class="flex flex-col items-center">
+		<ExploreButton class="sm:hidden mt-10" />
+		<div>
+			<div id="equity" class="mb-6 mt-8 font-kollektif text-center text-red text-4xl">
+				clubs equity statement
+			</div>
+			<div class="max-w-4xl italic font-medium text-red-dark text-center px-8">
+				Clubs offered at VP aim to create inclusive spaces for everyone. Students of all identities
+				and experiences are welcome to join clubs where members can come together based on shared
+				interests. Each club is a reflection of the larger school community where all voices are
+				valued and heard.
+			</div>
+		</div>
+		<ClubGallery class="my-8" />
+		<div class="max-w-6xl mb-8 flex flex-col px-8">
+			<div class="text-4xl text-center mb-8 py-8 text-white bg-burgundy font-bold">
+				recent announcements
+			</div>
+			<div v-for="announcement in announcementsArray" :key="announcement.title" class="pb-8">
+				<ClubAnnouncementListing
+					:title="announcement.title"
+					:date="announcement.date.toString()"
+					:content="announcement.content"
+				/>
+			</div>
+			<div class="group self-center">
+				<router-link to="/announcements" class="group-hover:text-red announcements-link">
+					<div class="inline-flex flex-row items-center">
+						View all announcements
+						<vue-icon :icon="mdiArrowRight" size="20px" class="ml-1 group-hover:text-red" />
+					</div>
+				</router-link>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script lang="ts">
@@ -51,21 +51,23 @@ import { createAnnouncementsArray } from '~/utils/announcement';
 import announcements from '~data/announcements';
 
 export default defineComponent({
-  name: 'HomePage',
-  components: {
-    LandingNavigationHeader,
-    HeroBanner,
-    ClubAnnouncementListing,
-    ClubGallery,
-    ExploreButton,
-  },
-  setup() {
-    const announcementsArray = createAnnouncementsArray(announcements).slice(0, 3);
+	name: 'HomePage',
+	components: {
+		LandingNavigationHeader,
+		HeroBanner,
+		ClubAnnouncementListing,
+		ClubGallery,
+		ExploreButton,
+	},
+	setup() {
+		const announcementsArray = createAnnouncementsArray(announcements).slice(0, 3);
 
-    return {
-      announcementsArray,
-      mdiArrowRight,
-    };
-  },
+		return {
+			announcementsArray,
+			mdiArrowRight,
+		};
+	},
 });
 </script>
+
+<style></style>
