@@ -146,6 +146,9 @@ export default defineComponent({
 .flip-card-front,
 .flip-card-back {
   -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
+
 .flip-card {
   perspective: 1000px;
 }
@@ -168,8 +171,6 @@ export default defineComponent({
   transform: rotateY(180deg);
 }
 
-  backface-visibility: hidden;
-}
 .flip-card-inner {
   cursor: pointer;
   transition: transform 0.5s;
