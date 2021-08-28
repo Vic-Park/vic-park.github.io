@@ -1,5 +1,5 @@
 <template>
-	<div id="clubs" w:m="x-8 t-12 b-16" class="max-w-6xl w-full">
+	<div id="clubs" class="max-w-6xl w-full mx-8 mt-12 mb-16">
 		<div class="relative club-gallery">
 			<div class="grid-background bg-burgundy"></div>
 			<div v-for="club in clubsArray" :key="club.slug" class="m-[1rem]">

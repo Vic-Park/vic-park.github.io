@@ -4,12 +4,7 @@
 	<div class="column items-center">
 		<ExploreButton class="sm:hidden mt-10" />
 		<div>
-			<div
-				id="equity"
-				w:text="center red 4xl"
-				w:m="b-6 t-8"
-				class="font-kollektif text-4xl"
-			>
+			<div id="equity" w:text="center red 4xl" class="mb-6 mt-8 font-kollektif">
 				clubs equity statement
 			</div>
 			<div class="max-w-4xl italic font-medium text-red-dark text-center px-8">

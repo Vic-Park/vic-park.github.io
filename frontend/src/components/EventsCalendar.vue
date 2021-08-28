@@ -13,9 +13,9 @@
 						/>
 					</svg>
 					<div
-						w:m="x-14 y-6"
 						w:text="white center [3rem] md:[6rem]"
 						w:font="bold"
+						class="my-6 mx-14"
 						style="text-shadow: 5px 5px rgba(230, 4, 0, 0.4)"
 					>
 						{{ activeMonth }}
