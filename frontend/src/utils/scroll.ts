@@ -1,3 +1,3 @@
 export function scrollToId(elementId: string) {
-	document.getElementById(elementId)!.scrollIntoView({ behavior: 'smooth' });
+	document.querySelector(`#${elementId}`)!.scrollIntoView({ behavior: 'smooth' });
 }

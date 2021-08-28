@@ -1,17 +1,19 @@
-import type { sheets_v4 } from 'googleapis';
+import type { sheets_v4 as SheetsV4 } from 'googleapis';
+
 import { EntryType } from '~types/entry';
 import { ClubEvent } from '~types/event';
+
 import {
-	retrieveGithubFiles,
 	getGithubEntryUpdates,
 	getSheetRows,
+	retrieveGithubFiles,
 } from './utils';
-import { cleanSheetRow } from './utils/cleanSheetRow';
+import { cleanSheetRow } from './utils/clean-sheet-row';
 
 export async function getGithubEventUpdates({
 	spreadsheetData,
 }: {
-	spreadsheetData: sheets_v4.Schema$Spreadsheet;
+	spreadsheetData: SheetsV4.Schema$Spreadsheet;
 }) {
 	const eventsEntries = getSheetRows(spreadsheetData, 'Club Events');
 

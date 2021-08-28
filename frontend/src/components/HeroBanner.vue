@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 import ExploreButton from '~/components/ExploreButton.vue';
 
 export default defineComponent({

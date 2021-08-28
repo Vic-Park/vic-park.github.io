@@ -31,9 +31,10 @@
 </template>
 
 <script lang="ts">
+import { mdiEmail, mdiGithub,mdiInstagram, mdiTwitter } from '@mdi/js';
 import { defineComponent } from 'vue';
+
 import VueIcon from './VueIcon.vue';
-import { mdiInstagram, mdiTwitter, mdiEmail, mdiGithub } from '@mdi/js';
 
 type Link = {
 	icon: string;
@@ -60,8 +61,8 @@ const links: Link[] = [
 ];
 
 export default defineComponent({
-	components: { VueIcon },
 	name: 'WebsiteFooter',
+	components: { VueIcon },
 	setup() {
 		return { links };
 	},

@@ -20,7 +20,7 @@ export default defineComponent({
 		},
 		date: {
 			type: String,
-			default: null,
+			default: undefined,
 		},
 		content: {
 			type: String,
@@ -28,7 +28,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const dateString = computed(() => formatFullDateTime(props.date));
+		const dateString = computed(() => formatFullDateTime(props.date!));
 		return {
 			dateString,
 		};

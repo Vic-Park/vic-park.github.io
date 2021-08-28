@@ -1,4 +1,5 @@
 import matter from 'gray-matter';
+
 import { Entry } from '~types/entry';
 
 export function stringifyEntry(entry: Entry) {

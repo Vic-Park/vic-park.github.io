@@ -23,10 +23,10 @@
 			/>
 
 			<template v-if="filteredClubs.length > 0">
-				<div class="pb-2" v-for="club in filteredClubs" :key="club.slug">
+				<div v-for="club in filteredClubs" :key="club.slug" class="pb-2">
 					<ClubListing
 						:name="club.name"
-						:shortDescription="club.shortDescription"
+						:short-description="club.shortDescription"
 						:slug="club.slug"
 					/>
 				</div>

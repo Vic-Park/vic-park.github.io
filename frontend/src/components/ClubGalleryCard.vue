@@ -6,8 +6,8 @@
 					<img
 						class="absolute w-full h-full object-cover object-center"
 						:src="imgPath"
-						@error="onImageLoadError"
 						:alt="name"
+						@error="onImageLoadError"
 					/>
 					<div
 						w:p="y-1 x-4"
@@ -61,8 +61,8 @@
 
 <script lang="ts">
 import { mdiArrowRight } from '@mdi/js';
-import { defineComponent, ref, computed } from 'vue';
 import * as CSS from 'csstype';
+import { computed,defineComponent, ref } from 'vue';
 
 export default defineComponent({
 	props: {

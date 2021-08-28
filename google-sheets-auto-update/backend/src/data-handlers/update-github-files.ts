@@ -1,13 +1,15 @@
-import { GithubEntryUpdate, octokit } from '~/github';
 import { encode } from 'js-base64';
+import { inspect } from 'util';
+
+import { GithubEntryUpdate, octokit } from '~/github';
+
 import { getEntryTypeFolder } from './utils';
-import util from 'util';
-import { stringifyEntry } from './utils/stringifyEntry';
+import { stringifyEntry } from './utils/stringify-entry';
 
 export async function updateGithubFiles(
 	githubEntryUpdates: GithubEntryUpdate[]
 ) {
-	for (let i = 0; i < githubEntryUpdates.length; ++i) {
+	for (let i = 0; i < githubEntryUpdates.length; i += 1) {
 		const { entry, githubFileSha } = githubEntryUpdates[i];
 		const { slug, type } = entry;
 
@@ -27,11 +29,9 @@ export async function updateGithubFiles(
 				}
 			);
 			console.info(response);
-		} catch (e) {
-			console.info(
-				`Failed to update file: ${util.inspect(githubEntryUpdates[i])} `
-			);
-			console.error(e);
+		} catch (error) {
+			console.info(`Failed to update file: ${inspect(githubEntryUpdates[i])} `);
+			console.error(error);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 <template>
 	<slot name="link">
 		<template v-if="toId">
-			<div @click="scrollToId(toId)" class="cursor-pointer" w:text="white lg hover:gray-300">
+			<div class="cursor-pointer" w:text="white lg hover:gray-300" @click="scrollToId(toId)">
 				{{ title }}
 			</div>
 		</template>
@@ -17,6 +17,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 import { scrollToId } from '~/utils/scroll';
 
 export default defineComponent({
@@ -35,10 +36,8 @@ export default defineComponent({
 			default: '',
 		},
 	},
-	setup(props) {
-		return {
-			scrollToId,
-		};
+	setup() {
+		return { scrollToId };
 	},
 });
 </script>

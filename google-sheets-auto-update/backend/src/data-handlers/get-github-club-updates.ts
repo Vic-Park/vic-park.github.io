@@ -1,17 +1,19 @@
-import type { sheets_v4 } from 'googleapis';
+import type { sheets_v4 as SheetsV4 } from 'googleapis';
+
 import type { Club } from '~types/club';
 import { EntryType } from '~types/entry';
+
 import {
 	getGithubEntryUpdates,
 	getSheetRows,
 	retrieveGithubFiles,
 } from './utils';
-import { cleanSheetRow } from './utils/cleanSheetRow';
+import { cleanSheetRow } from './utils/clean-sheet-row';
 
 export async function getGithubClubUpdates({
 	spreadsheetData,
 }: {
-	spreadsheetData: sheets_v4.Schema$Spreadsheet;
+	spreadsheetData: SheetsV4.Schema$Spreadsheet;
 }) {
 	const clubEntries = getSheetRows(spreadsheetData, 'Clubs');
 	const googleSheetClubs: Club[] = clubEntries.map((club) => {

@@ -1,3 +1,3 @@
-export { getGithubClubUpdates } from './getGithubClubUpdates';
-export { getGithubEventUpdates } from './getGithubEventUpdates';
-export { getGithubAnnouncementUpdates } from './getGithubAnnouncementUpdates';
+export { getGithubAnnouncementUpdates } from './get-github-announcement-updates';
+export { getGithubClubUpdates } from './get-github-club-updates';
+export { getGithubEventUpdates } from './get-github-event-updates';

@@ -1,4 +1,5 @@
 import { Octokit } from 'octokit';
+
 import { Entry } from '~types/entry';
 
 if (!process.env.GITHUB_TOKEN) {
@@ -9,6 +10,7 @@ export const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 export type GithubFile = {
 	name: string;
+	// eslint-disable-next-line camelcase
 	download_url: string;
 	sha: string;
 };

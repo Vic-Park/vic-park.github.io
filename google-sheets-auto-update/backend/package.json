@@ -1,43 +1,36 @@
 {
-  "name": "google-sheets-auto-update-backend",
-  "private": true,
-  "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
-    "start": "ts-node ./src/index.ts",
-    "start:transpile-only": "ts-node-transpile-only ./src/index.ts",
-    "prettier": "prettier --write src/**/*.{js,ts}",
-    "dev": "ts-node-dev ./src/index.ts"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "deep-equal": "^2.0.5",
-    "dotenv": "^9.0.2",
-    "fastify": "^3.15.1",
-    "fastify-rate-limit": "^5.5.0",
-    "fastify-static": "^4.2.2",
-    "googleapis": "^73.0.0",
-    "gray-matter": "^4.0.3",
-    "js-base64": "^3.6.0",
-    "module-alias": "^2.2.2",
-    "nanoid": "^3.1.23",
-    "octokit": "^1.0.4",
-    "param-case": "^3.0.4",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
-  },
-  "devDependencies": {
-    "@octokit/types": "^6.14.2",
-    "@types/deep-equal": "^1.0.1",
-    "ts-node-dev": "^1.1.6"
-  },
-  "_moduleAliases": {
-    "~": "./src",
-    "~types": "../../types"
-  },
-  "workspaces": {
-    "nohoist": [
-      "module-alias"
-    ]
-  }
+	"name": "google-sheets-auto-update-backend",
+	"private": true,
+	"version": "1.0.0",
+	"license": "MIT",
+	"scripts": {
+		"start": "ts-node ./src/index.ts",
+		"start:transpile-only": "ts-node-transpile-only ./src/index.ts",
+		"prettier": "prettier --write src/**/*.{js,ts}",
+		"lint": "eslint --fix src",
+		"dev": "ts-node-dev ./src/index.ts"
+	},
+	"dependencies": {
+		"axios": "^0.21.1",
+		"deep-equal": "^2.0.5",
+		"dotenv": "^9.0.2",
+		"fastify": "^3.15.1",
+		"fastify-rate-limit": "^5.5.0",
+		"fastify-static": "^4.2.2",
+		"googleapis": "^73.0.0",
+		"gray-matter": "^4.0.3",
+		"js-base64": "^3.6.0",
+		"nanoid": "^3.1.23",
+		"octokit": "^1.0.4",
+		"param-case": "^3.0.4",
+		"ts-node": "^9.1.1",
+		"tsconfig-paths": "^3.11.0",
+		"typescript": "^4.2.4"
+	},
+	"devDependencies": {
+		"@octokit/types": "^6.14.2",
+		"@types/deep-equal": "^1.0.1",
+		"eslint-import-resolver-alias": "^1.1.2",
+		"ts-node-dev": "^1.1.6"
+	}
 }

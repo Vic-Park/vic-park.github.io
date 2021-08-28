@@ -2,7 +2,7 @@
 	<div class="flex flex-col w-full h-full">
 		<NavigationHeader
 			v-if="route.meta.hideNavigationHeader !== true"
-			:headerClass="route.meta.navigationHeaderClass"
+			:header-class="route.meta.navigationHeaderClass"
 		/>
 		<div class="flex-grow">
 			<router-view />

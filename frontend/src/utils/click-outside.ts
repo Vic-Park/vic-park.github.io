@@ -8,7 +8,7 @@ const HANDLERS_PROPERTY = '__v-click-outside';
 const HAS_WINDOWS = typeof window !== 'undefined';
 const HAS_NAVIGATOR = typeof navigator !== 'undefined';
 const IS_TOUCH =
-	HAS_WINDOWS && ('ontouchstart' in window || (HAS_NAVIGATOR && navigator.msMaxTouchPoints > 0));
+	HAS_WINDOWS && ('ontouchstart' in window || (HAS_NAVIGATOR && navigator.maxTouchPoints > 0));
 const EVENTS = IS_TOUCH ? ['touchstart'] : ['click'];
 
 interface ClickOutsideElement extends HTMLElement {
@@ -72,7 +72,7 @@ const onEvent = ({ el, event, handler, middleware }: EventObject) => {
 	//       In the meanwhile, we are using el.contains for those browsers, not
 	//       the ideal solution, but using IE or EDGE is not ideal either.
 	const path = (event as any).path || (event.composedPath && event.composedPath());
-	const isClickOutside = path ? path.indexOf(el) < 0 : !el.contains(event.target as Node | null);
+	const isClickOutside = path ? !path.includes(el) : !el.contains(event.target as Node | null);
 
 	if (!isClickOutside) {
 		return;
@@ -106,7 +106,7 @@ const beforeMount = (el: ClickOutsideElement, { value }: DirectiveBinding) => {
 		el[HANDLERS_PROPERTY] = [...el[HANDLERS_PROPERTY], detectIframeEvent];
 	}
 
-	el[HANDLERS_PROPERTY].forEach(({ event, srcTarget, handler: thisHandler }: HandlerObject) =>
+	for (const { event, srcTarget, handler: thisHandler } of el[HANDLERS_PROPERTY]) {
 		setTimeout(() => {
 			// Note: More info about this implementation can be found here:
 			//       https://github.com/ndelvalle/v-click-outside/issues/137
@@ -114,15 +114,14 @@ const beforeMount = (el: ClickOutsideElement, { value }: DirectiveBinding) => {
 				return;
 			}
 			srcTarget.addEventListener(event, thisHandler, capture);
-		}, 0)
-	);
+		}, 0);
+	}
 };
 
 const unmounted = (el: ClickOutsideElement) => {
 	const handlers = (el[HANDLERS_PROPERTY] as HandlerObject[]) || [];
-	handlers.forEach(({ event, srcTarget, handler, capture }) =>
-		srcTarget.removeEventListener(event, handler, capture)
-	);
+	for (const { event, srcTarget, handler, capture } of handlers)
+		srcTarget.removeEventListener(event, handler, capture);
 	delete el[HANDLERS_PROPERTY];
 };
 
@@ -140,4 +139,5 @@ const directive: ObjectDirective = {
 	unmounted,
 };
 
+// eslint-disable-next-line import/no-default-export
 export default HAS_WINDOWS ? directive : {};

@@ -7,9 +7,9 @@
 						<polygon
 							style="pointer-events: visibleFill"
 							class="cursor-pointer"
-							@click="onLeftMonthArrowClick"
 							points="1,5 10,0 10,10"
 							fill="white"
+							@click="onLeftMonthArrowClick"
 						/>
 					</svg>
 					<div
@@ -24,17 +24,17 @@
 						<polygon
 							style="pointer-events: visibleFill"
 							class="cursor-pointer"
-							@click="onRightMonthArrowClick"
 							points="0,0 0,10 9,5"
 							fill="white"
+							@click="onRightMonthArrowClick"
 						/>
 					</svg>
 				</div>
 				<div id="fc" ref="calendarRef" class="bg-white"></div>
 				<div
-					class="z-50 bg-white rounded-lg p-8 border-2"
-					ref="eventPopper"
 					v-show="activeEvent !== null"
+					ref="eventPopper"
+					class="z-50 bg-white rounded-lg p-8 border-2"
 				>
 					<div v-if="activeEvent !== null" v-click-outside="() => (activeEvent = null)">
 						<div class="font-bold">{{ activeEvent.extendedProps.name }}</div>
@@ -53,12 +53,12 @@
 
 <script lang="ts">
 import { Calendar, EventApi, EventInput } from '@fullcalendar/core';
-import timeGridPlugin from '@fullcalendar/timegrid';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import { mdiArrowRight } from '@mdi/js';
+import { createPopper } from '@popperjs/core';
 import { defineComponent, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { createPopper } from '@popperjs/core';
-import { mdiArrowRight } from '@mdi/js';
 
 import events from '~data/events';
 
@@ -68,7 +68,7 @@ export default defineComponent({
 		const router = useRouter();
 		const activeMonth = ref();
 		const eventPopper = ref();
-		const activeEvent = ref<EventApi | null>(null);
+		const activeEvent = ref<EventApi | null>();
 
 		let calendar: Calendar;
 
@@ -78,7 +78,7 @@ export default defineComponent({
 
 		onMounted(() => {
 			const eventsArray = Object.values(events);
-			let popper = createPopper(calendarRef.value!, eventPopper.value);
+			const popper = createPopper(calendarRef.value!, eventPopper.value);
 
 			calendar = new Calendar(calendarRef.value!, {
 				plugins: [dayGridPlugin, timeGridPlugin],

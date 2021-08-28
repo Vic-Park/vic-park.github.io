@@ -4,7 +4,7 @@
 		<div v-for="tab in tabs" :key="tab.title" class="mx-2">
 			<NavigationHeaderLink
 				:route="tab.route"
-				:toId="tab.toId"
+				:to-id="tab.toId"
 				:title="tab.title"
 				:class="tab.class"
 			/>
@@ -17,13 +17,13 @@
 			size="20px"
 			@click="onMenuClick"
 		/>
-		<div v-if="isMenuOpen" class="relative z-50" v-click-outside="() => (isMenuOpen = false)">
+		<div v-if="isMenuOpen" v-click-outside="() => (isMenuOpen = false)" class="relative z-50">
 			<div class="column absolute right-0 border rounded-sm overflow-hidden bg-white p-1">
 				<div v-for="tab in tabs" :key="tab.title" class="px-2 py-1">
 					<NavigationHeaderLink
 						:key="tab.title"
 						:route="tab.route"
-						:toId="tab.toId"
+						:to-id="tab.toId"
 						:title="tab.title"
 						:class="tab.class"
 					>
@@ -31,9 +31,9 @@
 							<div @click="isMenuOpen = false">
 								<template v-if="tab.toId">
 									<div
-										@click="tab.toId && scrollToId(tab.toId)"
 										w:text="black lg hover:red"
 										class="cursor-pointer"
+										@click="tab.toId && scrollToId(tab.toId)"
 									>
 										{{ tab.title }}
 									</div>
@@ -53,9 +53,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from 'vue';
-import { Tab } from '~/types/tab';
 import { mdiMenu } from '@mdi/js';
+import { defineComponent, PropType, ref } from 'vue';
+
+import { Tab } from '~/types/tab';
 import { scrollToId } from '~/utils/scroll';
 
 import NavigationHeaderLink from './NavigationHeaderLink.vue';
@@ -63,13 +64,13 @@ import VueIcon from './VueIcon.vue';
 
 export default defineComponent({
 	name: 'NavigationHeader',
+	components: { NavigationHeaderLink, VueIcon },
 	props: {
 		tabs: {
 			type: Array as PropType<Tab[]>,
 			required: true,
 		},
 	},
-	components: { NavigationHeaderLink, VueIcon },
 	setup() {
 		const isMenuOpen = ref(false);
 

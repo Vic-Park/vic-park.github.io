@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
 import { mdiChevronRight } from '@mdi/js';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
 	name: 'ClubListing',

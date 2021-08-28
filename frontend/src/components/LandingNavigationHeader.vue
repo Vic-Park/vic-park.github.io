@@ -6,6 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 import { Tab } from '~/types/tab';
 
 import NavigationHeaderContent from './NavigationHeaderContent.vue';

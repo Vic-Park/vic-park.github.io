@@ -1,7 +1,7 @@
-import type { sheets_v4 } from 'googleapis';
+import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
 export function getSheetRows(
-	spreadsheetData: sheets_v4.Schema$Spreadsheet,
+	spreadsheetData: SheetsV4.Schema$Spreadsheet,
 	sheetName: string
 ): string[][] {
 	const sheet = spreadsheetData.sheets.find(

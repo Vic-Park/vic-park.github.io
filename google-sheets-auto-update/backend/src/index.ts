@@ -1,16 +1,18 @@
 import 'dotenv/config';
-import 'module-alias/register';
+import 'tsconfig-paths/register';
+
 import fastify from 'fastify';
 import fastifyRateLimit from 'fastify-rate-limit';
-import { sheets, spreadsheetId } from './google';
-import {
-	getGithubClubUpdates,
-	getGithubAnnouncementUpdates,
-	getGithubEventUpdates,
-} from './data-handlers';
-import { updateGithubFiles } from './data-handlers/updateGithubFiles';
 import fastifyStatic from 'fastify-static';
 import path from 'path';
+
+import {
+	getGithubAnnouncementUpdates,
+	getGithubClubUpdates,
+	getGithubEventUpdates,
+} from './data-handlers';
+import { updateGithubFiles } from './data-handlers/update-github-files';
+import { sheets, spreadsheetId } from './google';
 
 const app = fastify();
 

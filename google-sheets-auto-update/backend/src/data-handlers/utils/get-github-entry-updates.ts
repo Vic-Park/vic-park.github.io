@@ -1,7 +1,9 @@
 import axios from 'axios';
-import { Entry } from '~types/entry';
+
 import { GithubEntryUpdate, GithubFile } from '~/github';
-import { stringifyEntry } from './stringifyEntry';
+import { Entry } from '~types/entry';
+
+import { stringifyEntry } from './stringify-entry';
 
 type FilterAlteredSheetEntriesParams<T> = {
 	githubFiles: GithubFile[];

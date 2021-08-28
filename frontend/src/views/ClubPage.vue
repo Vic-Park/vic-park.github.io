@@ -12,8 +12,8 @@
 
 			<div class="w-full max-w-xl">
 				<img
-					:src="imgPath"
 					v-if="!imageNotFound"
+					:src="imgPath"
 					class="mt-12 px-6 w-full"
 					@error="imageNotFound = true"
 				/>
@@ -23,6 +23,7 @@
 				<div v-for="{ name, content } in sections" :key="name">
 					<div v-if="content !== ''" class="pt-12">
 						<strong class="block">{{ name }}:</strong>
+						<!-- eslint-disable-next-line vue/no-v-html -->
 						<div v-html="content"></div>
 					</div>
 				</div>
@@ -33,10 +34,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { useRoute } from 'vue-router';
 import Autolinker from 'autolinker';
 import DOMPurify from 'dompurify';
+import { defineComponent, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 import clubs from '~data/clubs';
 
@@ -66,7 +67,7 @@ export default defineComponent({
 			equityStatement,
 		} = clubs[clubSlug].data;
 
-		const processedEquityStatement = equityStatement.replace(/\[|\]/g, '');
+		const processedEquityStatement = equityStatement.replace(/\[]/g, '');
 
 		const sections = [
 			{
@@ -105,16 +106,14 @@ export default defineComponent({
 				name: 'Extra Information',
 				content: extraInformation,
 			},
-		].map((section) => {
-			return {
-				...section,
-				content: DOMPurify.sanitize(
-					Autolinker.link(section.content, {
-						mention: 'instagram',
-					})
-				),
-			};
-		});
+		].map((section) => ({
+			...section,
+			content: DOMPurify.sanitize(
+				Autolinker.link(section.content, {
+					mention: 'instagram',
+				})
+			),
+		}));
 
 		const imgPath = `/img/club-thumbnail-img/${clubSlug}.jpg`;
 

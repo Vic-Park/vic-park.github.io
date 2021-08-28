@@ -7,7 +7,7 @@
 					:name="club.name"
 					:description="club.description"
 					:slug="club.slug"
-					:equityStatement="club.equityStatement"
+					:equity-statement="club.equityStatement"
 				/>
 			</div>
 		</div>
@@ -23,7 +23,7 @@ import clubs from '~data/clubs';
 export default defineComponent({
 	components: { ClubGalleryCard },
 	setup() {
-		const clubsArray = Object.entries(clubs).map(([name, { data }], key) => ({
+		const clubsArray = Object.entries(clubs).map(([_name, { data }]) => ({
 			slug: data.slug,
 			name: data.name,
 			description: data.shortDescription,

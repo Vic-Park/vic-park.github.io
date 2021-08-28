@@ -1,18 +1,20 @@
-import type { sheets_v4 } from 'googleapis';
+import type { sheets_v4 as SheetsV4 } from 'googleapis';
+import { paramCase } from 'param-case';
+
 import type { ClubAnnouncement } from '~types/announcement';
 import { EntryType } from '~types/entry';
+
 import {
 	getGithubEntryUpdates,
 	getSheetRows,
 	retrieveGithubFiles,
 } from './utils';
-import { paramCase } from 'param-case';
-import { cleanSheetRow } from './utils/cleanSheetRow';
+import { cleanSheetRow } from './utils/clean-sheet-row';
 
 export async function getGithubAnnouncementUpdates({
 	spreadsheetData,
 }: {
-	spreadsheetData: sheets_v4.Schema$Spreadsheet;
+	spreadsheetData: SheetsV4.Schema$Spreadsheet;
 }) {
 	const announcementEntries = getSheetRows(
 		spreadsheetData,
