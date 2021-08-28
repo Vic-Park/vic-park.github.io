@@ -1,0 +1,7 @@
+{
+	"files.eol": "\n",
+	"eslint.workingDirectories": [
+		"./google-sheets-auto-update/backend",
+		"./frontend"
+	],
+}
