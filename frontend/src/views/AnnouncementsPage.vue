@@ -1,6 +1,6 @@
 <template>
 	<div class="shadow-title mt-8">announcements</div>
-	<div class="flex flex-col items-center mt-12">
+	<div class="column items-center mt-12">
 		<div class="max-w-6xl px-12">
 			<div
 				v-for="announcement in announcementsArray"

@@ -1,15 +1,9 @@
 <template>
 	<template v-if="found">
-		<div class="flex flex-col items-center text-xl pb-12 club-page">
+		<div class="column items-center text-xl pb-12 club-page">
 			<div
-				class="
-					py-8
-					self-stretch
-					bg-red-dark
-					text-center text-white
-					flex flex-col
-					items-center
-				"
+				w:text="center white"
+				class="py-8 self-stretch bg-red-dark column items-center"
 			>
 				<h1 class="font-bold font-kollektif text-6xl mb-3 max-w-4xl">
 					{{ name }}

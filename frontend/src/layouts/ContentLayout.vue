@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col w-full h-full">
+	<div class="column w-full h-full">
 		<NavigationHeader
 			v-if="route.meta.hideNavigationHeader !== true"
 			:header-class="route.meta.navigationHeaderClass"

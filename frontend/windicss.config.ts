@@ -1,4 +1,3 @@
-import WindiCSSAnimations from '@windicss/animations';
 import { defineConfig } from 'windicss/helpers';
 
 // eslint-disable-next-line import/no-default-export
@@ -50,5 +49,4 @@ export default defineConfig({
 			},
 		},
 	},
-	plugins: [WindiCSSAnimations({})],
 });

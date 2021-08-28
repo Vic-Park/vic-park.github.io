@@ -1,9 +1,9 @@
 <template>
 	<template v-if="found">
-		<div class="p-8 flex flex-col items-center">
+		<div class="p-8 column items-center">
 			<div class="max-w-4xl w-full">
-				<h1 class="font-bold text-center text-5xl mb-2">{{ name }}</h1>
-				<div class="text-xl text-center pb-4">
+				<h1 w:text="center 5xl" class="font-bold mb-2">{{ name }}</h1>
+				<div w:text="center xl" class="pb-4">
 					{{ startDateString }} - {{ endDateString }}
 				</div>
 

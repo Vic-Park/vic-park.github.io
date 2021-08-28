@@ -1,12 +1,14 @@
 <template>
 	<LandingNavigationHeader />
 	<HeroBanner />
-	<div class="flex flex-col items-center">
+	<div class="column items-center">
 		<ExploreButton class="sm:hidden mt-10" />
 		<div>
 			<div
 				id="equity"
-				class="mb-6 mt-8 font-kollektif text-center text-red text-4xl"
+				w:text="center red 4xl"
+				w:m="b-6 t-8"
+				class="font-kollektif text-4xl"
 			>
 				clubs equity statement
 			</div>
@@ -19,10 +21,8 @@
 			</div>
 		</div>
 		<ClubGallery class="my-8" />
-		<div class="max-w-6xl mb-8 flex flex-col px-8">
-			<div
-				class="text-4xl text-center mb-8 py-8 text-white bg-burgundy font-bold"
-			>
+		<div class="max-w-6xl mb-8 column px-8">
+			<div w:text="center white 4xl" class="mb-8 py-8 bg-burgundy font-bold">
 				recent announcements
 			</div>
 			<div

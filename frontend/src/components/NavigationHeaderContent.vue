@@ -39,7 +39,7 @@
 					p-1
 				"
 			>
-				<div v-for="tab in tabs" :key="tab.title" class="px-2 py-1">
+				<div v-for="tab in tabs" :key="tab.title" w:p="x-2 y-1">
 					<NavigationHeaderLink
 						:key="tab.title"
 						:route="tab.route"
