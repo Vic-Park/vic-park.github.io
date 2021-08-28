@@ -3,13 +3,13 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "home" */ '~/views/HomePage.vue'),
-  },
-  {
-    path: '/',
-    component: () => import(/* webpackChunkName: "content" */ '~/layouts/ContentPage.vue'),
+    component: () => import(/* webpackChunkName: "content" */ '~/layouts/ContentLayout.vue'),
     children: [
+      {
+        path: '/',
+        name: 'Home',
+        component: () => import(/* webpackChunkName: "home" */ '~/views/HomePage.vue'),
+      },
       {
         path: '/clubs',
         name: 'Clubs',

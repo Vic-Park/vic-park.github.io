@@ -1,8 +1,8 @@
 <template>
   <div class="mt-16">
     <EventsCalendar />
-    <div class="px-16 pt-6 pb-16">
-      <h1 class="text-4xl font-bold py-8 text-center">Upcoming Club Events</h1>
+    <div w:p="x-16 t-6 b-16">
+      <h1 w:text="4xl center" class="font-bold py-8">Upcoming Club Events</h1>
       <EventListing
         v-for="event in eventsArray"
         :description="event.description"

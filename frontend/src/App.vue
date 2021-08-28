@@ -1,23 +1,12 @@
 <template>
-  <div class="flex flex-col h-full">
-    <div class="flex-grow">
-      <router-view />
-    </div>
-    <div class="flex-none">
-      <Footer />
-    </div>
-  </div>
+  <router-view />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Footer from '~/components/Footer.vue';
 
 export default defineComponent({
   name: 'App',
-  components: {
-    Footer,
-  },
 });
 </script>
 

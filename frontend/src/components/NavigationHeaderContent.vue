@@ -1,6 +1,6 @@
 <template>
   <NavigationHeaderLink class="mx-2 mr-auto" route="/" title="home" />
-  <div class="hidden md:flex flex-1 flex-row gap-x-4 justify-end">
+  <div w:md="flex" class="hidden flex-1 flex-row gap-x-4 justify-end">
     <div v-for="tab in tabs" :key="tab.title" class="mx-2">
       <NavigationHeaderLink
         :route="tab.route"
@@ -18,7 +18,7 @@
       @click="onMenuClick"
     />
     <div v-if="isMenuOpen" class="relative z-50" v-click-outside="() => (isMenuOpen = false)">
-      <div class="flex flex-col absolute right-0 border rounded-sm overflow-hidden bg-white p-1">
+      <div class="column absolute right-0 border rounded-sm overflow-hidden bg-white p-1">
         <div v-for="tab in tabs" :key="tab.title" class="px-2 py-1">
           <NavigationHeaderLink
             :key="tab.title"
@@ -32,14 +32,15 @@
                 <template v-if="tab.toId">
                   <div
                     @click="tab.toId && scrollToId(tab.toId)"
-                    class="cursor-pointer text-black text-lg hover:text-red"
+                    w:text="black lg hover:red"
+                    class="cursor-pointer"
                   >
                     {{ tab.title }}
                   </div>
                 </template>
                 <template v-else>
                   <router-link :to="tab.route" active-class="text-red">
-                    <div class="text-lg hover:text-red">{{ tab.title }}</div>
+                    <div w:text="lg hover:red">{{ tab.title }}</div>
                   </router-link>
                 </template>
               </div>

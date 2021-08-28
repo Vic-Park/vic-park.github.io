@@ -2,6 +2,14 @@ import { defineConfig } from 'windicss/helpers';
 import WindiCSSAnimations from '@windicss/animations';
 
 export default defineConfig({
+  attributify: {
+    prefix: 'w:',
+  },
+  shortcuts: {
+    column: 'flex flex-col',
+    row: 'flex flex-row',
+    center: 'justify-center items-center'
+  },
   theme: {
     extend: {
       colors: {

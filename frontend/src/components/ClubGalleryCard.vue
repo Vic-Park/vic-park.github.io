@@ -1,8 +1,8 @@
 <template>
-  <div class="flip-card" @click="onClick">
-    <div class="flip-card-inner w-full h-80 relative" :style="cardStyle">
+  <div class="flip-card w-[20rem] h-[20rem]" @click="onClick">
+    <div class="flip-card-inner h-full w-full relative" :style="cardStyle">
       <div class="flip-card-front absolute w-full h-full" :style="frontCardStyle">
-        <div v-if="clubHasImage" class="w-full h-full relative flex flex-col items-center">
+        <div v-if="clubHasImage" class="w-full h-full relative column items-center">
           <img
             class="absolute w-full h-full object-cover object-center"
             :src="imgPath"
@@ -10,19 +10,16 @@
             :alt="name"
           />
           <div
+            w:p="y-1 x-4"
+            w:text="sm black center"
+            w:border="2 black"
             class="
+              z-0
               font-bold
               rounded-md
               m-2
-              py-1
-              px-4
-              text-center
               inline-block
-              transform
               bg-white
-              text-black
-              border-2 border-black
-              text-sm
             "
           >
             {{ name }}
@@ -30,17 +27,15 @@
         </div>
         <div
           v-else
+          w:text="4xl center"
           class="
             font-bold
-            text-4xl text-center
-            transform
-            -translate-x-1/2 -translate-y-1/2
+            transform -translate-x-1/2 -translate-y-1/2
             absolute
-            top-1/2
-            left-1/2
+            top-1/2 left-1/2
             p-8
             w-full
-            flex flex-col
+            column
             items-center
           "
         >
@@ -48,8 +43,8 @@
           <img src="/img/vic-park-logo.png" width="150" />
         </div>
       </div>
-      <div class="flip-card-back w-full h-full bg-white absolute text-burgundy text-center p-4">
-        <h4 class="font-bold uppercase text-xl text-center mb-2">{{ name }}</h4>
+      <div class="flip-card-back w-full h-full bg-white absolute p-4" w:text="burgundy center">
+        <h4 w:text="xl center" class="font-bold uppercase mb-2">{{ name }}</h4>
         <p class="text-md">{{ clippedEquityStatement }}</p>
         <div class="w-full my-auto">
           <router-link
@@ -59,7 +54,7 @@
             <vue-icon
               :icon="mdiArrowRight"
               size="30px"
-              class="hover:text-burgundy text-yellow"
+              w:text="yellow hover:burgundy"
               @click.stop
             />
           </router-link>
@@ -140,23 +135,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.flip-card {
-  perspective: 1000px;
-}
 .flip-card-front,
 .flip-card-back {
-  -webkit-backface-visibility: hidden; 
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .flip-card {
   perspective: 1000px;
-}
-
-.flip-card-front,
-.flip-card-back {
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
 }
 
 .flip-card-inner {
@@ -166,17 +152,6 @@ export default defineComponent({
   background-color: white;
 }
 
-.flip-card-back {
-  position: absolute;
-  transform: rotateY(180deg);
-}
-
-.flip-card-inner {
-  cursor: pointer;
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-  background-color: white;
-}
 .flip-card-back {
   position: absolute;
   transform: rotateY(180deg);

@@ -1,8 +1,8 @@
 <template>
-  <div id="clubs" class="mt-12 mb-16 mx-8 max-w-6xl w-full">
+  <div id="clubs" w:m="x-8 t-12 b-16" class="max-w-6xl w-full">
     <div class="relative club-gallery">
       <div class="grid-background bg-burgundy"></div>
-      <div v-for="club in clubsArray" :key="club.slug" class="m-4">
+      <div v-for="club in clubsArray" :key="club.slug" class="m-[1rem]">
         <ClubGalleryCard
           :name="club.name"
           :description="club.description"
@@ -56,9 +56,11 @@ export default defineComponent({
 }
 
 .club-gallery {
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: grid;
   position: relative;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, max-content));
 }
 </style>

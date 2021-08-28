@@ -1,14 +1,14 @@
 <template>
   <slot name="link">
     <template v-if="toId">
-      <div @click="scrollToId(toId)" class="cursor-pointer text-white text-lg hover:text-gray-300">
+      <div @click="scrollToId(toId)" class="cursor-pointer" w:text="white lg hover:gray-300">
         {{ title }}
       </div>
     </template>
     <template v-else>
       <div class="text-white">
         <router-link :to="route" active-class="text-gray-300">
-          <div class="text-lg hover:text-gray-300">{{ title }}</div>
+          <div w:text="lg hover:gray-300">{{ title }}</div>
         </router-link>
       </div>
     </template>

@@ -1,8 +1,8 @@
 <template>
-  <div class="flex-col flex items-center">
+  <div class="column items-center">
     <div class="overflow-auto max-w-full">
-      <div class="bg-yellow px-8 pb-8 w-[1000px]">
-        <div class="flex flex-row justify-center items-center">
+      <div w:p="x-8 b-8" class="bg-yellow w-[1000px]">
+        <div class="row center">
           <svg viewBox="0 0 10 10" class="arrow-svg">
             <polygon
               style="pointer-events: visibleFill"
@@ -13,8 +13,10 @@
             />
           </svg>
           <div
+            w:m="x-14 y-6"
+            w:text="white center [3rem] md:[6rem]"
+            w:font="bold"
             style="text-shadow: 5px 5px rgba(230, 4, 0, 0.4)"
-            class="text-white text-center font-extrabold text-[3rem] md:text-[6rem] mx-14"
           >
             {{ activeMonth }}
           </div>
