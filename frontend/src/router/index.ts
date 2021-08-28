@@ -9,6 +9,9 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         name: 'Home',
         component: () => import(/* webpackChunkName: "home" */ '~/views/HomePage.vue'),
+        meta: {
+          hideNavigationHeader: true,
+        },
       },
       {
         path: '/clubs',
@@ -24,6 +27,9 @@ const routes: Array<RouteRecordRaw> = [
         path: '/events',
         name: 'Events',
         component: () => import(/* webpackChunkName: "events" */ '~/views/EventsPage.vue'),
+        meta: {
+          navigationHeaderClass: 'bg-yellow-500',
+        },
       },
       {
         path: '/event/:eventSlug',

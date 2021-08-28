@@ -26,13 +26,13 @@ const tabs = [
 
 export default defineComponent({
   name: 'NavigationHeader',
+  components: { NavigationHeaderContent },
   props: {
     headerClass: {
       type: String,
       default: '',
     },
   },
-  components: { NavigationHeaderContent },
   setup() {
     return { tabs };
   },

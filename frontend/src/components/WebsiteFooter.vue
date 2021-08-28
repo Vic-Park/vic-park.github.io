@@ -1,5 +1,5 @@
 <template>
-  <footer class="h-48 bg-burgundy column center font-medium" w:text="white xl">
+  <footer class="py-8 bg-burgundy column center font-medium" w:text="white xl">
     <div class="row items-center">
       <div class="column w-56 text-right">
         <div>(416) 395-3310</div>
