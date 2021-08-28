@@ -1,8 +1,14 @@
 <template>
 	<div class="flip-card w-[20rem] h-[20rem]" @click="onClick">
 		<div class="flip-card-inner h-full w-full relative" :style="cardStyle">
-			<div class="flip-card-front absolute w-full h-full" :style="frontCardStyle">
-				<div v-if="clubHasImage" class="w-full h-full relative column items-center">
+			<div
+				class="flip-card-front absolute w-full h-full"
+				:style="frontCardStyle"
+			>
+				<div
+					v-if="clubHasImage"
+					class="w-full h-full relative column items-center"
+				>
 					<img
 						class="absolute w-full h-full object-cover object-center"
 						:src="imgPath"
@@ -38,7 +44,10 @@
 					<img src="/img/vic-park-logo.png" width="150" />
 				</div>
 			</div>
-			<div class="flip-card-back w-full h-full bg-white absolute p-4" w:text="burgundy center">
+			<div
+				class="flip-card-back w-full h-full bg-white absolute p-4"
+				w:text="burgundy center"
+			>
 				<h4 w:text="xl center" class="font-bold uppercase mb-2">{{ name }}</h4>
 				<p class="text-md">{{ clippedEquityStatement }}</p>
 				<div class="w-full my-auto">
@@ -62,7 +71,7 @@
 <script lang="ts">
 import { mdiArrowRight } from '@mdi/js';
 import * as CSS from 'csstype';
-import { computed,defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 
 export default defineComponent({
 	props: {
@@ -102,7 +111,10 @@ export default defineComponent({
 		const clippedEquityStatement = computed(() => {
 			const openingBracketIndex = props.equityStatement.indexOf('[');
 			const closingBracketIndex = props.equityStatement.indexOf(']');
-			return props.equityStatement.slice(openingBracketIndex + 1, closingBracketIndex);
+			return props.equityStatement.slice(
+				openingBracketIndex + 1,
+				closingBracketIndex
+			);
 		});
 
 		function onImageLoadError(event: Event) {

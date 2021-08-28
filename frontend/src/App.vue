@@ -12,13 +12,12 @@ export default defineComponent({
 
 <style>
 :root {
-	--scrollbar-thumb-color: #f6f3f3;
-	--scrollbar-track-color: #bb0e0a;
+	--scrollbar-thumb-color: #bb0e0a;
+	--scrollbar-track-color: #f6f3f3;
 }
 
 html::-webkit-scrollbar {
-	width: 15px;
-	height: 15px;
+	width: 12px;
 }
 
 /* The grabbable scrollbar button  */

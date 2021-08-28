@@ -6,7 +6,10 @@
 				<div class="break-all">schoolweb.tdsb.on.ca/victoriapark</div>
 			</div>
 			<div class="column items-center mx-12">
-				<a href="https://github.com/Vic-Park/vic-park.github.io" target="_blank">
+				<a
+					href="https://github.com/Vic-Park/vic-park.github.io"
+					target="_blank"
+				>
 					<img
 						class="w-30 h-30 rounded-full bg-white p-3 mb-4"
 						src="/img/vic-park-logo.png"
@@ -31,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { mdiEmail, mdiGithub,mdiInstagram, mdiTwitter } from '@mdi/js';
+import { mdiEmail, mdiGithub, mdiInstagram, mdiTwitter } from '@mdi/js';
 import { defineComponent } from 'vue';
 
 import VueIcon from './VueIcon.vue';

@@ -8,7 +8,8 @@ const HANDLERS_PROPERTY = '__v-click-outside';
 const HAS_WINDOWS = typeof window !== 'undefined';
 const HAS_NAVIGATOR = typeof navigator !== 'undefined';
 const IS_TOUCH =
-	HAS_WINDOWS && ('ontouchstart' in window || (HAS_NAVIGATOR && navigator.maxTouchPoints > 0));
+	HAS_WINDOWS &&
+	('ontouchstart' in window || (HAS_NAVIGATOR && navigator.maxTouchPoints > 0));
 const EVENTS = IS_TOUCH ? ['touchstart'] : ['click'];
 
 interface ClickOutsideElement extends HTMLElement {
@@ -35,12 +36,15 @@ interface EventObject {
 const processDirectiveArguments = (bindingValue: DirectiveBinding['value']) => {
 	const isFunction = typeof bindingValue === 'function';
 	if (!isFunction && typeof bindingValue !== 'object') {
-		throw new Error('v-click-outside: Binding value must be a function or an object');
+		throw new Error(
+			'v-click-outside: Binding value must be a function or an object'
+		);
 	}
 
 	return {
 		handler: (isFunction ? bindingValue : bindingValue.handler) as Handler,
-		middleware: (bindingValue.middleware || ((item: Event) => item)) as Middleware,
+		middleware: (bindingValue.middleware ||
+			((item: Event) => item)) as Middleware,
 		events: (bindingValue.events as string[]) || EVENTS,
 		isActive: !(bindingValue.isActive === false),
 		detectIframe: !(bindingValue.detectIframe === false),
@@ -48,7 +52,11 @@ const processDirectiveArguments = (bindingValue: DirectiveBinding['value']) => {
 	};
 };
 
-const execHandler = ({ event, handler, middleware }: Omit<EventObject, 'el'>) => {
+const execHandler = ({
+	event,
+	handler,
+	middleware,
+}: Omit<EventObject, 'el'>) => {
 	if (middleware(event)) {
 		handler(event);
 	}
@@ -60,7 +68,11 @@ const onFauxIframeClick = ({ el, event, handler, middleware }: EventObject) => {
 	// https://stackoverflow.com/q/2381336#comment61192398_23231136
 	setTimeout(() => {
 		const { activeElement } = document;
-		if (activeElement && activeElement.tagName === 'IFRAME' && !el.contains(activeElement)) {
+		if (
+			activeElement &&
+			activeElement.tagName === 'IFRAME' &&
+			!el.contains(activeElement)
+		) {
 			execHandler({ event, handler, middleware });
 		}
 	}, 0);
@@ -71,8 +83,11 @@ const onEvent = ({ el, event, handler, middleware }: EventObject) => {
 	//       https://developer.mozilla.org/en-US/docs/Web/API/Event/composedPath
 	//       In the meanwhile, we are using el.contains for those browsers, not
 	//       the ideal solution, but using IE or EDGE is not ideal either.
-	const path = (event as any).path || (event.composedPath && event.composedPath());
-	const isClickOutside = path ? !path.includes(el) : !el.contains(event.target as Node | null);
+	const path =
+		(event as any).path || (event.composedPath && event.composedPath());
+	const isClickOutside = path
+		? !path.includes(el)
+		: !el.contains(event.target as Node | null);
 
 	if (!isClickOutside) {
 		return;
@@ -99,14 +114,17 @@ const beforeMount = (el: ClickOutsideElement, { value }: DirectiveBinding) => {
 		const detectIframeEvent = {
 			event: 'blur',
 			srcTarget: window,
-			handler: (event: MouseEvent) => onFauxIframeClick({ el, event, handler, middleware }),
+			handler: (event: MouseEvent) =>
+				onFauxIframeClick({ el, event, handler, middleware }),
 			capture,
 		};
 
 		el[HANDLERS_PROPERTY] = [...el[HANDLERS_PROPERTY], detectIframeEvent];
 	}
 
-	for (const { event, srcTarget, handler: thisHandler } of el[HANDLERS_PROPERTY]) {
+	for (const { event, srcTarget, handler: thisHandler } of el[
+		HANDLERS_PROPERTY
+	]) {
 		setTimeout(() => {
 			// Note: More info about this implementation can be found here:
 			//       https://github.com/ndelvalle/v-click-outside/issues/137
@@ -125,7 +143,10 @@ const unmounted = (el: ClickOutsideElement) => {
 	delete el[HANDLERS_PROPERTY];
 };
 
-const updated = (el: ClickOutsideElement, { value, oldValue }: DirectiveBinding) => {
+const updated = (
+	el: ClickOutsideElement,
+	{ value, oldValue }: DirectiveBinding
+) => {
 	if (JSON.stringify(value) === JSON.stringify(oldValue)) {
 		return;
 	}

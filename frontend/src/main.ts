@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import 'virtual:windi.css';
+import './css/global.postcss';
 
 import { createApp } from 'vue';
 

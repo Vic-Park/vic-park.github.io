@@ -1,5 +1,7 @@
 <template>
-	<div class="row absolute top-0 inset-x-0 justify-between p-2 bg-transparent z-50">
+	<div
+		class="row absolute top-0 inset-x-0 justify-between p-2 bg-transparent z-50"
+	>
 		<NavigationHeaderContent :tabs="tabs" />
 	</div>
 </template>

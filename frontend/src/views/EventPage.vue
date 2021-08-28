@@ -3,7 +3,9 @@
 		<div class="p-8 flex flex-col items-center">
 			<div class="max-w-4xl w-full">
 				<h1 class="font-bold text-center text-5xl mb-2">{{ name }}</h1>
-				<div class="text-xl text-center pb-4">{{ startDateString }} - {{ endDateString }}</div>
+				<div class="text-xl text-center pb-4">
+					{{ startDateString }} - {{ endDateString }}
+				</div>
 
 				<h2 class="font-bold text-2xl">Description</h2>
 				<div class="pt-1 text-md">{{ description }}</div>
@@ -13,7 +15,9 @@
 			</div>
 		</div>
 	</template>
-	<div v-else>Sorry, no club exists at this URL. However, you can start your own!</div>
+	<div v-else>
+		Sorry, no club exists at this URL. However, you can start your own!
+	</div>
 </template>
 
 <script lang="ts">

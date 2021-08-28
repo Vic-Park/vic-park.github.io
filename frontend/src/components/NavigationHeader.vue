@@ -1,5 +1,5 @@
 <template>
-	<div class="row justify-between p-2 bg-red-dark" :class="headerClass">
+	<div class="row justify-between p-2 bg-yellow-deep" :class="headerClass">
 		<NavigationHeaderContent :tabs="tabs" />
 	</div>
 </template>

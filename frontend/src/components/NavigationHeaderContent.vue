@@ -1,5 +1,10 @@
 <template>
-	<NavigationHeaderLink class="mx-2 mr-auto" route="/" title="home" />
+	<NavigationHeaderLink
+		class="mx-2 mr-auto"
+		route="/"
+		no-active-class
+		title="home"
+	/>
 	<div w:md="flex" class="hidden flex-1 flex-row gap-x-4 justify-end">
 		<div v-for="tab in tabs" :key="tab.title" class="mx-2">
 			<NavigationHeaderLink
@@ -17,8 +22,23 @@
 			size="20px"
 			@click="onMenuClick"
 		/>
-		<div v-if="isMenuOpen" v-click-outside="() => (isMenuOpen = false)" class="relative z-50">
-			<div class="column absolute right-0 border rounded-sm overflow-hidden bg-white p-1">
+		<div
+			v-if="isMenuOpen"
+			v-click-outside="() => (isMenuOpen = false)"
+			class="relative z-50"
+		>
+			<div
+				class="
+					column
+					absolute
+					right-0
+					border
+					rounded-sm
+					overflow-hidden
+					bg-white
+					p-1
+				"
+			>
 				<div v-for="tab in tabs" :key="tab.title" class="px-2 py-1">
 					<NavigationHeaderLink
 						:key="tab.title"
@@ -60,11 +80,10 @@ import { Tab } from '~/types/tab';
 import { scrollToId } from '~/utils/scroll';
 
 import NavigationHeaderLink from './NavigationHeaderLink.vue';
-import VueIcon from './VueIcon.vue';
 
 export default defineComponent({
 	name: 'NavigationHeader',
-	components: { NavigationHeaderLink, VueIcon },
+	components: { NavigationHeaderLink },
 	props: {
 		tabs: {
 			type: Array as PropType<Tab[]>,

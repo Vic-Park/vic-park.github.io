@@ -1,14 +1,21 @@
 <template>
 	<slot name="link">
 		<template v-if="toId">
-			<div class="cursor-pointer" w:text="white lg hover:gray-300" @click="scrollToId(toId)">
+			<div
+				class="cursor-pointer"
+				w:text="white lg hover:gray-300"
+				@click="scrollToId(toId)"
+			>
 				{{ title }}
 			</div>
 		</template>
 		<template v-else>
 			<div class="text-white">
-				<router-link :to="route" active-class="text-gray-300">
-					<div w:text="lg hover:gray-300">{{ title }}</div>
+				<router-link
+					:to="route"
+					:exact-active-class="noActiveClass ? '' : 'text-burgundy'"
+				>
+					<div w:text="lg hover:burgundy">{{ title }}</div>
 				</router-link>
 			</div>
 		</template>
@@ -34,6 +41,10 @@ export default defineComponent({
 		route: {
 			type: String,
 			default: '',
+		},
+		noActiveClass: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	setup() {

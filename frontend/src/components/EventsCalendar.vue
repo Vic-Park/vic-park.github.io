@@ -32,17 +32,27 @@
 				</div>
 				<div id="fc" ref="calendarRef" class="bg-white"></div>
 				<div
-					v-show="activeEvent !== null"
+					v-show="activeEvent !== undefined"
 					ref="eventPopper"
 					class="z-50 bg-white rounded-lg p-8 border-2"
 				>
-					<div v-if="activeEvent !== null" v-click-outside="() => (activeEvent = null)">
+					<div
+						v-if="activeEvent !== undefined"
+						v-click-outside="() => (activeEvent = undefined)"
+					>
 						<div class="font-bold">{{ activeEvent.extendedProps.name }}</div>
 						<div class="my-4">{{ activeEvent.extendedProps.description }}</div>
 
-						<div class="cursor-pointer inline-flex flex-row group" @click="viewMoreInformation">
+						<div
+							class="cursor-pointer inline-flex flex-row group"
+							@click="viewMoreInformation"
+						>
 							<span class="group-hover:text-red">More Information</span>
-							<vue-icon :icon="mdiArrowRight" size="20px" class="ml-1 group-hover:text-red" />
+							<vue-icon
+								:icon="mdiArrowRight"
+								size="20px"
+								class="ml-1 group-hover:text-red"
+							/>
 						</div>
 					</div>
 				</div>
@@ -68,7 +78,7 @@ export default defineComponent({
 		const router = useRouter();
 		const activeMonth = ref();
 		const eventPopper = ref();
-		const activeEvent = ref<EventApi | null>();
+		const activeEvent = ref<EventApi>();
 
 		let calendar: Calendar;
 
@@ -120,7 +130,7 @@ export default defineComponent({
 		}
 
 		function viewMoreInformation() {
-			if (activeEvent.value !== null) {
+			if (activeEvent.value !== undefined) {
 				router.push(`/event/${activeEvent.value.extendedProps.slug}`);
 			}
 		}

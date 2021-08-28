@@ -1,6 +1,17 @@
 <template>
 	<router-link :to="`/club/${slug}`" class="hover:text-burgundy">
-		<div class="mb-4 flex w-full justify-between items-center border-2 p-8 rounded-md">
+		<div
+			class="
+				mb-4
+				flex
+				w-full
+				justify-between
+				items-center
+				border-2
+				p-8
+				rounded-md
+			"
+		>
 			<div class="flex-shrink">
 				<div class="text-2xl font-bold">{{ name }}</div>
 				<div class="text-md">{{ shortDescription }}</div>

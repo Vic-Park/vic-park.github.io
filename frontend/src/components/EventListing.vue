@@ -1,5 +1,9 @@
 <template>
-	<router-link :to="`/event/${slug}`" w:text="2xl hover:blue-400" class="font-bold">
+	<router-link
+		:to="`/event/${slug}`"
+		w:text="2xl hover:blue-400"
+		class="font-bold"
+	>
 		{{ name }}
 	</router-link>
 	<div class="text-md">{{ startDateString }} - {{ endDateString }}</div>
