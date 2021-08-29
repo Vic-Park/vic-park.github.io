@@ -11,8 +11,6 @@
     "importHelpers": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
     "baseUrl": "..",
     "paths": {
       "~/*": [
