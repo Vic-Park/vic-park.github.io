@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import { mdiArrowRight } from '@mdi/js';
-import * as CSS from 'csstype';
+import type * as CSS from 'csstype';
 import { computed, defineComponent, ref } from 'vue';
 
 export default defineComponent({

@@ -14,5 +14,6 @@
         "../../types/*"
       ]
     },
+    "noImplicitAny": true
   }
 }

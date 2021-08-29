@@ -51,16 +51,16 @@ import ClubListing from '~/components/ClubListing.vue';
 import clubs from '~data/clubs';
 
 export default defineComponent({
-	name: 'HomePage',
+	name: 'ClubsListPage',
 	components: { ClubListing },
 	setup() {
 		const searchQuery = ref('');
-		const clubsArray = Object.values(clubs);
+		const clubsArray = Object.entries(clubs);
 
 		const filteredClubs = computed(() => {
 			const query = searchQuery.value.toLowerCase();
 			return clubsArray
-				.filter(({ data }) => {
+				.filter(([_, { data }]) => {
 					const { name, shortDescription } = data;
 
 					return (
@@ -68,12 +68,31 @@ export default defineComponent({
 						shortDescription.toLowerCase().includes(query)
 					);
 				})
-				.map(({ data }) => ({
+				.map(([slug, { data }]) => ({
 					name: data.name,
-					slug: data.slug,
+					slug,
 					shortDescription: data.shortDescription,
 				}));
 		});
+
+		type ClubSummary = {
+			name: string;
+			slug: string;
+			shortDescription: string;
+		};
+
+		const tags: Record<string, ClubSummary[]> = {};
+		for (const [slug, club] of clubsArray) {
+			const clubCategories = club.data.categories.split(',');
+			for (const category of clubCategories) {
+				tags[category] ??= [];
+				tags[category].push({
+					name: club.data.name,
+					slug,
+					shortDescription: club.data.shortDescription,
+				});
+			}
+		}
 
 		return {
 			searchQuery,

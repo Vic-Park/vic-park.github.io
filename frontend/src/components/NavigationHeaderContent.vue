@@ -74,9 +74,10 @@
 
 <script lang="ts">
 import { mdiMenu } from '@mdi/js';
-import { defineComponent, PropType, ref } from 'vue';
+import type { PropType} from 'vue';
+import { defineComponent, ref } from 'vue';
 
-import { Tab } from '~/types/tab';
+import type { Tab } from '~/types/tab';
 import { scrollToId } from '~/utils/scroll';
 
 import NavigationHeaderLink from './NavigationHeaderLink.vue';

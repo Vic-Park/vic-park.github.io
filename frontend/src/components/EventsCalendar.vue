@@ -62,7 +62,8 @@
 </template>
 
 <script lang="ts">
-import { Calendar, EventApi, EventInput } from '@fullcalendar/core';
+import type { EventApi, EventInput } from '@fullcalendar/core';
+import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { mdiArrowRight } from '@mdi/js';

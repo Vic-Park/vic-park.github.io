@@ -6,6 +6,7 @@
 		"dev": "vite",
 		"prettier": "prettier --write src/**/*.{js,ts,vue}",
 		"lint": "eslint --fix src",
+		"tc": "vue-tsc --noEmit",
 		"build": "vue-tsc --noEmit && vite build",
 		"serve": "vite preview",
 		"deploy": "sh scripts/deploy.sh"

@@ -18,6 +18,6 @@ export type ClubMetadata = {
 
 export type Club = Entry<EntryType.club>;
 
-export type ClubGrayMatterFile = GrayMatterFile<Input> & {
+export type ClubGrayMatterFile = Omit<GrayMatterFile<Input>, 'data'> & {
 	data: ClubMetadata;
 };
