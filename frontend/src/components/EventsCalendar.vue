@@ -10,6 +10,7 @@
 							points="1,5 10,0 10,10"
 							fill="white"
 							@click="onLeftMonthArrowClick"
+							@mousedown.prevent
 						/>
 					</svg>
 					<div
@@ -27,6 +28,7 @@
 							points="0,0 0,10 9,5"
 							fill="white"
 							@click="onRightMonthArrowClick"
+							@mousedown.prevent
 						/>
 					</svg>
 				</div>
@@ -128,7 +130,7 @@ export default defineComponent({
 			calendarStore.currentMonth = getViewMonthString(calendar.view.title);
 		});
 
-		function onLeftMonthArrowClick() {
+		function onLeftMonthArrowClick(e) {
 			calendar.prev();
 		}
 
