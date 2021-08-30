@@ -48,12 +48,14 @@
 			</div>
 		</div>
 	</div>
+	<BackToTopFab />
 </template>
 
 <script lang="ts">
 import { mdiArrowRight } from '@mdi/js';
 import { defineComponent } from 'vue';
 
+import BackToTopFab from '~/components/BackToTopFab.vue';
 import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
 import ClubGallery from '~/components/ClubGallery.vue';
 import ExploreButton from '~/components/ExploreButton.vue';
@@ -70,6 +72,7 @@ export default defineComponent({
 		ClubAnnouncementListing,
 		ClubGallery,
 		ExploreButton,
+		BackToTopFab,
 	},
 	setup() {
 		const announcementsArray = createAnnouncementsArray(announcements).slice(
