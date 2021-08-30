@@ -15,17 +15,19 @@
 			</div>
 		</div>
 	</div>
+	<BackToTopFab />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import BackToTopFab from '~/components/BackToTopFab.vue';
 import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
 import { createAnnouncementsArray } from '~/utils/announcement';
 import announcements from '~data/announcements';
 
 export default defineComponent({
-	components: { ClubAnnouncementListing },
+	components: { BackToTopFab, ClubAnnouncementListing },
 	setup() {
 		const announcementsArray = createAnnouncementsArray(announcements);
 

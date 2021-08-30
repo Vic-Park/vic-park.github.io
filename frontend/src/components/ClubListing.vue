@@ -24,10 +24,18 @@
 				:to="`/club/${slug}`"
 				@click="animateNavigate"
 			>
-				<ClubImage
-					:name="name"
-					:slug="slug"
-					image-class="club-listing-image min-w-50 w-50 h-50 rounded-full flex-shrink-0 object-cover "
+				<ImageWithFallback
+					:src="clubIconUrl"
+					:alt="name"
+					class="
+						club-listing-image
+						min-w-50
+						w-50
+						h-50
+						rounded-full
+						flex-shrink-0
+						object-cover
+					"
 				/>
 				<div
 					class="club-listing-arrow opacity-0 absolute inset-0 rounded-full"
@@ -49,13 +57,13 @@ import { mdiChevronRight } from '@mdi/js';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { getClubPageUrl } from '~/utils/club';
+import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
 
-import ClubImage from './ClubImage.vue';
+import ImageWithFallback from './ImageWithFallback.vue';
 
 export default defineComponent({
 	name: 'ClubListing',
-	components: { ClubImage },
+	components: { ImageWithFallback },
 	props: {
 		name: {
 			type: String,
@@ -72,6 +80,7 @@ export default defineComponent({
 	},
 	setup(props) {
 		const clubPageUrl = getClubPageUrl(props.slug);
+		const clubIconUrl = getClubIconUrl(props.slug);
 		const router = useRouter();
 
 		async function animateNavigate() {
@@ -79,6 +88,7 @@ export default defineComponent({
 		}
 
 		return {
+			clubIconUrl,
 			animateNavigate,
 			mdiChevronRight,
 		};

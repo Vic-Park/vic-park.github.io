@@ -5,44 +5,32 @@
 				class="flip-card-front absolute w-full h-full"
 				:style="frontCardStyle"
 			>
-				<div
-					v-if="clubHasImage"
-					class="w-full h-full relative column items-center"
+				<ImageWithFallback
+					class="absolute w-full h-full object-cover object-center"
+					:src="clubIconUrl"
+					:alt="name"
 				>
-					<img
-						class="absolute w-full h-full object-cover object-center"
-						:src="imgPath"
-						:alt="name"
-						@error="onImageLoadError"
-					/>
-					<div
-						w:p="y-1 x-4"
-						w:text="sm black center"
-						w:border="2 black"
-						class="z-0 font-bold rounded-md m-2 inline-block bg-white"
-					>
-						{{ name }}
-					</div>
-				</div>
-				<div
-					v-else
-					w:text="4xl center"
-					class="
-						font-bold
-						transform
-						-translate-x-1/2 -translate-y-1/2
-						absolute
-						top-1/2
-						left-1/2
-						p-8
-						w-full
-						column
-						items-center
-					"
-				>
-					{{ name }}
-					<img src="/img/vic-park-logo.png" width="150" />
-				</div>
+					<template #fallback>
+						<div
+							w:text="4xl center"
+							class="
+								font-bold
+								transform
+								-translate-x-1/2 -translate-y-1/2
+								absolute
+								top-1/2
+								left-1/2
+								p-8
+								w-full
+								column
+								items-center
+							"
+						>
+							{{ name }}
+							<img src="/img/vic-park-logo.png" width="150" />
+						</div>
+					</template>
+				</ImageWithFallback>
 			</div>
 			<div
 				class="flip-card-back w-full h-full bg-white absolute p-4"
@@ -52,7 +40,7 @@
 				<p class="text-md">{{ clippedEquityStatement }}</p>
 				<div class="w-full my-auto">
 					<router-link
-						:to="clubPagePath"
+						:to="clubPageUrl"
 						class="absolute bottom-4 left-1/2 transform -translate-x-1/2"
 					>
 						<vue-icon
@@ -73,7 +61,12 @@ import { mdiArrowRight } from '@mdi/js';
 import type * as CSS from 'csstype';
 import { computed, defineComponent, ref } from 'vue';
 
+import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
+
+import ImageWithFallback from './ImageWithFallback.vue';
+
 export default defineComponent({
+	components: { ImageWithFallback },
 	props: {
 		name: {
 			type: String,
@@ -94,7 +87,6 @@ export default defineComponent({
 	},
 	setup(props) {
 		const isDescriptionActive = ref(false);
-		const clubHasImage = ref(true);
 
 		const cardStyle = computed(() => ({
 			transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
@@ -117,20 +109,13 @@ export default defineComponent({
 			);
 		});
 
-		function onImageLoadError(event: Event) {
-			event.preventDefault();
-			clubHasImage.value = false;
-		}
-
-		const imgPath = `/img/club-thumbnail-img/${props.slug}.jpg`;
-		const clubPagePath = `/club/${props.slug}`;
+		const clubIconUrl = getClubIconUrl(props.slug);
+		const clubPageUrl = getClubPageUrl(props.slug);
 
 		return {
-			imgPath,
-			clubPagePath,
+			clubIconUrl,
+			clubPageUrl,
 			mdiArrowRight,
-			clubHasImage,
-			onImageLoadError,
 			onClick,
 			cardStyle,
 			frontCardStyle,

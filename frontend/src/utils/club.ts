@@ -1,5 +1,9 @@
-export function getClubImageUrl(clubSlug: string) {
-	return `/img/club-thumbnail-img/${clubSlug}.jpg`;
+export function getClubThumbnailUrl(clubSlug: string) {
+	return `/img/club-thumbnails/${clubSlug}.jpg`;
+}
+
+export function getClubIconUrl(clubSlug: string) {
+	return `/img/club-icons/${clubSlug}.png`;
 }
 
 export function getClubPageUrl(clubSlug: string) {

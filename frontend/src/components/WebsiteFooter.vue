@@ -1,31 +1,42 @@
 <template>
-	<footer class="py-8 bg-burgundy column center font-medium" w:text="white xl">
-		<div class="row items-center">
-			<div class="column w-56 text-right">
+	<footer
+		class="py-8 bg-burgundy column center font-medium w-full"
+		w:text="white xs sm:xl"
+	>
+		<div class="row items-center w-full">
+			<div class="mr-auto flex-1 column text-right">
 				<div>(416) 395-3310</div>
-				<div class="break-all">schoolweb.tdsb.on.ca/victoriapark</div>
+				<a
+					href="https://schoolweb.tdsb.on.ca/victoriapark"
+					class="underline"
+				>
+					<div class="break-all">schoolweb.tdsb.on.ca/</div>
+					<div>victoriapark</div>
+				</a>
 			</div>
-			<div class="column items-center mx-12">
+			<div class="column items-center mx-3 sm:mx-12">
 				<a href="https://schoolweb.tdsb.on.ca/victoriapark">
 					<img
-						class="w-30 h-30 rounded-full bg-white p-3 mb-4"
+						w:sm="w-30 h-30"
+						class="w-15 h-15 rounded-full bg-white p-3 mb-4"
 						src="/img/vic-park-logo.png"
 						alt="Victoria Park Logo"
 					/>
 				</a>
+
+				<div class="row">
+					<template v-for="{ icon, href } of links" :key="icon">
+						<a :href="href">
+							<vue-icon :icon="icon" class="mx-1 w-5 sm:w-7" />
+						</a>
+					</template>
+				</div>
 			</div>
-			<div class="column w-56">
+			<div class="flex-1 ml-auto column">
 				<div>15 Wallingford Rd,</div>
 				<div>North York, ON</div>
 				<div>M3A 2V1</div>
 			</div>
-		</div>
-		<div class="row">
-			<template v-for="{ icon, href } of links" :key="icon">
-				<a :href="href">
-					<vue-icon :icon="icon" size="30px" class="mx-1" />
-				</a>
-			</template>
 		</div>
 	</footer>
 </template>
