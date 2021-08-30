@@ -18,8 +18,8 @@
 	<div class="md:hidden">
 		<vue-icon
 			:icon="mdiMenu"
-			class="text-white h-full mr-2 cursor-pointer"
-			size="20px"
+			class="text-white cursor-pointer"
+			size="30px"
 			@click="onMenuClick"
 		/>
 		<div
