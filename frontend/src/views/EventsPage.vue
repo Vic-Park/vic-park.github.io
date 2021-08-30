@@ -1,5 +1,5 @@
 <template>
-	<div class="shadow-title text-burgundy mt-8">calendar</div>
+	<div class="shadow-title mt-8">calendar</div>
 	<div w:font="bold glacial" w:text="lg burgundy center" class="mb-4">
 		{{ calendarStore.currentYear }}
 	</div>
