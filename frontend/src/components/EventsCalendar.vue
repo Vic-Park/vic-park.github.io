@@ -18,7 +18,7 @@
 						class="my-6 mx-14"
 						style="text-shadow: 5px 5px rgba(230, 4, 0, 0.4)"
 					>
-						{{ activeMonth }}
+						{{ calendarStore.currentMonth }}
 					</div>
 					<svg viewBox="0 0 10 10" class="arrow-svg">
 						<polygon
@@ -71,24 +71,29 @@ import { createPopper } from '@popperjs/core';
 import { defineComponent, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
+import { useCalendarStore } from '~/store/calendar';
 import events from '~data/events';
 
 export default defineComponent({
 	setup() {
 		const calendarRef = ref<HTMLElement>();
 		const router = useRouter();
-		const activeMonth = ref();
 		const eventPopper = ref();
 		const activeEvent = ref<EventApi>();
+		const calendarStore = useCalendarStore();
 
 		let calendar: Calendar;
 
-		function getViewDateString(viewTitle: string) {
+		function getViewMonthString(viewTitle: string) {
 			return viewTitle.split(' ')[0].toLowerCase();
 		}
 
+		function getViewYearString(viewTitle: string) {
+			return viewTitle.split(' ')[1];
+		}
+
 		onMounted(() => {
-			const eventsArray = Object.values(events);
+			const eventsArray = Object.entries(events);
 			const popper = createPopper(calendarRef.value!, eventPopper.value);
 
 			calendar = new Calendar(calendarRef.value!, {
@@ -102,14 +107,16 @@ export default defineComponent({
 				},
 				datesSet({ view }) {
 					// Only extracting the month
-					activeMonth.value = getViewDateString(view.title);
+					calendarStore.currentMonth = getViewMonthString(view.title);
+					calendarStore.currentYear = getViewYearString(view.title);
+					console.log(view.title);
 				},
 				events: eventsArray.map(
-					({ data }): EventInput => ({
+					([slug, { data }]): EventInput => ({
 						extendedProps: {
 							name: data.name,
 							description: data.description,
-							slug: data.slug,
+							slug,
 						},
 						start: new Date(data.start),
 						end: new Date(data.end),
@@ -119,7 +126,7 @@ export default defineComponent({
 			});
 
 			calendar.render();
-			activeMonth.value = getViewDateString(calendar.view.title);
+			calendarStore.currentMonth = getViewMonthString(calendar.view.title);
 		});
 
 		function onLeftMonthArrowClick() {
@@ -137,7 +144,7 @@ export default defineComponent({
 		}
 
 		return {
-			activeMonth,
+			calendarStore,
 			activeEvent,
 			onLeftMonthArrowClick,
 			onRightMonthArrowClick,

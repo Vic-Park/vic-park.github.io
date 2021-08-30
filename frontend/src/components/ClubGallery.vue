@@ -23,8 +23,8 @@ import clubs from '~data/clubs';
 export default defineComponent({
 	components: { ClubGalleryCard },
 	setup() {
-		const clubsArray = Object.entries(clubs).map(([_name, { data }]) => ({
-			slug: data.slug,
+		const clubsArray = Object.entries(clubs).map(([slug, { data }]) => ({
+			slug,
 			name: data.name,
 			description: data.shortDescription,
 			equityStatement: data.equityStatement,

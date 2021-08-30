@@ -49,7 +49,7 @@ import { mdiChevronRight } from '@mdi/js';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { getClubImageUrl, getClubPageUrl } from '~/utils/club';
+import { getClubPageUrl } from '~/utils/club';
 
 import ClubImage from './ClubImage.vue';
 
@@ -71,7 +71,6 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const clubImageUrl = getClubImageUrl(props.slug);
 		const clubPageUrl = getClubPageUrl(props.slug);
 		const router = useRouter();
 
@@ -123,7 +122,7 @@ export default defineComponent({
 }
 
 .club-listing-arrow:hover .club-listing-arrow-icon {
-	transform: scale(1.10);
+	transform: scale(1.1);
 }
 
 .image-blur {

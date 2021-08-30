@@ -6,11 +6,13 @@
 				<div class="break-all">schoolweb.tdsb.on.ca/victoriapark</div>
 			</div>
 			<div class="column items-center mx-12">
-				<img
-					class="w-30 h-30 rounded-full bg-white p-3 mb-4"
-					src="/img/vic-park-logo.png"
-					alt="GitHub"
-				/>
+				<a href="https://schoolweb.tdsb.on.ca/victoriapark">
+					<img
+						class="w-30 h-30 rounded-full bg-white p-3 mb-4"
+						src="/img/vic-park-logo.png"
+						alt="Victoria Park Logo"
+					/>
+				</a>
 			</div>
 			<div class="column w-56">
 				<div>15 Wallingford Rd,</div>
