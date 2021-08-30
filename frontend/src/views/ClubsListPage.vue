@@ -1,7 +1,7 @@
 <template>
 	<div class="column items-center">
 		<div class="shadow-title my-8">clubs</div>
-		<div class="column max-w-5xl">
+		<div class="column max-w-5xl px-8">
 			<div class="relative w-60 h-10 self-end mb-8">
 				<vue-icon
 					class="search-icon text-gray-300 absolute"
@@ -81,12 +81,13 @@ export default defineComponent({
 			shortDescription: string;
 		};
 
-		const tags: Record<string, ClubSummary[]> = {};
+		const categories: Record<string, ClubSummary[]> = {};
 		for (const [slug, club] of clubsArray) {
 			const clubCategories = club.data.categories.split(',');
-			for (const category of clubCategories) {
-				tags[category] ??= [];
-				tags[category].push({
+			for (const unnormalizedCategory of clubCategories) {
+				const category = unnormalizedCategory.trim();
+				categories[category] = categories[category] ?? [];
+				categories[category].push({
 					name: club.data.name,
 					slug,
 					shortDescription: club.data.shortDescription,
@@ -94,7 +95,10 @@ export default defineComponent({
 			}
 		}
 
+		console.log(categories)
+
 		return {
+			categories,
 			searchQuery,
 			filteredClubs,
 			mdiMagnify,

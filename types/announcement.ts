@@ -9,6 +9,9 @@ export type ClubAnnouncementMetadata = {
 
 export type ClubAnnouncement = Entry<EntryType.announcement>;
 
-export type ClubAnnouncementGrayMatterFile = GrayMatterFile<Input> & {
+export type ClubAnnouncementGrayMatterFile = Omit<
+	GrayMatterFile<Input>,
+	'data'
+> & {
 	data: ClubAnnouncementMetadata;
 };

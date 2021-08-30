@@ -1,15 +1,16 @@
 import type { GrayMatterFile, Input } from 'gray-matter';
-import { Entry, EntryType } from './entry';
+
+import type { Entry, EntryType } from './entry';
 
 export type ClubEventMetadata = {
-  name: string;
-  description: string;
-  start: Date;
-  end: Date;
+	name: string;
+	description: string;
+	start: Date;
+	end: Date;
 };
 
 export type ClubEvent = Entry<EntryType.event>;
 
-export type ClubEventGrayMatterFile = GrayMatterFile<Input> & {
-  data: ClubEventMetadata;
+export type ClubEventGrayMatterFile = Omit<GrayMatterFile<Input>, 'data'> & {
+	data: ClubEventMetadata;
 };

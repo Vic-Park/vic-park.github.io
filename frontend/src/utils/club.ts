@@ -1,3 +1,7 @@
-import type { Club } from '~types/club';
+export function getClubImageUrl(clubSlug: string) {
+	return `/img/club-thumbnail-img/${clubSlug}.jpg`;
+}
 
-export function extractClubCategories(clubs: Club[]) {}
+export function getClubPageUrl(clubSlug: string) {
+	return `/club/${clubSlug}`;
+}

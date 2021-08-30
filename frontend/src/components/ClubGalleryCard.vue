@@ -131,7 +131,6 @@ export default defineComponent({
 			mdiArrowRight,
 			clubHasImage,
 			onImageLoadError,
-			isDescriptionActive,
 			onClick,
 			cardStyle,
 			frontCardStyle,
