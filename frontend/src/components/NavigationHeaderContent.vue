@@ -74,7 +74,7 @@
 
 <script lang="ts">
 import { mdiMenu } from '@mdi/js';
-import type { PropType} from 'vue';
+import type { PropType } from 'vue';
 import { defineComponent, ref } from 'vue';
 
 import type { Tab } from '~/types/tab';
