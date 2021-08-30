@@ -15,7 +15,7 @@
 					<div
 						w:text="white center [3rem] md:[6rem]"
 						w:font="bold"
-						class="my-6 mx-14"
+						class="my-6 mx-14 flex-grow"
 						style="text-shadow: 5px 5px rgba(230, 4, 0, 0.4)"
 					>
 						{{ calendarStore.currentMonth }}
@@ -256,5 +256,9 @@ $triangle-ratio: 1.8;
 	border-top: math.div($triangle-width, $triangle-ratio) solid transparent;
 	border-left: $triangle-width solid white;
 	border-bottom: math.div($triangle-width, $triangle-ratio) solid transparent;
+}
+
+.arrow-svg:hover {
+	transform: scale(1.1);
 }
 </style>
