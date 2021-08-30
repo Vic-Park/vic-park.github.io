@@ -11,11 +11,11 @@
 					<div>victoriapark</div>
 				</a>
 			</div>
-			<div class="column items-center mx-3 md:mx-12">
+			<div w:m="x-3 md:x-12" class="column items-center">
 				<a href="https://schoolweb.tdsb.on.ca/victoriapark">
 					<img
-						w:md="w-30 h-30"
-						class="w-15 h-15 rounded-full bg-white p-3 mb-2 md:mb-4"
+						w:md="w-30 h-30 mb-4"
+						class="w-15 h-15 rounded-full bg-white p-3 mb-2"
 						src="/img/vic-park-logo.png"
 						alt="Victoria Park Logo"
 					/>
@@ -24,7 +24,7 @@
 				<div class="row">
 					<template v-for="{ icon, href } of links" :key="icon">
 						<a :href="href">
-							<vue-icon :icon="icon" class="mx-1 w-5 md:w-7" />
+							<vue-icon :icon="icon" class="mx-1 w-5" w:md="w-7" />
 						</a>
 					</template>
 				</div>

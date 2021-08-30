@@ -14,8 +14,14 @@
 				<router-link
 					:to="route"
 					:exact-active-class="noActiveClass ? '' : 'text-burgundy'"
+					class="text-lg"
+					:class="
+						navigationLinkClass !== undefined
+							? navigationLinkClass
+							: 'hover:burgundy'
+					"
 				>
-					<div w:text="lg hover:burgundy">{{ title }}</div>
+					{{ title }}
 				</router-link>
 			</div>
 		</template>
@@ -23,7 +29,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
+import { useRoute } from 'vue-router';
 
 import { scrollToId } from '~/utils/scroll';
 
@@ -48,7 +55,11 @@ export default defineComponent({
 		},
 	},
 	setup() {
-		return { scrollToId };
+		const route = useRoute();
+
+		const navigationLinkClass = computed(() => route.meta.navigationLinkClass);
+
+		return { scrollToId, navigationLinkClass };
 	},
 });
 </script>
