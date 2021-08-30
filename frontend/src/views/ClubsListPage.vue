@@ -1,6 +1,6 @@
 <template>
 	<div class="column items-center">
-		<div class="shadow-title my-8">clubs</div>
+		<div class="shadow-title text-red-dark my-8">clubs</div>
 		<div class="column max-w-5xl px-8">
 			<div class="relative w-60 h-10 self-end mb-8">
 				<vue-icon

@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+import { defaultCssVariables } from '~/utils/style';
+
 import { routes } from './routes';
 
 export const router = createRouter({
@@ -15,10 +17,17 @@ router.beforeEach((to, from) => {
 		}
 	}
 
+	console.log({
+		...defaultCssVariables,
+		...to.meta.cssVariables,
+	});
 	// Set new CSS variables
-	if (to.meta.cssVariables !== undefined) {
-		for (const [key, value] of Object.entries(to.meta.cssVariables)) {
-			document.documentElement.style.setProperty(key, value);
-		}
+	for (const [key, value] of Object.entries({
+		...defaultCssVariables,
+		...to.meta.cssVariables,
+	})) {
+		document.documentElement.style.setProperty(key, value);
 	}
+
+	document.body.style.scrollbarTrackColor = 'blue';
 });

@@ -16,18 +16,18 @@ export default defineComponent({
 	--scrollbar-track-color: #f6f3f3;
 }
 
-html::-webkit-scrollbar {
+body::-webkit-scrollbar {
 	width: 12px;
 }
 
 /* The grabbable scrollbar button  */
-html::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
 	background: var(--scrollbar-thumb-color);
 	border-radius: 5px;
 }
 
 /* The vertical scrollbar background */
-html::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
 	background: var(--scrollbar-track-color);
 }
 
