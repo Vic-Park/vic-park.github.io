@@ -1,4 +1,5 @@
-import { GithubFile, octokit } from '~/github';
+import type { GithubFile } from '~/github';
+import { octokit } from '~/github';
 
 export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
 	// Retrieving the existing announcements from the GitHub repository

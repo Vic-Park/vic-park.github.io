@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { GithubEntryUpdate, GithubFile } from '~/github';
-import { Entry } from '~types/entry';
+import type { GithubEntryUpdate, GithubFile } from '~/github';
+import type { Entry } from '~types/entry';
 
 import { stringifyEntry } from './stringify-entry';
 

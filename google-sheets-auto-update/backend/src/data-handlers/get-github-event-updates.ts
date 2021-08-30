@@ -1,7 +1,7 @@
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
 import { EntryType } from '~types/entry';
-import { ClubEvent } from '~types/event';
+import type { ClubEvent } from '~types/event';
 
 import {
 	getGithubEntryUpdates,
