@@ -31,15 +31,18 @@ export const routes: Array<RouteRecordRaw> = [
 				name: 'Club Page',
 				component: () =>
 					import(/* webpackChunkName: "club" */ '~/views/ClubPage.vue'),
+				meta: {
+					cssVariables: {
+						'--scrollbar-thumb-color': '#fcc534',
+					},
+					navigationHeaderClass: 'bg-burgundy',
+				},
 			},
 			{
 				path: '/events',
 				name: 'Events',
 				component: () =>
 					import(/* webpackChunkName: "events" */ '~/views/EventsPage.vue'),
-				meta: {
-					navigationHeaderClass: 'bg-yellow-500',
-				},
 			},
 			{
 				path: '/event/:eventSlug',

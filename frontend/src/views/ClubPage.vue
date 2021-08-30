@@ -3,7 +3,7 @@
 		<div class="column items-center text-xl pb-12 club-page">
 			<div
 				w:text="center white"
-				class="py-8 self-stretch bg-red-dark column items-center"
+				class="py-8 self-stretch bg-burgundy column items-center"
 			>
 				<h1 class="font-bold font-kollektif text-6xl mb-3 max-w-4xl">
 					{{ name }}
