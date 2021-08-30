@@ -40,7 +40,7 @@ export default defineComponent({
 		}
 
 		const {
-			data: { name, description, information, start, end, slug },
+			data: { name, description, start, end },
 			content,
 		} = events[eventSlug];
 		const startDateString = formatFullDateTime(start);
@@ -53,9 +53,8 @@ export default defineComponent({
 			description,
 			startDateString,
 			endDateString,
-			information,
 			content,
-			slug,
+			slug: eventSlug,
 		};
 	},
 });

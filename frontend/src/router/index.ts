@@ -28,6 +28,4 @@ router.beforeEach((to, from) => {
 	})) {
 		document.documentElement.style.setProperty(key, value);
 	}
-
-	document.body.style.scrollbarTrackColor = 'blue';
 });
