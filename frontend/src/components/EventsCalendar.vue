@@ -130,7 +130,7 @@ export default defineComponent({
 			calendarStore.currentMonth = getViewMonthString(calendar.view.title);
 		});
 
-		function onLeftMonthArrowClick(e) {
+		function onLeftMonthArrowClick() {
 			calendar.prev();
 		}
 
