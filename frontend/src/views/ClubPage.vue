@@ -1,6 +1,6 @@
 <template>
 	<template v-if="found">
-		<div class="column items-center text-xl pb-12 club-page">
+		<div class="column items-center text-xl pb-12 club-page break-words">
 			<div
 				w:text="center white"
 				class="py-8 self-stretch bg-burgundy column items-center"
@@ -16,13 +16,13 @@
 			<div class="w-full max-w-xl">
 				<img
 					v-if="!imageNotFound"
-					:src="imgPath"
+					:src="clubThumbnailUrl"
 					class="mt-12 px-6 w-full"
 					@error="imageNotFound = true"
 				/>
 			</div>
 
-			<div class="max-w-4xl text-left px-8">
+			<div class="max-w-4xl w-full text-left px-8">
 				<div v-for="{ name, content } in sections" :key="name">
 					<div v-if="content !== ''" class="pt-12">
 						<strong class="block">{{ name }}:</strong>
@@ -44,6 +44,7 @@ import DOMPurify from 'dompurify';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
+import { getClubThumbnailUrl } from '~/utils/club';
 import clubs from '~data/clubs';
 
 export default defineComponent({
@@ -120,7 +121,7 @@ export default defineComponent({
 			),
 		}));
 
-		const imgPath = `/img/club-thumbnail-img/${clubSlug}.jpg`;
+		const clubThumbnailUrl = getClubThumbnailUrl(clubSlug);
 
 		const imageNotFound = ref(false);
 
@@ -130,7 +131,7 @@ export default defineComponent({
 			name,
 			equityStatement: processedEquityStatement,
 			sections,
-			imgPath,
+			clubThumbnailUrl,
 		};
 	},
 });
