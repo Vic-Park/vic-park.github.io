@@ -109,7 +109,6 @@ export default defineComponent({
 					// Only extracting the month
 					calendarStore.currentMonth = getViewMonthString(view.title);
 					calendarStore.currentYear = getViewYearString(view.title);
-					console.log(view.title);
 				},
 				events: eventsArray.map(
 					([slug, { data }]): EventInput => ({

@@ -17,10 +17,6 @@ router.beforeEach((to, from) => {
 		}
 	}
 
-	console.log({
-		...defaultCssVariables,
-		...to.meta.cssVariables,
-	});
 	// Set new CSS variables
 	for (const [key, value] of Object.entries({
 		...defaultCssVariables,

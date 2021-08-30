@@ -95,8 +95,6 @@ export default defineComponent({
 			}
 		}
 
-		console.log(categories)
-
 		return {
 			categories,
 			searchQuery,

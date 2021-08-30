@@ -18,7 +18,7 @@
 					:class="
 						navigationLinkClass !== undefined
 							? navigationLinkClass
-							: 'hover:burgundy'
+							: 'hover:text-burgundy'
 					"
 				>
 					{{ title }}

@@ -1,6 +1,6 @@
 import { Octokit } from 'octokit';
 
-import { Entry } from '~types/entry';
+import type { Entry } from '~types/entry';
 
 if (!process.env.GITHUB_TOKEN) {
 	console.warn('GITHUB_TOKEN was not found in environment.');

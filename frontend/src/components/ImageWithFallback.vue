@@ -7,7 +7,9 @@
 		@error="onImageLoadError"
 	/>
 	<template v-else>
-		<slot name="fallback"></slot>
+		<slot name="fallback">
+			<img src="/img/vic-park-logo.png" :alt="alt" v-bind="$attrs" />
+		</slot>
 	</template>
 </template>
 
