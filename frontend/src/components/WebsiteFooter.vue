@@ -1,24 +1,21 @@
 <template>
 	<footer
 		class="py-8 bg-burgundy column center font-medium w-full"
-		w:text="white xs sm:xl"
+		w:text="white xs md:xl"
 	>
 		<div class="row items-center w-full">
 			<div class="mr-auto flex-1 column text-right">
 				<div>(416) 395-3310</div>
-				<a
-					href="https://schoolweb.tdsb.on.ca/victoriapark"
-					class="underline"
-				>
+				<a href="https://schoolweb.tdsb.on.ca/victoriapark" class="underline">
 					<div class="break-all">schoolweb.tdsb.on.ca/</div>
 					<div>victoriapark</div>
 				</a>
 			</div>
-			<div class="column items-center mx-3 sm:mx-12">
+			<div class="column items-center mx-3 md:mx-12">
 				<a href="https://schoolweb.tdsb.on.ca/victoriapark">
 					<img
-						w:sm="w-30 h-30"
-						class="w-15 h-15 rounded-full bg-white p-3 mb-4"
+						w:md="w-30 h-30"
+						class="w-15 h-15 rounded-full bg-white p-3 mb-2 md:mb-4"
 						src="/img/vic-park-logo.png"
 						alt="Victoria Park Logo"
 					/>
@@ -27,7 +24,7 @@
 				<div class="row">
 					<template v-for="{ icon, href } of links" :key="icon">
 						<a :href="href">
-							<vue-icon :icon="icon" class="mx-1 w-5 sm:w-7" />
+							<vue-icon :icon="icon" class="mx-1 w-5 md:w-7" />
 						</a>
 					</template>
 				</div>
