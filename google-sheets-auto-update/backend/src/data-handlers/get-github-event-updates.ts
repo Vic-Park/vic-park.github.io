@@ -26,6 +26,8 @@ export async function getGithubEventUpdates({
 				description,
 				start: new Date(start),
 				end: new Date(end),
+				// TODO: move isSchoolEvent into the google sheets
+				isSchoolEvent: false,
 			},
 			content: information,
 			slug: name,

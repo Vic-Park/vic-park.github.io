@@ -34,6 +34,8 @@ export async function getGithubClubUpdates({
 			slug,
 		] = cleanSheetRow(club);
 
+		if (slug.length > 20) throw new Error('Slug is too long.');
+
 		return {
 			metadata: {
 				categories,
