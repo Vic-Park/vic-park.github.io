@@ -21,6 +21,7 @@
 			class="text-white cursor-pointer"
 			size="30px"
 			@click="onMenuClick"
+			@mousedown.prevent
 		/>
 		<div
 			v-if="isMenuOpen"

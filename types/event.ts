@@ -7,6 +7,7 @@ export type ClubEventMetadata = {
 	description: string;
 	start: Date;
 	end: Date;
+	isSchoolEvent: boolean;
 };
 
 export type ClubEvent = Entry<EntryType.event>;

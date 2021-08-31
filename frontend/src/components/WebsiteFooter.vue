@@ -1,7 +1,7 @@
 <template>
 	<footer
-		class="py-8 bg-burgundy column center font-medium w-full"
-		w:text="white xs md:xl"
+		class="py-8 bg-red-dark column center font-medium w-full"
+		w:text="white md md:xl"
 	>
 		<div class="row items-center w-full">
 			<div class="mr-auto flex-1 column text-right">

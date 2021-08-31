@@ -1,6 +1,10 @@
 <template>
 	<div class="shadow-title mt-8">calendar</div>
-	<div w:font="bold glacial" w:text="lg burgundy center" class="mb-4">
+	<div
+		w:font="bold glacial"
+		w:text="lg burgundy center"
+		class="mb-4 tracking-widest"
+	>
 		{{ calendarStore.currentYear }}
 	</div>
 	<EventsCalendar />

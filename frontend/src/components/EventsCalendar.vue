@@ -36,12 +36,14 @@
 				<div
 					v-show="activeEvent !== undefined"
 					ref="eventPopper"
-					class="z-50 bg-white rounded-lg p-8 border-2"
+					class="z-50 bg-white rounded-lg p-8 border-red border-3"
 				>
 					<div
 						v-if="activeEvent !== undefined"
 						v-click-outside="() => (activeEvent = undefined)"
+						class="font-glacial"
 					>
+						<div class="italic text-center">{{ activeEventDateString }}</div>
 						<div class="font-bold">{{ activeEvent.extendedProps.name }}</div>
 						<div class="my-4">{{ activeEvent.extendedProps.description }}</div>
 
@@ -70,7 +72,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { mdiArrowRight } from '@mdi/js';
 import { createPopper } from '@popperjs/core';
-import { defineComponent, onMounted, ref } from 'vue';
+import dateFormat from 'dateformat';
+import { computed, defineComponent, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 import { useCalendarStore } from '~/store/calendar';
@@ -83,6 +86,16 @@ export default defineComponent({
 		const eventPopper = ref();
 		const activeEvent = ref<EventApi>();
 		const calendarStore = useCalendarStore();
+
+		const activeEventDateString = computed<string>(() => {
+			const event = activeEvent.value;
+			console.log(event?.extendedProps.start);
+			if (event === undefined) return '';
+			return `${dateFormat(
+				event.extendedProps.start,
+				'mmmm d, h:MM'
+			)} - ${dateFormat(event.extendedProps.end, 'h:MM TT')}`;
+		});
 
 		let calendar: Calendar;
 
@@ -114,9 +127,12 @@ export default defineComponent({
 				},
 				events: eventsArray.map(
 					([slug, { data }]): EventInput => ({
+						classNames: [data.isSchoolEvent ? 'school-event' : 'club-event'],
 						extendedProps: {
 							name: data.name,
 							description: data.description,
+							start: data.start,
+							end: data.end,
 							slug,
 						},
 						start: new Date(data.start),
@@ -147,6 +163,7 @@ export default defineComponent({
 		return {
 			calendarStore,
 			activeEvent,
+			activeEventDateString,
 			onLeftMonthArrowClick,
 			onRightMonthArrowClick,
 			viewMoreInformation,
@@ -166,7 +183,7 @@ export default defineComponent({
 
 <style lang="postcss">
 .fc-event {
-	cursor: pointer;
+	@apply cursor-pointer;
 }
 
 .fc-daygrid-event {
@@ -175,14 +192,23 @@ export default defineComponent({
 	grid-template-rows: auto auto;
 }
 
-.fc-daygrid-event-dot {
-	grid-column: 1 / span 1;
-	grid-row: 1 / -1;
+.fc-event-time {
+	@apply hidden;
 }
 
-.fc-event-title {
+.fc-daygrid-event {
+	@apply transform hover:scale-95 transition-transform;
+}
+
+.fc-daygrid-event-dot {
+	@apply hidden;
+}
+
+#fc .fc-event-title {
+	@apply font-glacial text-center font-medium text-md;
 	white-space: normal !important;
 	overflow: auto !important;
+	grid-column: 1 / -1;
 }
 
 .fc .fc-toolbar-title {
@@ -190,43 +216,44 @@ export default defineComponent({
 }
 
 .fc .fc-col-header-cell-cushion {
+	@apply text-gray;
 	font-size: 0.6rem;
 	text-transform: uppercase;
 	vertical-align: top;
-	color: gray;
 }
 
 .fc .fc-scrollgrid-sync-inner {
-	text-align: left;
+	@apply text-left;
 }
 
 .fc-day-today {
-	position: relative;
+	@apply relative;
 }
 
 .fc-day-today::before {
 	content: '';
-	position: absolute;
+	@apply absolute inset-0;
 	border: 2px solid red;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+}
+
+#fc .school-event {
+	@apply bg-red-dark;
+}
+
+#fc .club-event {
+	@apply bg-yellow-deep text-white;
 }
 
 #fc .fc-day-today {
-	background-color: white;
+	@apply bg-white text-white;
 }
 
 #fc .fc-daygrid-day-top {
-	padding-left: 5px;
-	padding-top: 3px;
-	display: flex;
-	flex-direction: row;
+	@apply pl-[5px] pt-[3px] flex flex-row;
 }
 
 #fc .fc-daygrid-day-number {
-	font-weight: bold;
+	@apply font-bold;
 }
 
 .fc .fc-day-other {
@@ -234,7 +261,7 @@ export default defineComponent({
 }
 
 .fc .fc-daygrid-day-number {
-	font-family: 'Glacial Indifference';
+	@apply font-glacial;
 }
 </style>
 

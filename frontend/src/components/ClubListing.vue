@@ -13,10 +13,10 @@
 			"
 		>
 			<div
-				class="club-listing-background absolute inset-0 -z-1 bg-burgundy"
+				class="club-listing-background absolute inset-0 -z-1 bg-red-dark"
 			></div>
 			<div class="flex-shrink">
-				<div class="text-2xl font-bold">{{ name }}</div>
+				<div class="font-kollektif text-2xl font-bold">{{ name }}</div>
 				<div class="text-md">{{ shortDescription }}</div>
 			</div>
 			<div
