@@ -21,7 +21,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import BackToTopFab from '~/components/BackToTopFab.vue';
+import BackToTopFab from '~/components/back-to-top-fab.vue';
 import ClubAnnouncementListing from '~/components/club-announcement-listing.vue';
 import { createAnnouncementsArray } from '~/utils/announcement';
 import announcements from '~data/announcements';

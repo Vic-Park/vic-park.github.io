@@ -55,7 +55,7 @@
 import { mdiArrowRight } from '@mdi/js';
 import { defineComponent } from 'vue';
 
-import BackToTopFab from '~/components/BackToTopFab.vue';
+import BackToTopFab from '~/components/back-to-top-fab.vue';
 import ClubAnnouncementListing from '~/components/club-announcement-listing.vue';
 import ClubGallery from '~/components/club-gallery.vue';
 import ExploreButton from '~/components/explore-button.vue';
