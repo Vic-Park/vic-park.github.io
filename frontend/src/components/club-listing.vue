@@ -59,7 +59,7 @@ import { useRouter } from 'vue-router';
 
 import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
 
-import ImageWithFallback from './ImageWithFallback.vue';
+import ImageWithFallback from './image-with-fallback.vue';
 
 export default defineComponent({
 	name: 'ClubListing',

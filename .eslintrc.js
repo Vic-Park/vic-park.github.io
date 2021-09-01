@@ -3,7 +3,7 @@
 module.exports = {
 	extends: [
 		'airbnb-base',
-		'eslint:recommended',
+		'plugin:@typescript-eslint/eslint-recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:unicorn/recommended',
 		'plugin:import/typescript',
@@ -30,6 +30,9 @@ module.exports = {
 		'no-shadow': 'off',
 		'no-console': 'off',
 		'no-continue': 'off',
+		'consistent-return': 'off',
+		'no-cond-assign': ['error', 'except-parens'],
+		'default-case': 'off',
 
 		// eslint-plugin-import rules
 		'import/no-default-export': 'error',
@@ -42,6 +45,7 @@ module.exports = {
 				ts: 'never',
 			},
 		],
+		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 
 		// eslint-config-airbnb-base style overrides
 		'no-restricted-syntax': [
@@ -87,5 +91,7 @@ module.exports = {
 		'unicorn/prefer-ternary': 'off',
 		'unicorn/prevent-abbreviations': 'off',
 		'unicorn/consistent-function-scoping': 'off',
+		'unicorn/no-useless-undefined': 'off',
+		'unicorn/filename-case': ['error', { case: 'kebabCase' }],
 	},
 };

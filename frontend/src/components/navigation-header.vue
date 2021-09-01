@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import NavigationHeaderContent from './NavigationHeaderContent.vue';
+import NavigationHeaderContent from './navigation-header-content.vue';
 
 const tabs = [
 	{

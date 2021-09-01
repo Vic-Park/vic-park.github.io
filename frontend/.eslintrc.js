@@ -6,17 +6,6 @@ module.exports = {
 		node: true,
 	},
 	extends: ['../.eslintrc.js', 'plugin:vue/vue3-recommended', 'prettier'],
-	rules: {
-		'unicorn/filename-case': [
-			'error',
-			{
-				cases: {
-					pascalCase: true,
-					kebabCase: true,
-				},
-			},
-		],
-	},
 	parserOptions: {
 		parser: '@typescript-eslint/parser',
 		ecmaVersion: 2020,
@@ -24,7 +13,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['*.vue', '*.d.ts'],
+			files: ['*.vue', '*.d.ts', './plugins/*'],
 			rules: {
 				'import/no-default-export': 'off',
 			},

@@ -17,7 +17,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import ClubGalleryCard from '~/components/ClubGalleryCard.vue';
+import ClubGalleryCard from '~/components/club-gallery-card.vue';
 import clubs from '~data/clubs';
 
 export default defineComponent({

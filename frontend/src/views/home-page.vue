@@ -56,11 +56,11 @@ import { mdiArrowRight } from '@mdi/js';
 import { defineComponent } from 'vue';
 
 import BackToTopFab from '~/components/BackToTopFab.vue';
-import ClubAnnouncementListing from '~/components/ClubAnnouncementListing.vue';
-import ClubGallery from '~/components/ClubGallery.vue';
-import ExploreButton from '~/components/ExploreButton.vue';
-import HeroBanner from '~/components/HeroBanner.vue';
-import LandingNavigationHeader from '~/components/LandingNavigationHeader.vue';
+import ClubAnnouncementListing from '~/components/club-announcement-listing.vue';
+import ClubGallery from '~/components/club-gallery.vue';
+import ExploreButton from '~/components/explore-button.vue';
+import HeroBanner from '~/components/hero-banner.vue';
+import LandingNavigationHeader from '~/components/landing-navigation-header.vue';
 import { createAnnouncementsArray } from '~/utils/announcement';
 import announcements from '~data/announcements';
 

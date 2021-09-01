@@ -4,13 +4,13 @@ export const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/',
 		component: () =>
-			import(/* webpackChunkName: "content" */ '~/layouts/ContentLayout.vue'),
+			import(/* webpackChunkName: "content" */ '~/layouts/content-layout.vue'),
 		children: [
 			{
 				path: '/',
 				name: 'Home',
 				component: () =>
-					import(/* webpackChunkName: "home" */ '~/views/HomePage.vue'),
+					import(/* webpackChunkName: "home" */ '~/views/home-page.vue'),
 				meta: {
 					hideNavigationHeader: true,
 					cssVariables: {
@@ -23,14 +23,14 @@ export const routes: Array<RouteRecordRaw> = [
 				name: 'Clubs',
 				component: () =>
 					import(
-						/* webpackChunkName: "clubs-list" */ '~/views/ClubsListPage.vue'
+						/* webpackChunkName: "clubs-list" */ '~/views/clubs-list-page.vue'
 					),
 			},
 			{
 				path: '/club/:clubSlug',
 				name: 'Club Page',
 				component: () =>
-					import(/* webpackChunkName: "club" */ '~/views/ClubPage.vue'),
+					import(/* webpackChunkName: "club" */ '~/views/club-page.vue'),
 				meta: {
 					cssVariables: {
 						'--scrollbar-thumb-color': '#fcc534',
@@ -43,20 +43,20 @@ export const routes: Array<RouteRecordRaw> = [
 				path: '/events',
 				name: 'Events',
 				component: () =>
-					import(/* webpackChunkName: "events" */ '~/views/EventsPage.vue'),
+					import(/* webpackChunkName: "events" */ '~/views/events-page.vue'),
 			},
 			{
 				path: '/event/:eventSlug',
 				name: 'Event Page',
 				component: () =>
-					import(/* webpackChunkName: "event" */ '~/views/EventPage.vue'),
+					import(/* webpackChunkName: "event" */ '~/views/event-page.vue'),
 			},
 			{
 				path: '/announcements',
 				name: 'Announcements',
 				component: () =>
 					import(
-						/* webpackChunkName: "announcements" */ '~/views/AnnouncementsPage.vue'
+						/* webpackChunkName: "announcements" */ '~/views/announcements-page.vue'
 					),
 				meta: {},
 			},
@@ -64,7 +64,7 @@ export const routes: Array<RouteRecordRaw> = [
 				path: '/:catchAll(.*)',
 				name: 'Not Found',
 				component: () =>
-					import(/* webpackChunkName: "404" */ '~/views/404Page.vue'),
+					import(/* webpackChunkName: "404" */ '~/views/404-page.vue'),
 			},
 		],
 	},

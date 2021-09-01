@@ -47,7 +47,7 @@
 import { mdiMagnify } from '@mdi/js';
 import { computed, defineComponent, ref } from 'vue';
 
-import ClubListing from '~/components/ClubListing.vue';
+import ClubListing from '~/components/club-listing.vue';
 import clubs from '~data/clubs';
 
 export default defineComponent({

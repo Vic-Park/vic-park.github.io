@@ -5,9 +5,9 @@ import './css/global.postcss';
 import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 
-import VueIcon from '~/components/VueIcon.vue';
+import VueIcon from '~/components/vue-icon.vue';
 
-import App from './App.vue';
+import App from './app.vue';
 import { router } from './router';
 import vClickOutside from './utils/click-outside';
 

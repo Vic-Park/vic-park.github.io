@@ -63,7 +63,7 @@ import { computed, defineComponent, ref } from 'vue';
 
 import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
 
-import ImageWithFallback from './ImageWithFallback.vue';
+import ImageWithFallback from './image-with-fallback.vue';
 
 export default defineComponent({
 	components: { ImageWithFallback },

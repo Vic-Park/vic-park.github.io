@@ -15,8 +15,8 @@
 import { defineComponent } from 'vue';
 import { useRoute } from 'vue-router';
 
-import NavigationHeader from '~/components/NavigationHeader.vue';
-import WebsiteFooter from '~/components/WebsiteFooter.vue';
+import NavigationHeader from '~/components/navigation-header.vue';
+import WebsiteFooter from '~/components/website-footer.vue';
 
 export default defineComponent({
 	components: { NavigationHeader, WebsiteFooter },

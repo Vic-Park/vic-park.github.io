@@ -11,7 +11,7 @@ import { defineComponent } from 'vue';
 
 import type { Tab } from '~/types/tab';
 
-import NavigationHeaderContent from './NavigationHeaderContent.vue';
+import NavigationHeaderContent from './navigation-header-content.vue';
 
 const tabs: Tab[] = [
 	{

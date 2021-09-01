@@ -81,7 +81,7 @@ import { defineComponent, ref } from 'vue';
 import type { Tab } from '~/types/tab';
 import { scrollToId } from '~/utils/scroll';
 
-import NavigationHeaderLink from './NavigationHeaderLink.vue';
+import NavigationHeaderLink from './navigation-header-link.vue';
 
 export default defineComponent({
 	name: 'NavigationHeader',

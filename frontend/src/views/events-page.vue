@@ -25,8 +25,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import EventListing from '~/components/EventListing.vue';
-import EventsCalendar from '~/components/EventsCalendar.vue';
+import EventListing from '~/components/event-listing.vue';
+import EventsCalendar from '~/components/events-calendar.vue';
 import { useCalendarStore } from '~/store/calendar';
 import events from '~data/events';
 

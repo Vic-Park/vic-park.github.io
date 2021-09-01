@@ -42,7 +42,7 @@
 import { mdiEmail, mdiGithub, mdiInstagram, mdiTwitter } from '@mdi/js';
 import { defineComponent } from 'vue';
 
-import VueIcon from './VueIcon.vue';
+import VueIcon from './vue-icon.vue';
 
 type Link = {
 	icon: string;
