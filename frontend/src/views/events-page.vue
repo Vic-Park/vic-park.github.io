@@ -10,15 +10,20 @@
 	<EventsCalendar />
 	<div w:p="x-16 t-6 b-16">
 		<h1 w:text="4xl center" class="font-bold py-8">Upcoming Club Events</h1>
-		<EventListing
-			v-for="event in eventsArray"
-			:key="event.slug"
-			:description="event.description"
-			:name="event.name"
-			:start="event.start.toString()"
-			:end="event.end.toString()"
-			:slug="event.slug"
-		/>
+		<template v-if="eventsArray.length > 0">
+			<EventListing
+				v-for="event in eventsArray"
+				:key="event.slug"
+				:description="event.description"
+				:name="event.name"
+				:start="event.start.toString()"
+				:end="event.end.toString()"
+				:slug="event.slug"
+			/>
+		</template>
+		<template v-else>
+			<p class='text-center'>There are no upcoming events.</p>
+		</template>
 	</div>
 </template>
 

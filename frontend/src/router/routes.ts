@@ -35,7 +35,7 @@ export const routes: Array<RouteRecordRaw> = [
 					cssVariables: {
 						'--scrollbar-thumb-color': '#fcc534',
 					},
-					navigationHeaderClass: 'bg-burgundy',
+					navigationHeaderClass: 'bg-red-dark',
 					navigationLinkClass: 'hover:text-yellow-deep',
 				},
 			},
