@@ -1,7 +1,8 @@
 import { encode } from 'js-base64';
 import { inspect } from 'util';
 
-import { GithubEntryUpdate, octokit } from '~/github';
+import type { GithubEntryUpdate } from '~/github';
+import { octokit } from '~/github';
 
 import { getEntryTypeFolder } from './utils';
 import { stringifyEntry } from './utils/stringify-entry';

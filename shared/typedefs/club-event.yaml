@@ -1,0 +1,26 @@
+properties:
+  name:
+    metadata:
+      description: The name of the club
+    type: string
+
+  description:
+    metadata:
+      description: A short description of the event
+    type: string
+
+  information:
+    metadata:
+      description: More information about the event (e.g. location, requirements, etc.)
+    type: string
+
+  start:
+    # The start time can be specified as "TBD/TBA" if not yet known.
+    metadata:
+      description: The start date and time of the event
+    type: string
+
+  end:
+    metadata:
+      description: The end date and time of the event
+    type: string

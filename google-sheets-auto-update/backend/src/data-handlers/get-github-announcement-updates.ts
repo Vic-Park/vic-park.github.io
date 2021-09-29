@@ -1,9 +1,6 @@
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 import { paramCase } from 'param-case';
 
-import type { ClubAnnouncement } from '~types/announcement';
-import { EntryType } from '~types/entry';
-
 import {
 	getGithubEntryUpdates,
 	getSheetRows,
@@ -20,6 +17,8 @@ export async function getGithubAnnouncementUpdates({
 		spreadsheetData,
 		'Club Announcements'
 	);
+
+
 
 	const googleSheetAnnouncements: ClubAnnouncement[] = announcementEntries.map(
 		(announcement) => {

@@ -24,10 +24,7 @@ module.exports = {
 			alias: {
 				map: [
 					['~', './src'],
-					['~data/clubs', '../types/club'],
-					['~data/events', '../types/event'],
-					['~data/announcements', '../types/announcement'],
-					['~types', '../types'],
+					['~shared', '../shared'],
 				],
 				extensions: ['.js', '.ts'],
 			},

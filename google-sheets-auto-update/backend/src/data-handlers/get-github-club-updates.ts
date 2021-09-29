@@ -1,8 +1,5 @@
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
-import type { Club } from '~types/club';
-import { EntryType } from '~types/entry';
-
 import {
 	getGithubEntryUpdates,
 	getSheetRows,

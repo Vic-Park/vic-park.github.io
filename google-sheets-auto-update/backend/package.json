@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.21.1",
+		"dayjs": "^1.10.7",
 		"deep-equal": "^2.0.5",
 		"dotenv": "^9.0.2",
 		"fastify": "^3.15.1",
