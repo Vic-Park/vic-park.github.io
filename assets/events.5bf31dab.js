@@ -1,1 +1,0 @@
-var a={"club-fair":{content:"\nComing soon! (This is a placeholder to see how events would look).\n",data:{name:"Club Fair Club Fair Club Fair",description:"A virtual club fair!",start:"2021-06-23T19:30:00.000Z",end:"2021-06-23T20:30:00.000Z",slug:"club-fair"},isEmpty:!1,excerpt:""}};export{a as e};
