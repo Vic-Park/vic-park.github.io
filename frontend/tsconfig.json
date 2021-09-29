@@ -28,7 +28,7 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
   },
   "include": [
     "types/*.d.ts",
@@ -40,5 +40,11 @@
   ],
   "exclude": [
     "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./types",
+      "prepend": true
+    }
   ]
 }

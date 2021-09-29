@@ -1,0 +1,7 @@
+{
+	"name": "club-website-types",
+	"license": "MIT",
+	"devDependencies": {
+		"gray-matter": "4.0.3"
+	}
+}
