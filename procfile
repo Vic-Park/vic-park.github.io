@@ -1,1 +1,1 @@
-web: yarn workspace google-sheets-auto-update-backend start:transpile-only
+web: pnpm run --filter=google-sheets-auto-update-backend start:transpile-only

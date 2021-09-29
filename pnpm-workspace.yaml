@@ -1,3 +1,4 @@
 packages:
+  - scripts
   - frontend
   - google-sheets-auto-update/backend

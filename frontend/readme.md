@@ -5,31 +5,31 @@ Written using Vue 3 + TypeScript.
 ## Project setup
 
 ```shell script
-yarn install
+pnpm install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```shell script
-yarn dev
+pnpm dev
 ```
 
 ### Compiles and minifies for production
 
 ```shell script
-yarn build
+pnpm build
 ```
 
 ### Lints and fixes files
 
 ```shell script
-yarn lint
+pnpm lint
 ```
 
 ### Deploys to GitHub Pages
 
 ```shell script
-yarn deploy
+pnpm deploy
 ```
 
 ### Customize configuration

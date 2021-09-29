@@ -3,18 +3,13 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"prettier": "yarn workspace frontend prettier && yarn workspace google-sheets-auto-update-backend prettier",
-		"lint": "yarn workspace frontend lint && yarn workspace google-sheets-auto-update-backend lint",
-		"dev:frontend": "yarn workspace frontend dev",
+		"prettier": "pnpm recursive run prettier",
+		"lint": "pnpm recursive run lint",
+		"dev:frontend": "pnpm dev --filter=frontend",
 		"prune:frontend": "rm -rf google-sheets-auto-update",
-		"build:frontend": "yarn workspace frontend build",
+		"build:frontend": "pnpm build --filter=frontend",
 		"heroku-prebuild": "rm -rf frontend scripts"
 	},
-	"workspaces": [
-		"frontend",
-		"google-sheets-auto-update/backend",
-		"scripts"
-	],
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.29.2",
 		"@typescript-eslint/parser": "^4.29.3",
