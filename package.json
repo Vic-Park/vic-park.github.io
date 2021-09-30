@@ -23,5 +23,11 @@
 		"eslint-plugin-unicorn": "35.0.0",
 		"prettier": "2.3.0",
 		"typescript": "4.4.3"
-	}
+	},
+	"workspaces": [
+		"frontend",
+		"vpci-clubs-auto-update/backend",
+		"scripts",
+		"types"
+	]
 }
