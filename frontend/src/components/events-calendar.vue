@@ -89,7 +89,6 @@ export default defineComponent({
 
 		const activeEventDateString = computed<string>(() => {
 			const event = activeEvent.value;
-			console.log(event?.extendedProps.start);
 			if (event === undefined) return '';
 			return `${dateFormat(
 				event.extendedProps.start,

@@ -103,7 +103,6 @@ export default defineComponent({
 
 		onMounted(() => {
 			const container = equityStatementContainer.value!;
-			console.log(container, container.getBoundingClientRect().height);
 			shave(
 				equityStatementTextContainer.value!,
 				container.getBoundingClientRect().height
