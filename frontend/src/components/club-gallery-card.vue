@@ -46,7 +46,12 @@
 				w:text="burgundy center"
 			>
 				<h4 w:text="xl center" class="font-bold uppercase mb-2">{{ name }}</h4>
-				<div class="text-md flex-1 line-clamp-8">{{ clippedEquityStatement }}</div>
+				<div
+					ref="equityStatementContainer"
+					class="text-md flex-1 overflow-hidden"
+				>
+					{{ clippedEquityStatement }}
+				</div>
 				<div class="column">
 					<router-link :to="clubPageUrl" class="self-center">
 						<vue-icon
@@ -65,6 +70,7 @@
 <script lang="ts">
 import { mdiArrowRight } from '@mdi/js';
 import type * as CSS from 'csstype';
+import shave from 'shave';
 import { computed, defineComponent, ref } from 'vue';
 
 import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
@@ -93,6 +99,11 @@ export default defineComponent({
 	},
 	setup(props) {
 		const isDescriptionActive = ref(false);
+		const equityStatementContainer = ref();
+
+		onMounted(() => {
+			shave;
+		});
 
 		const cardStyle = computed(() => ({
 			transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
