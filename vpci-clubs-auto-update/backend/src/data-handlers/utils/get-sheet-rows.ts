@@ -10,7 +10,20 @@ export function getSheetRows(
 
 	if (sheet === undefined) return [];
 
-	return sheet
-		.data![0]!.rowData!.slice(1)
-		.map(({ values }) => values!.map((value) => value.formattedValue!));
+	function isRowEmpty(row: SheetsV4.Schema$RowData) {
+		const rowValues = row.values;
+		if (rowValues === undefined) return true;
+		return rowValues.every(
+			(value) =>
+				value.formattedValue === '' || value.formattedValue === undefined
+		);
+	}
+
+	return (
+		sheet
+			.data![0]!.rowData!.slice(1)
+			// filter out empty rows
+			.filter((row) => !isRowEmpty(row))
+			.map(({ values }) => values!.map((value) => value.formattedValue!))
+	);
 }
