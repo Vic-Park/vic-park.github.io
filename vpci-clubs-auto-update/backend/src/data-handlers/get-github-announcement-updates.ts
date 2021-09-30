@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
 import { EntryType } from '~shared/types/entry';
@@ -29,7 +30,7 @@ export async function getGithubAnnouncementUpdates({
 			}
 
 			return {
-				data: { date: new Date(date!).toISOString(), content, title },
+				data: { date: dayjs.tz(date!).toISOString(), content, title },
 				type: EntryType.announcement,
 			};
 		}
