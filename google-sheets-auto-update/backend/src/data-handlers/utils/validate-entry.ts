@@ -67,3 +67,16 @@ export function validateSheetEntry<T extends EntryType>(
 			}
 	}
 }
+
+export function filterValidSheetEntries<T extends EntryType>(
+	sheetEntries: SheetEntry<T>[]
+): Entry<T>[] {
+	const validEntries: Entry<T>[] = [];
+	for (const sheetEntry of sheetEntries) {
+		const result = validateSheetEntry(sheetEntry);
+		if (result) {
+			validEntries.push(result);
+		}
+	}
+	return validEntries;
+}

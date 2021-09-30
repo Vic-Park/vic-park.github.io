@@ -7,7 +7,7 @@ export type GithubFile = {
 	sha: string;
 };
 
-export type GithubEntryUpdate<T extends EntryType> = {
+export type GithubEntryUpdate<T extends EntryType = EntryType> = {
 	entry: Entry<T>;
 	githubFileSha?: string;
 };

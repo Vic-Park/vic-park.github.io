@@ -1,61 +1,68 @@
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
+import type { SheetEntry } from '~/types/sheets';
+import { EntryType } from '~shared/types/entry';
+
 import {
 	getGithubEntryUpdates,
 	getSheetRows,
 	retrieveGithubFiles,
 } from './utils';
-import { cleanSheetRow } from './utils/normalize';
+import { normalizeSheetRow } from './utils/normalize';
+import { filterValidSheetEntries } from './utils/validate-entry';
 
 export async function getGithubClubUpdates({
 	spreadsheetData,
 }: {
 	spreadsheetData: SheetsV4.Schema$Spreadsheet;
 }) {
-	const clubEntries = getSheetRows(spreadsheetData, 'Clubs');
-	const googleSheetClubs: Club[] = clubEntries.map((club) => {
-		const [
-			_timestamp,
-			name,
-			staffSupervisor,
-			clubLeaders,
-			shortDescription,
-			categories,
-			meetingTimes,
-			joinInstructions,
-			onlinePlatforms,
-			extraInformation,
-			timeCommitment,
-			_accessToSourceCode,
-			equityStatement,
-			slug,
-		] = cleanSheetRow(club);
+	const clubRows = getSheetRows(spreadsheetData, 'Clubs');
 
-		if (slug.length > 20) throw new Error('Slug is too long.');
-
-		return {
-			metadata: {
-				categories,
-				clubLeaders,
-				extraInformation,
-				joinInstructions,
-				meetingTimes,
+	const clubsSheetEntries: SheetEntry<EntryType.club>[] = clubRows.map(
+		(club) => {
+			const [
+				_timestamp,
 				name,
-				onlinePlatforms,
-				shortDescription,
 				staffSupervisor,
+				clubLeaders,
+				shortDescription,
+				categories,
+				meetingTimes,
+				joinInstructions,
+				onlinePlatforms,
+				extraInformation,
 				timeCommitment,
+				_accessToSourceCode,
 				equityStatement,
-			},
-			slug,
-			type: EntryType.club,
-		};
-	});
+				slug,
+			] = normalizeSheetRow(club);
 
+			return {
+				data: {
+					slug,
+					categories,
+					clubLeaders,
+					extraInformation,
+					joinInstructions,
+					meetingTimes,
+					name,
+					onlinePlatforms,
+					shortDescription,
+					staffSupervisor,
+					timeCommitment,
+					equityStatement,
+				},
+				type: EntryType.club,
+			};
+		}
+	);
+
+	const clubsEntries =
+		filterValidSheetEntries<EntryType.club>(clubsSheetEntries);
 	const githubFiles = await retrieveGithubFiles('/data/clubs');
-	const githubClubUpdates = await getGithubEntryUpdates<Club>({
+	const githubClubUpdates = await getGithubEntryUpdates<EntryType.club>({
 		githubFiles,
-		googleSheetEntries: googleSheetClubs,
+		googleSheetEntries: clubsEntries,
 	});
 
 	return githubClubUpdates;

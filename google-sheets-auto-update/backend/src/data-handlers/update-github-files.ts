@@ -1,10 +1,11 @@
 import { encode } from 'js-base64';
 import { inspect } from 'util';
 
-import type { GithubEntryUpdate } from '~/github';
 import { octokit } from '~/github';
+import type { GithubEntryUpdate } from '~/types/github';
 
 import { getEntryTypeFolder } from './utils';
+import { getEntrySlug } from './utils/get-entry-slug';
 import { stringifyEntry } from './utils/stringify-entry';
 
 export async function updateGithubFiles(
@@ -12,7 +13,8 @@ export async function updateGithubFiles(
 ) {
 	for (let i = 0; i < githubEntryUpdates.length; i += 1) {
 		const { entry, githubFileSha } = githubEntryUpdates[i];
-		const { slug, type } = entry;
+		const slug = getEntrySlug(entry);
+		const { type } = entry;
 
 		try {
 			const response = await octokit.request(

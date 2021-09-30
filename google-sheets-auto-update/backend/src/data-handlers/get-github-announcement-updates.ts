@@ -9,40 +9,33 @@ import {
 	retrieveGithubFiles,
 } from './utils';
 import { normalizeSheetRow } from './utils/normalize';
-import { validateEntry } from './utils/validate-entry';
+import { filterValidSheetEntries } from './utils/validate-entry';
 
 export async function getGithubAnnouncementUpdates({
 	spreadsheetData,
 }: {
 	spreadsheetData: SheetsV4.Schema$Spreadsheet;
 }) {
-	const announcementEntries = getSheetRows(
-		spreadsheetData,
-		'Club Announcements'
-	);
+	const announcementRows = getSheetRows(spreadsheetData, 'Club Announcements');
 
-	const googleSheetAnnouncements = announcementEntries
-		.map((announcement) => {
+	const announcementSheetEntries: SheetEntry<EntryType.announcement>[] =
+		announcementRows.map((announcement) => {
 			const [title, date, content] = normalizeSheetRow(announcement);
 
 			return {
-				data: {
-					date,
-					content,
-					title,
-				},
+				data: { date, content, title },
 				type: EntryType.announcement,
 			};
-		})
-		.filter(
-			(announcementEntry) => validateEntry(announcementEntry) !== undefined
-		);
+		});
 
+	const announcementEntries = filterValidSheetEntries<EntryType.announcement>(
+		announcementSheetEntries
+	);
 	const githubFiles = await retrieveGithubFiles('/data/announcements');
 	const githubAnnouncementUpdates =
 		await getGithubEntryUpdates<EntryType.announcement>({
 			githubFiles,
-			googleSheetEntries: googleSheetAnnouncements,
+			googleSheetEntries: announcementEntries,
 		});
 
 	return githubAnnouncementUpdates;

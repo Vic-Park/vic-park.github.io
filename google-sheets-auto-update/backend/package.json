@@ -4,11 +4,12 @@
 	"version": "1.0.0",
 	"license": "MIT",
 	"scripts": {
-		"start": "ts-node ./src/index.ts",
-		"start:transpile-only": "ts-node-transpile-only ./src/index.ts",
 		"prettier": "prettier --write src/**/*.{js,ts}",
 		"lint": "eslint --fix src",
-		"dev": "ts-node-dev ./src/index.ts"
+		"tc": "tsc --noEmit",
+		"dev": "ts-node-dev ./src/index.ts",
+		"start": "ts-node ./src/index.ts",
+		"start:transpile-only": "ts-node-transpile-only ./src/index.ts"
 	},
 	"dependencies": {
 		"ajv": "^8.6.3",
