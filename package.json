@@ -8,20 +8,20 @@
 		"tc": "pnpm recursive run tc",
 		"dev:frontend": "pnpm dev --filter=frontend",
 		"gen:types": "pnpm gen:types --filter=scripts",
-		"prune:frontend": "rm -rf google-sheets-auto-update",
+		"prune:frontend": "rm -rf vpci-clubs-auto-update",
 		"build:frontend": "pnpm build --filter=frontend",
 		"heroku-prebuild": "rm -rf frontend scripts"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^4.29.2",
-		"@typescript-eslint/parser": "^4.29.3",
-		"eslint": "^7.32.0",
-		"eslint-config-airbnb-base": "^14.2.1",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-import": "^2.24.2",
-		"eslint-plugin-simple-import-sort": "^7.0.0",
-		"eslint-plugin-unicorn": "^35.0.0",
-		"prettier": "^2.3.0",
-		"typescript": "^4.4.0"
+		"@typescript-eslint/eslint-plugin": "4.29.2",
+		"@typescript-eslint/parser": "4.29.3",
+		"eslint": "7.32.0",
+		"eslint-config-airbnb-base": "14.2.1",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-plugin-import": "2.24.2",
+		"eslint-plugin-simple-import-sort": "7.0.0",
+		"eslint-plugin-unicorn": "35.0.0",
+		"prettier": "2.3.0",
+		"typescript": "4.4.3"
 	}
 }

@@ -1,7 +1,7 @@
 {
 	"files.eol": "\n",
 	"eslint.workingDirectories": [
-		"./google-sheets-auto-update/backend",
+		"./vpci-clubs-auto-update/backend",
 		"./frontend"
 	],
 }

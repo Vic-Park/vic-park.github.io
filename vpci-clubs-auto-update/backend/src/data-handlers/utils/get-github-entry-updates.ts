@@ -1,4 +1,4 @@
-import axios from 'axios';
+import got from 'got';
 import yaml from 'js-yaml';
 
 import type { GithubEntryUpdate, GithubFile } from '~/types/github';
@@ -31,8 +31,8 @@ export async function getGithubEntryUpdates<T extends EntryType>({
 		}
 
 		// Otherwise, compare the google sheet entry with the GitHub file
-		const response = await axios.get(githubFile.download_url);
-		const fileContents = response.data;
+		const response = await got.get(githubFile.download_url);
+		const fileContents = response.body;
 
 		// If the parsed google sheet entry isn't equivalent to the parsed github entry,
 		// append the google sheet entry file to a list of entries that need to be updated
