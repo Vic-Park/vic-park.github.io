@@ -7,11 +7,6 @@ export interface ClubEvent {
   description: string;
 
   /**
-   * The end date and time of the event
-   */
-  end: string;
-
-  /**
    * More information about the event (e.g. location, requirements, etc.)
    */
   information: string;
@@ -28,7 +23,12 @@ export interface ClubEvent {
   name: string;
 
   /**
+   * The end date and time of the event
+   */
+  end?: string;
+
+  /**
    * The start date and time of the event
    */
-  start: (string | null);
+  start?: string;
 }

@@ -124,26 +124,28 @@ export default defineComponent({
 					calendarStore.currentMonth = getViewMonthString(view.title);
 					calendarStore.currentYear = getViewYearString(view.title);
 				},
-				events: eventsArray.map(
-					({
-						name,
-						description,
-						start,
-						end,
-						isSchoolWideEvent,
-					}): EventInput => ({
-						classNames: [isSchoolWideEvent ? 'school-event' : 'club-event'],
-						extendedProps: {
+				events: eventsArray
+					.filter(({ start, end }) => start !== undefined && end !== undefined)
+					.map(
+						({
 							name,
 							description,
 							start,
 							end,
-						},
-						start: new Date(start),
-						end: new Date(end),
-						title: name,
-					})
-				),
+							isSchoolWideEvent,
+						}): EventInput => ({
+							classNames: [isSchoolWideEvent ? 'school-event' : 'club-event'],
+							extendedProps: {
+								name,
+								description,
+								start,
+								end,
+							},
+							start: new Date(start!),
+							end: new Date(end!),
+							title: name,
+						})
+					),
 			});
 
 			calendar.render();

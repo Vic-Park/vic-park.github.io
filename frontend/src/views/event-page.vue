@@ -4,7 +4,7 @@
 			<div class="max-w-4xl w-full">
 				<h1 w:text="center 5xl" class="font-bold mb-2">{{ name }}</h1>
 				<div w:text="center xl" class="pb-4">
-					{{ startDateString }} - {{ endDateString }}
+					{{ entireDateString }}
 				</div>
 
 				<h2 class="font-bold text-2xl">Description</h2>
@@ -40,16 +40,20 @@ export default defineComponent({
 		}
 
 		const { name, description, start, end, information } = events[eventSlug];
-		const startDateString = formatFullDateTime(start);
-		const endDateString = formatFullDateTime(end);
+		const startDateString =
+			start === undefined ? 'TBA' : formatFullDateTime(start);
+		const endDateString = end === undefined ? 'TBA' : formatFullDateTime(end);
+		const entireDateString =
+			startDateString === endDateString
+				? startDateString
+				: `${startDateString} - ${endDateString}`;
 
 		return {
 			found: true,
 
 			name,
 			description,
-			startDateString,
-			endDateString,
+			entireDateString,
 			information,
 		};
 	},

@@ -6,7 +6,7 @@
 	>
 		{{ name }}
 	</router-link>
-	<div class="text-md">{{ startDateString }} - {{ endDateString }}</div>
+	<div class="text-md">{{ entireDateString }}</div>
 	<div class="text-md pt-2">{{ description }}</div>
 </template>
 
@@ -38,10 +38,16 @@ export default defineComponent({
 	setup(props) {
 		const startDateString = computed(() => formatFullDateTime(props.start));
 		const endDateString = computed(() => formatFullDateTime(props.end));
+		const entireDateString = computed(() =>
+			startDateString.value === endDateString.value
+				? startDateString.value
+				: `${startDateString.value} - ${endDateString.value}`
+		);
 
 		return {
 			startDateString,
 			endDateString,
+			entireDateString,
 		};
 	},
 });

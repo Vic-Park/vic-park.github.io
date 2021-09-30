@@ -16,8 +16,8 @@
 				:key="event.name"
 				:description="event.description"
 				:name="event.name"
-				:start="event.start.toString()"
-				:end="event.end.toString()"
+				:start="event.start"
+				:end="event.end"
 			/>
 		</template>
 		<template v-else>

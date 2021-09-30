@@ -14,19 +14,19 @@ properties:
       description: More information about the event (e.g. location, requirements, etc.)
     type: string
 
+  isSchoolWideEvent:
+    metadata:
+      description: Whether the event is schoolwide (i.e. not associated with a particular set of clubs)
+    type: boolean
+
+optionalProperties:
   start:
-    # The start time can be specified as "TBD/TBA" if not yet known.
+    # If the event is not yet known, the start/end date is TBD
     metadata:
       description: The start date and time of the event
     type: timestamp
-    nullable: true
 
   end:
     metadata:
       description: The end date and time of the event
     type: timestamp
-
-  isSchoolWideEvent:
-    metadata:
-      description: Whether the event is schoolwide (i.e. not associated with a particular set of clubs)
-    type: boolean
