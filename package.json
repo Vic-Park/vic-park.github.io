@@ -10,7 +10,7 @@
 		"gen:types": "pnpm gen:types --filter=scripts",
 		"prune:frontend": "rm -rf vpci-clubs-auto-update",
 		"build:frontend": "pnpm build --filter=frontend",
-		"heroku-prebuild": "npm i -g pnpm && rm -rf frontend scripts",
+		"heroku-prebuild": "npm i -g pnpm && npm install --unsafe-perm --quiet -g \"npm@7\" && rm -rf frontend scripts",
 		"heroku-postbuild": "pnpm run build --filter=vpci-clubs-auto-update-backend"
 	},
 	"devDependencies": {
@@ -32,7 +32,6 @@
 		"types"
 	],
 	"engines": {
-		"node": "^14.17.6",
-		"npm": "^7"
+		"node": "^14.17.6"
 	}
 }
