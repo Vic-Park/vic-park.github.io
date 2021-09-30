@@ -1,1 +1,1 @@
-var a={};export{a as e};
+var e={};export{e};

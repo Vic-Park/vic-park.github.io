@@ -1,1 +1,1 @@
-var a="/img/vic-park-logo.png";export{a as _};
+var o="/img/vic-park-logo.png";export{o as _};
