@@ -102,10 +102,9 @@ export default defineComponent({
 		const equityStatementTextContainer = ref<HTMLParagraphElement>();
 
 		onMounted(() => {
-			const container = equityStatementContainer.value!;
 			shave(
 				equityStatementTextContainer.value!,
-				container.getBoundingClientRect().height
+				equityStatementContainer.value!.getBoundingClientRect().height
 			);
 		});
 
