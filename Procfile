@@ -1,0 +1,1 @@
+web: node ./vpci-clubs-auto-update/backend/dist/vpci-clubs-auto-update/backend/src/index.js
