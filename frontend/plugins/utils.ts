@@ -5,6 +5,9 @@ import path from 'path';
 
 import type { Club } from '~shared/types/club';
 
+const ajv = new Ajv();
+ajv.addKeyword('description');
+
 type LoadDataFolderProps = {
 	dataFolder: string;
 	schemaFilePath: string;
@@ -13,9 +16,10 @@ export function loadDataFolder({
 	dataFolder,
 	schemaFilePath,
 }: LoadDataFolderProps) {
-	const ajv = new Ajv();
-	const typedefSchema = fs.readFileSync(schemaFilePath);
-	const validate = ajv.compile(typedefSchema);
+	const typedefSchema = JSON.stringify(
+		yaml.load(fs.readFileSync(schemaFilePath).toString())
+	);
+	const validate = ajv.compile(JSON.parse(typedefSchema));
 
 	const dataFiles = fs.readdirSync(dataFolder);
 	const data: Record<string, Club> = {};

@@ -1,6 +1,6 @@
+import dayjs from 'dayjs';
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
-import type { SheetEntry } from '~/types/sheets';
 import { EntryType } from '~shared/types/entry';
 
 import {
@@ -9,6 +9,8 @@ import {
 	retrieveGithubFiles,
 } from './utils';
 import { normalizeSheetRow } from './utils/normalize';
+import { parseSheetRows } from './utils/parse-sheet-rows';
+import { isValidDate } from './utils/validate-date';
 import { filterValidSheetEntries } from './utils/validate-entry';
 
 export async function getGithubEventUpdates({
@@ -18,19 +20,28 @@ export async function getGithubEventUpdates({
 }) {
 	const eventRows = getSheetRows(spreadsheetData, 'Club Events');
 
-	const eventSheetEntries: SheetEntry<EntryType.event>[] = eventRows.map(
+	const eventSheetEntries = parseSheetRows<EntryType.event>(
+		eventRows,
 		(event) => {
 			const [name, description, information, start, end, isSchoolWideEvent] =
 				normalizeSheetRow(event);
+
+			if (!isValidDate(start, { allowTBD: true })) {
+				return { failure: true, reason: 'Invalid start date' };
+			}
+
+			if (!isValidDate(end, { allowTBD: true })) {
+				return { failure: true, reason: 'Invalid end date' };
+			}
 
 			return {
 				data: {
 					name,
 					description,
 					information,
-					start,
-					end,
-					isSchoolWideEvent: isSchoolWideEvent === 'true',
+					start: dayjs(start).toISOString(),
+					end: dayjs(end).toISOString(),
+					isSchoolWideEvent: isSchoolWideEvent?.toLowerCase() === 'yes',
 				},
 				type: EntryType.event,
 			};

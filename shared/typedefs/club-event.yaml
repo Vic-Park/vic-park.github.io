@@ -18,12 +18,13 @@ properties:
     # The start time can be specified as "TBD/TBA" if not yet known.
     metadata:
       description: The start date and time of the event
-    type: string
+    type: timestamp
+    nullable: true
 
   end:
     metadata:
       description: The end date and time of the event
-    type: string
+    type: timestamp
 
   isSchoolWideEvent:
     metadata:

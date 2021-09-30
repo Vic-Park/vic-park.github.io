@@ -30,5 +30,5 @@ export interface ClubEvent {
   /**
    * The start date and time of the event
    */
-  start: string;
+  start: (string | null);
 }
