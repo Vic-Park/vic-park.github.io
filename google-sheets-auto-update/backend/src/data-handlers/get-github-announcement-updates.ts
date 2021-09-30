@@ -1,12 +1,15 @@
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
-import { paramCase } from 'param-case';
+
+import type { SheetEntry } from '~/types/sheets';
+import { EntryType } from '~shared/types/entry';
 
 import {
 	getGithubEntryUpdates,
 	getSheetRows,
 	retrieveGithubFiles,
 } from './utils';
-import { cleanSheetRow } from './utils/clean-sheet-row';
+import { normalizeSheetRow } from './utils/normalize';
+import { validateEntry } from './utils/validate-entry';
 
 export async function getGithubAnnouncementUpdates({
 	spreadsheetData,
@@ -18,27 +21,26 @@ export async function getGithubAnnouncementUpdates({
 		'Club Announcements'
 	);
 
-
-
-	const googleSheetAnnouncements: ClubAnnouncement[] = announcementEntries.map(
-		(announcement) => {
-			const [title, date, content] = cleanSheetRow(announcement);
+	const googleSheetAnnouncements = announcementEntries
+		.map((announcement) => {
+			const [title, date, content] = normalizeSheetRow(announcement);
 
 			return {
-				metadata: {
+				data: {
+					date,
+					content,
 					title,
-					date: new Date(date),
 				},
-				content,
-				slug: paramCase(title),
 				type: EntryType.announcement,
 			};
-		}
-	);
+		})
+		.filter(
+			(announcementEntry) => validateEntry(announcementEntry) !== undefined
+		);
 
 	const githubFiles = await retrieveGithubFiles('/data/announcements');
 	const githubAnnouncementUpdates =
-		await getGithubEntryUpdates<ClubAnnouncement>({
+		await getGithubEntryUpdates<EntryType.announcement>({
 			githubFiles,
 			googleSheetEntries: googleSheetAnnouncements,
 		});

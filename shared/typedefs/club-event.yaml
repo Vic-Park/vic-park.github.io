@@ -24,3 +24,8 @@ properties:
     metadata:
       description: The end date and time of the event
     type: string
+
+  isSchoolWideEvent:
+    metadata:
+      description: Whether the event is schoolwide (i.e. not associated with a particular set of clubs)
+    type: boolean

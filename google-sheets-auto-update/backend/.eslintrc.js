@@ -9,7 +9,7 @@ module.exports = {
 			alias: {
 				map: [
 					['~', './src'],
-					['~types', '../../types'],
+					['~shared', '../../shared'],
 				],
 				extensions: ['.js', '.ts', '.vue'],
 			},

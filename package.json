@@ -6,6 +6,7 @@
 		"prettier": "pnpm recursive run prettier",
 		"lint": "pnpm recursive run lint",
 		"dev:frontend": "pnpm dev --filter=frontend",
+		"gen:types": "pnpm gen:types --filter=scripts",
 		"prune:frontend": "rm -rf google-sheets-auto-update",
 		"build:frontend": "pnpm build --filter=frontend",
 		"heroku-prebuild": "rm -rf frontend scripts"

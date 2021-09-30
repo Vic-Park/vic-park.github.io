@@ -1,11 +1,12 @@
 import path from 'path';
 import pkgDir from 'pkg-dir';
+import type { Plugin } from 'rollup';
 
-import { createDataFileValidator, loadDataFolder } from './utils';
+import { loadDataFolder } from './utils';
 
-const rootPath = path.join(pkgDir.sync(__dirname), '..');
+const projectPath = path.join(pkgDir.sync(__dirname)!, '..');
 
-export default function eventsLoader() {
+export default function eventsLoader(): Plugin {
 	return {
 		name: 'events-loader',
 		resolveId(source) {
@@ -16,16 +17,14 @@ export default function eventsLoader() {
 		},
 		load(id) {
 			if (id === '~data/events') {
-				const eventsFolder = path.join(rootPath, 'data', 'events');
+				const dataFolder = path.join(projectPath, 'data/events');
+				const schemaFilePath = path.join(
+					projectPath,
+					'shared/typedefs/club.yaml'
+				);
 				const events = loadDataFolder({
-					dataFolder: eventsFolder,
-					validateDataFile: createDataFileValidator([
-						'name',
-						'description',
-						'information',
-						{ key: 'start', type: Date },
-						{ key: 'end', type: Date },
-					]),
+					dataFolder,
+					schemaFilePath,
 				});
 
 				return `export default ${JSON.stringify(events)}`;

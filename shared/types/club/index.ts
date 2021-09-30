@@ -48,6 +48,11 @@ export interface Club {
   shortDescription: string;
 
   /**
+   * A unique identifier for the club
+   */
+  slug: string;
+
+  /**
    * The supervisors of the club
    */
   staffSupervisor: string;

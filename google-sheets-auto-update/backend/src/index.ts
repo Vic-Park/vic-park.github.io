@@ -25,7 +25,7 @@ app.register(fastifyRateLimit, {
 
 // Registering a fastify plugin to serve files in /public
 app.register(fastifyStatic, {
-	root: path.join(__dirname, 'public'),
+	root: path.join(__dirname, '../public'),
 });
 
 type RequestBody = {

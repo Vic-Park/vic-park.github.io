@@ -17,6 +17,12 @@ export interface ClubEvent {
   information: string;
 
   /**
+   * Whether the event is schoolwide (i.e. not associated with a particular set
+   * of clubs)
+   */
+  isSchoolWideEvent: boolean;
+
+  /**
    * The name of the club
    */
   name: string;

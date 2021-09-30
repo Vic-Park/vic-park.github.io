@@ -1,4 +1,4 @@
-import type { ClubAnnouncement } from '~shared/types/announcement';
+import type { ClubAnnouncement } from '~shared/types/club-announcement';
 
 /**
  * Takes the announcements data and returns an array of announcements sorted by most recent to

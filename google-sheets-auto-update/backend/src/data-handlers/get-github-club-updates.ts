@@ -5,7 +5,7 @@ import {
 	getSheetRows,
 	retrieveGithubFiles,
 } from './utils';
-import { cleanSheetRow } from './utils/clean-sheet-row';
+import { cleanSheetRow } from './utils/normalize';
 
 export async function getGithubClubUpdates({
 	spreadsheetData,

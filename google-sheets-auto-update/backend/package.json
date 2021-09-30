@@ -11,6 +11,7 @@
 		"dev": "ts-node-dev ./src/index.ts"
 	},
 	"dependencies": {
+		"ajv": "^8.6.3",
 		"axios": "^0.21.1",
 		"dayjs": "^1.10.7",
 		"deep-equal": "^2.0.5",
@@ -21,6 +22,7 @@
 		"googleapis": "^73.0.0",
 		"gray-matter": "^4.0.3",
 		"js-base64": "^3.6.0",
+		"js-yaml": "^4.1.0",
 		"nanoid": "^3.1.23",
 		"octokit": "^1.0.4",
 		"param-case": "^3.0.4",

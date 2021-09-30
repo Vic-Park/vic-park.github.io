@@ -34,7 +34,7 @@ export function loadDataFolder({
 				`Ignoring data file ${dataFile}. Validation errors: ${validate.errors}`
 			);
 		} else {
-			data[slug] = clubData;
+			data[slug] = clubData as Club;
 		}
 	}
 

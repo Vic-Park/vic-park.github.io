@@ -21,8 +21,13 @@ export default function announcementsLoader(): Plugin {
 					projectPath,
 					'data/announcements'
 				);
+				const schemaFilePath = path.join(
+					projectPath,
+					'shared/typedefs/club-announcement.yaml'
+				);
 				const announcements = loadDataFolder({
 					dataFolder: announcementsFolder,
+					schemaFilePath,
 				});
 
 				return `export default ${JSON.stringify(announcements)}`;

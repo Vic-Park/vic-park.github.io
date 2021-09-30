@@ -5,7 +5,7 @@ import {
 	getSheetRows,
 	retrieveGithubFiles,
 } from './utils';
-import { cleanSheetRow } from './utils/clean-sheet-row';
+import { cleanSheetRow } from './utils/normalize';
 import { getEventsFromSheetRows } from './utils/validation/get-events-from-sheet-rows';
 
 export async function getGithubEventUpdates({

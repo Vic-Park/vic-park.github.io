@@ -1,4 +1,4 @@
-import { EntryType } from '~types/entry';
+import { EntryType } from '~shared/types/entry';
 
 const entryTypeToFolder = {
 	[EntryType.announcement]: 'announcements',

@@ -1,7 +1,8 @@
 {
+	"name": "scripts",
 	"license": "MIT",
 	"scripts": {
-		"gen-types": "ts-node gen-types.ts"
+		"gen:types": "ts-node gen-types.ts"
 	},
 	"dependencies": {
 		"camel-case": "^4.1.2",

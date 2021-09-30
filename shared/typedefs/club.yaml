@@ -1,4 +1,9 @@
 properties:
+  slug:
+    metadata:
+      description: A unique identifier for the club
+    type: string
+
   name:
     metadata:
       description: The name of the club

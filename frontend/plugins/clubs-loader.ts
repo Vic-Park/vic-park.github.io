@@ -2,9 +2,9 @@ import path from 'path';
 import pkgDir from 'pkg-dir';
 import type { Plugin } from 'rollup';
 
-import { createDataFileValidator, loadDataFolder } from './utils';
+import { loadDataFolder } from './utils';
 
-const rootPath = path.join(pkgDir.sync(__dirname), '..');
+const projectPath = path.join(pkgDir.sync(__dirname)!, '..');
 
 export default function clubsLoader(): Plugin {
 	return {
@@ -17,22 +17,14 @@ export default function clubsLoader(): Plugin {
 		},
 		load(id) {
 			if (id === '~data/clubs') {
-				const clubsFolder = path.join(rootPath, 'data', 'clubs');
+				const dataFolder = path.join(projectPath, 'data/clubs');
+				const schemaFilePath = path.join(
+					projectPath,
+					'shared/typedefs/club.yaml'
+				);
 				const clubs = loadDataFolder({
-					dataFolder: clubsFolder,
-					validateDataFile: createDataFileValidator([
-						'name',
-						'staffSupervisor',
-						'clubLeaders',
-						'shortDescription',
-						'extraInformation',
-						'categories',
-						'meetingTimes',
-						'joinInstructions',
-						'onlinePlatforms',
-						'timeCommitment',
-						'equityStatement',
-					]),
+					dataFolder,
+					schemaFilePath,
 				});
 
 				return `export default ${JSON.stringify(clubs)}`;

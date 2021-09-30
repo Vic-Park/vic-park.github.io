@@ -3,6 +3,9 @@
     "moduleResolution": "node",
     "target": "es6",
     "module": "commonjs",
+    "lib": [
+      "esnext"
+    ],
     "esModuleInterop": true,
     "strict": true,
     "rootDir": "../..",
@@ -11,8 +14,8 @@
       "~/*": [
         "./src/*"
       ],
-      "~types/*": [
-        "../../shared/types/*"
+      "~shared/*": [
+        "../../shared/*"
       ]
     },
   }

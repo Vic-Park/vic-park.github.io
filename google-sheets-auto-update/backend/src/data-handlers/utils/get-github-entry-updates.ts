@@ -1,16 +1,17 @@
 import axios from 'axios';
+import yaml from 'js-yaml';
 
-import type { GithubEntryUpdate, GithubFile } from '~/github';
-import type { Entry } from '~types/entry';
+import type { GithubEntryUpdate, GithubFile } from '~/types/github';
+import type { Entry, EntryType } from '~shared/types/entry';
 
-import { stringifyEntry } from './stringify-entry';
+import { getEntrySlug } from './get-entry-slug';
 
-type FilterAlteredSheetEntriesParams<T> = {
+type FilterAlteredSheetEntriesParams<T extends EntryType> = {
 	githubFiles: GithubFile[];
-	googleSheetEntries: T[];
+	googleSheetEntries: Entry<T>[];
 };
 
-export async function getGithubEntryUpdates<T extends Entry>({
+export async function getGithubEntryUpdates<T extends EntryType>({
 	githubFiles,
 	googleSheetEntries,
 }: FilterAlteredSheetEntriesParams<T>): Promise<GithubEntryUpdate<T>[]> {
@@ -18,7 +19,7 @@ export async function getGithubEntryUpdates<T extends Entry>({
 
 	for (const googleSheetEntry of googleSheetEntries) {
 		const githubFile = githubFiles.find(
-			({ name }) => name === `${googleSheetEntry.slug}.md`
+			({ name }) => name === `${getEntrySlug(googleSheetEntry)}.md`
 		);
 
 		// If the parsed google sheet entry isn't found in an existing GitHub file
@@ -35,7 +36,7 @@ export async function getGithubEntryUpdates<T extends Entry>({
 
 		// If the parsed google sheet entry isn't equivalent to the parsed github entry,
 		// append the google sheet entry file to a list of entries that need to be updated
-		if (fileContents !== stringifyEntry(googleSheetEntry)) {
+		if (fileContents !== yaml.dump(googleSheetEntry)) {
 			alteredSheetEntries.push({
 				entry: googleSheetEntry,
 				githubFileSha: githubFile.sha,

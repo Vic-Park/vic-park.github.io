@@ -1,22 +1,20 @@
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
-import type { ClubEvent, ClubEventMetadata } from '~types/event';
-import type { StringifiedValues } from '~types/utils';
+import type { ClubEvent } from '~shared/types/club-event';
 
-import { cleanSheetRow } from '../clean-sheet-row';
 import { convertEventMetadataToEvent } from '../convert/event';
 import { getSheetRows } from '../get-sheet-rows';
-import { isEventMetadataValid } from '../validation/event';
+import { normalizeSheetRow } from '../normalize';
 
 export function getEventsFromSpreadsheet(
 	spreadsheet: SheetsV4.Schema$Spreadsheet
 ): ClubEvent[] {
 	const eventSheetRows = getSheetRows(spreadsheet, 'Club Events');
 
-	const eventsMetadata: StringifiedValues<ClubEventMetadata>[] =
-		eventSheetRows.map((event) => {
+	const eventsMetadata: StringifiedValues<ClubEvent>[] = eventSheetRows.map(
+		(event) => {
 			const [name, description, information, start, end, isSchoolEvent] =
-				cleanSheetRow(event);
+				normalizeSheetRow(event);
 
 			return {
 				name,
@@ -26,7 +24,8 @@ export function getEventsFromSpreadsheet(
 				end,
 				isSchoolEvent,
 			};
-		});
+		}
+	);
 
 	const validEvents = eventsMetadata
 		.filter((eventMetadata) => isEventMetadataValid(eventMetadata))
