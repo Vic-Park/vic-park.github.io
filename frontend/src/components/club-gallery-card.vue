@@ -70,7 +70,7 @@
 import { mdiArrowRight } from '@mdi/js';
 import type * as CSS from 'csstype';
 import shave from 'shave';
-import { computed, defineComponent, onMounted, ref } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 
 import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
 
