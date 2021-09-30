@@ -1,6 +1,9 @@
 import 'dotenv/config';
 import 'tsconfig-paths/register';
 
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
 import fastify from 'fastify';
 import fastifyRateLimit from 'fastify-rate-limit';
 import fastifyStatic from 'fastify-static';
@@ -13,6 +16,10 @@ import {
 } from './data-handlers';
 import { updateGithubFiles } from './data-handlers/update-github-files';
 import { sheets, spreadsheetId } from './google';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('America/Toronto');
 
 const app = fastify();
 
