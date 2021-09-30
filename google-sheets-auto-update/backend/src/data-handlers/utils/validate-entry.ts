@@ -38,6 +38,15 @@ export function validateSheetEntry<T extends EntryType>(
 	}
 
 	switch (sheetEntry.type) {
+		case EntryType.event:
+			if (validateClubEventSchema(sheetEntry.data)) {
+				return {
+					type: EntryType.event,
+					data: sheetEntry.data,
+				} as Entry<T>;
+			} else {
+				return logValidationError(validateClubEventSchema.errors);
+			}
 		case EntryType.announcement:
 			if (validateClubAnnouncementSchema(sheetEntry.data)) {
 				return {
@@ -46,16 +55,6 @@ export function validateSheetEntry<T extends EntryType>(
 				} as Entry<T>;
 			} else {
 				return logValidationError(validateClubAnnouncementSchema.errors);
-			}
-		case EntryType.event:
-			if (validateClubEventSchema(sheetEntry.data)) {
-				sheetEntry.data
-				return {
-					type: EntryType.event,
-					data: sheetEntry.data,
-				} as Entry<T>;
-			} else {
-				return logValidationError(validateClubEventSchema.errors);
 			}
 		case EntryType.club:
 			if (validateClubSchema(sheetEntry.data)) {
