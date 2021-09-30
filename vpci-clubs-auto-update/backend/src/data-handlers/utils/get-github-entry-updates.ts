@@ -19,7 +19,7 @@ export async function getGithubEntryUpdates<T extends EntryType>({
 
 	for (const googleSheetEntry of googleSheetEntries) {
 		const githubFile = githubFiles.find(
-			({ name }) => name === `${getEntrySlug(googleSheetEntry)}.md`
+			({ name }) => name === `${getEntrySlug(googleSheetEntry)}.yaml`
 		);
 
 		// If the parsed google sheet entry isn't found in an existing GitHub file

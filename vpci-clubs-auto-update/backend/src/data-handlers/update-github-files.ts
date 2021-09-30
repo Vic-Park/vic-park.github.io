@@ -20,14 +20,14 @@ export async function updateGithubFiles(
 			const response = await octokit.request(
 				'PUT /repos/{owner}/{repo}/contents/{path}',
 				{
-					path: `${getEntryTypeFolder(type)}/${slug}.md`,
-					message: `Update ${slug}.md${
+					path: `${getEntryTypeFolder(type)}/${slug}.yaml`,
+					message: `Update ${slug}.yaml${
 						i < githubEntryUpdates.length - 1 ? ' [ci skip]' : ''
 					}`,
 					content: encode(stringifyEntry(entry)),
 					owner: 'Vic-Park',
 					repo: 'vic-park.github.io',
-					branch: 'dev',
+					branch: process.env.UPDATE_BRANCH ?? 'dev',
 					sha: githubFileSha,
 				}
 			);
