@@ -25,11 +25,11 @@ export async function getGithubEventUpdates({
 			const [name, description, information, start, end, isSchoolWideEvent] =
 				normalizeSheetRow(event);
 
-			if (!isValidDate(start, { allowTBD: true })) {
+			if (!isValidDate(start, { allowUndefined: true })) {
 				return { failure: true, reason: 'Invalid start date' };
 			}
 
-			if (!isValidDate(end, { allowTBD: true })) {
+			if (!isValidDate(end, { allowUndefined: true })) {
 				return { failure: true, reason: 'Invalid end date' };
 			}
 
@@ -38,8 +38,9 @@ export async function getGithubEventUpdates({
 					name,
 					description,
 					information,
-					start: new Date(start).toISOString(),
-					end: new Date(end).toISOString(),
+					start:
+						start === undefined ? undefined : new Date(start).toISOString(),
+					end: end === undefined ? undefined : new Date(end).toISOString(),
 					isSchoolWideEvent: isSchoolWideEvent?.toLowerCase() === 'yes',
 				},
 				type: EntryType.event,

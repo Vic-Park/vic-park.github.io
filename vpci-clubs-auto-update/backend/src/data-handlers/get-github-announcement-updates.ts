@@ -29,7 +29,7 @@ export async function getGithubAnnouncementUpdates({
 			}
 
 			return {
-				data: { date: new Date(date).toISOString(), content, title },
+				data: { date: new Date(date!).toISOString(), content, title },
 				type: EntryType.announcement,
 			};
 		}

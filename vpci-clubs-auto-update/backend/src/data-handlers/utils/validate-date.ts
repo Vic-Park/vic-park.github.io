@@ -5,7 +5,7 @@ type IsValidDateOptions = {
 export function isValidDate(
 	dateString: string | undefined,
 	options?: IsValidDateOptions
-): dateString is string {
+): dateString is string | undefined {
 	if (dateString === undefined) {
 		return options?.allowUndefined ?? false;
 	}
