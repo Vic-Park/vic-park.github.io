@@ -101,13 +101,6 @@ export default defineComponent({
 		const equityStatementContainer = ref<HTMLDivElement>();
 		const equityStatementTextContainer = ref<HTMLParagraphElement>();
 
-		onMounted(() => {
-			shave(
-				equityStatementTextContainer.value!,
-				equityStatementContainer.value!.getBoundingClientRect().height
-			);
-		});
-
 		const cardStyle = computed(() => ({
 			transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
 		}));
@@ -116,8 +109,17 @@ export default defineComponent({
 			pointerEvents: isDescriptionActive.value ? 'none' : 'auto',
 		}));
 
+		let isShaveRegistered = false;
 		function onClick() {
 			isDescriptionActive.value = !isDescriptionActive.value;
+
+			if (!isShaveRegistered) {
+				isShaveRegistered = true;
+				shave(
+					equityStatementTextContainer.value!,
+					equityStatementContainer.value!.getBoundingClientRect().height
+				);
+			}
 		}
 
 		const clippedEquityStatement = computed(() => {
