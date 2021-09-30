@@ -46,13 +46,12 @@
 				w:text="burgundy center"
 			>
 				<h4 w:text="xl center" class="font-bold uppercase mb-2">{{ name }}</h4>
-				<div
-					ref="equityStatementContainer"
-					class="text-md flex-1 overflow-hidden"
-				>
-					{{ clippedEquityStatement }}
+				<div ref="equityStatementContainer" class="text-md overflow-hidden">
+					<p ref="equityStatementTextContainer">
+						{{ clippedEquityStatement }}
+					</p>
 				</div>
-				<div class="column">
+				<div class="column mt-auto">
 					<router-link :to="clubPageUrl" class="self-center">
 						<vue-icon
 							:icon="mdiArrowRight"
@@ -71,7 +70,7 @@
 import { mdiArrowRight } from '@mdi/js';
 import type * as CSS from 'csstype';
 import shave from 'shave';
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, onMounted, ref } from 'vue';
 
 import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
 
@@ -99,10 +98,16 @@ export default defineComponent({
 	},
 	setup(props) {
 		const isDescriptionActive = ref(false);
-		const equityStatementContainer = ref();
+		const equityStatementContainer = ref<HTMLDivElement>();
+		const equityStatementTextContainer = ref<HTMLParagraphElement>();
 
 		onMounted(() => {
-			shave;
+			const container = equityStatementContainer.value!;
+			console.log(container, container.getBoundingClientRect().height);
+			shave(
+				equityStatementTextContainer.value!,
+				container.getBoundingClientRect().height
+			);
 		});
 
 		const cardStyle = computed(() => ({
@@ -137,6 +142,8 @@ export default defineComponent({
 			cardStyle,
 			frontCardStyle,
 			clippedEquityStatement,
+			equityStatementContainer,
+			equityStatementTextContainer,
 		};
 	},
 });
