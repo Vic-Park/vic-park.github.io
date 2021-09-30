@@ -48,6 +48,7 @@ import { mdiMagnify } from '@mdi/js';
 import { computed, defineComponent, ref } from 'vue';
 
 import ClubListing from '~/components/club-listing.vue';
+import { getClubsArray } from '~/utils/club';
 import clubs from '~data/clubs';
 
 export default defineComponent({
@@ -55,7 +56,7 @@ export default defineComponent({
 	components: { ClubListing },
 	setup() {
 		const searchQuery = ref('');
-		const clubsArray = Object.values(clubs);
+		const clubsArray = getClubsArray(clubs);
 
 		const filteredClubs = computed(() => {
 			const query = searchQuery.value.toLowerCase();

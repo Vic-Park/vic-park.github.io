@@ -15,15 +15,17 @@
 </template>
 
 <script lang="ts">
+import arrayShuffle from 'array-shuffle';
 import { defineComponent } from 'vue';
 
 import ClubGalleryCard from '~/components/club-gallery-card.vue';
+import { getClubsArray } from '~/utils/club';
 import clubs from '~data/clubs';
 
 export default defineComponent({
 	components: { ClubGalleryCard },
 	setup() {
-		const clubsArray = Object.values(clubs).map(
+		const clubsArray = arrayShuffle(getClubsArray(clubs)).map(
 			({ slug, name, shortDescription, equityStatement }) => ({
 				slug,
 				name,
