@@ -2,11 +2,6 @@
 
 export interface Club {
   /**
-   * A comma separated list of categories the club belongs to
-   */
-  categories: string;
-
-  /**
    * The leaders of the club
    */
   clubLeaders: string;
@@ -15,11 +10,6 @@ export interface Club {
    * The club's equity statement
    */
   equityStatement: string;
-
-  /**
-   * Extra information about the club
-   */
-  extraInformation: string;
 
   /**
    * Instructions about how to join the club
@@ -37,12 +27,6 @@ export interface Club {
   name: string;
 
   /**
-   * Online platforms to find more information about the club (e.g. Instagram,
-   * Discord, etc.)
-   */
-  onlinePlatforms: string;
-
-  /**
    * A short description of the club
    */
   shortDescription: string;
@@ -58,7 +42,23 @@ export interface Club {
   staffSupervisor: string;
 
   /**
+   * A comma separated list of categories the club belongs to
+   */
+  categories?: string;
+
+  /**
+   * Extra information about the club
+   */
+  extraInformation?: string;
+
+  /**
+   * Online platforms to find more information about the club (e.g. Instagram,
+   * Discord, etc.)
+   */
+  onlinePlatforms?: string;
+
+  /**
    * The time commitment members need to participate in the club
    */
-  timeCommitment: string;
+  timeCommitment?: string;
 }

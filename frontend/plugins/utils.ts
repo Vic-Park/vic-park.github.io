@@ -31,7 +31,9 @@ export function loadDataFolder({
 		const clubData = yaml.load(clubFileContent);
 		if (validate(clubData) === undefined) {
 			console.error(
-				`Ignoring data file ${dataFile}. Validation errors: ${validate.errors}`
+				`Ignoring data file ${dataFile}. Validation errors: ${JSON.stringify(
+					validate.errors
+				)}`
 			);
 		} else {
 			data[slug] = clubData as Club;

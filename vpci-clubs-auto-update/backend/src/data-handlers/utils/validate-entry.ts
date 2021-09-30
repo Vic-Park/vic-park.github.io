@@ -31,9 +31,9 @@ export function validateSheetEntry<T extends EntryType>(
 ): Entry<T> | false {
 	function logValidationError(errors: unknown): false {
 		console.error(
-			`Validation error(s): ${errors}. Skipping entry ${JSON.stringify(
-				sheetEntry
-			)}`
+			`Validation error(s): ${JSON.stringify(
+				errors
+			)}. Skipping entry ${JSON.stringify(sheetEntry)}`
 		);
 		return false;
 	}

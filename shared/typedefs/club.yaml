@@ -24,16 +24,6 @@ properties:
       description: A short description of the club
     type: string
 
-  extraInformation:
-    metadata:
-      description: Extra information about the club
-    type: string
-
-  categories:
-    metadata:
-      description: A comma separated list of categories the club belongs to
-    type: string
-
   meetingTimes:
     metadata:
       description: The meeting times of the club
@@ -44,6 +34,22 @@ properties:
       description: Instructions about how to join the club
     type: string
 
+  equityStatement:
+    metadata:
+      description: The club's equity statement
+    type: string
+
+optionalProperties:
+  categories:
+    metadata:
+      description: A comma separated list of categories the club belongs to
+    type: string
+
+  extraInformation:
+    metadata:
+      description: Extra information about the club
+    type: string
+
   onlinePlatforms:
     metadata:
       description: Online platforms to find more information about the club (e.g. Instagram, Discord, etc.)
@@ -52,9 +58,4 @@ properties:
   timeCommitment:
     metadata:
       description: The time commitment members need to participate in the club
-    type: string
-
-  equityStatement:
-    metadata:
-      description: The club's equity statement
     type: string
