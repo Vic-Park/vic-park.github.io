@@ -1,4 +1,5 @@
 import { defineConfig } from 'windicss/helpers';
+import lineClampPlugin from 'windicss/plugin/line-clamp';
 
 // eslint-disable-next-line import/no-default-export
 export default defineConfig({
@@ -49,4 +50,5 @@ export default defineConfig({
 			},
 		},
 	},
+	plugins: [lineClampPlugin],
 });

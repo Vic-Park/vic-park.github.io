@@ -33,16 +33,22 @@
 				</ImageWithFallback>
 			</div>
 			<div
-				class="flip-card-back w-full h-full bg-white absolute p-4"
+				class="
+					flip-card-back
+					w-full
+					h-full
+					bg-white
+					p-4
+					overflow-ellipsis
+					column
+					items-center
+				"
 				w:text="burgundy center"
 			>
 				<h4 w:text="xl center" class="font-bold uppercase mb-2">{{ name }}</h4>
-				<p class="text-md">{{ clippedEquityStatement }}</p>
-				<div class="w-full my-auto">
-					<router-link
-						:to="clubPageUrl"
-						class="absolute bottom-4 left-1/2 transform -translate-x-1/2"
-					>
+				<div class="text-md flex-1 line-clamp-8">{{ clippedEquityStatement }}</div>
+				<div class="column">
+					<router-link :to="clubPageUrl" class="self-center">
 						<vue-icon
 							:icon="mdiArrowRight"
 							size="30px"
