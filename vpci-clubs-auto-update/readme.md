@@ -1,4 +1,4 @@
-# Google Sheets Auto Update
+# VPCI Clubs Auto Update
 
 This is a service that reads the contents from a Google Sheets and programmatically updates the data files in the repository using the GitHub API.
 

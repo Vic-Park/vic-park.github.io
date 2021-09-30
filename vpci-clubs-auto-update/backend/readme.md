@@ -1,4 +1,4 @@
-# Google Sheets Auto Update Backend
+# VPCI Clubs Auto Update Backend
 
 ## Hosting
 
