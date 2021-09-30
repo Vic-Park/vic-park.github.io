@@ -152,11 +152,13 @@ export default defineComponent({
 <style scoped>
 .flip-card-front,
 .flip-card-back {
+	position: absolute;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
 .flip-card {
+	background-color: transparent;
 	perspective: 1000px;
 }
 
@@ -168,7 +170,6 @@ export default defineComponent({
 }
 
 .flip-card-back {
-	position: absolute;
 	transform: rotateY(180deg);
 }
 </style>
