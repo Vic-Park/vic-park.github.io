@@ -1,10 +1,10 @@
 import got from 'got';
-import yaml from 'js-yaml';
 
 import type { GithubEntryUpdate, GithubFile } from '~/types/github';
 import type { Entry, EntryType } from '~shared/types/entry';
 
 import { getEntrySlug } from './get-entry-slug';
+import { stringifyEntry } from './stringify-entry';
 
 type FilterAlteredSheetEntriesParams<T extends EntryType> = {
 	githubFiles: GithubFile[];
@@ -36,7 +36,7 @@ export async function getGithubEntryUpdates<T extends EntryType>({
 
 		// If the parsed google sheet entry isn't equivalent to the parsed github entry,
 		// append the google sheet entry file to a list of entries that need to be updated
-		if (fileContents !== yaml.dump(googleSheetEntry)) {
+		if (fileContents !== stringifyEntry(googleSheetEntry)) {
 			alteredSheetEntries.push({
 				entry: googleSheetEntry,
 				githubFileSha: githubFile.sha,
