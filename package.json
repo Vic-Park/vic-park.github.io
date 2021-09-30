@@ -10,7 +10,8 @@
 		"gen:types": "pnpm gen:types --filter=scripts",
 		"prune:frontend": "rm -rf vpci-clubs-auto-update",
 		"build:frontend": "pnpm build --filter=frontend",
-		"heroku-prebuild": "rm -rf frontend scripts"
+		"heroku-prebuild": "rm -rf frontend scripts",
+		"heroku-postbuild": "npm run build -w vpci-clubs-auto-update-backend"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "4.29.2",
@@ -29,5 +30,9 @@
 		"vpci-clubs-auto-update/backend",
 		"scripts",
 		"types"
-	]
+	],
+	"engines": {
+		"node": "14.17.6",
+		"npm": "7.24.1"
+	}
 }
