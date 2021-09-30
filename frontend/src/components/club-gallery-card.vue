@@ -170,6 +170,7 @@ export default defineComponent({
 }
 
 .flip-card-back {
+	z-index: 1;
 	transform: rotateY(180deg);
 }
 </style>
