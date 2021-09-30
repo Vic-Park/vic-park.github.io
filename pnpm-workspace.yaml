@@ -1,5 +1,5 @@
 packages:
   - frontend
-  - google-sheets-auto-update/backend
+  - vpci-clubs-auto-update/backend
   - scripts
   - types
