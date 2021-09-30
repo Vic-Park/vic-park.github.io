@@ -71,7 +71,7 @@ export default defineComponent({
 			joinInstructions,
 			extraInformation,
 			equityStatement,
-		} = clubs[clubSlug].data;
+		} = clubs[clubSlug];
 
 		// Remove the [] surrounding the condensed equity statement
 		const processedEquityStatement = equityStatement.replace(/\[|]/g, '');

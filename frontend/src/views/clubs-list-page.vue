@@ -55,23 +55,20 @@ export default defineComponent({
 	components: { ClubListing },
 	setup() {
 		const searchQuery = ref('');
-		const clubsArray = Object.entries(clubs);
+		const clubsArray = Object.values(clubs);
 
 		const filteredClubs = computed(() => {
 			const query = searchQuery.value.toLowerCase();
 			return clubsArray
-				.filter(([_, { data }]) => {
-					const { name, shortDescription } = data;
-
-					return (
+				.filter(
+					({ name, shortDescription }) =>
 						name.toLowerCase().includes(query) ||
 						shortDescription.toLowerCase().includes(query)
-					);
-				})
-				.map(([slug, { data }]) => ({
-					name: data.name,
+				)
+				.map(({ slug, name, shortDescription }) => ({
+					name,
 					slug,
-					shortDescription: data.shortDescription,
+					shortDescription,
 				}));
 		});
 
@@ -82,21 +79,20 @@ export default defineComponent({
 		};
 
 		const categories: Record<string, ClubSummary[]> = {};
-		for (const [slug, club] of clubsArray) {
-			const clubCategories = club.data.categories.split(',');
+		for (const club of clubsArray) {
+			const clubCategories = club.categories.split(',');
 			for (const unnormalizedCategory of clubCategories) {
 				const category = unnormalizedCategory.trim();
 				categories[category] = categories[category] ?? [];
 				categories[category].push({
-					name: club.data.name,
-					slug,
-					shortDescription: club.data.shortDescription,
+					name: club.name,
+					slug: club.slug,
+					shortDescription: club.shortDescription,
 				});
 			}
 		}
 
 		return {
-			categories,
 			searchQuery,
 			filteredClubs,
 			mdiMagnify,

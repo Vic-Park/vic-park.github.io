@@ -5,7 +5,7 @@
 			<div v-for="club in clubsArray" :key="club.slug" class="m-[1rem]">
 				<ClubGalleryCard
 					:name="club.name"
-					:description="club.description"
+					:description="club.shortDescription"
 					:slug="club.slug"
 					:equity-statement="club.equityStatement"
 				/>
@@ -23,24 +23,18 @@ import clubs from '~data/clubs';
 export default defineComponent({
 	components: { ClubGalleryCard },
 	setup() {
-		const clubsArray = Object.entries(clubs).map(([slug, { data }]) => ({
-			slug,
-			name: data.name,
-			description: data.shortDescription,
-			equityStatement: data.equityStatement,
-		}));
+		const clubsArray = Object.values(clubs).map(
+			({ slug, name, shortDescription, equityStatement }) => ({
+				slug,
+				name,
+				shortDescription,
+				equityStatement,
+			})
+		);
 
 		return {
 			clubsArray,
 		};
-	},
-	methods: {
-		scrollRight(event: any) {
-			event.target.parentElement.childNodes[1].scrollLeft += 1000;
-		},
-		scrollLeft(event: any) {
-			event.target.parentElement.childNodes[1].scrollLeft -= 1000;
-		},
 	},
 });
 </script>
