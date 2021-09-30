@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
 import { EntryType } from '~shared/types/entry';
@@ -39,8 +38,8 @@ export async function getGithubEventUpdates({
 					name,
 					description,
 					information,
-					start: dayjs(start).toISOString(),
-					end: dayjs(end).toISOString(),
+					start: new Date(start).toISOString(),
+					end: new Date(end).toISOString(),
 					isSchoolWideEvent: isSchoolWideEvent?.toLowerCase() === 'yes',
 				},
 				type: EntryType.event,

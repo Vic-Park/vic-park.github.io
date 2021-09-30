@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import type { sheets_v4 as SheetsV4 } from 'googleapis';
 
 import { EntryType } from '~shared/types/entry';
@@ -25,12 +24,12 @@ export async function getGithubAnnouncementUpdates({
 		(announcement) => {
 			const [title, date, content] = normalizeSheetRow(announcement);
 
-			if (isValidDate(date)) {
+			if (!isValidDate(date)) {
 				return { failure: true, reason: 'Invalid date.' };
 			}
 
 			return {
-				data: { date: dayjs(date).toISOString(), content, title },
+				data: { date: new Date(date).toISOString(), content, title },
 				type: EntryType.announcement,
 			};
 		}

@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-
 type IsValidDateOptions = {
 	allowTBD: boolean;
 };
@@ -7,12 +5,13 @@ type IsValidDateOptions = {
 export function isValidDate(
 	dateString: string | undefined,
 	options?: IsValidDateOptions
-) {
+): dateString is string {
 	if (dateString === undefined) return false;
 	if (options?.allowTBD && (dateString === 'TBA' || dateString === 'TBD')) {
 		return true;
 	}
-	if (!dayjs(dateString).isValid()) {
+	const d = new Date(dateString);
+	if (Number.isNaN(d.getTime())) {
 		return false;
 	}
 	return true;
