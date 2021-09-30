@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"license": "MIT",
 	"scripts": {
-		"prettier": "prettier --write src/**/*.{js,ts}",
+		"prettier": "prettier --write src/**/*.{ts}",
 		"lint": "eslint --fix src",
 		"tc": "tsc --noEmit",
 		"dev": "ts-node-dev ./src/index.ts",
