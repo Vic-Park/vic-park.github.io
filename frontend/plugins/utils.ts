@@ -1,4 +1,4 @@
-import Ajv from 'ajv';
+import Ajv from 'ajv/dist/jtd';
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';

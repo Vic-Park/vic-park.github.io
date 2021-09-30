@@ -1,4 +1,4 @@
-import Ajv from 'ajv';
+import Ajv from 'ajv/dist/jtd';
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
@@ -9,6 +9,7 @@ import type { Entry, EntryTypeData } from '~shared/types/entry';
 import { EntryType } from '~shared/types/entry';
 
 const ajv = new Ajv();
+ajv.addKeyword('description');
 function compileSchema<T extends EntryType>(schemaName: string) {
 	return ajv.compile<EntryTypeData[T]>(
 		yaml.load(
@@ -22,8 +23,8 @@ function compileSchema<T extends EntryType>(schemaName: string) {
 }
 const validateClubSchema = compileSchema<EntryType.club>('club');
 const validateClubAnnouncementSchema =
-	compileSchema<EntryType.announcement>('announcement');
-const validateClubEventSchema = compileSchema<EntryType.event>('event');
+	compileSchema<EntryType.announcement>('club-announcement');
+const validateClubEventSchema = compileSchema<EntryType.event>('club-event');
 
 export function validateSheetEntry<T extends EntryType>(
 	sheetEntry: SheetEntry<T>

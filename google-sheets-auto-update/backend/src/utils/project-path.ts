@@ -1,3 +1,3 @@
 import path from 'path';
 
-export const projectPath = path.join(__dirname, '../../..');
+export const projectPath = path.join(__dirname, '../../../..');
