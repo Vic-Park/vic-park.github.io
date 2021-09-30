@@ -13,16 +13,15 @@
 		<template v-if="eventsArray.length > 0">
 			<EventListing
 				v-for="event in eventsArray"
-				:key="event.slug"
+				:key="event.name"
 				:description="event.description"
 				:name="event.name"
 				:start="event.start.toString()"
 				:end="event.end.toString()"
-				:slug="event.slug"
 			/>
 		</template>
 		<template v-else>
-			<p class='text-center'>There are no upcoming events.</p>
+			<p class="text-center">There are no upcoming events.</p>
 		</template>
 	</div>
 </template>
@@ -38,13 +37,14 @@ import events from '~data/events';
 export default defineComponent({
 	components: { EventsCalendar, EventListing },
 	setup() {
-		const eventsArray = Object.entries(events).map(([slug, { data }]) => ({
-			name: data.name,
-			start: data.start,
-			end: data.end,
-			description: data.description,
-			slug,
-		}));
+		const eventsArray = Object.values(events).map(
+			({ name, start, end, description }) => ({
+				name,
+				start,
+				end,
+				description,
+			})
+		);
 
 		const calendarStore = useCalendarStore();
 

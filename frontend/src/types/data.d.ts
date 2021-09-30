@@ -9,7 +9,7 @@ declare module '~data/clubs' {
 }
 
 declare module '~data/announcements' {
-	import type { Announcement } from '~shared/types/announcement';
+	import type { Announcement } from '~shared/types/club-announcement';
 
 	/**
 	 * Map from the name of the announcement's file to the announcement data
@@ -19,7 +19,7 @@ declare module '~data/announcements' {
 }
 
 declare module '~data/events' {
-	import type { ClubEvent } from '~shared/types/event';
+	import type { ClubEvent } from '~shared/types/club-event';
 
 	/**
 	 * Map from the name of the event's file to the event data

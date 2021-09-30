@@ -80,7 +80,7 @@ export default defineComponent({
 
 		const categories: Record<string, ClubSummary[]> = {};
 		for (const club of clubsArray) {
-			const clubCategories = club.categories.split(',');
+			const clubCategories = club.categories?.split(',') ?? [];
 			for (const unnormalizedCategory of clubCategories) {
 				const category = unnormalizedCategory.trim();
 				categories[category] = categories[category] ?? [];

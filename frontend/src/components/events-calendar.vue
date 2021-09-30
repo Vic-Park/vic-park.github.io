@@ -108,7 +108,7 @@ export default defineComponent({
 		}
 
 		onMounted(() => {
-			const eventsArray = Object.entries(events);
+			const eventsArray = Object.values(events);
 			const popper = createPopper(calendarRef.value!, eventPopper.value);
 
 			calendar = new Calendar(calendarRef.value!, {
@@ -126,18 +126,23 @@ export default defineComponent({
 					calendarStore.currentYear = getViewYearString(view.title);
 				},
 				events: eventsArray.map(
-					([slug, { data }]): EventInput => ({
-						classNames: [data.isSchoolEvent ? 'school-event' : 'club-event'],
+					({
+						name,
+						description,
+						start,
+						end,
+						isSchoolWideEvent,
+					}): EventInput => ({
+						classNames: [isSchoolWideEvent ? 'school-event' : 'club-event'],
 						extendedProps: {
-							name: data.name,
-							description: data.description,
-							start: data.start,
-							end: data.end,
-							slug,
+							name,
+							description,
+							start,
+							end,
 						},
-						start: new Date(data.start),
-						end: new Date(data.end),
-						title: data.name,
+						start: new Date(start),
+						end: new Date(end),
+						title: name,
 					})
 				),
 			});

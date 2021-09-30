@@ -116,7 +116,7 @@ export default defineComponent({
 		].map((section) => ({
 			...section,
 			content: DOMPurify.sanitize(
-				Autolinker.link(section.content, {
+				Autolinker.link(section.content ?? '', {
 					mention: 'instagram',
 				})
 			),

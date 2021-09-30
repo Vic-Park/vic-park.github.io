@@ -11,7 +11,7 @@
 				<div class="pt-1 text-md">{{ description }}</div>
 
 				<h2 class="font-bold text-2xl pt-4">Information</h2>
-				<div class="pt-1 text-md">{{ content }}</div>
+				<div class="pt-1 text-md">{{ information }}</div>
 			</div>
 		</div>
 	</template>
@@ -39,10 +39,7 @@ export default defineComponent({
 			};
 		}
 
-		const {
-			data: { name, description, start, end },
-			content,
-		} = events[eventSlug];
+		const { name, description, start, end, information } = events[eventSlug];
 		const startDateString = formatFullDateTime(start);
 		const endDateString = formatFullDateTime(end);
 
@@ -53,8 +50,7 @@ export default defineComponent({
 			description,
 			startDateString,
 			endDateString,
-			content,
-			slug: eventSlug,
+			information,
 		};
 	},
 });

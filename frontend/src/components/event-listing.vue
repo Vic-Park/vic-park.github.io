@@ -1,6 +1,6 @@
 <template>
 	<router-link
-		:to="`/event/${slug}`"
+		:to="`/event/${name}`"
 		w:text="2xl hover:blue-400"
 		class="font-bold"
 	>
@@ -31,10 +31,6 @@ export default defineComponent({
 			required: true,
 		},
 		description: {
-			type: String,
-			required: true,
-		},
-		slug: {
 			type: String,
 			required: true,
 		},
