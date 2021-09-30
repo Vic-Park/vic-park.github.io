@@ -14,9 +14,8 @@
 						<div
 							w:text="4xl center"
 							class="
+								fallback-card-cover
 								font-bold
-								transform
-								-translate-x-1/2 -translate-y-1/2
 								absolute
 								top-1/2
 								left-1/2
@@ -37,9 +36,7 @@
 					flip-card-back
 					w-full
 					h-full
-					bg-white
 					p-4
-					overflow-ellipsis
 					column
 					items-center
 				"
@@ -155,6 +152,7 @@ export default defineComponent({
 	position: absolute;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+	background-color: white;
 }
 
 .flip-card {
@@ -163,14 +161,17 @@ export default defineComponent({
 }
 
 .flip-card-inner {
+	position: absolute;
 	cursor: pointer;
 	transition: transform 0.5s;
 	transform-style: preserve-3d;
-	background-color: white;
+}
+
+.fallback-card-cover {
+	transform: translateX(-50%) translateY(-50%);
 }
 
 .flip-card-back {
-	z-index: 1;
 	transform: rotateY(180deg);
 }
 </style>
