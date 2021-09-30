@@ -66,7 +66,7 @@ importers:
       vue: 3.2.19
       vue-router: 4.0.10
       vue-tsc: 0.3.0
-      windicss: 3.1.7
+      windicss: 3.1.8
     dependencies:
       '@fullcalendar/core': 5.8.0
       '@fullcalendar/daygrid': 5.8.0
@@ -82,7 +82,7 @@ importers:
       shave: 2.5.10
       vue: 3.2.19
       vue-router: 4.0.10_vue@3.2.19
-      windicss: 3.1.7
+      windicss: 3.1.8
     devDependencies:
       '@types/dateformat': 3.0.1
       '@types/dompurify': 2.2.2
@@ -3763,6 +3763,13 @@ packages:
     resolution: {integrity: sha512-Q/HQ9j+r2R0fdt85zAjccdo11kHWzQmpkuwIUQIO6PSypyDmBTfN14aAy4szLrpgo2woyuHM7Y+kir4IG4qnKQ==}
     engines: {node: '>= 12'}
     hasBin: true
+    dev: true
+
+  /windicss/3.1.8:
+    resolution: {integrity: sha512-G1UfnnSZ3s4MZnqqIL8DOQbL8rBArQKlodlby8OvP333TPaRouamuIuYyCt5kSNEJzFrkx168TSRIkqhDs9bOA==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
 
   /with/7.0.2:
     resolution: {integrity: sha512-RNGKj82nUPg3g5ygxkQl0R937xLyho1J24ItRCBTr/m1YnZkzJy1hUiHUJrc/VlsDQzsCnInEGSg3bci0Lmd4w==}

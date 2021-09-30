@@ -24,11 +24,11 @@ export default defineComponent({
 		},
 		start: {
 			type: String,
-			required: true,
+			default: 'TBA',
 		},
 		end: {
 			type: String,
-			required: true,
+			default: 'TBA',
 		},
 		description: {
 			type: String,
