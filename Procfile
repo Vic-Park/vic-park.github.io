@@ -1,1 +1,1 @@
-npm run start:js -w vpci-clubs-auto-update-backend
+web: npm run start:js -w vpci-clubs-auto-update-backend
