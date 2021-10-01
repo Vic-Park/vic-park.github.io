@@ -52,6 +52,7 @@
 		"rollup": "2.57.0",
 		"sass": "1.35.1",
 		"vite": "2.6.1",
+		"vite-plugin-imagemin": "^0.4.6",
 		"vite-plugin-windicss": "1.4.8",
 		"vue-tsc": "0.3.0"
 	}
