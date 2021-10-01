@@ -3,18 +3,24 @@
 	"version": "0.0.0",
 	"license": "MIT",
 	"scripts": {
-		"gen:types": "ts-node gen-types.ts"
+		"gen-types": "ts-node gen-types.ts",
+		"compress-images": "ts-node compress-images.ts"
 	},
 	"dependencies": {
 		"camel-case": "4.1.2",
+		"imagemin": "7.0.1",
+		"imagemin-jpegtran": "7.0.0",
+		"imagemin-pngquant": "9.0.2",
 		"pkg-dir": "5.0.0",
 		"shell-quote": "1.7.2"
 	},
 	"devDependencies": {
+		"@types/imagemin": "^8.0.0",
+		"@types/imagemin-jpegtran": "^5.0.1",
+		"@types/js-yaml": "4.0.3",
 		"@types/shell-quote": "1.7.1",
 		"execa": "5.1.1",
 		"js-yaml": "4.1.0",
-		"@types/js-yaml": "4.0.3",
 		"ts-node": "9.1.1"
 	}
 }

@@ -1,7 +1,6 @@
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import { defineConfig } from 'vite';
-import viteImagemin from 'vite-plugin-imagemin';
 import WindiCSS from 'vite-plugin-windicss';
 
 import announcementsLoader from './plugins/announcements-loader';
@@ -17,18 +16,6 @@ export default defineConfig({
 		announcementsLoader(),
 		clubsLoader(),
 		eventsLoader(),
-		viteImagemin({
-			optipng: {
-				optimizationLevel: 7,
-			},
-			pngquant: {
-				quality: [0.5, 0.6],
-				speed: 10,
-			},
-			mozjpeg: {
-				quality: 70,
-			},
-		}),
 	],
 	optimizeDeps: {
 		exclude: [

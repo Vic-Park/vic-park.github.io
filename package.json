@@ -7,7 +7,7 @@
 		"lint": "pnpm recursive run lint",
 		"tc": "pnpm recursive run tc",
 		"dev:frontend": "pnpm dev --filter=frontend",
-		"gen:types": "pnpm gen:types --filter=scripts",
+		"gen-types": "pnpm gen-types --filter=scripts",
 		"prune:frontend": "rm -rf vpci-clubs-auto-update",
 		"build:frontend": "pnpm build --filter=frontend",
 		"heroku-prebuild": "npm i -g pnpm && npm install --unsafe-perm --quiet -g \"npm@7\" && rm -rf frontend scripts",
