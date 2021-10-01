@@ -15,15 +15,19 @@ export async function compressImages() {
 
 	const imagePaths = await globby([`${imageAssetsPath}/**/*.{jpg,png}`]);
 
-	fs.rmSync(publicImagesPath, { recursive: true, force: true });
 	await Promise.all(
 		imagePaths.map(async (imagePath) => {
-			const folderPath = path.relative(
-				imageAssetsPath,
-				path.dirname(imagePath)
+			const destImageFolderPath = path.join(
+				publicImagesPath,
+				path.relative(imageAssetsPath, path.dirname(imagePath))
 			);
+			const destImageFilePath = path.join(
+				destImageFolderPath,
+				path.basename(imagePath)
+			);
+			if (fs.existsSync(destImageFilePath)) return;
 			await imagemin([imagePath], {
-				destination: path.join(publicImagesPath, folderPath),
+				destination: destImageFolderPath,
 				plugins: [
 					imageminJpegtran(),
 					imageminMozjpeg({
