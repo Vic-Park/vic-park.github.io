@@ -22,11 +22,11 @@ export default defineConfig({
 				optimizationLevel: 7,
 			},
 			pngquant: {
-				quality: [0.2, 0.3],
+				quality: [0.5, 0.6],
 				speed: 10,
 			},
 			mozjpeg: {
-				quality: 20,
+				quality: 70,
 			},
 		}),
 	],
