@@ -115,12 +115,16 @@ importers:
     specifiers:
       '@types/imagemin': ^8.0.0
       '@types/imagemin-jpegtran': ^5.0.1
+      '@types/imagemin-mozjpeg': ^8.0.1
+      '@types/imagemin-optipng': ^5.2.1
       '@types/js-yaml': 4.0.3
       '@types/shell-quote': 1.7.1
       camel-case: 4.1.2
       execa: 5.1.1
       imagemin: 7.0.1
       imagemin-jpegtran: 7.0.0
+      imagemin-mozjpeg: ^9.0.0
+      imagemin-optipng: ^8.0.0
       imagemin-pngquant: 9.0.2
       js-yaml: 4.1.0
       pkg-dir: 5.0.0
@@ -130,12 +134,16 @@ importers:
       camel-case: 4.1.2
       imagemin: 7.0.1
       imagemin-jpegtran: 7.0.0
+      imagemin-mozjpeg: 9.0.0
+      imagemin-optipng: 8.0.0
       imagemin-pngquant: 9.0.2
       pkg-dir: 5.0.0
       shell-quote: 1.7.2
     devDependencies:
       '@types/imagemin': 8.0.0
       '@types/imagemin-jpegtran': 5.0.1
+      '@types/imagemin-mozjpeg': 8.0.1
+      '@types/imagemin-optipng': 5.2.1
       '@types/js-yaml': 4.0.3
       '@types/shell-quote': 1.7.1
       execa: 5.1.1
@@ -838,6 +846,18 @@ packages:
 
   /@types/imagemin-jpegtran/5.0.1:
     resolution: {integrity: sha512-Ps8kbm+DUFte/Eln/tUdEvpMWHKFCsQKlV8n+RN50zqWqL/7QhfLxR0ymitP9wa90P6+rkbJlintBNPkVR+B/Q==}
+    dependencies:
+      '@types/imagemin': 8.0.0
+    dev: true
+
+  /@types/imagemin-mozjpeg/8.0.1:
+    resolution: {integrity: sha512-kMQWEoKxxhlnH4POI3qfW9DjXlQfi80ux3l2b3j5R3eudSCoUIzKQLkfMjNJ6eMYnMWBcB+rfQOWqIzdIwFGKw==}
+    dependencies:
+      '@types/imagemin': 8.0.0
+    dev: true
+
+  /@types/imagemin-optipng/5.2.1:
+    resolution: {integrity: sha512-XCM/3q+HUL7v4zOqMI+dJ5dTxT+MUukY9KU49DSnYb/4yWtSMHJyADP+WHSMVzTR63J2ZvfUOzSilzBNEQW78g==}
     dependencies:
       '@types/imagemin': 8.0.0
     dev: true
@@ -3732,6 +3752,24 @@ packages:
       jpegtran-bin: 5.0.2
     dev: false
 
+  /imagemin-mozjpeg/9.0.0:
+    resolution: {integrity: sha512-TwOjTzYqCFRgROTWpVSt5UTT0JeCuzF1jswPLKALDd89+PmrJ2PdMMYeDLYZ1fs9cTovI9GJd68mRSnuVt691w==}
+    engines: {node: '>=10'}
+    dependencies:
+      execa: 4.1.0
+      is-jpg: 2.0.0
+      mozjpeg: 7.1.0
+    dev: false
+
+  /imagemin-optipng/8.0.0:
+    resolution: {integrity: sha512-CUGfhfwqlPjAC0rm8Fy+R2DJDBGjzy2SkfyT09L8rasnF9jSoHFqJ1xxSZWK6HVPZBMhGPMxCTL70OgTHlLF5A==}
+    engines: {node: '>=10'}
+    dependencies:
+      exec-buffer: 3.2.0
+      is-png: 2.0.0
+      optipng-bin: 7.0.0
+    dev: false
+
   /imagemin-pngquant/9.0.2:
     resolution: {integrity: sha512-cj//bKo8+Frd/DM8l6Pg9pws1pnDUjgb7ae++sUX1kUVdv2nrngPykhiUOgFeE0LGY/LmUbCf4egCHC4YUcZSg==}
     engines: {node: '>=10'}
@@ -4504,6 +4542,17 @@ packages:
     hasBin: true
     dev: true
 
+  /mozjpeg/7.1.0:
+    resolution: {integrity: sha512-A6nVpI33DVi04HxatRx3PZTeVAOP1AC/T/5kXEvP0U8F+J11mmFFDv46BM2j5/cEyzDDtK8ptHeBSphNMrQLqA==}
+    engines: {node: '>=10'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      bin-build: 3.0.0
+      bin-wrapper: 4.1.0
+      logalot: 2.1.0
+    dev: false
+
   /ms/2.0.0:
     resolution: {integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=}
 
@@ -4719,6 +4768,17 @@ packages:
       type-check: 0.4.0
       word-wrap: 1.2.3
     dev: true
+
+  /optipng-bin/7.0.0:
+    resolution: {integrity: sha512-mesUAwfedu5p9gRQwlYgD6Svw5IH3VUIWDJj/9cNpP3yFNbbEVqkTMWYhrIEn/cxmbGA3LpZrdoV2Yl8OfmnIA==}
+    engines: {node: '>=10'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      bin-build: 3.0.0
+      bin-wrapper: 4.1.0
+      logalot: 2.1.0
+    dev: false
 
   /os-filter-obj/2.0.0:
     resolution: {integrity: sha512-uksVLsqG3pVdzzPvmAHpBK0wKxYItuzZr7SziusRPoz67tGV8rL1szZ6IdeUrbqLjGDwApBtN29eEE3IqGHOjg==}
