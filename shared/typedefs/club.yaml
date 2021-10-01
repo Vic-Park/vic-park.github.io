@@ -34,11 +34,6 @@ properties:
       description: Instructions about how to join the club
     type: string
 
-  equityStatement:
-    metadata:
-      description: The club's equity statement
-    type: string
-
 optionalProperties:
   categories:
     metadata:
@@ -58,4 +53,10 @@ optionalProperties:
   timeCommitment:
     metadata:
       description: The time commitment members need to participate in the club
+    type: string
+
+  # Equity statement is optional because clubs might need time to prepare one
+  equityStatement:
+    metadata:
+      description: The club's equity statement
     type: string

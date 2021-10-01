@@ -7,11 +7,6 @@ export interface Club {
   clubLeaders: string;
 
   /**
-   * The club's equity statement
-   */
-  equityStatement: string;
-
-  /**
    * Instructions about how to join the club
    */
   joinInstructions: string;
@@ -45,6 +40,11 @@ export interface Club {
    * A comma separated list of categories the club belongs to
    */
   categories?: string;
+
+  /**
+   * The club's equity statement
+   */
+  equityStatement?: string;
 
   /**
    * Extra information about the club

@@ -6,3 +6,5 @@ export type SheetEntry<T extends EntryType> = {
 		data: { [K in keyof EntryTypeData[T]]: EntryTypeData[T][K] | undefined };
 	};
 }[T];
+
+export type SheetRow = string[];

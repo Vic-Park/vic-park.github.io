@@ -1,79 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <style>
-    html,
-    body {
-      font-family: sans-serif;
-      height: 100%;
-      margin: 0;
-    }
+	<style>
+		html,
+		body {
+			font-family: sans-serif;
+			height: 100%;
+			margin: 0;
+		}
 
-    #app {
-      display: flex;
-      height: 100%;
-      padding-left: 20%;
-      padding-right: 20%;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+		#app {
+			display: flex;
+			height: 100%;
+			padding-left: 20%;
+			padding-right: 20%;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
 
-    #errorMessage {
-      color: red;
-    }
+		#errorMessage {
+			color: red;
+		}
 
-    #successMessage {
-      color: green;
-    }
-  </style>
+		#successMessage {
+			color: green;
+		}
+	</style>
 
-  <body>
-    <div id="app">
-      <p>
-        To update the website from the values in the Google Sheets, please enter
-        the secret in the following textbox and press "Update":
-      </p>
-      <div style="padding-bottom: 0.5rem">
-        <input id="secretInput" placeholder="Enter the secret here..." />
-        <button id="updateButton" onclick="updateSheets()">Update</button>
-      </div>
-      <div id="successMessage"></div>
-      <div id="errorMessage"></div>
-    </div>
-  </body>
-  <script>
-    const secretInput = document.getElementById('secretInput');
-    const successMessageContainer = document.getElementById('successMessage');
-    const errorMessageContainer = document.getElementById('errorMessage');
-    const updateButton = document.getElementById('updateButton');
+	<body>
+		<div id="app">
+			<p>
+				To update the website from the values in the Google Sheets, please enter
+				the secret in the following textbox and press "Update":
+			</p>
+			<div style="padding-bottom: 0.5rem">
+				<input id="secretInput" placeholder="Enter the secret here..." />
+				<button id="updateButton" onclick="updateSheets()">Update</button>
+			</div>
+			<div id="successMessage"></div>
+			<div id="errorMessage"></div>
+		</div>
+	</body>
+	<script>
+		const secretInput = document.getElementById('secretInput');
+		const successMessageContainer = document.getElementById('successMessage');
+		const errorMessageContainer = document.getElementById('errorMessage');
+		const updateButton = document.getElementById('updateButton');
 
-    async function updateSheets() {
-      successMessageContainer.innerText = '';
-      errorMessageContainer.innerText = '';
+		async function updateSheets() {
+			successMessageContainer.innerText = '';
+			errorMessageContainer.innerText = '';
 
-      try {
-        updateButton.setAttribute('disabled', '');
-        updateButton.innerText = 'Updating...';
-        const response = await fetch('/', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            secret: secretInput.value,
-          }),
-        });
-        if (response.ok) {
-          successMessageContainer.innerText = await response.text();
-        } else {
-          errorMessageContainer.innerText = await response.text();
-        }
-      } catch (e) {
-        errorMessageContainer.innerText = e.toString();
-      } finally {
-        updateButton.removeAttribute('disabled');
-        updateButton.innerText = 'Update';
-      }
-    }
-  </script>
+			try {
+				updateButton.setAttribute('disabled', '');
+				updateButton.innerText = 'Updating...';
+				const response = await fetch('/update', {
+					method: 'post',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						secret: secretInput.value,
+					}),
+				});
+				if (response.ok) {
+					successMessageContainer.innerText = await response.text();
+				} else {
+					errorMessageContainer.innerText = await response.text();
+				}
+			} catch (e) {
+				errorMessageContainer.innerText = e.toString();
+			} finally {
+				updateButton.removeAttribute('disabled');
+				updateButton.innerText = 'Update';
+			}
+		}
+	</script>
 </html>

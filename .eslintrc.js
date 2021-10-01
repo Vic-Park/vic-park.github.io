@@ -9,6 +9,14 @@ module.exports = {
 		'plugin:import/typescript',
 		'prettier',
 	],
+	overrides: [
+		{
+			files: ['src/routes/**/*.ts'],
+			rules: {
+				'import/no-default-export': 'off',
+			},
+		},
+	],
 	plugins: ['@typescript-eslint', 'simple-import-sort', 'import', 'unicorn'],
 	rules: {
 		// eslint rules
