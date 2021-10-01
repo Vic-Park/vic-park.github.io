@@ -15,6 +15,7 @@
 		"imagemin-optipng": "^8.0.0",
 		"imagemin-pngquant": "9.0.2",
 		"pkg-dir": "5.0.0",
+		"resize-img": "^2.0.0",
 		"shell-quote": "1.7.2"
 	},
 	"devDependencies": {
@@ -23,6 +24,7 @@
 		"@types/imagemin-mozjpeg": "^8.0.1",
 		"@types/imagemin-optipng": "^5.2.1",
 		"@types/js-yaml": "4.0.3",
+		"@types/resize-img": "^2.0.1",
 		"@types/shell-quote": "1.7.1",
 		"execa": "5.1.1",
 		"js-yaml": "4.1.0",
