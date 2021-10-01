@@ -8,7 +8,7 @@
 	/>
 	<template v-else>
 		<slot name="fallback">
-			<img src="/img/vic-park-logo.png" :alt="alt" v-bind="$attrs" />
+			<img src="/images/vic-park-logo.png" :alt="alt" v-bind="$attrs" />
 		</slot>
 	</template>
 </template>

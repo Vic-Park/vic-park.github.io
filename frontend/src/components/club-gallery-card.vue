@@ -26,7 +26,7 @@
 							"
 						>
 							{{ name }}
-							<img src="/img/vic-park-logo.png" width="150" />
+							<img src="/images/vic-park-logo.png" width="150" />
 						</div>
 					</template>
 				</ImageWithFallback>

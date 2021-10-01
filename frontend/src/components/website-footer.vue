@@ -16,7 +16,7 @@
 					<img
 						w:md="w-30 h-30 mb-4"
 						class="w-15 h-15 rounded-full bg-white p-3 mb-2"
-						src="/img/vic-park-logo.png"
+						src="/images/vic-park-logo.png"
 						alt="Victoria Park Logo"
 					/>
 				</a>

@@ -1,7 +1,7 @@
 <template>
 	<div class="relative">
 		<div class="absolute background-tint inset-0" />
-		<img src="/img/hero-image.jpg" class="object-cover hero-image w-full" />
+		<img src="/images/hero-image.jpg" class="object-cover hero-image w-full" />
 		<div class="absolute inset-0 column center">
 			<div class="z-10 hero-title text-white font-kollektif">
 				victoria park ci
