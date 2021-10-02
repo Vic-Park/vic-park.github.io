@@ -1,21 +1,14 @@
 <template>
-	<div class="club-listing group">
-		<div
-			class="
-				text-white
-				mb-4
-				flex
-				w-full
-				justify-between
-				items-center
-				relative
-				p-8
-			"
-		>
+	<div class="club-listing">
+		<div class="text-white mb-4 flex items-center relative p-8">
 			<div
 				class="club-listing-background absolute inset-0 -z-1 bg-red-dark"
 			></div>
-			<div class="flex-shrink">
+			<!--
+				If the description is too short, we use `flex-grow` to make sure the
+				description section expands to fill the space.
+			-->
+			<div class="column flex-grow">
 				<div class="font-kollektif text-2xl font-bold">{{ name }}</div>
 				<div class="text-md">{{ shortDescription }}</div>
 			</div>
@@ -33,7 +26,6 @@
 						w-50
 						h-50
 						rounded-full
-						flex-shrink-0
 						object-cover
 					"
 				/>

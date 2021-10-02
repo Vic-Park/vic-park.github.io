@@ -66,6 +66,11 @@ import { getClubIconUrl, getClubPageUrl } from '~/utils/club';
 
 import ImageWithFallback from './image-with-fallback.vue';
 
+/**
+ * An individual card in the club gallery. The front side of the card is the club icon, and the back
+ * side is the equity statement (with a fallback to the club description if the club hasn't yet provided an
+ * equity statement).
+ */
 export default defineComponent({
 	components: { ImageWithFallback },
 	props: {
@@ -87,40 +92,71 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const isDescriptionActive = ref(false);
+		// References to the excerpt containers to be provided to the `shave` package
 		const clubExcerptContainer = ref<HTMLDivElement>();
 		const clubExcerptTextContainer = ref<HTMLParagraphElement>();
 
+		// shave (https://npm.im/shave) is a package that dynamically trims text and restricts it to
+		// a max height. We use shave to prevent the text from overflowing the container on the back of
+		// the club gallery card.
+		function registerShave() {
+			shave(
+				clubExcerptTextContainer.value!,
+				clubExcerptContainer.value!.getBoundingClientRect().height
+			);
+		}
+
+		/** Whether the back of the card is shown or not */
+		const isBackShown = ref(false);
+
 		const cardStyle = computed(() => ({
-			transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
+			// Rotate the card 180 degrees along the y-axis when the back is shown
+			transform: isBackShown.value ? 'rotateY(180deg)' : undefined,
 		}));
 
 		const frontCardStyle = computed<CSS.Properties>(() => ({
-			pointerEvents: isDescriptionActive.value ? 'none' : 'auto',
+			// Prevents the user from dragging the image when they try to select text
+			// on the back of the card
+			pointerEvents: isBackShown.value ? 'none' : 'auto',
 		}));
 
 		let isShaveRegistered = false;
 		function onClick() {
-			isDescriptionActive.value = !isDescriptionActive.value;
-
+			// Flip the card by showing the back if the front is shown and otherwise re-showing
+			// the front
+			isBackShown.value = !isBackShown.value;
+			// Make sure shave is only registered once (since after its first registered, it adds a
+			// listener to the element and doesn't need to be re-registered).
 			if (!isShaveRegistered) {
 				isShaveRegistered = true;
-				shave(
-					clubExcerptTextContainer.value!,
-					clubExcerptContainer.value!.getBoundingClientRect().height
-				);
+				registerShave();
 			}
 		}
 
+		/**
+		 * If the club has an equity statement, the club excerpt consists of the clipped part (the part
+		 * between the [] brackets). Otherwise, use the club description as the club excerpt.
+		 */
 		const clubExcerpt = computed(() => {
 			if (props.equityStatement !== undefined) {
+				// Retrieve the string between the [] brackets
 				const openingBracketIndex = props.equityStatement.indexOf('[');
 				const closingBracketIndex = props.equityStatement.indexOf(']');
-				return props.equityStatement.slice(
+				let clippedEquityStatement = props.equityStatement.slice(
 					openingBracketIndex + 1,
 					closingBracketIndex
 				);
-			} else {
+
+				// If the last character ends with a number or a letter, then add a period
+				if (
+					/\w|\d/.test(clippedEquityStatement[clippedEquityStatement.length - 1])
+				) {
+					clippedEquityStatement += '.';
+				}
+				return clippedEquityStatement;
+			}
+			// The club doesn't have an equity statement; return the description instead
+			else {
 				return props.description;
 			}
 		});
@@ -158,12 +194,14 @@ export default defineComponent({
 }
 
 .flip-card-inner {
-	position: absolute;
 	cursor: pointer;
 	transition: transform 0.5s;
 	transform-style: preserve-3d;
 }
 
+/* The TailwindCSS `transform` property seems to break card flipping on iOS Safari
+(https://github.com/Vic-Park/vic-park.github.io/issues/1).
+*/
 .fallback-card-cover {
 	transform: translateX(-50%) translateY(-50%);
 }

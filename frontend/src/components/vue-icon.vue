@@ -12,8 +12,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+/**
+ * A generic icon component used throughout the app.
+ */
 export default defineComponent({
 	props: {
+		/** The SVG path `d` argument for the icon SVG (usually imported from @mdi/js) */
 		icon: {
 			type: String,
 			required: true,
