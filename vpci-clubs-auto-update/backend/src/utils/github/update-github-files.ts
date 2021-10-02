@@ -50,6 +50,7 @@ export async function updateGithubFiles(
 				content: Buffer.from(stringifyEntry(githubEntryUpdate.entry)).toString(
 					'base64'
 				),
+				encoding: 'base64',
 			});
 			const path = `${getEntryTypeFolder(
 				githubEntryUpdate.entry.type
@@ -63,6 +64,8 @@ export async function updateGithubFiles(
 		}
 	}
 
+	console.log(treeItems);
+
 	console.info('Creating the tree...');
 	const createTreeResponse = await octokit.rest.git.createTree({
 		owner,
@@ -73,6 +76,7 @@ export async function updateGithubFiles(
 
 	const tree = createTreeResponse.data;
 
+	console.log(tree);
 	console.info('Creating the commit...');
 	const commitResponse = await octokit.rest.git.createCommit({
 		message: 'Update data',

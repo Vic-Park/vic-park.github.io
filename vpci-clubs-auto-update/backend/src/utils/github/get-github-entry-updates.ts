@@ -3,6 +3,7 @@ import got from 'got';
 
 import type { GithubEntryUpdate } from '~/types/github';
 import { GithubEntryUpdateType } from '~/types/github';
+import type { Entry } from '~shared/types/entry';
 import { EntryType } from '~shared/types/entry';
 
 import {
@@ -57,6 +58,9 @@ export async function getGithubEntryUpdates<T extends EntryType>({
 	);
 
 	const githubEntryUpdates: GithubEntryUpdate<T>[] = [];
+	function getEntryFileName(entry: Entry) {
+		return `${getEntrySlug(entry)}.yaml`;
+	}
 
 	// Looping through all the google sheet entries and then trying to find the
 	// corresponding GitHub file. If the corresponding GitHub file is not found, the
@@ -66,7 +70,7 @@ export async function getGithubEntryUpdates<T extends EntryType>({
 	for (const googleSheetEntry of sheetEntries) {
 		// Attempting to find the corresponding GitHub file
 		const githubFile = githubFiles.find(
-			({ name }) => name === `${getEntrySlug(googleSheetEntry)}.yaml`
+			({ name }) => name === getEntryFileName(googleSheetEntry)
 		);
 
 		// If the parsed google sheet entry isn't found in an existing GitHub file, the GitHub
@@ -102,7 +106,7 @@ export async function getGithubEntryUpdates<T extends EntryType>({
 
 		// Attempting to find the corresponding google sheet entry
 		const correspondingGoogleSheetFile = sheetEntries.find(
-			(sheetEntry) => getEntrySlug(sheetEntry) === githubFile.name
+			(sheetEntry) => getEntryFileName(sheetEntry) === githubFile.name
 		);
 
 		// If the corresponding google sheet entry cannot be found, the GitHub file needs to be deleted
