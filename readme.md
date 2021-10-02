@@ -1,6 +1,6 @@
 # VPCI Clubs Website
 
-The official website for VPCI clubs (currently under development).
+The official website for VPCI clubs.
 
 ## Constraints
 
