@@ -33,6 +33,8 @@ jobs:
 
       - name: Install dependencies and build frontend
         run: pnpm prune:frontend && pnpm install && pnpm build:frontend
+        env:
+          VITE_AUTO_UPDATE_SERVER_URL: https://vpci-clubs-auto-update.herokuapp.com
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
