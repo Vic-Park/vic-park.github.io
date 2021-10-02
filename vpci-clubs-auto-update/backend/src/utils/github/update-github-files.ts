@@ -26,7 +26,7 @@ export async function updateGithubFiles(
 		repo,
 		ref: `heads/${branchToUpdate}`,
 	});
-	const baseTree = getRefResponse.data.ref;
+	const baseTree = getRefResponse.data.object.sha;
 	const treeItems: TreeItem[] = [];
 
 	console.info('Processing the entry updates...');
@@ -64,19 +64,16 @@ export async function updateGithubFiles(
 		}
 	}
 
-	console.log(treeItems);
-
 	console.info('Creating the tree...');
 	const createTreeResponse = await octokit.rest.git.createTree({
 		owner,
 		repo,
-		tree: treeItems,
+		tree: [treeItems[1]],
 		base_tree: baseTree,
 	});
 
 	const tree = createTreeResponse.data;
 
-	console.log(tree);
 	console.info('Creating the commit...');
 	const commitResponse = await octokit.rest.git.createCommit({
 		message: 'Update data',
