@@ -68,7 +68,7 @@ export async function updateGithubFiles(
 	const createTreeResponse = await octokit.rest.git.createTree({
 		owner,
 		repo,
-		tree: [treeItems[1]],
+		tree: treeItems,
 		base_tree: baseTree,
 	});
 
