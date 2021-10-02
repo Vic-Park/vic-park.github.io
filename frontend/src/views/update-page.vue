@@ -59,6 +59,7 @@ export default defineComponent({
 					json: {
 						secret: secret.value,
 					},
+					timeout: false,
 					throwHttpErrors: false,
 				});
 				const message = await getResponseMessage(response);
