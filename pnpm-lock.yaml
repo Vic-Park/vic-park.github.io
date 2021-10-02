@@ -56,6 +56,7 @@ importers:
       eslint-plugin-simple-import-sort: 7.0.0
       eslint-plugin-vue: 7.18.0
       js-yaml: 4.1.0
+      ky: ^0.28.5
       pinia: 2.0.0-rc.9
       pkg-dir: 5.0.0
       postcss: 8.3.8
@@ -80,6 +81,7 @@ importers:
       csstype: 3.0.9
       dateformat: 4.5.1
       dompurify: 2.2.9
+      ky: 0.28.5
       pinia: 2.0.0-rc.9_typescript@4.4.3+vue@3.2.19
       shave: 2.5.10
       vue: 3.2.19
@@ -156,6 +158,12 @@ importers:
       js-yaml: 4.1.0
       ts-node: 9.1.1_typescript@4.4.3
 
+  shared:
+    specifiers:
+      '@sinclair/typebox': ^0.20.5
+    dependencies:
+      '@sinclair/typebox': 0.20.5
+
   vpci-clubs-auto-update/backend:
     specifiers:
       '@octokit/plugin-throttling': ^3.5.2
@@ -169,6 +177,7 @@ importers:
       eslint-import-resolver-alias: 1.1.2
       fastify: 3.15.1
       fastify-autoload: ^3.9.0
+      fastify-cors: ^6.0.2
       fastify-rate-limit: 5.5.0
       fastify-static: 4.2.2
       googleapis: 73.0.0
@@ -192,6 +201,7 @@ importers:
       dotenv: 9.0.2
       fastify: 3.15.1
       fastify-autoload: 3.9.0
+      fastify-cors: 6.0.2
       fastify-rate-limit: 5.5.0
       fastify-static: 4.2.2
       googleapis: 73.0.0
@@ -1117,6 +1127,10 @@ packages:
 
   /@popperjs/core/2.9.2:
     resolution: {integrity: sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==}
+    dev: false
+
+  /@sinclair/typebox/0.20.5:
+    resolution: {integrity: sha512-WNiVFcS1rdz5KyEutpl3Wmp/AwSQHBUFTyJz7KqMLkpLhOXCj1dnvMytBM6uMS5OTwhwwq877T7EC4vDGrX5Eg==}
     dev: false
 
   /@sindresorhus/is/0.7.0:
@@ -3428,6 +3442,13 @@ packages:
       semver: 7.3.5
     dev: false
 
+  /fastify-cors/6.0.2:
+    resolution: {integrity: sha512-sE0AOyzmj5hLLRRVgenjA6G2iOGX35/1S3QGYB9rr9TXelMZB3lFrXy4CzwYVOMiujJeMiLgO4J7eRm8sQSv8Q==}
+    dependencies:
+      fastify-plugin: 3.0.0
+      vary: 1.1.2
+    dev: false
+
   /fastify-error/0.3.1:
     resolution: {integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==}
     dev: false
@@ -4671,6 +4692,11 @@ packages:
   /kind-of/6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /ky/0.28.5:
+    resolution: {integrity: sha512-O5gg9kF4MeyfSw+YkgPAafOPwEUU6xcdGEJKUJmKpIPbLzk3oxUtY4OdBNekG7mawofzkyZ/ZHuR9ev5uZZdAA==}
+    engines: {node: '>=12'}
     dev: false
 
   /levn/0.4.1:
@@ -6830,6 +6856,11 @@ packages:
     dependencies:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
+
+  /vary/1.1.2:
+    resolution: {integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=}
+    engines: {node: '>= 0.8'}
+    dev: false
 
   /vite-plugin-windicss/1.4.8_typescript@4.4.3+vite@2.6.1:
     resolution: {integrity: sha512-X5lL0Cll+HAUDTaeN0pVEvzs3jZ3gY26vaZCPW/+whMsaErXY7cSV3hNzc8TrFi3GMCeWgqfRAedI2spMM1wHg==}

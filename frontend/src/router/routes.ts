@@ -58,7 +58,12 @@ export const routes: Array<RouteRecordRaw> = [
 					import(
 						/* webpackChunkName: "announcements" */ '~/views/announcements-page.vue'
 					),
-				meta: {},
+			},
+			{
+				path: '/update',
+				name: 'Update Website',
+				component: () =>
+					import(/* webpackChunkName: "update" */ '~/views/update-page.vue'),
 			},
 			{
 				path: '/:catchAll(.*)',

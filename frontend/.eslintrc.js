@@ -16,6 +16,7 @@ module.exports = {
 			files: ['*.vue', '*.d.ts', './plugins/*'],
 			rules: {
 				'import/no-default-export': 'off',
+				'vue/no-v-html': 'off',
 			},
 		},
 	],
