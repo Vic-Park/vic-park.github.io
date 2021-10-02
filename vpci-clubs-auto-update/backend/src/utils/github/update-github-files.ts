@@ -74,15 +74,13 @@ export async function updateGithubFiles(
 	const tree = createTreeResponse.data;
 
 	console.info('Creating the commit...');
-	const commitResponse = await octokit.request(
-		'POST /repos/{owner}/{repo}/git/commits',
-		{
-			message: 'Update data',
-			owner,
-			repo,
-			tree: tree.sha,
-		}
-	);
+	const commitResponse = await octokit.rest.git.createCommit({
+		message: 'Update data',
+		owner,
+		repo,
+		tree: tree.sha,
+		parents: [baseTree],
+	});
 
 	console.info('Updating the ref...');
 	await octokit.rest.git.updateRef({
