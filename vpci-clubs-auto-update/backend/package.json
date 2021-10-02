@@ -10,7 +10,7 @@
 		"dev": "ts-node-dev ./src/app.ts",
 		"start": "ts-node ./src/app.ts",
 		"start:js": "node ./dist/vpci-clubs-auto-update/backend/src/app.js",
-		"build": "tsc && tsc-alias && cp -r ../../shared/typedefs ./dist/shared/typedefs && cp -r ./public ./dist/vpci-clubs-auto-update/backend/public"
+		"build": "tsc && tsc-alias && cp -r ../../shared/typedefs ./dist/shared/typedefs"
 	},
 	"dependencies": {
 		"@octokit/plugin-throttling": "^3.5.2",
