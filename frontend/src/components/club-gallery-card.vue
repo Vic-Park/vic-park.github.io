@@ -12,7 +12,7 @@
 				>
 					<template #fallback>
 						<div
-							w:text="4xl center"
+							w:text="3xl center"
 							class="
 								fallback-card-cover
 								font-bold
@@ -32,20 +32,13 @@
 				</ImageWithFallback>
 			</div>
 			<div
-				class="
-					flip-card-back
-					w-full
-					h-full
-					p-4
-					column
-					items-center
-				"
+				class="flip-card-back w-full h-full p-4 column items-center"
 				w:text="burgundy center"
 			>
 				<h4 w:text="xl center" class="font-bold uppercase mb-2">{{ name }}</h4>
 				<div ref="equityStatementContainer" class="text-md overflow-hidden">
 					<p ref="equityStatementTextContainer">
-						{{ clippedEquityStatement }}
+						{{ clubExcerpt }}
 					</p>
 				</div>
 				<div class="column mt-auto">
@@ -90,13 +83,13 @@ export default defineComponent({
 		},
 		equityStatement: {
 			type: String,
-			required: true,
+			default: undefined,
 		},
 	},
 	setup(props) {
 		const isDescriptionActive = ref(false);
-		const equityStatementContainer = ref<HTMLDivElement>();
-		const equityStatementTextContainer = ref<HTMLParagraphElement>();
+		const clubExcerptContainer = ref<HTMLDivElement>();
+		const clubExcerptTextContainer = ref<HTMLParagraphElement>();
 
 		const cardStyle = computed(() => ({
 			transform: isDescriptionActive.value ? 'rotateY(180deg)' : undefined,
@@ -113,19 +106,23 @@ export default defineComponent({
 			if (!isShaveRegistered) {
 				isShaveRegistered = true;
 				shave(
-					equityStatementTextContainer.value!,
-					equityStatementContainer.value!.getBoundingClientRect().height
+					clubExcerptTextContainer.value!,
+					clubExcerptContainer.value!.getBoundingClientRect().height
 				);
 			}
 		}
 
-		const clippedEquityStatement = computed(() => {
-			const openingBracketIndex = props.equityStatement.indexOf('[');
-			const closingBracketIndex = props.equityStatement.indexOf(']');
-			return props.equityStatement.slice(
-				openingBracketIndex + 1,
-				closingBracketIndex
-			);
+		const clubExcerpt = computed(() => {
+			if (props.equityStatement !== undefined) {
+				const openingBracketIndex = props.equityStatement.indexOf('[');
+				const closingBracketIndex = props.equityStatement.indexOf(']');
+				return props.equityStatement.slice(
+					openingBracketIndex + 1,
+					closingBracketIndex
+				);
+			} else {
+				return props.description;
+			}
 		});
 
 		const clubIconUrl = getClubIconUrl(props.slug);
@@ -138,9 +135,9 @@ export default defineComponent({
 			onClick,
 			cardStyle,
 			frontCardStyle,
-			clippedEquityStatement,
-			equityStatementContainer,
-			equityStatementTextContainer,
+			clubExcerpt,
+			clubExcerptContainer,
+			clubExcerptTextContainer,
 		};
 	},
 });

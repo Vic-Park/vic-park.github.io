@@ -74,7 +74,8 @@ export default defineComponent({
 		} = clubs[clubSlug];
 
 		// Remove the [] surrounding the condensed equity statement
-		const processedEquityStatement = equityStatement.replace(/\[|]/g, '');
+		const processedEquityStatement =
+			equityStatement?.replace(/\[|]/g, '') ?? '';
 
 		const sections = [
 			{
