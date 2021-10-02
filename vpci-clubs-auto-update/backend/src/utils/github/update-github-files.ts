@@ -79,7 +79,7 @@ export async function updateGithubFiles(
 	const commitResponse = await octokit.rest.git.createCommit({
 		message: `Updated club data on ${dayjs
 			.tz(new Date())
-			.format('YYYY-MM-DD HH:mm A')}`,
+			.format('YYYY-MM-DD h:mm A')}`,
 		owner,
 		repo,
 		tree: tree.sha,
