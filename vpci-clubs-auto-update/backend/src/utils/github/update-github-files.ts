@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import got from 'got';
 
 import type { GithubEntryUpdate } from '~/types/github';
 import { GithubEntryUpdateType } from '~/types/github';
@@ -18,9 +17,13 @@ type TreeItem = {
 const owner = 'Vic-Park';
 const repo = 'vic-park.github.io';
 
+/**
+ * Updates the GitHub files (using calls to the GitHub API) based on the entry updates and returns
+ * the sha of the GitHub commit that updated the files.
+ */
 export async function updateGithubFiles(
 	githubEntryUpdates: GithubEntryUpdate[]
-) {
+): Promise<string> {
 	console.info('Retrieving the current branch ref...');
 	const getRefResponse = await octokit.rest.git.getRef({
 		owner,
@@ -94,4 +97,6 @@ export async function updateGithubFiles(
 		ref: `heads/${branchToUpdate}`,
 		sha: commitResponse.data.sha,
 	});
+
+	return commitResponse.data.sha;
 }

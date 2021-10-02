@@ -3,3 +3,4 @@ packages:
   - vpci-clubs-auto-update/backend
   - scripts
   - types
+  - shared

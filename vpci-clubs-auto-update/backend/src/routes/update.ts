@@ -6,6 +6,7 @@ import { getGithubEntryUpdates } from '~/utils/github';
 import { updateGithubFiles } from '~/utils/github/update-github-files';
 import { sheets, spreadsheetId } from '~/utils/google';
 import { normalizeSheetRow } from '~/utils/sheets';
+import * as AutoUpdate from '~shared/types/auto-update';
 import { EntryType } from '~shared/types/entry';
 
 type RequestBody = {
@@ -13,11 +14,13 @@ type RequestBody = {
 };
 
 export default async function updateRoute(app: FastifyInstance) {
-	app.post('/update', async (request, reply) => {
+	app.post<{ Reply: AutoUpdate.Reply }>('/update', async (request, reply) => {
 		const { secret } = request.body as RequestBody;
 
 		if (secret !== process.env.SECRET) {
-			reply.status(403).send('Not authorized; incorrect secret provided.');
+			reply.status(403).send({
+				code: AutoUpdate.ReplyCode.INCORRECT_SECRET,
+			});
 			return;
 		}
 
@@ -122,18 +125,22 @@ export default async function updateRoute(app: FastifyInstance) {
 			})),
 		];
 
+		console.log(githubEntryUpdates);
 		if (githubEntryUpdates.length === 0) {
-			reply
-				.status(200)
-				.send(
-					'The website is up-to-date with the Google Sheet; nothing was changed.'
-				);
+			reply.status(200).send({
+				code: AutoUpdate.ReplyCode.NO_CHANGE,
+			});
 			return;
 		}
 
 		console.info('Updating GitHub files...');
-		await updateGithubFiles(githubEntryUpdates);
+		const updateCommitSha = await updateGithubFiles(githubEntryUpdates);
 
-		reply.send('Request successfully processed.');
+		reply.send({
+			code: AutoUpdate.ReplyCode.SUCCESS,
+			data: {
+				commitSha: updateCommitSha,
+			},
+		});
 	});
 }

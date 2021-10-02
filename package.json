@@ -29,6 +29,7 @@
 		"frontend",
 		"vpci-clubs-auto-update/backend",
 		"scripts",
+		"shared",
 		"types"
 	],
 	"engines": {
