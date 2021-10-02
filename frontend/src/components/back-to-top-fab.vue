@@ -26,11 +26,15 @@
 import { mdiArrowUp } from '@mdi/js';
 import { defineComponent, onMounted, onUnmounted, ref } from 'vue';
 
+/**
+ * A FAB (floating action button) that brings the user to the top of the page when clicked.
+ */
 export default defineComponent({
 	name: 'BackToTopFab',
 	setup() {
 		const isFabVisible = ref(false);
 
+		// Only display the FAB if the user has scrolled below 100 pixels
 		function updateFab() {
 			if (window.scrollY > 100) {
 				isFabVisible.value = true;
@@ -47,6 +51,9 @@ export default defineComponent({
 			window.removeEventListener('scroll', updateFab);
 		});
 
+		/**
+		 * Scroll to the top of the screen
+		 */
 		function scrollToTop() {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}

@@ -1,7 +1,13 @@
 <template>
-	<div id="clubs" class="max-w-6xl w-full mx-8 mt-12 mb-16">
-		<div class="relative club-gallery">
-			<div class="grid-background bg-burgundy"></div>
+	<div id="clubs" class="max-w-6xl w-full" w:m="x-8 t-12 b-16">
+		<div class="club-gallery">
+			<!--
+				The way we display the gallery background is using an absolutely positioned
+				element that spans the entire grid. We can't apply the background on a per-grid-element
+				basis because the last row might have empty club slots and thus the background on the last row
+				may not extend the entire width.
+			-->
+			<div class="grid-background"></div>
 			<div v-for="club in clubsArray" :key="club.slug" class="m-[1rem]">
 				<ClubGalleryCard
 					:name="club.name"
@@ -25,14 +31,9 @@ import clubs from '~data/clubs';
 export default defineComponent({
 	components: { ClubGalleryCard },
 	setup() {
-		const clubsArray = arrayShuffle(getClubsArray(clubs)).map(
-			({ slug, name, shortDescription, equityStatement }) => ({
-				slug,
-				name,
-				shortDescription,
-				equityStatement,
-			})
-		);
+		// Randomize the order the club gallery cards appear in so that more clubs get to
+		// appear near the top instead of just a few select clubs.
+		const clubsArray = arrayShuffle(getClubsArray(clubs));
 
 		return {
 			clubsArray,
@@ -41,8 +42,9 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style scoped lang="postcss">
 .grid-background {
+	@apply bg-burgundy;
 	position: absolute;
 	grid-column: 1 / -1;
 	width: calc(100% + 2rem);
