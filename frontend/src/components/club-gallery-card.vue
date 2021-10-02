@@ -36,8 +36,8 @@
 				w:text="burgundy center"
 			>
 				<h4 w:text="xl center" class="font-bold uppercase mb-2">{{ name }}</h4>
-				<div ref="equityStatementContainer" class="text-md overflow-hidden">
-					<p ref="equityStatementTextContainer">
+				<div ref="clubExcerptContainer" class="text-md overflow-hidden">
+					<p ref="clubExcerptTextContainer">
 						{{ clubExcerpt }}
 					</p>
 				</div>
