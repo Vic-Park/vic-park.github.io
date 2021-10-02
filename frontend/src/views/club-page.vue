@@ -23,11 +23,10 @@
 			</div>
 
 			<div class="max-w-4xl w-full text-left px-8">
-				<div v-for="{ name, content } in sections" :key="name">
-					<div v-if="content !== ''" class="pt-12">
-						<strong class="block">{{ name }}:</strong>
-						<!-- eslint-disable-next-line vue/no-v-html -->
-						<div v-html="content"></div>
+				<div v-for="section in sections" :key="section.name">
+					<div v-if="section.content !== ''" class="pt-12">
+						<strong class="block">{{ section.name }}:</strong>
+						<div v-html="section.content"></div>
 					</div>
 				</div>
 			</div>
@@ -45,6 +44,7 @@ import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 import { getClubThumbnailUrl } from '~/utils/club';
+import { formatText } from '~/utils/text';
 import clubs from '~data/clubs';
 
 export default defineComponent({
@@ -117,7 +117,7 @@ export default defineComponent({
 		].map((section) => ({
 			...section,
 			content: DOMPurify.sanitize(
-				Autolinker.link(section.content ?? '', {
+				Autolinker.link(formatText(section.content ?? ''), {
 					mention: 'instagram',
 				})
 			),
