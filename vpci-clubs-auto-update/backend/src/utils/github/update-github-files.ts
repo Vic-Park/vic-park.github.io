@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import got from 'got';
 
 import type { GithubEntryUpdate } from '~/types/github';
@@ -76,7 +77,9 @@ export async function updateGithubFiles(
 
 	console.info('Creating the commit...');
 	const commitResponse = await octokit.rest.git.createCommit({
-		message: 'Update data',
+		message: `Updated club data on ${dayjs
+			.tz(new Date())
+			.format('YYYY-MM-DD HH:mm A')}`,
 		owner,
 		repo,
 		tree: tree.sha,
