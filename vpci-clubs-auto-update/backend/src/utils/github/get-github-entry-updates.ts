@@ -28,7 +28,7 @@ const entryTypeToSheetRow = {
 
 const entryTypeToDataFolder = {
 	[EntryType.club]: '/data/clubs',
-	[EntryType.event]: '/data/event',
+	[EntryType.event]: '/data/events',
 	[EntryType.announcement]: '/data/announcements',
 };
 
@@ -98,6 +98,8 @@ export async function getGithubEntryUpdates<T extends EntryType>({
 	// If the corresponding google sheet entry cannot be found, it means that the GitHub file needs to be
 	// deleted
 	for (const githubFile of githubFiles) {
+		if (githubFile.name === '.gitkeep') continue;
+
 		// Attempting to find the corresponding google sheet entry
 		const correspondingGoogleSheetFile = sheetEntries.find(
 			(sheetEntry) => getEntrySlug(sheetEntry) === githubFile.name

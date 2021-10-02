@@ -1,6 +1,6 @@
 import type { GithubFile } from '~/types/github';
 
-import { octokit } from './variables';
+import { branchToUpdate, octokit } from './variables';
 
 export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
 	// Retrieving the existing announcements from the GitHub repository
@@ -10,7 +10,7 @@ export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
 			owner: 'Vic-Park',
 			repo: 'vic-park.github.io',
 			path,
-			ref: process.env.UPDATE_BRANCH ?? 'dev',
+			ref: branchToUpdate,
 		}
 	);
 

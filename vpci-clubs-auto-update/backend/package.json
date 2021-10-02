@@ -13,6 +13,7 @@
 		"build": "tsc && tsc-alias && cp -r ../../shared/typedefs ./dist/shared/typedefs && cp -r ./public ./dist/vpci-clubs-auto-update/backend/public"
 	},
 	"dependencies": {
+		"@octokit/plugin-throttling": "^3.5.2",
 		"ajv": "8.6.3",
 		"dayjs": "^1.10.7",
 		"deep-equal": "2.0.5",
@@ -27,14 +28,14 @@
 		"js-base64": "3.6.0",
 		"js-yaml": "4.1.0",
 		"nanoid": "3.1.23",
-		"octokit": "1.0.4",
+		"octokit": "1.6.2",
 		"param-case": "3.0.4",
 		"ts-node": "9.1.1",
 		"tsconfig-paths": "3.11.0",
 		"typescript": "4.2.4"
 	},
 	"devDependencies": {
-		"@octokit/types": "6.14.2",
+		"@octokit/types": "6.31.3",
 		"@types/deep-equal": "1.0.1",
 		"@types/js-yaml": "4.0.3",
 		"eslint-import-resolver-alias": "1.1.2",

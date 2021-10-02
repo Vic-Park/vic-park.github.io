@@ -66,6 +66,7 @@
 				if (response.ok) {
 					successMessageContainer.innerText = await response.text();
 				} else {
+          console.log(response);
 					errorMessageContainer.innerText = await response.text();
 				}
 			} catch (e) {

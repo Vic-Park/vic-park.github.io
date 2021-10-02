@@ -1,8 +1,10 @@
-import type { GithubEntryUpdate} from '~/types/github';
+import got from 'got';
+
+import type { GithubEntryUpdate } from '~/types/github';
 import { GithubEntryUpdateType } from '~/types/github';
 
 import { getEntrySlug, getEntryTypeFolder, stringifyEntry } from '../entry';
-import { octokit } from './variables';
+import { branchToUpdate, octokit } from './variables';
 
 type TreeItem = {
 	path?: string;
@@ -12,22 +14,28 @@ type TreeItem = {
 	content?: string;
 };
 
+const owner = 'Vic-Park';
+const repo = 'vic-park.github.io';
+
 export async function updateGithubFiles(
 	githubEntryUpdates: GithubEntryUpdate[]
 ) {
+	console.info('Retrieving the current branch ref...');
 	const getRefResponse = await octokit.rest.git.getRef({
-		owner: 'Vic-Park',
-		repo: 'vic-park.github.io',
-		ref: `heads/${process.env.UPDATE_BRANCH}`,
+		owner,
+		repo,
+		ref: `heads/${branchToUpdate}`,
 	});
 	const baseTree = getRefResponse.data.ref;
 	const treeItems: TreeItem[] = [];
 
+	console.info('Processing the entry updates...');
 	for (const githubEntryUpdate of githubEntryUpdates) {
 		if (githubEntryUpdate.type === GithubEntryUpdateType.delete) {
 			treeItems.push({
 				path: githubEntryUpdate.githubFile.path,
-				sha: undefined,
+				// eslint-disable-next-line unicorn/no-null
+				sha: null,
 				mode: '100644',
 				type: 'commit',
 			});
@@ -37,8 +45,8 @@ export async function updateGithubFiles(
 		) {
 			const slug = getEntrySlug(githubEntryUpdate.entry);
 			const blobResponse = await octokit.rest.git.createBlob({
-				owner: 'Vic-Park',
-				repo: 'vic-park.github.io',
+				owner,
+				repo,
 				content: Buffer.from(stringifyEntry(githubEntryUpdate.entry)).toString(
 					'base64'
 				),
@@ -55,28 +63,33 @@ export async function updateGithubFiles(
 		}
 	}
 
+	console.info('Creating the tree...');
 	const createTreeResponse = await octokit.rest.git.createTree({
-		owner: 'Vic-Park',
-		repo: 'vic-park.github.io',
+		owner,
+		repo,
 		tree: treeItems,
 		base_tree: baseTree,
 	});
 
 	const tree = createTreeResponse.data;
 
-	await octokit.rest.git.createCommit({
-		owner: 'Vic-Park',
-		repo: 'vic-park.github.io',
-		message: 'Update data',
-		tree: tree.sha,
-		parents: [baseTree],
-	});
+	console.info('Creating the commit...');
+	const commitResponse = await octokit.request(
+		'POST /repos/{owner}/{repo}/git/commits',
+		{
+			message: 'Update data',
+			owner,
+			repo,
+			tree: tree.sha,
+		}
+	);
 
+	console.info('Updating the ref...');
 	await octokit.rest.git.updateRef({
-		owner: 'Vic-Park',
-		repo: 'vic-park.github.io',
+		owner,
+		repo,
 		force: true,
-		ref: `heads/${process.env.UPDATE_BRANCH}`,
-		sha: baseTree,
+		ref: `heads/${branchToUpdate}`,
+		sha: commitResponse.data.sha,
 	});
 }

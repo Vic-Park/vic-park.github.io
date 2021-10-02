@@ -14,7 +14,9 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault('America/Toronto');
 
-const app = fastify();
+const app = fastify({
+	logger: true,
+});
 
 // Registering a rate limit plugin for fastify to prevent brute-force attacks against the secret.
 app.register(fastifyRateLimit, {
