@@ -83,8 +83,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="postcss">
+<style lang="postcss">
 .reply-message a {
-	@apply text-blue-500;
+	@apply text-blue-500 underline-current;
 }
 </style>
