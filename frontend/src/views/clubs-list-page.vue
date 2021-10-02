@@ -1,31 +1,34 @@
 <template>
-	<div class="column items-center">
+	<div class="column items-center px-8 max-w-6xl mx-auto">
 		<div class="shadow-title my-8">clubs</div>
-		<div class="column max-w-5xl px-8">
-			<div class="relative w-60 h-10 self-end mb-8">
-				<vue-icon
-					class="search-icon text-gray-300 absolute"
-					:icon="mdiMagnify"
-					height="100%"
-				/>
-				<input
-					v-model="searchQuery"
-					w:border="2 gray-300"
-					w:focus="outline-none ring-2 ring-yellow-deep border-transparent"
-					class="
-						pl-3
-						self-center
-						w-full
-						h-full
-						max-w-md
-						p-1
-						font-kollektif
-						text-xl
-					"
-					placeholder="search club"
-				/>
-			</div>
 
+		<!-- Search club box -->
+		<div class="relative w-60 h-10 self-end mb-8">
+			<vue-icon
+				class="search-icon text-gray-300 absolute"
+				:icon="mdiMagnify"
+				height="100%"
+			/>
+			<input
+				v-model="searchQuery"
+				w:border="2 gray-300"
+				w:focus="outline-none ring-2 ring-yellow-deep border-transparent"
+				class="
+					pl-3
+					self-center
+					w-full
+					h-full
+					max-w-md
+					p-1
+					font-kollektif
+					text-xl
+				"
+				placeholder="search club"
+			/>
+		</div>
+
+		<!-- Club list -->
+		<div class="column">
 			<template v-if="filteredClubs.length > 0">
 				<div v-for="club in filteredClubs" :key="club.slug" class="pb-2">
 					<ClubListing

@@ -5,11 +5,11 @@
 				w:text="center white"
 				class="py-8 self-stretch bg-red-dark column items-center"
 			>
-				<h1 class="font-bold font-kollektif text-6xl mb-3 max-w-4xl">
-					{{ name }}
-				</h1>
-				<div class="italic font-bold px-6 max-w-4xl leading-9">
-					{{ equityStatement }}
+				<div class="max-w-4xl">
+					<h1 class="font-bold font-kollektif text-6xl mb-3">{{ name }}</h1>
+					<div class="italic font-bold px-6 leading-9">
+						{{ equityStatement }}
+					</div>
 				</div>
 			</div>
 

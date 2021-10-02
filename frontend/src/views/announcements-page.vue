@@ -1,7 +1,7 @@
 <template>
-	<div class="shadow-title mt-8">announcements</div>
-	<div class="column items-center mt-12">
-		<div class="max-w-6xl px-12">
+	<div class="column items-center max-w-6xl mx-auto">
+		<div class="shadow-title mt-8">announcements</div>
+		<div class="max-w-6xl px-12 mt-8">
 			<div
 				v-for="announcement in announcementsArray"
 				:key="announcement.title"
