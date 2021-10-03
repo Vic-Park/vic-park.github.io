@@ -11,10 +11,10 @@ This service currently consists of only a backend (which should be hosted on a c
 ## Flow
 
 1. The frontend has an update page which prompts the user for a secret and then sends a request to the backend, triggering the update function.
-3. The backend verifies that the secret sent by the frontend is valid.
-4. The backend then retrieves the data from the Google Sheets, parses them, and compares them to the files currently active on the repository.
-5. If changes were detected between the Google Sheets' data and the repository, the backend will then programmatically update files in the repository, making sure only to trigger the GitHub Actions on the last file that needs to be updated.
-6. The GitHub actions workflow will automatically be run and will re-build and update the main site.
+2. The backend verifies that the secret sent by the frontend is valid.
+3. The backend then retrieves the data from the Google Sheets, parses them, and compares them to the files currently active on the repository.
+4. If changes were detected between the Google Sheets' data and the repository, the backend will then programmatically update files in the repository, making sure only to trigger the GitHub Actions on the last file that needs to be updated.
+5. The GitHub actions workflow will automatically be run and will re-build and update the main site.
 
 ## Requirements
 
