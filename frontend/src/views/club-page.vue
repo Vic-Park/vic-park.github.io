@@ -32,7 +32,8 @@
 			</div>
 		</div>
 	</template>
-	<div v-else>
+	<div v-else class="column w-full h-full center p-4">
+		<!-- TODO: Add the create club button -->
 		Sorry, no club exists at this URL. However, you can start your own!
 	</div>
 </template>
