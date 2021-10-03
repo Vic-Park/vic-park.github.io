@@ -6,13 +6,12 @@ This service was deliberately created in a way that makes it an optional service
 
 ## Elements
 
-The two main elements of this service are the backend (which should be hosted on a cloud service like Heroku), and the Google Apps Script (which should be attached to a Google Sheets).
+This service currently consists of only a backend (which should be hosted on a cloud service like Heroku). While there were originally plans to also include a Google Apps Script, some limitations with Google Apps prevented us from moving forward with that idea. Instead, teachers will now manually visit a page on the frontend which will send a request to the backend to update the website.
 
 ## Flow
 
-1. The backend hosts a minimalistic UI which allows the user to press a button to update the site provided they know the secret.
-2. The button sends a post request to the backend, triggering the update function.
-3. The backend verifies that the secret is valid.
+1. The frontend has an update page which prompts the user for a secret and then sends a request to the backend, triggering the update function.
+3. The backend verifies that the secret sent by the frontend is valid.
 4. The backend then retrieves the data from the Google Sheets, parses them, and compares them to the files currently active on the repository.
 5. If changes were detected between the Google Sheets' data and the repository, the backend will then programmatically update files in the repository, making sure only to trigger the GitHub Actions on the last file that needs to be updated.
 6. The GitHub actions workflow will automatically be run and will re-build and update the main site.
