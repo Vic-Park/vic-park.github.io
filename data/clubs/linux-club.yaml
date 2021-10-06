@@ -4,7 +4,9 @@ clubLeaders: Avaneesh Kulkarni
 extraInformation: >-
   No prior experience with Linux necessary! But experienced Linux users are also
   welcome.
-joinInstructions: Contact a leader via email or Discord to join. New members are always welcome.
+joinInstructions: |-
+  Fill out this form: https://vpci-linux-club.herokuapp.com/new-signup
+  New members are always welcome.
 meetingTimes: Thursdays at 5 pm via Jitsi Meet
 name: Linux Club
 shortDescription: >-
