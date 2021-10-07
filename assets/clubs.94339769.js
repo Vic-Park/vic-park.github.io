@@ -1,1 +1,0 @@
-function a(e){return`/images/club-thumbnails/${e}.jpg`}function s(e){return`/images/club-icons/${e}.png`}function c(e){return`/club/${e}`}function l(e){return Object.values(e).sort((t,u)=>{const n=t.name.toLowerCase(),r=u.name.toLowerCase();return n<r?-1:n>r?1:0})}var o={};export{c as a,l as b,o as c,a as d,s as g};
