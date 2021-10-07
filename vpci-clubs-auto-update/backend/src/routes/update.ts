@@ -54,6 +54,7 @@ export default async function updateRoute(app: FastifyInstance) {
 				sheetRowParser(clubRow) {
 					const [
 						_timestamp,
+						_studentEmail,
 						name,
 						staffSupervisor,
 						clubLeaders,
