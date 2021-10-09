@@ -1,35 +1,57 @@
 <template>
 	<template v-if="found">
-		<div class="column items-center text-xl pb-12 club-page break-words">
-			<div
-				w:text="center white"
-				class="py-8 self-stretch bg-red-dark column items-center"
+		<div class="column items-center">
+			<div class="self-stretch text-xl break-words content">
+				<div
+					w:text="center white"
+					class="py-8 self-stretch bg-red-dark column items-center"
+				>
+					<div class="max-w-4xl">
+						<h1 class="font-bold font-kollektif text-6xl mb-3">{{ name }}</h1>
+						<div class="italic font-bold px-6 leading-9">
+							{{ equityStatement }}
+						</div>
+					</div>
+				</div>
+
+				<div class="w-full max-w-xl">
+					<img
+						v-if="!imageNotFound"
+						:src="clubThumbnailUrl"
+						class="mt-12 px-6 w-full"
+						@error="imageNotFound = true"
+					/>
+				</div>
+
+				<div class="max-w-4xl w-full text-left px-8">
+					<div v-for="section in sections" :key="section.name">
+						<div v-if="section.content !== ''" class="pt-12">
+							<strong class="block">{{ section.name }}:</strong>
+							<div v-html="section.content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Edit club button (just redirects to the associated row in the Google Sheet)-->
+			<a
+				class="
+					bg-yellow-deep
+					row
+					rounded-md
+					text-white
+					p-2
+					my-8
+					cursor-pointer
+					transform
+					transition-transform
+					hover:scale-105
+				"
+				:href="googleSheetLink"
 			>
-				<div class="max-w-4xl">
-					<h1 class="font-bold font-kollektif text-6xl mb-3">{{ name }}</h1>
-					<div class="italic font-bold px-6 leading-9">
-						{{ equityStatement }}
-					</div>
-				</div>
-			</div>
-
-			<div class="w-full max-w-xl">
-				<img
-					v-if="!imageNotFound"
-					:src="clubThumbnailUrl"
-					class="mt-12 px-6 w-full"
-					@error="imageNotFound = true"
-				/>
-			</div>
-
-			<div class="max-w-4xl w-full text-left px-8">
-				<div v-for="section in sections" :key="section.name">
-					<div v-if="section.content !== ''" class="pt-12">
-						<strong class="block">{{ section.name }}:</strong>
-						<div v-html="section.content"></div>
-					</div>
-				</div>
-			</div>
+				<vue-icon :icon="mdiPencil" size="24px" class="mr-2" />
+				Edit Club Information
+			</a>
 		</div>
 	</template>
 	<div v-else class="column w-full h-full center p-4">
@@ -39,6 +61,7 @@
 </template>
 
 <script lang="ts">
+import { mdiPencil } from '@mdi/js';
 import Autolinker from 'autolinker';
 import DOMPurify from 'dompurify';
 import { defineComponent, ref } from 'vue';
@@ -60,6 +83,7 @@ export default defineComponent({
 			};
 		}
 
+		// docs.google.com/spreadsheets/d/1vHB0J6uAdi4tT37KfhACxfpqyCmsN_Y8HD9cJ8T1FFI/edit#gid=1221049338&range=17:17
 		const {
 			name,
 			shortDescription,
@@ -126,6 +150,10 @@ export default defineComponent({
 
 		const clubThumbnailUrl = getClubThumbnailUrl(clubSlug);
 
+		const googleSheetLink = `https://docs.google.com/spreadsheets/d/${
+			import.meta.env.VITE_SPREADSHEET_ID
+		}/edit&range=1:1`;
+
 		const imageNotFound = ref(false);
 
 		return {
@@ -135,13 +163,15 @@ export default defineComponent({
 			equityStatement: processedEquityStatement,
 			sections,
 			clubThumbnailUrl,
+			mdiPencil,
+			googleSheetLink,
 		};
 	},
 });
 </script>
 
-<style lang="postcss">
-.club-page a {
+<style lang="postcss" scoped>
+.content :deep(a) {
 	@apply underline text-blue-600 hover:text-blue-800;
 }
 </style>

@@ -1,30 +1,21 @@
-import Ajv from 'ajv/dist/jtd';
-import fs from 'fs';
-import yaml from 'js-yaml';
-import path from 'path';
+import type { TSchema } from '@sinclair/typebox';
+import Ajv from 'ajv';
 
 import type { SheetEntry } from '~/types/sheets';
-import { projectPath } from '~/utils/project-path';
+import { Club } from '~shared/types/club';
+import { ClubAnnouncement } from '~shared/types/club-announcement';
+import { ClubEvent } from '~shared/types/club-event';
 import type { Entry, EntryTypeData } from '~shared/types/entry';
 import { EntryType } from '~shared/types/entry';
 
-const ajv = new Ajv();
-ajv.addKeyword('description');
-function compileSchema<T extends EntryType>(schemaName: string) {
-	return ajv.compile<EntryTypeData[T]>(
-		yaml.load(
-			fs
-				.readFileSync(
-					path.join(projectPath, `shared/typedefs/${schemaName}.yaml`)
-				)
-				.toString()
-		) as EntryTypeData[T]
-	);
+const ajv = new Ajv({ strict: false });
+function compileSchema<T extends EntryType>(schema: TSchema) {
+	return ajv.compile<EntryTypeData[T]>(schema);
 }
-const validateClubSchema = compileSchema<EntryType.club>('club');
+const validateClubSchema = compileSchema<EntryType.club>(Club);
 const validateClubAnnouncementSchema =
-	compileSchema<EntryType.announcement>('club-announcement');
-const validateClubEventSchema = compileSchema<EntryType.event>('club-event');
+	compileSchema<EntryType.announcement>(ClubAnnouncement);
+const validateClubEventSchema = compileSchema<EntryType.event>(ClubEvent);
 
 export function validateSheetEntry<T extends EntryType>(
 	sheetEntry: SheetEntry<T>

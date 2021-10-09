@@ -1,25 +1,19 @@
-import Ajv from 'ajv/dist/jtd';
+import type { TSchema } from '@sinclair/typebox';
+import Ajv from 'ajv';
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
 
 import type { Club } from '~shared/types/club';
 
-const ajv = new Ajv();
-ajv.addKeyword('description');
+const ajv = new Ajv({ strict: false });
 
 type LoadDataFolderProps = {
 	dataFolder: string;
-	schemaFilePath: string;
+	schema: TSchema;
 };
-export function loadDataFolder({
-	dataFolder,
-	schemaFilePath,
-}: LoadDataFolderProps) {
-	const typedefSchema = JSON.stringify(
-		yaml.load(fs.readFileSync(schemaFilePath).toString())
-	);
-	const validate = ajv.compile(JSON.parse(typedefSchema));
+export function loadDataFolder({ dataFolder, schema }: LoadDataFolderProps) {
+	const validate = ajv.compile(schema);
 
 	const dataFiles = fs.readdirSync(dataFolder);
 	const data: Record<string, Club> = {};

@@ -30,7 +30,7 @@
 				</div>
 				<div
 					v-if="replyMessage !== undefined"
-					class="reply-message text-green-500"
+					class="reply-message"
 					v-html="replyMessage"
 				></div>
 			</div>
@@ -85,7 +85,11 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
+.reply-message {
+	@apply text-green-500;
+}
+
 .reply-message :deep(a) {
-	@apply .link;
+	@apply link;
 }
 </style>

@@ -3,6 +3,7 @@ import pkgDir from 'pkg-dir';
 import type { Plugin } from 'rollup';
 
 import { loadDataFolder } from './utils';
+import { ClubAnnouncement } from '../../shared/types/club-announcement';
 
 const projectPath = path.join(pkgDir.sync(__dirname)!, '..');
 
@@ -21,13 +22,9 @@ export default function announcementsLoader(): Plugin {
 					projectPath,
 					'data/announcements'
 				);
-				const schemaFilePath = path.join(
-					projectPath,
-					'shared/typedefs/club-announcement.yaml'
-				);
 				const announcements = loadDataFolder({
 					dataFolder: announcementsFolder,
-					schemaFilePath,
+					schema: ClubAnnouncement,
 				});
 
 				return `export default ${JSON.stringify(announcements)}`;

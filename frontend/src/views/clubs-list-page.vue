@@ -4,9 +4,8 @@
 
 		<div class="row justify-between h-10 w-full items-start mb-8 relative">
 			<!-- Add/update club button -->
-			<div
+			<button
 				id="update-club-button"
-				role="button"
 				class="
 					bg-blue-400
 					row
@@ -21,7 +20,7 @@
 			>
 				<vue-icon :icon="mdiPlus" class="mr-2" size="24px" />
 				add club
-			</div>
+			</button>
 
 			<vue-tooltip
 				v-model="isAddClubTooltipVisible"

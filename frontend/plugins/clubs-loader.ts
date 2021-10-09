@@ -1,6 +1,7 @@
 import path from 'path';
 import pkgDir from 'pkg-dir';
 import type { Plugin } from 'rollup';
+import { Club } from '../../shared/types/club';
 
 import { loadDataFolder } from './utils';
 
@@ -18,13 +19,9 @@ export default function clubsLoader(): Plugin {
 		load(id) {
 			if (id === '~data/clubs') {
 				const dataFolder = path.join(projectPath, 'data/clubs');
-				const schemaFilePath = path.join(
-					projectPath,
-					'shared/typedefs/club.yaml'
-				);
 				const clubs = loadDataFolder({
 					dataFolder,
-					schemaFilePath,
+					schema: Club,
 				});
 
 				return `export default ${JSON.stringify(clubs)}`;

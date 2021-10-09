@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { createPopper } from '@popperjs/core';
-import { computed, defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 
 export default defineComponent({
 	props: {

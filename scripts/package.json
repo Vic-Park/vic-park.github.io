@@ -27,7 +27,6 @@
 		"@types/resize-img": "^2.0.1",
 		"@types/shell-quote": "1.7.1",
 		"execa": "5.1.1",
-		"js-yaml": "4.1.0",
 		"ts-node": "9.1.1"
 	}
 }

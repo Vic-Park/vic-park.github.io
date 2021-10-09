@@ -33,6 +33,7 @@ importers:
       '@fullcalendar/timegrid': 5.8.0
       '@mdi/js': 5.9.55
       '@popperjs/core': 2.9.2
+      '@sinclair/typebox': ^0.20.5
       '@types/dateformat': 3.0.1
       '@types/dompurify': 2.2.2
       '@types/js-yaml': 4.0.3
@@ -63,8 +64,10 @@ importers:
       rollup: 2.57.0
       sass: 1.35.1
       shave: ^2.5.10
+      tsconfig-paths: 3.11.0
       vite: 2.6.1
       vite-plugin-windicss: 1.4.8
+      vite-tsconfig-paths: ^3.3.14
       vue: 3.2.19
       vue-router: 4.0.10
       vue-tsc: 0.3.0
@@ -75,6 +78,7 @@ importers:
       '@fullcalendar/timegrid': 5.8.0
       '@mdi/js': 5.9.55
       '@popperjs/core': 2.9.2
+      '@sinclair/typebox': 0.20.5
       animate.css: 4.1.1
       array-shuffle: 3.0.0
       autolinker: 3.14.3
@@ -109,8 +113,10 @@ importers:
       postcss: 8.3.8
       rollup: 2.57.0
       sass: 1.35.1
+      tsconfig-paths: 3.11.0
       vite: 2.6.1_sass@1.35.1
       vite-plugin-windicss: 1.4.8_typescript@4.4.3+vite@2.6.1
+      vite-tsconfig-paths: 3.3.14_vite@2.6.1
       vue-tsc: 0.3.0_typescript@4.4.3
 
   scripts:
@@ -168,6 +174,7 @@ importers:
     specifiers:
       '@octokit/plugin-throttling': ^3.5.2
       '@octokit/types': 6.31.3
+      '@sinclair/typebox': ^0.20.5
       '@types/deep-equal': 1.0.1
       '@types/js-yaml': 4.0.3
       ajv: 8.6.3
@@ -195,6 +202,7 @@ importers:
       typescript: 4.2.4
     dependencies:
       '@octokit/plugin-throttling': 3.5.2
+      '@sinclair/typebox': 0.20.5
       ajv: 8.6.3
       dayjs: 1.10.7
       deep-equal: 2.0.5
@@ -461,6 +469,10 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.15.7
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@cush/relative/1.0.0:
+    resolution: {integrity: sha512-RpfLEtTlyIxeNPGKcokS+p3BZII/Q3bYxryFRglh5H3A3T8q9fsLYm72VYAMEOOIBLEa8o93kFLiBDUWKrwXZA==}
     dev: true
 
   /@emmetio/abbreviation/2.2.2:
@@ -3804,6 +3816,10 @@ packages:
     dependencies:
       is-glob: 4.0.2
 
+  /glob-regex/0.3.2:
+    resolution: {integrity: sha512-m5blUd3/OqDTWwzBBtWBPrGlAzatRywHameHeekAZyZrskYouOGdNB8T/q6JucucvJXtOuyHIn0/Yia7iDasDw==}
+    dev: true
+
   /glob/7.1.6:
     resolution: {integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==}
     dependencies:
@@ -3888,6 +3904,10 @@ packages:
       ignore: 5.1.8
       merge2: 1.4.1
       slash: 3.0.0
+
+  /globrex/0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+    dev: true
 
   /google-auth-library/7.10.0:
     resolution: {integrity: sha512-ICsqaU+lxMHVlDUzMrfVIEqnARw2AwBiZ/2KnNM6BcTf9Nott+Af87DTIzmlnW865p3REUP2MVL0xkPC3a61aQ==}
@@ -5938,6 +5958,15 @@ packages:
       picomatch: 2.3.0
     dev: true
 
+  /recrawl-sync/2.2.1:
+    resolution: {integrity: sha512-A2yLDgeXNaduJJMlqyUdIN7fewopnNm/mVeeGytS1d2HLXKpS5EthQ0j8tWeX+as9UXiiwQRwfoslKC+/gjqxg==}
+    dependencies:
+      '@cush/relative': 1.0.0
+      glob-regex: 0.3.2
+      slash: 3.0.0
+      tslib: 1.14.1
+    dev: true
+
   /redent/1.0.0:
     resolution: {integrity: sha1-z5Fqsf1fHxbfsggi3W7H9zDCr94=}
     engines: {node: '>=0.10.0'}
@@ -6876,6 +6905,20 @@ packages:
       - supports-color
       - ts-node
       - typescript
+    dev: true
+
+  /vite-tsconfig-paths/3.3.14_vite@2.6.1:
+    resolution: {integrity: sha512-Z501YCOTTwBk+zDq0furrD+O+X/zawKIo8L3eE0GVSr700AvWAArnlUHOzoRJQw0fJLfd+61rD7jkT20Jh8gtA==}
+    peerDependencies:
+      vite: '>2.0.0-0'
+    dependencies:
+      debug: 4.3.2
+      globrex: 0.1.2
+      recrawl-sync: 2.2.1
+      tsconfig-paths: 3.11.0
+      vite: 2.6.1_sass@1.35.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /vite/2.6.1_sass@1.35.1:
