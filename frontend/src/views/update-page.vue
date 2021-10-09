@@ -86,6 +86,6 @@ export default defineComponent({
 
 <style lang="postcss">
 .reply-message a {
-	@apply text-blue-500 underline-current;
+	@apply link;
 }
 </style>

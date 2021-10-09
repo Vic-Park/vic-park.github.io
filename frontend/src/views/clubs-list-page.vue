@@ -2,29 +2,80 @@
 	<div class="column items-center px-8 max-w-6xl mx-auto">
 		<div class="shadow-title my-8">clubs</div>
 
-		<!-- Search club box -->
-		<div class="relative w-60 h-10 self-end mb-8">
-			<vue-icon
-				class="search-icon text-gray-300 absolute"
-				:icon="mdiMagnify"
-				height="100%"
-			/>
-			<input
-				v-model="searchQuery"
-				w:border="2 gray-300"
-				w:focus="outline-none ring-2 ring-yellow-deep border-transparent"
+		<div class="row justify-between h-10 w-full items-start mb-8 relative">
+			<!-- Add/update club button -->
+			<div
+				id="update-club-button"
+				role="button"
 				class="
-					pl-3
-					self-center
-					w-full
-					h-full
-					max-w-md
-					p-1
-					font-kollektif
-					text-xl
+					bg-blue-400
+					row
+					p-2
+					items-center
+					text-white
+					font-medium
+					cursor-pointer
+					relative
 				"
-				placeholder="search club"
-			/>
+				@click="isAddClubTooltipVisible = !isAddClubTooltipVisible"
+			>
+				<vue-icon :icon="mdiPlus" class="mr-2" size="24px" />
+				add club
+			</div>
+
+			<vue-tooltip
+				v-model="isAddClubTooltipVisible"
+				reference="#update-club-button"
+				class="max-w-full overflow-hidden"
+			>
+				<div
+					class="
+						max-w-150
+						bg-white
+						text-black
+						p-4
+						border-blue-400 border-2
+						rounded-md
+						mt-1
+					"
+				>
+					To add a club to this list, please fill out the following Google Form:
+					<br />
+					<a class="link" href="https://forms.gle/qeFtjLJmUcvW7Vwo8"
+						>https://forms.gle/qeFtjLJmUcvW7Vwo8</a
+					>
+					<br />
+					<div class="text-sm mt-1">
+						<span class="font-bold">Note:</span> You must be signed in with your
+						TDSB account to access the form.
+					</div>
+				</div>
+			</vue-tooltip>
+
+			<!-- Search club input box -->
+			<div class="relative w-60 self-end">
+				<vue-icon
+					class="search-icon text-gray-300 absolute"
+					:icon="mdiMagnify"
+					height="100%"
+				/>
+				<input
+					v-model="searchQuery"
+					w:border="2 gray-300"
+					w:focus="outline-none ring-2 ring-yellow-deep border-transparent"
+					class="
+						pl-3
+						self-center
+						w-full
+						h-full
+						max-w-md
+						p-1
+						font-kollektif
+						text-xl
+					"
+					placeholder="search club"
+				/>
+			</div>
 		</div>
 
 		<!-- Club list -->
@@ -47,7 +98,7 @@
 </template>
 
 <script lang="ts">
-import { mdiMagnify } from '@mdi/js';
+import { mdiMagnify, mdiPlus } from '@mdi/js';
 import { computed, defineComponent, ref } from 'vue';
 
 import ClubListing from '~/components/club-listing.vue';
@@ -60,6 +111,7 @@ export default defineComponent({
 	setup() {
 		const searchQuery = ref('');
 		const clubsArray = getClubsArray(clubs);
+		const isAddClubTooltipVisible = ref(false);
 
 		const filteredClubs = computed(() => {
 			const query = searchQuery.value.toLowerCase();
@@ -100,6 +152,8 @@ export default defineComponent({
 			searchQuery,
 			filteredClubs,
 			mdiMagnify,
+			mdiPlus,
+			isAddClubTooltipVisible,
 		};
 	},
 });

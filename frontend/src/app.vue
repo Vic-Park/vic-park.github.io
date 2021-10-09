@@ -10,7 +10,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="postcss">
 :root {
 	--scrollbar-thumb-color: #bb0e0a;
 	--scrollbar-track-color: #f6f3f3;
@@ -39,6 +39,10 @@ html,
 body,
 #app {
 	height: 100%;
+}
+
+.link {
+	@apply text-blue-400 hover:text-blue-600 underline;
 }
 
 #app {

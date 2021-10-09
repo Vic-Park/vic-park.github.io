@@ -51,6 +51,6 @@ export default defineComponent({
 
 <style scoped lang="postcss">
 .announcement-content :deep(a) {
-	@apply underline text-blue-600 hover:text-blue-800;
+	@apply link;
 }
 </style>

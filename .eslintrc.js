@@ -101,5 +101,6 @@ module.exports = {
 		'unicorn/consistent-function-scoping': 'off',
 		'unicorn/no-useless-undefined': 'off',
 		'unicorn/filename-case': ['error', { case: 'kebabCase' }],
+		'unicorn/prefer-query-selector': 'off',
 	},
 };
