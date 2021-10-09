@@ -1,7 +1,7 @@
 <template>
 	<h1 class="text-2xl font-bold pb-1">{{ title }}</h1>
 	<div class="text-sm pb-2">{{ dateString }}</div>
-	<div v-html="htmlContent"></div>
+	<div class="announcement-content" v-html="htmlContent"></div>
 </template>
 
 <script lang="ts">
@@ -48,3 +48,9 @@ export default defineComponent({
 	},
 });
 </script>
+
+<style scoped lang="postcss">
+.announcement-content :deep(a) {
+	@apply underline text-blue-600 hover:text-blue-800;
+}
+</style>
