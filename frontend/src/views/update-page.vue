@@ -1,6 +1,6 @@
 <template>
 	<div class="column center h-full max-w-4xl mx-auto">
-		<p class="text-center">
+		<p class="text-center px-4">
 			To update the website from the values in the Google Sheets, please enter
 			the secret in the following textbox and press the "Update" button.
 		</p>
