@@ -35,6 +35,7 @@
 
 			<!-- Edit club button (just redirects to the associated row in the Google Sheet)-->
 			<a
+				id="edit-club-page-button"
 				class="
 					bg-yellow-deep
 					row
@@ -48,9 +49,31 @@
 					hover:scale-105
 				"
 				:href="googleSheetLink"
+				@mouseover="() => (isEditClubInformationTooltipVisible = true)"
+				@mouseout="() => (isEditClubInformationTooltipVisible = false)"
 			>
 				<vue-icon :icon="mdiPencil" size="24px" class="mr-2" />
 				Edit Club Information
+				<vue-tooltip
+					:model-value="isEditClubInformationTooltipVisible"
+					reference="#edit-club-page-button"
+				>
+					<div
+						w:border="yellow-deep 2"
+						class="
+							bg-white
+							rounded-md
+							text-black
+							p-2
+							pb-1
+							mt-2
+							text-xs
+						"
+					>
+						<span class="font-bold">Note:</span> You must be logged into your
+						TDSB account to access the document.
+					</div>
+				</vue-tooltip>
 			</a>
 		</div>
 	</template>
@@ -157,6 +180,7 @@ export default defineComponent({
 		}&range=${sheetRow}:${sheetRow}`;
 
 		const imageNotFound = ref(false);
+		const isEditClubInformationTooltipVisible = ref(false);
 
 		return {
 			found: true,
@@ -167,6 +191,7 @@ export default defineComponent({
 			clubThumbnailUrl,
 			mdiPencil,
 			googleSheetLink,
+			isEditClubInformationTooltipVisible,
 		};
 	},
 });

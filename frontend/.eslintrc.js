@@ -26,9 +26,9 @@ module.exports = {
 				map: [
 					['~', './src'],
 					['~shared', '../shared'],
-					['~data/clubs', '../shared/types/club'],
-					['~data/announcements', '../shared/types/club-announcement'],
-					['~data/events', '../shared/types/club-event'],
+					['~data/clubs', '../shared/types/club.ts'],
+					['~data/announcements', '../shared/types/club-announcement.ts'],
+					['~data/events', '../shared/types/club-event.ts'],
 				],
 				extensions: ['.js', '.ts'],
 			},
