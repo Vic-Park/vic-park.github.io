@@ -84,8 +84,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="postcss">
-.reply-message a {
-	@apply link;
+<style lang="postcss" scoped>
+.reply-message :deep(a) {
+	@apply .link;
 }
 </style>
