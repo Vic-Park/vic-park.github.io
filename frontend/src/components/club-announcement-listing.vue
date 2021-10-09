@@ -1,13 +1,16 @@
 <template>
 	<h1 class="text-2xl font-bold pb-1">{{ title }}</h1>
 	<div class="text-sm pb-2">{{ dateString }}</div>
-	<div>{{ content }}</div>
+	<div v-html="htmlContent"></div>
 </template>
 
 <script lang="ts">
+import Autolinker from 'autolinker';
+import DOMPurify from 'dompurify';
 import { computed, defineComponent } from 'vue';
 
 import { formatFullDateTime } from '~/utils/date';
+import { formatText } from '~/utils/text';
 
 /**
  * A listing for a club announcement.
@@ -30,9 +33,17 @@ export default defineComponent({
 	},
 	setup(props) {
 		const dateString = computed(() => formatFullDateTime(props.date));
+		const htmlContent = computed(() =>
+			DOMPurify.sanitize(
+				Autolinker.link(formatText(props.content ?? ''), {
+					mention: 'instagram',
+				})
+			)
+		);
 
 		return {
 			dateString,
+			htmlContent,
 		};
 	},
 });
