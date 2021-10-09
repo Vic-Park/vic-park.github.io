@@ -136,7 +136,6 @@ importers:
       imagemin-mozjpeg: ^9.0.0
       imagemin-optipng: ^8.0.0
       imagemin-pngquant: 9.0.2
-      js-yaml: 4.1.0
       pkg-dir: 5.0.0
       resize-img: ^2.0.0
       shell-quote: 1.7.2
@@ -161,7 +160,6 @@ importers:
       '@types/resize-img': 2.0.1
       '@types/shell-quote': 1.7.1
       execa: 5.1.1
-      js-yaml: 4.1.0
       ts-node: 9.1.1_typescript@4.4.3
 
   shared:
