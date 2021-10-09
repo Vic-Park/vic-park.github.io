@@ -35,6 +35,8 @@ jobs:
         run: pnpm prune:frontend && pnpm install && pnpm build:frontend
         env:
           VITE_AUTO_UPDATE_SERVER_URL: https://vpci-clubs-auto-update.herokuapp.com
+          VITE_SPREADSHEET_ID: 1vHB0J6uAdi4tT37KfhACxfpqyCmsN_Y8HD9cJ8T1FFI
+          VITE_SPREADSHEET_CLUBS_SHEET_ID: '1221049338'
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.3
