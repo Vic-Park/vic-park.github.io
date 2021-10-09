@@ -22,13 +22,24 @@ export function getSheetRows(
 		);
 	}
 
-	return (
-		sheet
-			.data![0]!.rowData!.slice(1)
-			// filter out empty rows
-			.filter((row) => !isRowEmpty(row))
-			.map(({ values }) => values!.map((value) => value.formattedValue!))
-	);
+	const nonEmptyRows: SheetRow[] = [];
+
+	const sheetRows = sheet.data![0].rowData!;
+	for (
+		let rowIndex = 1;
+		rowIndex < sheet.data![0].rowData!.length;
+		rowIndex += 1
+	) {
+		const row = sheetRows[rowIndex];
+		if (!isRowEmpty(row)) {
+			nonEmptyRows.push({
+				cells: row.values!.map((value) => value.formattedValue!),
+				rowIndex: rowIndex + 1,
+			});
+		}
+	}
+
+	return nonEmptyRows;
 }
 
 type FailStatus = {
@@ -37,7 +48,8 @@ type FailStatus = {
 };
 
 export type SheetRowParser<T extends EntryType> = (
-	row: string[]
+	cells: string[],
+	rowIndex: number
 ) => SheetEntry<T> | FailStatus;
 
 export function parseSheetRows<T extends EntryType>(
@@ -45,18 +57,19 @@ export function parseSheetRows<T extends EntryType>(
 	sheetRowParser: SheetRowParser<T>
 ): SheetEntry<T>[] {
 	const parsedRows: SheetEntry<T>[] = [];
-	for (const row of rows) {
-		const result = sheetRowParser(row);
+	for (const { cells, rowIndex } of rows) {
+		const result = sheetRowParser(cells, rowIndex);
 		if ('failure' in result && result.reason !== undefined) {
 			console.error(
 				`Failed to parse row. Reason: ${result.reason}. Row: ${JSON.stringify(
-					row
+					cells
 				)}`
 			);
 		} else {
 			parsedRows.push(result as SheetEntry<T>);
 		}
 	}
+
 	return parsedRows;
 }
 

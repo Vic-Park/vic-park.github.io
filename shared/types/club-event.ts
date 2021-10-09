@@ -20,18 +20,18 @@ export const ClubEvent = Type.Object({
 	/**
 	 * Whether the event is schoolwide (i.e. not associated with a particular set of clubs)
 	 */
-	isSchoolWideEvent: Type.String(),
+	isSchoolWideEvent: Type.Boolean(),
 
 	/**
 	 * The start date and time of the event
 	 * If the event is not yet known, the start/end date is TBD
 	 */
-	start: Type.Optional(Type.String({ format: 'datetime' })),
+	start: Type.Optional(Type.String({ format: 'date-time' })),
 
 	/**
 	 * The end time of the event
 	 */
-	end: Type.Optional(Type.String({ format: 'datetime' })),
+	end: Type.Optional(Type.String({ format: 'date-time' })),
 });
 
 export type ClubEvent = Static<typeof ClubEvent>;

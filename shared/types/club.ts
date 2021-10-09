@@ -38,6 +38,11 @@ export const Club = Type.Object({
 	joinInstructions: Type.String(),
 
 	/**
+	 * The row number of the club's Google Sheet entry
+	 */
+	sheetRow: Type.Number(),
+
+	/**
 	 * A comma-separated list of categories the club belongs to
 	 */
 	categories: Type.Optional(Type.String()),

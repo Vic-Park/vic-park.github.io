@@ -7,4 +7,4 @@ export type SheetEntry<T extends EntryType> = {
 	};
 }[T];
 
-export type SheetRow = string[];
+export type SheetRow = { cells: string[]; rowIndex: number };

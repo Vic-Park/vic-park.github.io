@@ -51,7 +51,7 @@ export default async function updateRoute(app: FastifyInstance) {
 			...(await getGithubEntryUpdates({
 				spreadsheetData,
 				entryType: EntryType.club,
-				sheetRowParser(clubRow) {
+				sheetRowParser(clubRow, rowIndex) {
 					const [
 						_timestamp,
 						_studentEmail,
@@ -84,6 +84,7 @@ export default async function updateRoute(app: FastifyInstance) {
 							staffSupervisor,
 							timeCommitment,
 							equityStatement,
+							sheetRow: rowIndex
 						},
 						type: EntryType.club,
 					};

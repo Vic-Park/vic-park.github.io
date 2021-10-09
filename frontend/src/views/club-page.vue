@@ -1,7 +1,7 @@
 <template>
 	<template v-if="found">
 		<div class="column items-center">
-			<div class="self-stretch text-xl break-words content">
+			<div class="self-stretch column items-center text-xl break-words content">
 				<div
 					w:text="center white"
 					class="py-8 self-stretch bg-red-dark column items-center"
@@ -83,7 +83,6 @@ export default defineComponent({
 			};
 		}
 
-		// docs.google.com/spreadsheets/d/1vHB0J6uAdi4tT37KfhACxfpqyCmsN_Y8HD9cJ8T1FFI/edit#gid=1221049338&range=17:17
 		const {
 			name,
 			shortDescription,
@@ -96,6 +95,7 @@ export default defineComponent({
 			joinInstructions,
 			extraInformation,
 			equityStatement,
+			sheetRow,
 		} = clubs[clubSlug];
 
 		// Remove the [] surrounding the condensed equity statement
@@ -152,7 +152,9 @@ export default defineComponent({
 
 		const googleSheetLink = `https://docs.google.com/spreadsheets/d/${
 			import.meta.env.VITE_SPREADSHEET_ID
-		}/edit&range=1:1`;
+		}/edit#gid=${
+			import.meta.env.VITE_SPREADSHEET_CLUBS_SHEET_ID
+		}&range=${sheetRow}:${sheetRow}`;
 
 		const imageNotFound = ref(false);
 

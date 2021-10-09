@@ -9,12 +9,12 @@ declare module '~data/clubs' {
 }
 
 declare module '~data/announcements' {
-	import type { Announcement } from '~shared/types/club-announcement';
+	import type { ClubAnnouncement } from '~shared/types/club-announcement';
 
 	/**
 	 * Map from the name of the announcement's file to the announcement data
 	 */
-	const announcementsMap: Record<string, Announcement>;
+	const announcementsMap: Record<string, ClubAnnouncement>;
 	export = announcementsMap;
 }
 
