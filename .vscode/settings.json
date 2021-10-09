@@ -3,5 +3,5 @@
 	"eslint.workingDirectories": [
 		"./vpci-clubs-auto-update/backend",
 		"./frontend"
-	],
+	]
 }

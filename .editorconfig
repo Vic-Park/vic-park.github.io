@@ -3,4 +3,4 @@ indent_style = tabs
 
 [*.{yml,yaml}]
 indent_style = spaces
-indent_width = 2
+indent_size = 2
