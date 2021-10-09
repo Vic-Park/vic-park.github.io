@@ -7,6 +7,7 @@
 		"lint": "pnpm recursive run lint",
 		"tc": "pnpm recursive run tc",
 		"dev:frontend": "pnpm dev --filter=frontend",
+		"dev:auto-update": "pnpm dev --filter=vpci-clubs-auto-update-backend",
 		"gen-types": "pnpm gen-types --filter=scripts",
 		"prune:frontend": "rm -rf vpci-clubs-auto-update",
 		"build:frontend": "pnpm build --filter=frontend",
