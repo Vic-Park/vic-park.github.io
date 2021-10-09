@@ -13,7 +13,6 @@
 		"build": "tsc && tsc-alias && cp -r ../../shared/typedefs ./dist/shared/typedefs"
 	},
 	"dependencies": {
-		"@octokit/plugin-throttling": "^3.5.2",
 		"@sinclair/typebox": "^0.20.5",
 		"ajv": "8.6.3",
 		"dayjs": "^1.10.7",
