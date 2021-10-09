@@ -49,8 +49,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang="postcss">
-.announcement-content :deep(a) {
+<style lang="postcss">
+.announcement-content a {
 	@apply link;
 }
 </style>

@@ -41,10 +41,6 @@ body,
 	height: 100%;
 }
 
-.link {
-	@apply text-blue-400 hover:text-blue-600 underline;
-}
-
 #app {
 	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;

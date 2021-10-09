@@ -26,12 +26,12 @@ export const ClubEvent = Type.Object({
 	 * The start date and time of the event
 	 * If the event is not yet known, the start/end date is TBD
 	 */
-	start: Type.Optional(Type.String({ format: 'time' })),
+	start: Type.Optional(Type.String({ format: 'datetime' })),
 
 	/**
 	 * The end time of the event
 	 */
-	end: Type.Optional(Type.String({ format: 'time' })),
+	end: Type.Optional(Type.String({ format: 'datetime' })),
 });
 
 export type ClubEvent = Static<typeof ClubEvent>;

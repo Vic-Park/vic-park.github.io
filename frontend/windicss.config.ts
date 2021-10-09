@@ -9,6 +9,7 @@ export default defineConfig({
 		column: 'flex flex-col',
 		row: 'flex flex-row',
 		center: 'justify-center items-center',
+		link: 'text-blue-400 hover:text-blue-600 underline',
 	},
 	theme: {
 		extend: {

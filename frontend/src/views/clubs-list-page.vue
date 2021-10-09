@@ -6,10 +6,10 @@
 			<!-- Add/update club button -->
 			<button
 				id="update-club-button"
+				w:p='l-2 y-2 r-3'
 				class="
 					bg-blue-400
 					row
-					p-2
 					items-center
 					text-white
 					font-medium
@@ -18,7 +18,7 @@
 				"
 				@click="isAddClubTooltipVisible = !isAddClubTooltipVisible"
 			>
-				<vue-icon :icon="mdiPlus" class="mr-2" size="24px" />
+				<vue-icon :icon="mdiPlus" class="mr-1" size="24px" />
 				add club
 			</button>
 
