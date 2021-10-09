@@ -1,5 +1,5 @@
-import xss from 'xss';
+import DOMPurify from 'dompurify';
 
 export function formatText(text: string) {
-	return xss(text).replace(/\n/g, '<br/>');
+	return DOMPurify.sanitize(text).replace(/\n/g, '<br/>');
 }
