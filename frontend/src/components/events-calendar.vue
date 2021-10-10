@@ -251,7 +251,7 @@ export default defineComponent({
 }
 
 #fc .fc-day-today {
-	@apply bg-white text-white;
+	@apply bg-white;
 }
 
 #fc .fc-daygrid-day-top {
