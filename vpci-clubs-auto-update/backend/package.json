@@ -10,7 +10,7 @@
 		"dev": "ts-node-dev ./src/app.ts",
 		"start": "ts-node ./src/app.ts",
 		"start:js": "node ./dist/vpci-clubs-auto-update/backend/src/app.js",
-		"build": "tsc && tsc-alias && cp -r ../../shared/typedefs ./dist/shared/typedefs"
+		"build": "tsc && tsc-alias"
 	},
 	"dependencies": {
 		"@sinclair/typebox": "^0.20.5",
