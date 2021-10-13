@@ -1,6 +1,6 @@
 slug: physics-club
 categories: STEM, Competition
-clubLeaders: Stone Yang, Julia Schirger, Dennis Lu, Yiyi Wu, Tracy Zhao
+clubLeaders: Dennis Lu, Tracy Zhao, Stone Yang, Julia Schirger, Yiyi Wu
 extraInformation: >-
   We welcome everyone from all grades! Whether you're experienced in physics or
   just a beginner, we have something for everyone with a passion for physics!
@@ -8,10 +8,12 @@ joinInstructions: >-
   Members can join Physics Club through the discord link found on our instagram
   page bio!
 meetingTimes: >-
-  Meetings take place via Discord and Zoom. Club meeting times/dates may vary,
-  but will be posted a week ahead of time in our Discord
+  Meeting times will be Monday's at 5:30 pm and will take place on google meet
+  or discord. Details will be posted in the discord server ahead of time.
 name: Physics Club
-onlinePlatforms: 'Instagram: https://www.instagram.com/vpci_physics/'
+onlinePlatforms: |-
+  Instagram: https://www.instagram.com/vpci_physics/
+  Discord: https://discord.gg/qVbKPet2kQ
 shortDescription: >-
   Physics Club is dedicated to providing you with the opportunities and
   resources you need to satisfy your passion for physics with contests,
@@ -26,4 +28,4 @@ equityStatement: >-
   equal and inclusive family. We value the opinions of our members and are open
   to any questions physics related.] Whether you are a mechanics lover, or a
   astro fan, you will find a community here that shares the same passion as you!
-sheetRow: 9
+sheetRow: 29

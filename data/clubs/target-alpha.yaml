@@ -12,9 +12,7 @@ meetingTimes: >-
   One virtual meeting a week - choose from Wednesday or Friday, both from 5-6 PM
   via Google Meets.
 name: TA (Target Alpha) @ VP
-onlinePlatforms: |-
-  Instagram: @vptargetalpha
-  Info Presentation: linktr.ee/vpta
+onlinePlatforms: 'Instagram: @vptargetalpha Info Presentation: linktr.ee/vpta'
 shortDescription: >-
   TA @ VP is a part of a network of chapters nationwide that hosts business
   finance/investment competitions, hackathons, panels, and conferences. As a
@@ -25,4 +23,10 @@ staffSupervisor: Mr. Van der Schilden
 timeCommitment: >-
   One virtual meeting a week - choose from Wednesday or Friday, both at 5-6 PM.
   Club will run all year long.
-sheetRow: 8
+equityStatement: >-
+  [TA @ VP offers a safe, inclusive, and judgement free space for VP students to
+  learn more about the world of finance. We welcome applications from all
+  students and we seek to amplify the voices of our members.] We strive to offer
+  opportunities for members to have a chance to speak up and share their ideas,
+  and to promote a greater sense of community and cooperation.
+sheetRow: 30
