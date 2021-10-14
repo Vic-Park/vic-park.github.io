@@ -64,7 +64,7 @@ const links: Link[] = [
 	},
 	{
 		icon: mdiGithub,
-		href: 'https://github.com/vic-park/vic-park.github.io',
+		href: 'https://github.com/vic-park/vpciclubs.com',
 	},
 ];
 
