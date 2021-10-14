@@ -23,7 +23,7 @@
 					/>
 				</div>
 
-				<div class="max-w-4xl w-full text-left px-8">
+				<div class="max-w-4xl w-full text-left px-8 mb-12">
 					<div v-for="section in sections" :key="section.name">
 						<div v-if="section.content !== ''" class="pt-12">
 							<strong class="block">{{ section.name }}:</strong>
@@ -33,7 +33,7 @@
 				</div>
 			</div>
 
-			<!-- Edit club button (just redirects to the associated row in the Google Sheet)-->
+			<!-- Edit club button (just redirects to the associated row in the Google Sheet)
 			<a
 				id="edit-club-page-button"
 				class="
@@ -75,6 +75,7 @@
 					</div>
 				</vue-tooltip>
 			</a>
+			-->
 		</div>
 	</template>
 	<div v-else class="column w-full h-full center p-4">
@@ -84,7 +85,6 @@
 </template>
 
 <script lang="ts">
-import { mdiPencil } from '@mdi/js';
 import Autolinker from 'autolinker';
 import DOMPurify from 'dompurify';
 import { defineComponent, ref } from 'vue';
@@ -118,7 +118,6 @@ export default defineComponent({
 			joinInstructions,
 			extraInformation,
 			equityStatement,
-			sheetRow,
 		} = clubs[clubSlug];
 
 		// Remove the [] surrounding the condensed equity statement
@@ -172,15 +171,7 @@ export default defineComponent({
 		}));
 
 		const clubThumbnailUrl = getClubThumbnailUrl(clubSlug);
-
-		const googleSheetLink = `https://docs.google.com/spreadsheets/d/${
-			import.meta.env.VITE_SPREADSHEET_ID
-		}/edit#gid=${
-			import.meta.env.VITE_SPREADSHEET_CLUBS_SHEET_ID
-		}&range=${sheetRow}:${sheetRow}`;
-
 		const imageNotFound = ref(false);
-		const isEditClubInformationTooltipVisible = ref(false);
 
 		return {
 			found: true,
@@ -189,9 +180,6 @@ export default defineComponent({
 			equityStatement: processedEquityStatement,
 			sections,
 			clubThumbnailUrl,
-			mdiPencil,
-			googleSheetLink,
-			isEditClubInformationTooltipVisible,
 		};
 	},
 });

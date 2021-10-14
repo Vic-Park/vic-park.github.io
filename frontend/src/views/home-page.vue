@@ -1,8 +1,4 @@
 <template>
-	<NotificationBanner
-		html="If you're the leader of a club in the 2021-2022 school year, please fill out the following Google Form: <a href='https://forms.gle/jnKNCGR9P4QyA7ey6'>https://forms.gle/jnKNCGR9P4QyA7ey6</a>"
-		local-storage-flag="form-notification"
-	/>
 	<div class="relative">
 		<LandingNavigationHeader />
 		<HeroBanner />
@@ -73,14 +69,12 @@ import ClubGallery from '~/components/club-gallery.vue';
 import ExploreButton from '~/components/explore-button.vue';
 import HeroBanner from '~/components/hero-banner.vue';
 import LandingNavigationHeader from '~/components/landing-navigation-header.vue';
-import NotificationBanner from '~/components/notification-banner.vue';
 import { createAnnouncementsArray } from '~/utils/announcement';
 import announcements from '~data/announcements';
 
 export default defineComponent({
 	name: 'HomePage',
 	components: {
-		NotificationBanner,
 		LandingNavigationHeader,
 		HeroBanner,
 		ClubAnnouncementListing,
