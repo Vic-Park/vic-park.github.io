@@ -149,7 +149,9 @@ export default defineComponent({
 
 				// If the last character ends with a number or a letter, then add a period
 				if (
-					/\w|\d/.test(clippedEquityStatement[clippedEquityStatement.length - 1])
+					/\w|\d/.test(
+						clippedEquityStatement[clippedEquityStatement.length - 1]
+					)
 				) {
 					clippedEquityStatement += '.';
 				}
@@ -200,7 +202,7 @@ export default defineComponent({
 }
 
 /* The TailwindCSS `transform` property seems to break card flipping on iOS Safari
-(https://github.com/Vic-Park/vic-park.github.io/issues/1).
+(https://github.com/Vic-Park/vpciclubs.com/issues/1).
 */
 .fallback-card-cover {
 	transform: translateX(-50%) translateY(-50%);

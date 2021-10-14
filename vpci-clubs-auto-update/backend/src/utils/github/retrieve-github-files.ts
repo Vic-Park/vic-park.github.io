@@ -8,7 +8,7 @@ export async function retrieveGithubFiles(path: string): Promise<GithubFile[]> {
 		'GET /repos/{owner}/{repo}/contents/{path}',
 		{
 			owner: 'Vic-Park',
-			repo: 'vic-park.github.io',
+			repo: 'vpciclubs.com',
 			path,
 			ref: branchToUpdate,
 		}

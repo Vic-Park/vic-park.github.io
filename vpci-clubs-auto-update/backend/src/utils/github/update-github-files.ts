@@ -15,7 +15,7 @@ type TreeItem = {
 };
 
 const owner = 'Vic-Park';
-const repo = 'vic-park.github.io';
+const repo = 'vpciclubs.com';
 
 /**
  * Updates the GitHub files (using calls to the GitHub API) based on the entry updates and returns
