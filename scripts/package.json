@@ -27,6 +27,7 @@
 		"@types/resize-img": "^2.0.1",
 		"@types/shell-quote": "1.7.1",
 		"execa": "5.1.1",
+		"regenerator-runtime": "^0.13.9",
 		"ts-node": "9.1.1"
 	}
 }
