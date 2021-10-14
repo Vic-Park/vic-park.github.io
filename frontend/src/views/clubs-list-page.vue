@@ -1,5 +1,5 @@
 <template>
-	<div class="column items-center px-8 max-w-6xl mx-auto">
+	<div class="column items-stretch px-8 max-w-6xl mx-auto">
 		<div class="shadow-title my-8">clubs</div>
 
 		<div class="row justify-end h-10 w-full items-start mb-8 relative">
