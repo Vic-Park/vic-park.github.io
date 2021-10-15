@@ -1,6 +1,0 @@
-[*]
-indent_style = tabs
-
-[*.{yml,yaml}]
-indent_style = spaces
-indent_size = 2
