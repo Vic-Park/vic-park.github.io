@@ -1,26 +1,22 @@
 # Contributing
 
-Thanks for your interest in contributing to the VPCI Clubs Website! We're hoping that this website can be a project that's maintained by the school's Coding Club.
+Thanks for your interest in contributing to the VPCI Clubs Website! We're hoping that this website will be a project maintained by the school's Coding Club.
 
 While you don't need any prior coding experience to learn how to maintain the website, the technologies used in the website are vastly different than the technologies taught in the school's computer science curriculum. You'll need to make sure that you're ready to invest time in learning new technologies outside of school in order to be able to contribute to the website. If you already have some programming experience, but not sure if it transfers over to developing the website, here is a list of the technologies used by the VPCI Clubs Website:
 
-## Technologies
+## Frontend Technologies
 
-**HTML**: You'll need to have a solid understanding of HTML syntax
+**HTML**: You'll need to learn the basics of HTML syntax
 
-**CSS**: TODO
+**CSS**: You'll also need to learn some CSS, especially CSS Flexbox (which is heavily used throughout this website).
 
-- **TailwindCSS (WindiCSS)**
-- **PostCSS**
+- **TailwindCSS** TailwindCSS is a CSS framework that allows us to specify CSS styles in the HTML directly, which makes working with CSS (especially responsible styling) much easier.
 
-**JavaScript**: TODO
+**JavaScript**: JavaScript is heavily used in this website for the interactive parts, so you'll need to learn the basics of JavaScript.
 
-- **TypeScript**
-- **ESLint**
-- **Prettier**
-- **npm packages**
+- **TypeScript**: TypeScript is a superset of JavaScript that adds types to catch common errors like typos and passing invalid types while you're writing the code. You don't necessarily need to learn how to write TypeScript, but rather just understanding the basics of the syntax.
 
-**Vue 3**: TODO
+**Vue 3**: The framework we're using to build vpciclubs.com is Vue (specifically Vue 3). Vue makes it extremely easy to make sync state to the HTML using regular HTML, CSS and JavaScript syntax.
 
 - **Composition API**
 - **Vue Router**
