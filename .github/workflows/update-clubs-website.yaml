@@ -1,9 +1,7 @@
 name: Synchronize Clubs Data from Spreadsheet
 
 on:
-  push:
-    paths:
-      - website-last-updated.txt
+  workflow_dispatch:
 
 jobs:
   deploy:
