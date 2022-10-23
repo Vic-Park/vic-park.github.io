@@ -1,0 +1,39 @@
+name: GitHub Pages Deploy Workflow
+
+on:
+  push:
+    paths:
+      - website-last-updated.txt
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 14.x
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.0.2
+
+      - name: Install dependencies and update clubs
+        run: pnpm install && pnpm update-clubs
+        env:
+          UPDATE_BRANCH: main
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}

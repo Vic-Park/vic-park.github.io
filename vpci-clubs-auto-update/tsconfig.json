@@ -1,4 +1,7 @@
 {
+	"ts-node": {
+		"transpileOnly": true
+	},
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es6",
@@ -16,7 +19,7 @@
         "./src/*"
       ],
       "~shared/*": [
-        "../../shared/*"
+        "../shared/*"
       ]
     },
   }

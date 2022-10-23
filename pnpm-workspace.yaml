@@ -1,6 +1,6 @@
 packages:
   - frontend
-  - vpci-clubs-auto-update/backend
+  - vpci-clubs-auto-update
   - scripts
   - types
   - shared

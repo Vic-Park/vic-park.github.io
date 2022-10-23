@@ -19,3 +19,15 @@ This service currently consists of only a backend (which should be hosted on a c
 ## Requirements
 
 In order for the backend to read the content of the Google Sheets, it needs an account's Google Cloud credentials and access to the Google Sheets API.
+
+# VPCI Clubs Auto Update Backend
+
+## Hosting
+
+Store these values in GitHub secrets:
+
+**SECRET** - The secret which must be entered for the auto-update script to run.
+
+**SPREADSHEET_ID** - The ID of the Google Sheet from where to collect the data.
+
+**GH_TOKEN** - A generated GitHub token from the GitHub account with which you wish to associate changes to the repository.

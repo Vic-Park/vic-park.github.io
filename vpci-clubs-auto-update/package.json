@@ -1,16 +1,13 @@
 {
-	"name": "vpci-clubs-auto-update-backend",
+	"name": "vpci-clubs-auto-update",
 	"private": true,
 	"version": "1.0.0",
 	"license": "MIT",
 	"scripts": {
 		"prettier": "prettier --write src/**/*.{ts}",
 		"lint": "eslint --fix src",
-		"tc": "tsc --noEmit",
-		"dev": "ts-node-dev ./src/app.ts",
-		"start": "ts-node ./src/app.ts",
-		"start:js": "node ./dist/vpci-clubs-auto-update/backend/src/app.js",
-		"build": "tsc && tsc-alias"
+		"typecheck": "tsc --noEmit",
+		"update-clubs": "ts-node -r tsconfig-paths/register ./src/bin/update-clubs.ts"
 	},
 	"dependencies": {
 		"@sinclair/typebox": "^0.20.5",
@@ -30,10 +27,11 @@
 		"js-yaml": "4.1.0",
 		"nanoid": "3.1.23",
 		"octokit": "1.6.2",
+		"onetime": "5.1.2",
 		"param-case": "3.0.4",
-		"ts-node": "9.1.1",
+		"ts-node": "10.9.1",
 		"tsconfig-paths": "3.11.0",
-		"typescript": "4.2.4"
+		"typescript": "4.8.4"
 	},
 	"devDependencies": {
 		"@octokit/types": "6.31.3",

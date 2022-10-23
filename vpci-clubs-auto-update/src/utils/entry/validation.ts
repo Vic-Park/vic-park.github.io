@@ -53,6 +53,8 @@ export function validateSheetEntry<T extends EntryType>(
 			} else {
 				return logValidationError(validateClubSchema.errors);
 			}
+		default:
+			throw new Error(`Unknown entry type: ${sheetEntry.type}`)
 	}
 }
 

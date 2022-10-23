@@ -3,7 +3,6 @@
 	"version": "0.0.0",
 	"license": "MIT",
 	"scripts": {
-		"gen-types": "ts-node gen-types.ts",
 		"compress-images": "ts-node compress-images.ts"
 	},
 	"dependencies": {
