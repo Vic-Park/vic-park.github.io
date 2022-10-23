@@ -1,4 +1,4 @@
-name: GitHub Pages Deploy Workflow
+name: Synchronize Clubs Data from Spreadsheet
 
 on:
   push:
