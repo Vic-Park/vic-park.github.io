@@ -37,3 +37,4 @@ jobs:
           UPDATE_BRANCH: main
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
