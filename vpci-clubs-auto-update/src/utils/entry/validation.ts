@@ -1,17 +1,9 @@
-import Ajv from 'ajv';
-
 import type { SheetEntry } from '~/types/sheets';
 import { Club } from '~shared/types/club';
 import { ClubAnnouncement } from '~shared/types/club-announcement';
 import { ClubEvent } from '~shared/types/club-event';
 import type { Entry } from '~shared/types/entry';
 import { EntryType } from '~shared/types/entry';
-
-const ajv = new Ajv({ strict: false });
-const validateClubSchema = ajv.compile<Club>(Club);
-const validateClubAnnouncementSchema =
-	ajv.compile<ClubAnnouncement>(ClubAnnouncement);
-const validateClubEventSchema = ajv.compile<ClubEvent>(ClubEvent);
 
 export function validateSheetEntry<T extends EntryType>(
 	sheetEntry: SheetEntry<T>
@@ -26,33 +18,39 @@ export function validateSheetEntry<T extends EntryType>(
 	}
 
 	switch (sheetEntry.type) {
-		case EntryType.event:
-			if (validateClubEventSchema(sheetEntry.data)) {
+		case EntryType.event: {
+			const parseResult =  ClubEvent.safeParse(sheetEntry.data)
+			if (parseResult.success) {
 				return {
 					type: EntryType.event,
 					data: sheetEntry.data,
 				} as Entry<T>;
 			} else {
-				return logValidationError(validateClubEventSchema.errors);
+				return logValidationError(parseResult.error);
 			}
-		case EntryType.announcement:
-			if (validateClubAnnouncementSchema(sheetEntry.data)) {
+		}
+		case EntryType.announcement: {
+			const parseResult = ClubAnnouncement.safeParse(sheetEntry.data)
+			if (parseResult.success) {
 				return {
 					type: EntryType.announcement,
 					data: sheetEntry.data,
 				} as Entry<T>;
 			} else {
-				return logValidationError(validateClubAnnouncementSchema.errors);
+				return logValidationError(parseResult.error);
 			}
-		case EntryType.club:
-			if (validateClubSchema(sheetEntry.data)) {
+		}
+		case EntryType.club: {
+			const parseResult = Club.safeParse(sheetEntry.data)
+			if (parseResult.success) {
 				return {
 					type: EntryType.club,
 					data: sheetEntry.data,
 				} as Entry<T>;
 			} else {
-				return logValidationError(validateClubSchema.errors);
+				return logValidationError(parseResult.error);
 			}
+		}
 		default:
 			throw new Error(`Unknown entry type: ${sheetEntry.type}`)
 	}
