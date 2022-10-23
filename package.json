@@ -1,14 +1,14 @@
 {
-	"name": "clubs-website",
+	"name": "@vpciclubs/monorepo",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"prettier": "pnpm recursive run prettier",
 		"lint": "pnpm recursive run lint",
 		"typecheck": "pnpm recursive run typecheck",
-		"dev:frontend": "pnpm --filter=frontend dev",
-		"build:frontend": "pnpm --filter=frontend build",
-		"update-clubs": "pnpm --filter=vpci-clubs-auto-update update-clubs"
+		"dev:frontend": "pnpm --filter=@vpciclubs/frontend dev",
+		"build:frontend": "pnpm --filter=@vpciclubs/frontend build",
+		"update-clubs": "pnpm --filter=@vpciclubs/vpci-clubs-auto-update update-clubs"
 	},
 	"dependencies": {
 		"zod": "^3.19.1"

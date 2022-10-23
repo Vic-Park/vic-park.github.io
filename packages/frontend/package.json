@@ -1,5 +1,5 @@
 {
-	"name": "frontend",
+	"name": "@vpciclubs/frontend",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -16,6 +16,8 @@
 		"@fullcalendar/timegrid": "5.8.0",
 		"@mdi/js": "5.9.55",
 		"@popperjs/core": "2.9.2",
+		"@vpciclubs/monorepo": "workspace:*",
+		"@vpciclubs/shared": "workspace:*",
 		"animate.css": "4.1.1",
 		"array-shuffle": "^3.0.0",
 		"autolinker": "3.14.3",

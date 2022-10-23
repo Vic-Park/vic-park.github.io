@@ -3,16 +3,16 @@ import 'dotenv/config';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+import fs from 'fs'
+import path from 'path'
 
 import { isValidDate } from '~/utils/date';
 import { getGithubEntryUpdates } from '~/utils/github';
 import { updateGithubFiles } from '~/utils/github/update-github-files';
 import { getGoogleSheetsClient, spreadsheetId } from '~/utils/google';
+import { projectPath } from '~/utils/project-path';
 import { normalizeSheetRow } from '~/utils/sheets';
 import { EntryType } from '~shared/types/entry';
-import fs from 'fs'
-import path from 'path'
-import { projectPath } from '~/utils/project-path';
 
 dayjs.extend(utc)
 dayjs.extend(timezone)

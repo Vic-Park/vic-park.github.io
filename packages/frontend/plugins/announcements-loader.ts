@@ -5,7 +5,7 @@ import type { Plugin } from 'rollup';
 import { loadDataFolder } from './utils';
 import { ClubAnnouncement } from '../../shared/types/club-announcement';
 
-const projectPath = path.join(pkgDir.sync(__dirname)!, '..');
+const projectPath = path.join(pkgDir.sync(__dirname)!, '../..');
 
 export default function announcementsLoader(): Plugin {
 	return {

@@ -5,7 +5,7 @@ import { ClubEvent } from '../../shared/types/club-event';
 
 import { loadDataFolder } from './utils';
 
-const projectPath = path.join(pkgDir.sync(__dirname)!, '..');
+const projectPath = path.join(pkgDir.sync(__dirname)!, '../..');
 
 export default function eventsLoader(): Plugin {
 	return {

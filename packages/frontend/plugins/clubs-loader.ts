@@ -5,7 +5,7 @@ import { Club } from '../../shared/types/club';
 
 import { loadDataFolder } from './utils';
 
-const projectPath = path.join(pkgDir.sync(__dirname)!, '..');
+const projectPath = path.join(pkgDir.sync(__dirname)!, '../..');
 
 export default function clubsLoader(): Plugin {
 	return {
