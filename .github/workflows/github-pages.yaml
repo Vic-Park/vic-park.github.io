@@ -32,7 +32,7 @@ jobs:
           version: 6.0.2
 
       - name: Install dependencies and build frontend
-        run: pnpm prune:frontend && pnpm install && pnpm build:frontend
+        run: pnpm install --filter=frontend && pnpm build:frontend
         env:
           VITE_AUTO_UPDATE_SERVER_URL: https://vpci-clubs-auto-update.herokuapp.com
 
