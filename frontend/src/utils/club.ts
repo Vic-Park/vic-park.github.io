@@ -12,7 +12,7 @@ export function getClubPageUrl(clubSlug: string) {
 	return `/club/${clubSlug}`;
 }
 
-export function getClubsArray(clubs: Record<string, Club>) {
+export function getClubsArray(clubs: Record<string, Club>): Club[] {
 	// Sort the clubs alphabetically
 	return Object.values(clubs).sort((c1, c2) => {
 		const c1Name = c1.name.toLowerCase();

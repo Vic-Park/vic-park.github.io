@@ -57,7 +57,6 @@ While you don't need any prior coding experience to learn how to maintain the we
 **fullcalendar/timegrid**: The optional [TimeGrid view](https://fullcalendar.io/docs/timegrid-view) for the events calendar.
 **@mdi/js**: The path for all Material Design Community Icons
 **@popperjs/core**: A tooltip positioning system.
-**@sinclair/typebox**: A way to define both TypeScript types and JSON Schema validation schemas to pass to a validator like ajv.
 **animate.css**: A library that provides easy-to-use animations.
 **array-shuffle**: An npm package that randomizes the order of elements in an array (used in the club gallery).
 **autolinker**: A library that takes text and automatically creates links (as HTML &lt;a&gt; tags) based on the text (e.g. detecting URLs, mentions, etc.)

@@ -10,8 +10,6 @@
 		"update-clubs": "ts-node -r tsconfig-paths/register ./src/bin/update-clubs.ts"
 	},
 	"dependencies": {
-		"@sinclair/typebox": "^0.20.5",
-		"ajv": "8.6.3",
 		"dayjs": "^1.10.7",
 		"deep-equal": "2.0.5",
 		"dotenv": "9.0.2",

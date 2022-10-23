@@ -1,72 +1,71 @@
-import type { Static } from '@sinclair/typebox';
-import { Type } from '@sinclair/typebox';
+import { z } from 'zod'
 
-export const Club = Type.Object({
+export const Club = z.object({
 	/**
 	 * A unique identifier for the club
 	 */
-	slug: Type.String(),
+	slug: z.string(),
 
 	/**
 	 * The name of the club
 	 */
-	name: Type.String(),
+	name: z.string(),
 
 	/**
 	 * The supervisors of the club
 	 */
-	staffSupervisor: Type.String(),
+	staffSupervisor: z.string(),
 
 	/**
 	 * The leaders of the club
 	 */
-	clubLeaders: Type.String(),
+	clubLeaders: z.string(),
 
 	/**
 	 * A short description of the club
 	 */
-	shortDescription: Type.String(),
+	shortDescription: z.string(),
 
 	/**
 	 * The meeting times of the club
 	 */
-	meetingTimes: Type.String(),
+	meetingTimes: z.string(),
 
 	/**
 	 * Instructions about how to join the club
 	 */
-	joinInstructions: Type.String(),
+	joinInstructions: z.string(),
 
 	/**
 	 * The row number of the club's Google Sheet entry
 	 */
-	sheetRow: Type.Number(),
+	sheetRow: z.number(),
 
 	/**
 	 * A comma-separated list of categories the club belongs to
 	 */
-	categories: Type.Optional(Type.String()),
+	categories: z.string().optional(),
 
 	/**
 	 * Extra information about the club
 	 */
-	extraInformation: Type.Optional(Type.String()),
+	extraInformation: z.string().optional(),
 
 	/**
 	 * Online platforms to find more information about the club (e.g. Instagram, Discord, etc.)
 	 */
-	onlinePlatforms: Type.Optional(Type.String()),
+	onlinePlatforms: z.string().optional(),
 
 	/**
 	 * The time commitment members need to participate in the club
 	 */
-	timeCommitment: Type.Optional(Type.String()),
+	timeCommitment: z.string().optional(),
 
 	/**
 	 * The club's equity statement
 	 * Equity statement is optional because clubs might need time to prepare one
 	 */
-	equityStatement: Type.Optional(Type.String()),
+	equityStatement: z.string().optional(),
 });
 
-export type Club = Static<typeof Club>;
+export type Club = z.infer<typeof Club>

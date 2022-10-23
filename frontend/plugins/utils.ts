@@ -1,20 +1,15 @@
-import type { TSchema } from '@sinclair/typebox';
-import Ajv from 'ajv';
+import { ZodSchema } from 'zod'
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
 
-import type { Club } from '~shared/types/club';
-
-const ajv = new Ajv({ strict: false });
+import { Club } from '~shared/types/club';
 
 type LoadDataFolderProps = {
 	dataFolder: string;
-	schema: TSchema;
+	schema: ZodSchema;
 };
 export function loadDataFolder({ dataFolder, schema }: LoadDataFolderProps) {
-	const validate = ajv.compile(schema);
-
 	const dataFiles = fs.readdirSync(dataFolder);
 	const data: Record<string, Club> = {};
 
@@ -27,11 +22,11 @@ export function loadDataFolder({ dataFolder, schema }: LoadDataFolderProps) {
 			.toString();
 
 		const clubData = yaml.load(clubFileContent);
-		if (validate(clubData) === undefined) {
+		const parseResult = schema.safeParse(clubData)
+		if (!parseResult.success) {
 			console.error(
-				`Ignoring data file ${dataFile}. Validation errors: ${JSON.stringify(
-					validate.errors
-				)}`
+				`Ignoring data file ${dataFile}. Validation errors:`,
+				parseResult.error
 			);
 		} else {
 			data[slug] = clubData as Club;

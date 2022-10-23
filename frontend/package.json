@@ -6,10 +6,9 @@
 		"dev": "vite",
 		"prettier": "prettier --write src/**/*.{ts,vue}",
 		"lint": "eslint --fix src",
-		"tc": "vue-tsc --noEmit",
+		"typecheck": "vue-tsc --noEmit",
 		"build": "vue-tsc --noEmit && vite build && react-snap",
-		"serve": "vite preview",
-		"deploy": "sh scripts/deploy.sh"
+		"serve": "vite preview"
 	},
 	"dependencies": {
 		"@fullcalendar/core": "5.8.0",
@@ -17,7 +16,6 @@
 		"@fullcalendar/timegrid": "5.8.0",
 		"@mdi/js": "5.9.55",
 		"@popperjs/core": "2.9.2",
-		"@sinclair/typebox": "^0.20.5",
 		"animate.css": "4.1.1",
 		"array-shuffle": "^3.0.0",
 		"autolinker": "3.14.3",
@@ -29,7 +27,8 @@
 		"shave": "^2.5.10",
 		"vue": "3.2.19",
 		"vue-router": "4.0.10",
-		"windicss": "3.1.8"
+		"windicss": "3.1.8",
+		"zod": "^3.19.1"
 	},
 	"devDependencies": {
 		"@types/dateformat": "3.0.1",
@@ -41,7 +40,6 @@
 		"@typescript-eslint/parser": "4.23.0",
 		"@vitejs/plugin-vue": "1.9.2",
 		"@vue/compiler-sfc": "3.2.19",
-		"ajv": "8.6.3",
 		"eslint": "7.32.0",
 		"eslint-config-prettier": "8.3.0",
 		"eslint-import-resolver-alias": "1.1.2",
@@ -55,10 +53,11 @@
 		"rollup": "2.57.0",
 		"sass": "1.35.1",
 		"tsconfig-paths": "3.11.0",
+		"typescript": "^4.8.4",
 		"vite": "2.6.1",
 		"vite-plugin-windicss": "1.4.8",
 		"vite-tsconfig-paths": "^3.3.14",
-		"vue-tsc": "0.3.0"
+		"vue-tsc": "1.0.8"
 	},
 	"reactSnap": {
 		"source": "dist",

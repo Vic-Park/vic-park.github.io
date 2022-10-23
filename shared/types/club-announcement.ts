@@ -1,15 +1,14 @@
-import type { Static } from '@sinclair/typebox';
-import { Type } from '@sinclair/typebox';
+import { z } from 'zod'
 
-export const ClubAnnouncement = Type.Object({
+export const ClubAnnouncement = z.object({
 	// The title of the announcement
-	title: Type.String(),
+	title: z.string(),
 
 	// The date the announcement is made
-	date: Type.String(),
+	date: z.string(),
 
 	// The content of the announcement
-	content: Type.String(),
+	content: z.string(),
 });
 
-export type ClubAnnouncement = Static<typeof ClubAnnouncement>;
+export type ClubAnnouncement = z.infer<typeof ClubAnnouncement>;

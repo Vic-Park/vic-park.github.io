@@ -60,12 +60,6 @@ export const routes: Array<RouteRecordRaw> = [
 					),
 			},
 			{
-				path: '/update',
-				name: 'Update Website',
-				component: () =>
-					import(/* webpackChunkName: "update" */ '~/views/update-page.vue'),
-			},
-			{
 				path: '/:catchAll(.*)',
 				name: 'Not Found',
 				component: () =>

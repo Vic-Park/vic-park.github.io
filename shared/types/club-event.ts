@@ -1,37 +1,36 @@
-import type { Static } from '@sinclair/typebox';
-import { Type } from '@sinclair/typebox';
+import { z } from 'zod'
 
-export const ClubEvent = Type.Object({
+export const ClubEvent = z.object({
 	/**
 	 * The name of the club
 	 */
-	name: Type.String(),
+	name: z.string(),
 
 	/**
 	 * A short description of the event
 	 */
-	description: Type.String(),
+	description: z.string(),
 
 	/**
 	 * More information about the event (e.g. location, requirements, etc.)
 	 */
-	information: Type.String(),
+	information: z.string(),
 
 	/**
 	 * Whether the event is schoolwide (i.e. not associated with a particular set of clubs)
 	 */
-	isSchoolWideEvent: Type.Boolean(),
+	isSchoolWideEvent: z.boolean(),
 
 	/**
 	 * The start date and time of the event
 	 * If the event is not yet known, the start/end date is TBD
 	 */
-	start: Type.Optional(Type.String({ format: 'date-time' })),
+	start: z.string().optional(),
 
 	/**
 	 * The end time of the event
 	 */
-	end: Type.Optional(Type.String({ format: 'date-time' })),
+	end: z.string().optional()
 });
 
-export type ClubEvent = Static<typeof ClubEvent>;
+export type ClubEvent = z.infer<typeof ClubEvent>;

@@ -2,6 +2,6 @@
 	"name": "shared",
 	"version": "1.0.0",
 	"dependencies": {
-		"@sinclair/typebox": "^0.20.5"
+		"zod": "^3.19.1"
 	}
 }

@@ -12,6 +12,7 @@
 		"update-clubs": "pnpm --filter=vpci-clubs-auto-update update-clubs"
 	},
 	"devDependencies": {
+		"@types/node": "^16.10.2",
 		"@typescript-eslint/eslint-plugin": "5.16.0",
 		"@typescript-eslint/parser": "5.16.0",
 		"eslint": "8.11.0",
@@ -23,14 +24,7 @@
 		"prettier": "2.6.0",
 		"typescript": "4.6.2"
 	},
-	"workspaces": [
-		"frontend",
-		"vpci-clubs-auto-update/backend",
-		"scripts",
-		"shared",
-		"types"
-	],
 	"engines": {
-		"node": "^14.17.6"
+		"node": "^16.17.1"
 	}
 }
