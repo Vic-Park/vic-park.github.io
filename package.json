@@ -10,6 +10,9 @@
 		"build:frontend": "pnpm --filter=frontend build",
 		"update-clubs": "pnpm --filter=vpci-clubs-auto-update update-clubs"
 	},
+	"dependencies": {
+		"zod": "^3.19.1"
+	},
 	"devDependencies": {
 		"@types/node": "^16.10.2",
 		"@typescript-eslint/eslint-plugin": "5.16.0",
