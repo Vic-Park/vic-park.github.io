@@ -2,7 +2,7 @@
 
 The official website for VPCI clubs.
 
-**Note:** To synchronize the clubs data from the Google Sheets, you can press the "Run workflow" button at <https://github.com/Vic-Park/vpciclubs.com/actions/workflows/update-clubs-website.yaml>
+**Note:** To synchronize the clubs data from the Google Sheets, you can press the "Run workflow" button (with the option `dev` selected under "Use workflow from") at <https://github.com/Vic-Park/vpciclubs.com/actions/workflows/update-clubs-website.yaml>
 
 ## Constraints
 
