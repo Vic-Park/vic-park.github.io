@@ -32,7 +32,7 @@ jobs:
       - name: Install dependencies and update clubs
         run: pnpm install && pnpm update-clubs
         env:
-          UPDATE_BRANCH: main
+          BRANCH_TO_UPDATE: main
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
