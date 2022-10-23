@@ -2,6 +2,8 @@
 
 The official website for VPCI clubs.
 
+**Note:** To synchronize the clubs data from the Google Sheets, you can press the "Run workflow" button at <https://github.com/Vic-Park/vpciclubs.com/actions/workflows/update-clubs-website.yaml>
+
 ## Constraints
 
 As this website is ultimately associated with the school, there are some constraints related to its development that should be adhered to when possible. These constraints are described below.
