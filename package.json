@@ -7,6 +7,7 @@
 		"lint": "pnpm recursive run lint",
 		"typecheck": "pnpm recursive run typecheck",
 		"dev:frontend": "pnpm dev --filter=frontend",
+		"build:frontend": "pnpm build --filter=frontend",
 		"update-clubs": "pnpm --filter=vpci-clubs-auto-update update-clubs"
 	},
 	"devDependencies": {
