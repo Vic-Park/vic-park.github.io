@@ -64,6 +64,7 @@ async function update() {
 			entryType: EntryType.club,
 			sheetRowParser(clubRow, rowIndex) {
 				const [
+					slug,
 					_timestamp,
 					_studentEmail,
 					name,
@@ -78,7 +79,6 @@ async function update() {
 					timeCommitment,
 					_accessToSourceCode,
 					equityStatement,
-					slug,
 				] = normalizeSheetRow(clubRow);
 
 				return {
